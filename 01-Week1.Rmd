@@ -17,11 +17,8 @@ Welcome to Marine Genomics Spring 2021 at UC Davis
 
 ## Week one lecture
 
-You will find the lecture for week one here
+You will find the lecture for week one [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/MarineGenomics_Lecture1.pptx)
 
-```
-knitr::include_url('path/to/slides')
-```
 ## Week one coding session
 ## Introduction to shell computing via the data carpentry tutorial
 
@@ -46,11 +43,7 @@ For this course we will be using the shell in our Jetstream allocation through x
 
 In jetstream we launch what they call an "instance" which is a small allocation that specifies how much memory you need and reflects how much computing you might do (we'll guide you through this).
 
-You'll find the jetstream login here 
-
-
-```knitr::include_url('https://use.jetstream-cloud.org/application')
-```
+You'll find the jetstream login [here](https://use.jetstream-cloud.org/application) 
 
 Navigate to the login with xsede tab in the upper right
 

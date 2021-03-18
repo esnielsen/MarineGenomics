@@ -180,8 +180,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Welcome to Marine Genomics Spring 2021 at UC Davis</p>
 <div id="week-one-lecture" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Week one lecture</h2>
-<p>You will find the lecture for week one here</p>
-<pre><code>knitr::include_url(&#39;path/to/slides&#39;)</code></pre>
+<p>You will find the lecture for week one <a href="https://github.com/BayLab/MarineGenomics/blob/main/ppt/MarineGenomics_Lecture1.pptx">here</a></p>
 </div>
 <div id="week-one-coding-session" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Week one coding session</h2>
@@ -207,8 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">2.5</span> How to access the shell</h2>
 <p>For this course we will be using the shell in our Jetstream allocation through xsede. Jetstream is a cloud computing resource for which we have been allocated resources for the purposes of this course. Below is a guide for accessing and using jetstream.</p>
 <p>In jetstream we launch what they call an “instance” which is a small allocation that specifies how much memory you need and reflects how much computing you might do (we’ll guide you through this).</p>
-<p>You’ll find the jetstream login here</p>
-<pre class="knitr::include_url(&#39;https://use.jetstream-cloud.org/application&#39;)"><code></code></pre>
+<p>You’ll find the jetstream login <a href="https://use.jetstream-cloud.org/application">here</a></p>
 <p>Navigate to the login with xsede tab in the upper right</p>
 <p><img src="figs/jetstream/Fig1.png" width="100%" /></p>
 <p><img src="figs/jetstream/Fig2.png" width="100%" /></p>
@@ -243,68 +241,68 @@ Everyone will get one project folder. So please only make one. If you make a mis
 <h2><span class="header-section-number">2.6</span> Navigating your file system</h2>
 <p>The part of the operating system responsible for managing files and directories is called the file system. It organizes our data into files, which hold information, and directories (also called “folders”), which hold files or other directories.</p>
 <p>Several commands are frequently used to create, inspect, rename, and delete files and directories.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="marine-genomics.html#cb3-1" aria-hidden="true" tabindex="-1"></a>$</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="marine-genomics.html#cb1-1" aria-hidden="true" tabindex="-1"></a>$</span></code></pre></div>
 <p>The dollar sign is a prompt, which shows us that the shell is waiting for input; your shell may use a different character as a prompt and may add information before the prompt. When typing commands, either from these lessons or from other sources, do not type the prompt, only the commands that follow it.</p>
 <p>Let’s find out where we are by running a command called pwd (which stands for “print working directory”). At any moment, our current working directory is our current default directory, i.e., the directory that the computer assumes we want to run commands in, unless we explicitly specify something else. Here, the computer’s response is /home/margeno, which is the top level directory within our cloud system:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="marine-genomics.html#cb4-1" aria-hidden="true" tabindex="-1"></a>$ pwd</span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="marine-genomics.html#cb5-1" aria-hidden="true" tabindex="-1"></a>/home/margeno</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="marine-genomics.html#cb2-1" aria-hidden="true" tabindex="-1"></a>$ pwd</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="marine-genomics.html#cb3-1" aria-hidden="true" tabindex="-1"></a>/home/margeno</span></code></pre></div>
 <p>Let’s look at how our file system is organized. We can see what files and subdirectories are in this directory by running <code>ls</code>, which stands for “listing”:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="marine-genomics.html#cb6-1" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="marine-genomics.html#cb7-1" aria-hidden="true" tabindex="-1"></a> Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="marine-genomics.html#cb4-1" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="marine-genomics.html#cb5-1" aria-hidden="true" tabindex="-1"></a> Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos</span></code></pre></div>
 <p><code>ls</code> prints the names of the files and directories in the current directory in alphabetical order, arranged neatly into columns. We’ll make a new subdirectory shell_data where we will be creating new subdirectories, throughout this workshop.</p>
 <p>To make a new directory type the command <code>mkdir</code> followed by the name of the directory, in this case shell_data.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="marine-genomics.html#cb8-1" aria-hidden="true" tabindex="-1"></a>$ mkdir shell_data</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="marine-genomics.html#cb6-1" aria-hidden="true" tabindex="-1"></a>$ mkdir shell_data</span></code></pre></div>
 <p>Check that it’s there with ls</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="marine-genomics.html#cb9-1" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="marine-genomics.html#cb10-1" aria-hidden="true" tabindex="-1"></a>Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos shell_data</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="marine-genomics.html#cb7-1" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="marine-genomics.html#cb8-1" aria-hidden="true" tabindex="-1"></a>Desktop  Documents  Downloads  Music  Pictures  Public  Templates  Videos shell_data</span></code></pre></div>
 <p>The command to change locations in our file system is cd, followed by a directory name to change our working directory. cd stands for “change directory.”</p>
 <p>Let’s say we want to navigate to the shell_data directory we saw above. We can use the following command to get there:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="marine-genomics.html#cb11-1" aria-hidden="true" tabindex="-1"></a>$ cd shell_data</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="marine-genomics.html#cb12-1" aria-hidden="true" tabindex="-1"></a>$ pwd</span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="marine-genomics.html#cb13-1" aria-hidden="true" tabindex="-1"></a>/home/margeno/shell_data</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="marine-genomics.html#cb9-1" aria-hidden="true" tabindex="-1"></a>$ cd shell_data</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="marine-genomics.html#cb10-1" aria-hidden="true" tabindex="-1"></a>$ pwd</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="marine-genomics.html#cb11-1" aria-hidden="true" tabindex="-1"></a>/home/margeno/shell_data</span></code></pre></div>
 <p>Use <code>ls</code> to see what is inside shell_data</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="marine-genomics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="marine-genomics.html#cb12-1" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"></code></pre></div>
 <p>It should be empty because we just created it and haven’t put anything in it yet. Let’s download some data to work with. We’ll put it in our shell_data directory.</p>
 <p>There are two main ways to do this. We can use the command <code>wget</code> which needs a link to the file that we want to download. If theres a file saved on a website somewhere (anywhere on the internet) <code>wget</code> will download it for you. If our data file is on github, which is where most of our data will be stored, we’ll use the command <code>git-clone</code></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="marine-genomics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>$ git clone git://path/to/datafile/MarineGenomics/untrimmed_fastq)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="marine-genomics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>$ git clone git://path/to/datafile/MarineGenomics/untrimmed_fastq)</span></code></pre></div>
 <p>Now that we have something in our shell_data directory we can use the <code>ls</code> command a bit more.</p>
 <p>We can make the ls output more comprehensible by using the flag -F, which tells ls to add a trailing / to the names of directories:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="marine-genomics.html#cb17-1" aria-hidden="true" tabindex="-1"></a>$ ls -F</span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb18-1"><a href="marine-genomics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>untrimmed_fastq/</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="marine-genomics.html#cb15-1" aria-hidden="true" tabindex="-1"></a>$ ls -F</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="marine-genomics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>untrimmed_fastq/</span></code></pre></div>
 <p>Anything with a “/” after it is a directory. Things with a “*” after them are programs. If there are no decorations, it’s a file.</p>
 <p><code>ls</code> has lots of other options. To find out what they are, we can type:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb19-1"><a href="marine-genomics.html#cb19-1" aria-hidden="true" tabindex="-1"></a>$ man ls</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="marine-genomics.html#cb17-1" aria-hidden="true" tabindex="-1"></a>$ man ls</span></code></pre></div>
 <p><code>man</code> (short for manual) displays detailed documentation (also referred as man page or man file) for <code>bash</code> commands. It is a powerful resource to explore bash commands, understand their usage and flags. Some manual files are very long. You can scroll through the file using your keyboard’s down arrow or use the Space key to go forward one page and the <code>b</code> key to go backwards one page. When you are done reading, hit <code>q</code> to quit.</p>
 <p>Use the <code>-l</code> option for the <code>ls</code> command to display more information for each item in the directory. What is one piece of additional information this long format gives you that you don’t see with the bare <code>ls</code> command?</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="marine-genomics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>$ ls -l</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb18-1"><a href="marine-genomics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>$ ls -l</span></code></pre></div>
 <p>No one can possibly learn all of these arguments, that’s what the manual page is for. You can (and should) refer to the manual page or other help files as needed.</p>
 <p>Let’s go into the untrimmed_fastq directory and see what is in there.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb21-1"><a href="marine-genomics.html#cb21-1" aria-hidden="true" tabindex="-1"></a>$ cd untrimmed_fastq</span>
-<span id="cb21-2"><a href="marine-genomics.html#cb21-2" aria-hidden="true" tabindex="-1"></a>$ ls -F</span></code></pre></div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb22-1"><a href="marine-genomics.html#cb22-1" aria-hidden="true" tabindex="-1"></a>SRR6805880_1.fastq SRR6805880_2.fastq</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb19-1"><a href="marine-genomics.html#cb19-1" aria-hidden="true" tabindex="-1"></a>$ cd untrimmed_fastq</span>
+<span id="cb19-2"><a href="marine-genomics.html#cb19-2" aria-hidden="true" tabindex="-1"></a>$ ls -F</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb20-1"><a href="marine-genomics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>SRR6805880_1.fastq SRR6805880_2.fastq</span></code></pre></div>
 <p>This directory contains two files with .fastq extensions. FASTQ is a format for storing information about sequencing reads and their quality. We will be learning more about FASTQ files in a later lesson.</p>
 </div>
 <div id="shortcut-tab-completion" class="section level2" number="2.7">
 <h2><span class="header-section-number">2.7</span> Shortcut: Tab Completion</h2>
 <p>Typing out file or directory names can waste a lot of time and it’s easy to make typing mistakes. Instead we can use tab complete as a shortcut. When you start typing out the name of a directory or file, then hit the Tab key, the shell will try to fill in the rest of the directory or file name.</p>
 <p>Return to your home directory:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb23-1"><a href="marine-genomics.html#cb23-1" aria-hidden="true" tabindex="-1"></a>$ cd</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb21-1"><a href="marine-genomics.html#cb21-1" aria-hidden="true" tabindex="-1"></a>$ cd</span></code></pre></div>
 <p>then enter</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb24-1"><a href="marine-genomics.html#cb24-1" aria-hidden="true" tabindex="-1"></a>$ cd she<span class="kw">&lt;tab&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb22-1"><a href="marine-genomics.html#cb22-1" aria-hidden="true" tabindex="-1"></a>$ cd she<span class="kw">&lt;tab&gt;</span></span></code></pre></div>
 <p>The shell will fill in the rest of the directory name for <code>shell_data</code>.</p>
 <p>Now change directories to <code>untrimmed_fastq</code> in <code>shell_data</code></p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb25-1"><a href="marine-genomics.html#cb25-1" aria-hidden="true" tabindex="-1"></a>$ cd shell_data</span>
-<span id="cb25-2"><a href="marine-genomics.html#cb25-2" aria-hidden="true" tabindex="-1"></a>$ cd untrimmed_fastq</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb23-1"><a href="marine-genomics.html#cb23-1" aria-hidden="true" tabindex="-1"></a>$ cd shell_data</span>
+<span id="cb23-2"><a href="marine-genomics.html#cb23-2" aria-hidden="true" tabindex="-1"></a>$ cd untrimmed_fastq</span></code></pre></div>
 <p>Using tab complete can be very helpful. However, it will only autocomplete a file or directory name if you’ve typed enough characters to provide a unique identifier for the file or directory you are trying to access.</p>
 <p>For example, if we now try to list the files which names start with SR by using tab complete:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="marine-genomics.html#cb26-1" aria-hidden="true" tabindex="-1"></a>$ ls SR<span class="kw">&lt;tab.</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb24-1"><a href="marine-genomics.html#cb24-1" aria-hidden="true" tabindex="-1"></a>$ ls SR<span class="kw">&lt;tab.</span></span></code></pre></div>
 <p>The shell auto-completes your command to <code>SRR68</code>, because all file names in the directory begin with this prefix. When you hit Tab again, the shell will list the possible choices.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb27-1"><a href="marine-genomics.html#cb27-1" aria-hidden="true" tabindex="-1"></a>$ ls SRR68<span class="kw">&lt;tab&gt;&lt;tab&gt;</span></span></code></pre></div>
-<div class="sourceCode" id="cb28"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb28-1"><a href="marine-genomics.html#cb28-1" aria-hidden="true" tabindex="-1"></a>SRR6805880_1.fastq SRR6805880_2.fastq</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb25-1"><a href="marine-genomics.html#cb25-1" aria-hidden="true" tabindex="-1"></a>$ ls SRR68<span class="kw">&lt;tab&gt;&lt;tab&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb26-1"><a href="marine-genomics.html#cb26-1" aria-hidden="true" tabindex="-1"></a>SRR6805880_1.fastq SRR6805880_2.fastq</span></code></pre></div>
 <p>Tab completion can also fill in the names of programs, which can be useful if you remember the beginning of a program name.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb29-1"><a href="marine-genomics.html#cb29-1" aria-hidden="true" tabindex="-1"></a>$ pw<span class="kw">&lt;tab&gt;&lt;tab&gt;</span></span></code></pre></div>
-<div class="sourceCode" id="cb30"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb30-1"><a href="marine-genomics.html#cb30-1" aria-hidden="true" tabindex="-1"></a>pwck      pwconv    pwd       pwdx      pwunconv</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb27-1"><a href="marine-genomics.html#cb27-1" aria-hidden="true" tabindex="-1"></a>$ pw<span class="kw">&lt;tab&gt;&lt;tab&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb28-1"><a href="marine-genomics.html#cb28-1" aria-hidden="true" tabindex="-1"></a>pwck      pwconv    pwd       pwdx      pwunconv</span></code></pre></div>
 <p>Displays the name of every program that starts with <code>pw</code>.</p>
 </div>
 <div id="summary" class="section level2" number="2.8">
