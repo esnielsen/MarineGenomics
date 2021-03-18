@@ -9,3 +9,13 @@ example-one
 example-two
 final-words
 introduction-to-marine-genomics
+marine-genomics
+week-one-lecture
+week-one-coding-session
+introduction-to-shell-computing-via-the-data-carpentry-tutorial
+what-is-a-shell-and-why-should-i-care
+how-to-access-the-shell
+navigating-your-file-system
+shortcut-tab-completion
+summary
+key-points
