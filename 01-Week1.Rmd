@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 ```
 
-# Marine Genomics
+# Week 1
 
 Welcome to Marine Genomics Spring 2021 at UC Davis
 

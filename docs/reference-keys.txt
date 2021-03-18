@@ -19,3 +19,4 @@ navigating-your-file-system
 shortcut-tab-completion
 summary
 key-points
+week-1
