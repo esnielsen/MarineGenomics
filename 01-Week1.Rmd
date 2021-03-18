@@ -1,11 +1,3 @@
----
-title: "Marine Genomics Week 1"
-author: "Serena Caplins"
-date: "March 30th 2021"
-output:
-  html_document: default
-  pdf_document: default
----
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
