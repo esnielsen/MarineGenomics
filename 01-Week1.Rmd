@@ -1,6 +1,6 @@
 ---
 title: "Marine Genomics Week 1"
-author: "Serena Caplins"
+author: "Data Carpentry, edited by Serena Caplins"
 date: "March 30th 2021"
 output:
   html_document: default
@@ -22,7 +22,7 @@ You will find the lecture for week one [here](https://github.com/BayLab/MarineGe
 ## Week one coding session
 ## Introduction to shell computing via the data carpentry tutorial
 
-We will be following the data carpentry tutorial (Copyright @ Software Carpentry) "Introduction to the command line for genomics. We have made some modifications to the data carpentry tutorial to fit our course. 
+We will be following the data carpentry tutorial (Copyright 2016 @ Software Carpentry) "Introduction to the command line for genomics. We have made some modifications to the data carpentry tutorial to fit our course. 
 
 ## What is a shell and why should I care?
 A shell is a computer program that presents a command line interface which allows you to control your computer using commands entered with a keyboard instead of controlling graphical user interfaces (GUIs) with a mouse/keyboard combination.
