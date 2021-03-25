@@ -315,7 +315,7 @@ In the next few episodes, we’ll be expanding on these skills and seeing how us
 
 
 
-# Navigating Files and Directories
+## Navigating Files and Directories
 
 This continues the shell module from Data Carpentry's introduction to the shell, which can be found here https://datacarpentry.org/shell-genomics/02-the-filesystem/index.html
 
