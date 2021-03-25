@@ -526,4 +526,4 @@ The commands `cd`, and `cd ~` are very useful for quickly navigating back to you
 
 + Hidden files and directories start with . and can be viewed using ls -a.
 
-+Relative paths specify a location starting from the current location, while absolute paths specify a location from the root of the file system.
++ Relative paths specify a location starting from the current location, while absolute paths specify a location from the root of the file system.
