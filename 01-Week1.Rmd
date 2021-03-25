@@ -313,7 +313,7 @@ In the next few episodes, we’ll be expanding on these skills and seeing how us
 
 + Tab completion can reduce errors from mistyping and make work more efficient in the shell.
 
-
+\newpage
 
 ## Navigating Files and Directories
 
