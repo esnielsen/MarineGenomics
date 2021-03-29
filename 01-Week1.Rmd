@@ -296,13 +296,12 @@ pwck      pwconv    pwd       pwdx      pwunconv
 ```
 Displays the name of every program that starts with `pw`.
 
-## Summary
+## Summary & Key Points
 
 We now know how to move around our file system using the command line. This gives us an advantage over interacting with the file system through a GUI as it allows us to work on a remote server, carry out the same set of operations on a large number of files quickly, and opens up many opportunities for using bioinformatic software that is only available in command line versions.
 
 In the next few episodes, we’ll be expanding on these skills and seeing how using the command line shell enables us to make our workflow more efficient and reproducible.
 
-## Key Points
 + The shell gives you the ability to work more efficiently by using keyboard commands rather than a GUI.
 
 + Useful commands for navigating your file system include: ls, pwd, and cd.
