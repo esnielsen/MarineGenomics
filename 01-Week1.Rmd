@@ -15,16 +15,14 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 
 Welcome to Marine Genomics Spring 2021 at UC Davis!
 
-## Week one lecture
-
 You will find the lecture for week one [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/MarineGenomics_Lecture1.pptx)
 
-## Week one coding session
-## Introduction to shell computing via the data carpentry tutorial
+##Introduction to shell computing via the data carpentry tutorial
 
 We will be following the data carpentry tutorial (Copyright 2016 @ Software Carpentry) "Introduction to the command line for genomics". We have made some modifications to the data carpentry tutorial to fit our course. 
 
-## What is a shell and why should I care?
+What is a shell and why should I care?
+
 A shell is a computer program that presents a command line interface which allows you to control your computer using commands entered with a keyboard instead of controlling graphical user interfaces (GUIs) with a mouse/keyboard combination.
 
 There are many reasons to learn about the shell:
