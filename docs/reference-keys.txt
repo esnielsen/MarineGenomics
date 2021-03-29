@@ -29,3 +29,6 @@ navigating-practice
 full-vs-relative-paths
 navigational-shortcuts
 key-points-1
+week-2
+week-4
+week-5
