@@ -10,8 +10,21 @@ description: ""
 
 # Introduction to Marine Genomics
 
-Instructors:
-Class Times:
+Rachael Bay (rbay@ucdavis.edu) 
+
+Serena Caplins (sacaplins@ucdavis.edu)
+
+Vanessa Guerra (vguerra4@ucmerced.edu) 
+
+TA: Madison Armstrong (mlarmstrong@ucdavis.edu) 
+
+ 
+
+Lecture Tuesdays 12:10-1:30, Coding session Thursdays 12:10-1:00
+
+Office hours: Serena Caplins Thursday 1:10-2:00 PM
+
+Madison Armstrong TBD
 
 The **bookdown** package can be installed from CRAN or Github:
 
