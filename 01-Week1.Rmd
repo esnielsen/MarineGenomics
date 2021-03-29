@@ -316,12 +316,16 @@ In the next few episodes, we’ll be expanding on these skills and seeing how us
 
 This continues the shell module from Data Carpentry's introduction to the shell, which can be found here https://datacarpentry.org/shell-genomics/02-the-filesystem/index.html
 
-## At the end of this module you should be able to answer the folling questions
+## Week 1 Objectives
+
+Questions to Answer:
+
 + How can I perform operations on files outside of my working directory?
 
 + What are some navigational shortcuts I can use to make my work more efficient?
 
-## Objectives
+Main Tasks:
+
 + Use a single command to navigate multiple steps in your directory structure, including moving backwards (one level up).
 
 + Perform operations on files in directories outside your working directory.
@@ -443,7 +447,7 @@ $ cd MarineGenomics/data
 ```
 This will take you to the MarineGenomics directory without having to go through the intermediate directory.
 
-### Navigating practice
+Navigating practice
 
 Navigate to your home directory. From there, list the contents of the Week1 directory.
 

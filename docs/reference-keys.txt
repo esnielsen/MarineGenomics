@@ -34,3 +34,4 @@ week-4
 week-5
 week-1-coding-session-introduction-to-shell-computing-via-the-data-carpentry-tutorial
 summary-key-points
+week-1-objectives
