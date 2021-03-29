@@ -20,3 +20,12 @@ shortcut-tab-completion
 summary
 key-points
 week-1
+navigating-files-and-directories
+at-the-end-of-this-module-you-should-be-able-to-answer-the-folling-questions
+objectives
+moving-around-the-file-system
+examining-the-contents-of-other-directories
+navigating-practice
+full-vs-relative-paths
+navigational-shortcuts
+key-points-1
