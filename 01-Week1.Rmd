@@ -253,7 +253,7 @@ Typing out file or directory names can waste a lot of time and it’s easy to ma
 Return to your home directory:
 
 ```html
-$ cd...
+$ cd
 ```
 
 then enter
