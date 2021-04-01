@@ -278,7 +278,7 @@ For example, if we now try to list the files which names start with SR by using 
 ```html
 $ ls SR<tab.
 ```
-The shell auto-completes your command to `SRR68`, because all file names in the directory begin with this prefix. When you hit Tab again, the shell will list the possible choices.
+The shell auto-completes your command to `SRR6805880_`, because all file names in the directory begin with this prefix. When you hit Tab again, the shell will list the possible choices.
 
 ```html
 $ ls SRR68<tab><tab>
