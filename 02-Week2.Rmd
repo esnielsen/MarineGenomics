@@ -462,6 +462,9 @@ The `#` character and each of the `!` characters represent the encoded quality f
 individual nucleotide. The numerical value assigned to each of these characters depends on the 
 sequencing platform that generated the reads. The sequencing machine used to generate our data 
 uses the standard Sanger quality PHRED score encoding, Illumina version 1.8 onwards.
+
+Link for what each symbol means: https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm
+
 Each character is assigned a quality score between 0 and 42 as shown in the chart below.
 
 ```html
