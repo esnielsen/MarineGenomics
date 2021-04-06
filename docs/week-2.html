@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="week-1.html"/>
-<link rel="next" href="documenting-your-activity-on-the-project.html"/>
+<link rel="next" href="references.html"/>
 <script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -187,10 +187,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.17" data-path="week-2.html"><a href="week-2.html#project-organization"><i class="fa fa-check"></i><b>3.17</b> Project Organization</a></li>
 <li class="chapter" data-level="3.18" data-path="week-2.html"><a href="week-2.html#getting-your-project-started"><i class="fa fa-check"></i><b>3.18</b> Getting your project started</a></li>
 <li class="chapter" data-level="3.19" data-path="week-2.html"><a href="week-2.html#organizing-your-files"><i class="fa fa-check"></i><b>3.19</b> Organizing your files</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="documenting-your-activity-on-the-project.html"><a href="documenting-your-activity-on-the-project.html"><i class="fa fa-check"></i><b>4</b> Documenting your activity on the project</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="documenting-your-activity-on-the-project.html"><a href="documenting-your-activity-on-the-project.html#awk"><i class="fa fa-check"></i><b>4.1</b> Awk</a></li>
+<li class="chapter" data-level="3.20" data-path="week-2.html"><a href="week-2.html#documenting-your-activity-on-the-project"><i class="fa fa-check"></i><b>3.20</b> Documenting your activity on the project</a></li>
+<li class="chapter" data-level="3.21" data-path="week-2.html"><a href="week-2.html#awk"><i class="fa fa-check"></i><b>3.21</b> Awk</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -649,7 +647,7 @@ characters relate to the permissions that the file owner has, the next three rel
 three characters specify what other users outside of your group can do with the file. We’re going to concentrate on the three positions
 that deal with your permissions (as the file owner).</p>
 <div class="figure">
-<img src="./fig_week2/rwx_figure.png" alt="" />
+<img src="figs/fig_week2/rwx_figure.png" alt="" />
 <p class="caption">Permissions breakdown</p>
 </div>
 <p>Here the three positions that relate to the file owner are <code>rw-</code>. The <code>r</code> means that you have permission to read the file, the <code>w</code>
@@ -1203,7 +1201,7 @@ then run <code>nano</code> to create a file called <code>README.txt</code>:</p>
 <span id="cb95-2"><a href="week-2.html#cb95-2" aria-hidden="true" tabindex="-1"></a>$ nano README.txt</span></code></pre></div>
 <p>You should see something like this:</p>
 <div class="figure">
-<img src="./img_week2/nano201711.png" alt="" />
+<img src="figs/img_week2/nano201711.png" alt="" />
 <p class="caption">nano201711.png</p>
 </div>
 <p>The text at the bottom of the screen shows the keyboard shortcuts for performing various tasks in <code>nano</code>. We will talk more about how to interpret this information soon.</p>
@@ -1545,6 +1543,224 @@ back through your files in preparation for publishing your study.</p>
 results, notes about how your analyses were carried out, and
 documents related to your eventual publication.</p>
 </div>
+<div id="documenting-your-activity-on-the-project" class="section level2" number="3.20">
+<h2><span class="header-section-number">3.20</span> Documenting your activity on the project</h2>
+<p>When carrying out wet-lab analyses, most scientists work from a
+written protocol and keep a hard copy of written notes in their lab
+notebook, including any things they did differently from the
+written protocol. This detailed
+record-keeping process is just as important when doing computational
+analyses. Luckily, it’s even easier to record the steps you’ve
+carried out computational than it is when working at the bench.</p>
+<p>The <code>history</code> command is a convenient way to document all the
+commands you have used while analyzing and manipulating your project
+files. Let’s document the work we have done on our project so far.</p>
+<p>View the commands that you have used so far during this session using <code>history</code>:</p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb123-1"><a href="week-2.html#cb123-1" aria-hidden="true" tabindex="-1"></a>$ history</span></code></pre></div>
+<p>The history likely contains many more commands than you have used for the current project. Let’s view the last
+several commands that focus on just what we need for this project.</p>
+<p>View the last n lines of your history (where n = approximately the last few lines you think relevant). For our example, we will use the last 7:</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb124-1"><a href="week-2.html#cb124-1" aria-hidden="true" tabindex="-1"></a>$ history | tail -n 7</span></code></pre></div>
+<blockquote>
+<h3 id="exercise-14">Exercise</h3>
+<p>Using your knowledge of the shell, use the append redirect <code>&gt;&gt;</code> to create a file called
+<code>dc_workshop_log_XXXX_XX_XX.sh</code> (Use the four-digit year, two-digit month, and two digit day, e.g.
+<code>dc_workshop_log_2017_10_27.sh</code>)<br />
+&gt;</p>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<blockquote>
+<blockquote>
+<h3 id="solution-14">Solution</h3>
+<div class="sourceCode" id="cb125"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb125-1"><a href="week-2.html#cb125-1" aria-hidden="true" tabindex="-1"></a>$ history | tail -n 8 &gt;&gt; dc_workshop_log_2017_10_27.sh</span></code></pre></div>
+<p>Note we used the last 7 lines as an example, the number of lines may vary.</p>
+</blockquote>
+</blockquote>
+</p>
+</details>
+<p> </p>
+<p>You may have noticed that your history contains the <code>history</code> command itself. To remove this redundancy
+from our log, let’s use the <code>nano</code> text editor to fix the file:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb126-1"><a href="week-2.html#cb126-1" aria-hidden="true" tabindex="-1"></a>$ nano dc_workshop_log_2017_10_27.sh</span></code></pre></div>
+<p>(Remember to replace the <code>2017_10_27</code> with your workshop date.)</p>
+<p>From the <code>nano</code> screen, you can use your cursor to navigate, type, and delete any redundant lines.</p>
+<blockquote>
+<h3 id="navigating-in-nano">Navigating in Nano</h3>
+<p>Although <code>nano</code> is useful, it can be frustrating to edit documents, as you
+can’t use your mouse to navigate to the part of the document you would like to edit.
+Here are some useful keyboard shortcuts for moving around within a text document in
+<code>nano</code>. You can find more information by typing <kbd>Ctrl</kbd>-<kbd>G</kbd> within <code>nano</code>.</p>
+<table>
+<thead>
+<tr class="header">
+<th>key</th>
+<th>action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><kbd>Ctrl</kbd>-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>-<kbd>→</kbd></td>
+<td>to move forward one word</td>
+</tr>
+<tr class="even">
+<td><kbd>Alt</kbd>-<kbd>Space</kbd> OR <kbd>Esc</kbd>-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>-<kbd>←</kbd></td>
+<td>to move back one word</td>
+</tr>
+<tr class="odd">
+<td><kbd>Ctrl</kbd>-<kbd>A</kbd></td>
+<td>to move to the beginning of the current line</td>
+</tr>
+<tr class="even">
+<td><kbd>Ctrl</kbd>-<kbd>E</kbd></td>
+<td>to move to the end of the current line</td>
+</tr>
+<tr class="odd">
+<td><kbd>Ctrl</kbd>-<kbd>W</kbd></td>
+<td>to search</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>Add a date line and comment to the line where you have created the directory. Recall that any
+text on a line after a <code>#</code> is ignored by bash when evaluating the text as code. For example:</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb127-1"><a href="week-2.html#cb127-1" aria-hidden="true" tabindex="-1"></a># 2017_10_27   </span>
+<span id="cb127-2"><a href="week-2.html#cb127-2" aria-hidden="true" tabindex="-1"></a># Created sample directories for the Data Carpentry workshop  </span></code></pre></div>
+<p>Next, remove any lines of the history that are not relevant by navigating to those lines and using your
+delete key. Save your file and close <code>nano</code>.</p>
+<p>Your file should look something like this:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb128-1"><a href="week-2.html#cb128-1" aria-hidden="true" tabindex="-1"></a># 2017_10_27</span>
+<span id="cb128-2"><a href="week-2.html#cb128-2" aria-hidden="true" tabindex="-1"></a># Created sample directories for the Data Carpentry workshop</span>
+<span id="cb128-3"><a href="week-2.html#cb128-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb128-4"><a href="week-2.html#cb128-4" aria-hidden="true" tabindex="-1"></a>mkdir dc_workshop</span>
+<span id="cb128-5"><a href="week-2.html#cb128-5" aria-hidden="true" tabindex="-1"></a>mkdir dc_workshop/docs</span>
+<span id="cb128-6"><a href="week-2.html#cb128-6" aria-hidden="true" tabindex="-1"></a>mkdir dc_workshop/data</span>
+<span id="cb128-7"><a href="week-2.html#cb128-7" aria-hidden="true" tabindex="-1"></a>mkdir dc_workshop/results</span></code></pre></div>
+<p>If you keep this file up to date, you can use it to re-do your work on your project if something happens to your results files. To demonstrate how this works, first delete
+your <code>dc_workshop</code> directory and all of its subdirectories. Look at your directory
+contents to verify the directory is gone.</p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb129-1"><a href="week-2.html#cb129-1" aria-hidden="true" tabindex="-1"></a>$ rm -r dc_workshop</span>
+<span id="cb129-2"><a href="week-2.html#cb129-2" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
+<div class="sourceCode" id="cb130"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb130-1"><a href="week-2.html#cb130-1" aria-hidden="true" tabindex="-1"></a>data_week2  dc_workshop_log_2017_10_27.sh</span></code></pre></div>
+<p>Then run your workshop log file as a bash script. You should see the <code>dc_workshop</code>
+directory and all of its subdirectories reappear.</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb131-1"><a href="week-2.html#cb131-1" aria-hidden="true" tabindex="-1"></a>$ bash dc_workshop_log_2017_10_27.sh</span>
+<span id="cb131-2"><a href="week-2.html#cb131-2" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb132-1"><a href="week-2.html#cb132-1" aria-hidden="true" tabindex="-1"></a>data_week2  dc_workshop dc_workshop_log_2017_10_27.sh</span></code></pre></div>
+<p>It’s important that we keep our workshop log file outside of our <code>dc_workshop</code> directory
+if we want to use it to recreate our work. It’s also important for us to keep it up to
+date by regularly updating with the commands that we used to generate our results files.</p>
+<p>Congratulations! You’ve finished your introduction to using the shell for genomics
+projects. You now know how to navigate your file system, create, copy, move,
+and remove files and directories, and automate repetitive tasks using scripts and
+wildcards. With this solid foundation, you’re ready to move on to apply all of these new
+skills to carrying out more sophisticated bioinformatics
+analysis work. Don’t worry if everything doesn’t feel perfectly comfortable yet. We’re
+going to have many more opportunities for practice as we move forward on our
+bioinformatics journey!</p>
+</div>
+<div id="awk" class="section level2" number="3.21">
+<h2><span class="header-section-number">3.21</span> Awk</h2>
+<p>If we need to count the number of lines in a file, we can use the previously
+showed command for word counting wc. Let’s use a representative table from the “Table S2. Significant QTL loci for mate choice and morphology” from the Bay et al. 2017 publication ~/data_week2/Week2/data_week2/TableS2_QTL_Bay_2017.txt</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb133-1"><a href="week-2.html#cb133-1" aria-hidden="true" tabindex="-1"></a>$ wc -l TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<div class="sourceCode" id="cb134"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb134-1"><a href="week-2.html#cb134-1" aria-hidden="true" tabindex="-1"></a>19 TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>As you probably remember, -l is an option that asks for the number of lines only.</p>
+<p>However, wc counts the number of newlines in the file, if the last line does
+not contain a carriage return (i.e. there is no emptyline at the end of the file),
+the result is going be the actual number of lines minus one.</p>
+<p>A workaround is to use Awk. Awk is command line program that takes as input a set
+of instructions and one or more files. The instructions are executed on each line
+of the input file(s).</p>
+<p>The instructions are enclosed in single quotes or they can be read from a file.</p>
+<p>Example:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb135-1"><a href="week-2.html#cb135-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print $0}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb136-1"><a href="week-2.html#cb136-1" aria-hidden="true" tabindex="-1"></a>Trait   n   LOD Chr Position (cM)   Nearest SNP </span>
+<span id="cb136-2"><a href="week-2.html#cb136-2" aria-hidden="true" tabindex="-1"></a>mate choice 200 4.5 14  22.43   chrXIV:1713227 </span>
+<span id="cb136-3"><a href="week-2.html#cb136-3" aria-hidden="true" tabindex="-1"></a>mate choice     200 4.61    21  8   chrXXI:9373717 </span>
+<span id="cb136-4"><a href="week-2.html#cb136-4" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.83    12  17  chrXII:7504339 </span>
+<span id="cb136-5"><a href="week-2.html#cb136-5" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.23    14  8.1 chrXIV:4632223 </span>
+<span id="cb136-6"><a href="week-2.html#cb136-6" aria-hidden="true" tabindex="-1"></a>PC2 200 4.04    4   30.76   chrIV:11367975 </span>
+<span id="cb136-7"><a href="week-2.html#cb136-7" aria-hidden="true" tabindex="-1"></a>PC2 200 6.67    7   47  chrVII:26448674 </span>
+<span id="cb136-8"><a href="week-2.html#cb136-8" aria-hidden="true" tabindex="-1"></a>centroid size   200 6.97    9   47.8    chrIX:19745222 </span>
+<span id="cb136-9"><a href="week-2.html#cb136-9" aria-hidden="true" tabindex="-1"></a>x2* 200 3.93    7   60  chrUn:29400087 </span>
+<span id="cb136-10"><a href="week-2.html#cb136-10" aria-hidden="true" tabindex="-1"></a>y2* 200 9.99    4   32  chrIV:11367975 </span>
+<span id="cb136-11"><a href="week-2.html#cb136-11" aria-hidden="true" tabindex="-1"></a>x3  200 4.45    1   32.3    chrI:15145305 </span>
+<span id="cb136-12"><a href="week-2.html#cb136-12" aria-hidden="true" tabindex="-1"></a>x4  200 5.13    16  30.9    chrXVI:12111717 </span>
+<span id="cb136-13"><a href="week-2.html#cb136-13" aria-hidden="true" tabindex="-1"></a>x5* 200 4.54    15  6   chrXV:505537 </span>
+<span id="cb136-14"><a href="week-2.html#cb136-14" aria-hidden="true" tabindex="-1"></a>y5  200 4.21    4   24.9    chrIV:15721538 </span>
+<span id="cb136-15"><a href="week-2.html#cb136-15" aria-hidden="true" tabindex="-1"></a>x6  200 3.96    16  29.5    chrXVI:13588796 </span>
+<span id="cb136-16"><a href="week-2.html#cb136-16" aria-hidden="true" tabindex="-1"></a>y6* 200 4.14    9   30.2    chrIX:18942598 </span>
+<span id="cb136-17"><a href="week-2.html#cb136-17" aria-hidden="true" tabindex="-1"></a>y15*    200 5.3 2   27  chrII:19324477 </span>
+<span id="cb136-18"><a href="week-2.html#cb136-18" aria-hidden="true" tabindex="-1"></a>x16 200 5.49    7   60  chrUn:29400087 </span>
+<span id="cb136-19"><a href="week-2.html#cb136-19" aria-hidden="true" tabindex="-1"></a>x17     200 4.92    1   32.8    chrI:14261764 </span>
+<span id="cb136-20"><a href="week-2.html#cb136-20" aria-hidden="true" tabindex="-1"></a>Table S2. Significant QTL loci for mate choice and morphology</span></code></pre></div>
+<p>This command has the same output of “cat”: it prints each line from the example.fasta
+file.</p>
+<p>The structure of the instruction is the following:
+- curly braces surround the set of instructions
+- print is the instruction that sends its arguments to the terminal
+- $0 is a variable, it means “the content of the current line”</p>
+<p>As you can see, the file contains a table.</p>
+<p>Awk automatically splits the processed line by looking at spaces: in our case it has
+knowledge of the different columns in the table.</p>
+<p>Each column value for the current line is stored into a variable: $1 for the first
+column, $2 for the second and so on.</p>
+<p>So, if we like to print only the second column from the table, we execute</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb137-1"><a href="week-2.html#cb137-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print $2}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<div class="sourceCode" id="cb138"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb138-1"><a href="week-2.html#cb138-1" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-2"><a href="week-2.html#cb138-2" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-3"><a href="week-2.html#cb138-3" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-4"><a href="week-2.html#cb138-4" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-5"><a href="week-2.html#cb138-5" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-6"><a href="week-2.html#cb138-6" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-7"><a href="week-2.html#cb138-7" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-8"><a href="week-2.html#cb138-8" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-9"><a href="week-2.html#cb138-9" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-10"><a href="week-2.html#cb138-10" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-11"><a href="week-2.html#cb138-11" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-12"><a href="week-2.html#cb138-12" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-13"><a href="week-2.html#cb138-13" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-14"><a href="week-2.html#cb138-14" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-15"><a href="week-2.html#cb138-15" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-16"><a href="week-2.html#cb138-16" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-17"><a href="week-2.html#cb138-17" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-18"><a href="week-2.html#cb138-18" aria-hidden="true" tabindex="-1"></a>200</span>
+<span id="cb138-19"><a href="week-2.html#cb138-19" aria-hidden="true" tabindex="-1"></a>S2.</span></code></pre></div>
+<p>We can also print more than one value, or add text to the printed line:</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb139-1"><a href="week-2.html#cb139-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print &quot;Significant_QTL_loci&quot;,$4,$5}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb140-1"><a href="week-2.html#cb140-1" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci Chr Position</span>
+<span id="cb140-2"><a href="week-2.html#cb140-2" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 14 22.43</span>
+<span id="cb140-3"><a href="week-2.html#cb140-3" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 21 8</span>
+<span id="cb140-4"><a href="week-2.html#cb140-4" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 12 17</span>
+<span id="cb140-5"><a href="week-2.html#cb140-5" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 14 8.1</span>
+<span id="cb140-6"><a href="week-2.html#cb140-6" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 4 30.76</span>
+<span id="cb140-7"><a href="week-2.html#cb140-7" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 7 47</span>
+<span id="cb140-8"><a href="week-2.html#cb140-8" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 9 47.8</span>
+<span id="cb140-9"><a href="week-2.html#cb140-9" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 7 60</span>
+<span id="cb140-10"><a href="week-2.html#cb140-10" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 4 32</span>
+<span id="cb140-11"><a href="week-2.html#cb140-11" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 1 32.3</span>
+<span id="cb140-12"><a href="week-2.html#cb140-12" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 16 30.9</span>
+<span id="cb140-13"><a href="week-2.html#cb140-13" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 15 6</span>
+<span id="cb140-14"><a href="week-2.html#cb140-14" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 4 24.9</span>
+<span id="cb140-15"><a href="week-2.html#cb140-15" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 16 29.5</span>
+<span id="cb140-16"><a href="week-2.html#cb140-16" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 9 30.2</span>
+<span id="cb140-17"><a href="week-2.html#cb140-17" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 2 27</span>
+<span id="cb140-18"><a href="week-2.html#cb140-18" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 7 60</span>
+<span id="cb140-19"><a href="week-2.html#cb140-19" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 1 32.8</span>
+<span id="cb140-20"><a href="week-2.html#cb140-20" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci QTL loci </span></code></pre></div>
+<p>The comma puts a space between the printed values. Strings of text should be enclosed in
+double quotes. In this case we are printing the text “Significant_QTL_loci,” the fourth and the fifth column
+for each row in the table.</p>
+<p>So, $0 is the whole line, $1 the first field, $2 the second and so on. What if we want
+to print the last column, but we don’t know its number? Maybe it is a huge table, or maybe
+different lines have a different number of columns.</p>
+<p>Awk helps us thanks to the variable NF. NF stores the number of fields (our columns) in the row.</p>
+
+</div>
 </div>
             </section>
 
@@ -1552,7 +1768,7 @@ documents related to your eventual publication.</p>
         </div>
       </div>
 <a href="week-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="documenting-your-activity-on-the-project.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
