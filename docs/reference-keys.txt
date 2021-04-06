@@ -67,3 +67,6 @@ getting-your-project-started
 organizing-your-files
 documenting-your-activity-on-the-project
 references
+uploading-data-to-your-virtual-machine-with-scp---unix
+project-organization
+awk
