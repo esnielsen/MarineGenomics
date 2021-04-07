@@ -462,6 +462,10 @@ The `#` character and each of the `!` characters represent the encoded quality f
 individual nucleotide. The numerical value assigned to each of these characters depends on the 
 sequencing platform that generated the reads. The sequencing machine used to generate our data 
 uses the standard Sanger quality PHRED score encoding, Illumina version 1.8 onwards.
+
+Here is a link showing what those different symbols mean for quality scores:  https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm
+
+
 Each character is assigned a quality score between 0 and 42 as shown in the chart below.
 
 ```html
@@ -588,7 +592,7 @@ characters relate to the permissions that the file owner has, the next three rel
 three characters specify what other users outside of your group can do with the file. We're going to concentrate on the three positions
 that deal with your permissions (as the file owner). 
 
-![Permissions breakdown](./fig_week2/rwx_figure.png)
+![Permissions breakdown](./figs/fig_week2/rwx_figure.png)
 
 Here the three positions that relate to the file owner are `rw-`. The `r` means that you have permission to read the file, the `w` 
 indicates that you have permission to write to (i.e. make changes to) the file, and the third position is a `-`, indicating that you 
@@ -1415,7 +1419,7 @@ $ nano README.txt
 
 You should see something like this: 
 
-![nano201711.png](./img_week2/nano201711.png)
+![nano201711.png](./figs/img_week2/nano201711.png)
 
 The text at the bottom of the screen shows the keyboard shortcuts for performing various tasks in `nano`. We will talk more about how to interpret this information soon.
 

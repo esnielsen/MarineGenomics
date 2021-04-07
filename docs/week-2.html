@@ -174,21 +174,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.11" data-path="week-2.html"><a href="week-2.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>3.11</b> Writing Scripts and Working with Data</a></li>
 <li class="chapter" data-level="3.12" data-path="week-2.html"><a href="week-2.html#writing-files"><i class="fa fa-check"></i><b>3.12</b> Writing files</a></li>
 <li class="chapter" data-level="3.13" data-path="week-2.html"><a href="week-2.html#writing-scripts"><i class="fa fa-check"></i><b>3.13</b> Writing scripts</a></li>
-<li class="chapter" data-level="3.14" data-path="week-2.html"><a href="week-2.html#making-the-script-into-a-program"><i class="fa fa-check"></i><b>3.14</b> Making the script into a program</a></li>
-<li class="chapter" data-level="3.15" data-path="week-2.html"><a href="week-2.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>3.15</b> Moving and Downloading Data</a>
+<li class="chapter" data-level="3.14" data-path="week-2.html"><a href="week-2.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>3.14</b> Moving and Downloading Data</a>
 <ul>
-<li class="chapter" data-level="3.15.1" data-path="week-2.html"><a href="week-2.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>3.15.1</b> Getting data from the cloud</a></li>
-<li class="chapter" data-level="3.15.2" data-path="week-2.html"><a href="week-2.html#moving-files-between-your-laptop-and-your-instance"><i class="fa fa-check"></i><b>3.15.2</b> Moving files between your laptop and your instance</a></li>
+<li class="chapter" data-level="3.14.1" data-path="week-2.html"><a href="week-2.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>3.14.1</b> Getting data from the cloud</a></li>
+<li class="chapter" data-level="3.14.2" data-path="week-2.html"><a href="week-2.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>3.14.2</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
 </ul></li>
-<li class="chapter" data-level="3.16" data-path="week-2.html"><a href="week-2.html#transferring-data-between-your-local-machine-and-the-cloud"><i class="fa fa-check"></i><b>3.16</b> Transferring Data Between your Local Machine and the Cloud</a>
-<ul>
-<li class="chapter" data-level="3.16.1" data-path="week-2.html"><a href="week-2.html#uploading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>3.16.1</b> Uploading Data to your Virtual Machine with scp - UNIX</a></li>
-</ul></li>
-<li class="chapter" data-level="3.17" data-path="week-2.html"><a href="week-2.html#project-organization"><i class="fa fa-check"></i><b>3.17</b> Project Organization</a></li>
-<li class="chapter" data-level="3.18" data-path="week-2.html"><a href="week-2.html#getting-your-project-started"><i class="fa fa-check"></i><b>3.18</b> Getting your project started</a></li>
-<li class="chapter" data-level="3.19" data-path="week-2.html"><a href="week-2.html#organizing-your-files"><i class="fa fa-check"></i><b>3.19</b> Organizing your files</a></li>
-<li class="chapter" data-level="3.20" data-path="week-2.html"><a href="week-2.html#documenting-your-activity-on-the-project"><i class="fa fa-check"></i><b>3.20</b> Documenting your activity on the project</a></li>
-<li class="chapter" data-level="3.21" data-path="week-2.html"><a href="week-2.html#awk"><i class="fa fa-check"></i><b>3.21</b> Awk</a></li>
+<li class="chapter" data-level="3.15" data-path="week-2.html"><a href="week-2.html#awk"><i class="fa fa-check"></i><b>3.15</b> Awk</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -576,7 +567,7 @@ above, the quality score line is:</p>
 individual nucleotide. The numerical value assigned to each of these characters depends on the
 sequencing platform that generated the reads. The sequencing machine used to generate our data
 uses the standard Sanger quality PHRED score encoding, Illumina version 1.8 onwards.</p>
-<p>Link for what each symbol means: <a href="https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm" class="uri">https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm</a></p>
+<p>Here is a link showing what those different symbols mean for quality scores: <a href="https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm" class="uri">https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm</a></p>
 <p>Each character is assigned a quality score between 0 and 42 as shown in the chart below.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb31-1"><a href="week-2.html#cb31-1" aria-hidden="true" tabindex="-1"></a>Quality encoding: !&quot;#$%<span class="er">&amp;</span>&#39;()*+,-./0123456789:;<span class="er">&lt;</span>=&gt;?@ABCDEFGHIJK</span>
 <span id="cb31-2"><a href="week-2.html#cb31-2" aria-hidden="true" tabindex="-1"></a>                  |         |         |         |         |</span>
@@ -880,7 +871,7 @@ in a file. The FASTQ file may change over time, so given the potential for updat
 make sure your file matches your instructor’s output.</p>
 <p>As of Sept. 2020, wc gives the following output:</p>
 <div class="sourceCode" id="cb56"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb56-1"><a href="week-2.html#cb56-1" aria-hidden="true" tabindex="-1"></a>$ wc bad_reads.txt</span></code></pre></div>
-<div class="sourceCode" id="cb57"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb57-1"><a href="week-2.html#cb57-1" aria-hidden="true" tabindex="-1"></a>  537    1073   23217 bad_reads.txt</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb57-1"><a href="week-2.html#cb57-1" aria-hidden="true" tabindex="-1"></a>  537  1073 23217 bad_reads.txt</span></code></pre></div>
 <p>This will tell us the number of lines, words and characters in the file. If we
 want only the number of lines, we can use the <code>-l</code> flag for <code>lines</code>.</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb58-1"><a href="week-2.html#cb58-1" aria-hidden="true" tabindex="-1"></a>$ wc -l bad_reads.txt</span></code></pre></div>
@@ -1100,6 +1091,11 @@ every time the loop iterates, so it would only have text from the last variable 
 <span id="cb91-3"><a href="week-2.html#cb91-3" aria-hidden="true" tabindex="-1"></a>&gt; name=$(basename ${filename} .fastq)</span>
 <span id="cb91-4"><a href="week-2.html#cb91-4" aria-hidden="true" tabindex="-1"></a>&gt; echo ${name}</span>
 <span id="cb91-5"><a href="week-2.html#cb91-5" aria-hidden="true" tabindex="-1"></a>&gt; done</span></code></pre></div>
+<details>
+<summary>
+Exercise
+</summary>
+<p>
 <blockquote>
 <h3 id="exercise-9">Exercise</h3>
 <p>Print the file prefix of all of the <code>.txt</code> files in our current directory.</p>
@@ -1128,6 +1124,11 @@ Solution
 <span id="cb93-3"><a href="week-2.html#cb93-3" aria-hidden="true" tabindex="-1"></a>&gt; name=$(basename ${filename} .txt)</span>
 <span id="cb93-4"><a href="week-2.html#cb93-4" aria-hidden="true" tabindex="-1"></a>&gt; mv ${filename}  ${name}_2019.txt</span>
 <span id="cb93-5"><a href="week-2.html#cb93-5" aria-hidden="true" tabindex="-1"></a>&gt; done</span></code></pre></div>
+<details>
+<summary>
+Exercise
+</summary>
+<p>
 <blockquote>
 <h3 id="exercise-10">Exercise</h3>
 <p>Remove <code>_2019</code> from all of the <code>.txt</code> files.</p>
@@ -1147,6 +1148,9 @@ Solution
 <span id="cb94-5"><a href="week-2.html#cb94-5" aria-hidden="true" tabindex="-1"></a>&gt; done</span></code></pre></div>
 </blockquote>
 </blockquote>
+</p>
+</details>
+<p> </p>
 </p>
 </details>
 <p> </p>
@@ -1206,6 +1210,11 @@ then run <code>nano</code> to create a file called <code>README.txt</code>:</p>
 <p class="caption">nano201711.png</p>
 </div>
 <p>The text at the bottom of the screen shows the keyboard shortcuts for performing various tasks in <code>nano</code>. We will talk more about how to interpret this information soon.</p>
+<details>
+<summary>
+Which Editor?
+</summary>
+<p>
 <blockquote>
 <h3 id="which-editor">Which Editor?</h3>
 <p>When we say, “<code>nano</code> is a text editor,” we really do mean “text”: it can
@@ -1228,6 +1237,9 @@ your computer’s start menu, it may want to save files in your desktop or
 documents directory instead. You can change this by navigating to
 another directory the first time you “Save As…”</p>
 </blockquote>
+</p>
+</details>
+<p> </p>
 <p>Let’s type in a few lines of text. Describe what the files in this
 directory are or what you’ve been doing with them.
 Once we’re happy with our text, we can press <kbd>Ctrl</kbd>-<kbd>O</kbd> (press the <kbd>Ctrl</kbd> or <kbd>Control</kbd> key and, while
@@ -1254,6 +1266,11 @@ This means that you can use <kbd>Ctrl</kbd>-<kbd>G</kbd> to get help and <kbd>Ct
 file.</p>
 </blockquote>
 <p>Now you’ve written a file. You can take a look at it with <code>less</code> or <code>cat</code>, or open it up again and edit it with <code>nano</code>.</p>
+<details>
+<summary>
+Exercise
+</summary>
+<p>
 <blockquote>
 <h3 id="exercise-11">Exercise</h3>
 <p>Open <code>README.txt</code> and add the date to the top of the file and save the file.</p>
@@ -1270,6 +1287,9 @@ Solution
 Add today’s date and then use <kbd>Ctrl</kbd>-<kbd>X</kbd> followed by <code>y</code> and <kbd>Enter</kbd> to save.</p>
 </blockquote>
 </blockquote>
+</p>
+</details>
+<p> </p>
 </p>
 </details>
 <p> </p>
@@ -1291,6 +1311,11 @@ are using <code>-h</code> to “Suppress the prefixing of file names on output�
 <p>Now comes the neat part. We can run this script. Type:</p>
 <div class="sourceCode" id="cb98"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb98-1"><a href="week-2.html#cb98-1" aria-hidden="true" tabindex="-1"></a>$ bash bad-reads-script.sh</span></code></pre></div>
 <p>It will look like nothing happened, but now if you look at <code>scripted_bad_reads.txt</code>, you can see that there are now reads in the file.</p>
+<details>
+<summary>
+Exercise
+</summary>
+<p>
 <blockquote>
 <h3 id="exercise-12">Exercise</h3>
 <p>We want the script to tell us when it’s done.<br />
@@ -1312,30 +1337,36 @@ Script finished!</code></pre>
 </p>
 </details>
 <p> </p>
-</div>
-<div id="making-the-script-into-a-program" class="section level2" number="3.14">
-<h2><span class="header-section-number">3.14</span> Making the script into a program</h2>
+</p>
+</details>
+<p> </p>
+<details>
+<summary>
+Making the script into a program Exercise
+</summary>
+<p>
 <p>We had to type <code>bash</code> because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it’s a program by making it executable. We can do this by changing the file permissions. We talked about permissions in <a href="http://www.datacarpentry.org/shell-genomics/03-working-with-files/">an earlier episode</a>.</p>
 <p>First, let’s look at the current permissions.</p>
 <div class="sourceCode" id="cb100"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb100-1"><a href="week-2.html#cb100-1" aria-hidden="true" tabindex="-1"></a>$ ls -l bad-reads-script.sh</span></code></pre></div>
-<div class="sourceCode" id="cb101"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb101-1"><a href="week-2.html#cb101-1" aria-hidden="true" tabindex="-1"></a>-rw-rw-r-- 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh</span></code></pre></div>
-<p>We see that it says <code>-rw-r--r--</code>. This shows that the file can be read by any user and written to by the file owner (you). We want to change these permissions so that the file can be executed as a program. We use the command <code>chmod</code> like we did earlier when we removed write permissions. Here we are adding (<code>+</code>) executable permissions (<code>+x</code>).</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb101-1"><a href="week-2.html#cb101-1" aria-hidden="true" tabindex="-1"></a>-rw-rw-r-- 1 margeno margeno 75 Apr  8 12:46 bad-reads-script.sh</span></code></pre></div>
+<p>We see that it says <code>-rw-r--r--</code>. This shows that the file can be read by any user and written to by the file owner (you). We want to change these permissions so that the file can be executed as a program using <code>./</code> .</p>
+<p>We use the command <code>chmod</code> like we did earlier when we removed write permissions. Here we are adding (<code>+</code>) executable permissions (<code>+x</code>).</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb102-1"><a href="week-2.html#cb102-1" aria-hidden="true" tabindex="-1"></a>$ chmod +x bad-reads-script.sh</span></code></pre></div>
 <p>Now let’s look at the permissions again.</p>
 <div class="sourceCode" id="cb103"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb103-1"><a href="week-2.html#cb103-1" aria-hidden="true" tabindex="-1"></a>$ ls -l bad-reads-script.sh</span></code></pre></div>
-<div class="sourceCode" id="cb104"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb104-1"><a href="week-2.html#cb104-1" aria-hidden="true" tabindex="-1"></a>-rwxrwxr-x 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb104-1"><a href="week-2.html#cb104-1" aria-hidden="true" tabindex="-1"></a>-rwxrwxr-x 1 margeno margeno 75 Apr  8 12:48 bad-reads-script.sh</span></code></pre></div>
 <p>Now we see that it says <code>-rwxr-xr-x</code>. The <code>x</code>’s that are there now tell us we can run it as a program. So, let’s try it! We’ll need to put <code>./</code> at the beginning so the computer knows to look here in this directory for the program.</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb105-1"><a href="week-2.html#cb105-1" aria-hidden="true" tabindex="-1"></a>$ ./bad-reads-script.sh</span></code></pre></div>
 <p>The script should run the same way as before, but now we’ve created our very own computer program!</p>
-<p>You will learn more about writing scripts in <a href="https://datacarpentry.org/wrangling-genomics/05-automation/index.html">a later lesson</a>.</p>
+</p>
+</details>
+<p> </p>
 </div>
-<div id="moving-and-downloading-data" class="section level2" number="3.15">
-<h2><span class="header-section-number">3.15</span> Moving and Downloading Data</h2>
-<p>So far, we’ve worked with data that is pre-loaded on the instance in the cloud. Usually, however,
-most analyses begin with moving data onto the instance. Below we’ll show you some commands to
-download data onto your instance, or to move data between your computer and the cloud.</p>
-<div id="getting-data-from-the-cloud" class="section level3" number="3.15.1">
-<h3><span class="header-section-number">3.15.1</span> Getting data from the cloud</h3>
+<div id="moving-and-downloading-data" class="section level2" number="3.14">
+<h2><span class="header-section-number">3.14</span> Moving and Downloading Data</h2>
+<p>Below we’ll show you some commands to download data onto your instance, or to move data between your computer and the cloud.</p>
+<div id="getting-data-from-the-cloud" class="section level3" number="3.14.1">
+<h3><span class="header-section-number">3.14.1</span> Getting data from the cloud</h3>
 <p>There are two programs that will download data from a remote server to your local
 (or remote) machine: <code>wget</code> and <code>curl</code>. They were designed to do slightly different
 tasks by default, so you’ll need to give the programs somewhat different options to get
@@ -1348,9 +1379,13 @@ to <em>display</em> webpages or data at a web address.</p></li>
 </ul>
 <p>Which one you need to use mostly depends on your operating system, as most computers will
 only have one or the other installed by default.</p>
-<p>Let’s say you want to download some data from Ensembl. We’re going to download a very small
-tab-delimited file that just tells us what data is available on the Ensembl bacteria server.
-Before we can start our download, we need to know whether we’re using <code>curl</code> or <code>wget</code>.</p>
+<p>Today we will use wget to download some data from Ensembl.</p>
+<details>
+<summary>
+Exercise
+</summary>
+<p>
+<p>Before we can start our download, we need to know whether we’re using <code>curl</code> or <code>wget</code>.</p>
 <p>To see which program you have, type:</p>
 <div class="sourceCode" id="cb106"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb106-1"><a href="week-2.html#cb106-1" aria-hidden="true" tabindex="-1"></a>$ which curl</span>
 <span id="cb106-2"><a href="week-2.html#cb106-2" aria-hidden="true" tabindex="-1"></a>$ which wget</span></code></pre></div>
@@ -1359,407 +1394,95 @@ installed, and tells you what folder it is installed to. If it can’t
 find the program you asked for, it returns nothing, i.e. gives you no
 results.</p>
 <p>On Mac OSX, you’ll likely get the following output:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb107-1"><a href="week-2.html#cb107-1" aria-hidden="true" tabindex="-1"></a>$ which curl</span></code></pre></div>
-<div class="sourceCode" id="cb108"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb108-1"><a href="week-2.html#cb108-1" aria-hidden="true" tabindex="-1"></a>/usr/bin/curl</span></code></pre></div>
-<div class="sourceCode" id="cb109"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb109-1"><a href="week-2.html#cb109-1" aria-hidden="true" tabindex="-1"></a>$ which wget</span></code></pre></div>
-<div class="sourceCode" id="cb110"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb110-1"><a href="week-2.html#cb110-1" aria-hidden="true" tabindex="-1"></a>$</span></code></pre></div>
-<p>This output means that you have <code>curl</code> installed, but not <code>wget</code>.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb107-1"><a href="week-2.html#cb107-1" aria-hidden="true" tabindex="-1"></a>$ which wget</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb108-1"><a href="week-2.html#cb108-1" aria-hidden="true" tabindex="-1"></a>$ /usr/bin/wget</span></code></pre></div>
 <p>Once you know whether you have <code>curl</code> or <code>wget</code>, use one of the
 following commands to download the file:</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb111-1"><a href="week-2.html#cb111-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
-<span id="cb111-2"><a href="week-2.html#cb111-2" aria-hidden="true" tabindex="-1"></a>$ wget ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt</span></code></pre></div>
-<p>or</p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb112-1"><a href="week-2.html#cb112-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
-<span id="cb112-2"><a href="week-2.html#cb112-2" aria-hidden="true" tabindex="-1"></a>$ curl -O ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt</span></code></pre></div>
-<p>Since we wanted to <em>download</em> the file rather than just view it, we used <code>wget</code> without
-any modifiers. With <code>curl</code> however, we had to use the -O flag, which simultaneously tells <code>curl</code> to
-download the page instead of showing it to us <strong>and</strong> specifies that it should save the
-file using the same name it had on the server: species_EnsemblBacteria.txt</p>
-<p>It’s important to note that both <code>curl</code> and <code>wget</code> download to the computer that the
-command line belongs to. So, if you are logged into AWS on the command line and execute
-the <code>curl</code> command above in the AWS terminal, the file will be downloaded to your AWS
-machine, not your local one.</p>
+</p>
+</details>
+<p> </p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb109-1"><a href="week-2.html#cb109-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
+<span id="cb109-2"><a href="week-2.html#cb109-2" aria-hidden="true" tabindex="-1"></a>$ wget ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt</span></code></pre></div>
+<p>Let’s see if the file from ensembl downloaded</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb110-1"><a href="week-2.html#cb110-1" aria-hidden="true" tabindex="-1"></a>ls species_EnsemblBacteria.txt</span></code></pre></div>
+<p>it did!</p>
 </div>
-<div id="moving-files-between-your-laptop-and-your-instance" class="section level3" number="3.15.2">
-<h3><span class="header-section-number">3.15.2</span> Moving files between your laptop and your instance</h3>
-<p>What if the data you need is on your local computer, but you need to get it <em>into</em> the
-cloud? There are also several ways to do this, but it’s <em>always</em> easier
-to start the transfer locally. <strong>This means if you’re typing into a terminal, the terminal
-should not be logged into your instance, it should be showing your local computer. If you’re
-using a transfer program, it needs to be installed on your local machine, not your instance.</strong></p>
-</div>
-</div>
-<div id="transferring-data-between-your-local-machine-and-the-cloud" class="section level2" number="3.16">
-<h2><span class="header-section-number">3.16</span> Transferring Data Between your Local Machine and the Cloud</h2>
-<div id="uploading-data-to-your-virtual-machine-with-scp---unix" class="section level3" number="3.16.1">
-<h3><span class="header-section-number">3.16.1</span> Uploading Data to your Virtual Machine with scp - UNIX</h3>
+<div id="uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix" class="section level3" number="3.14.2">
+<h3><span class="header-section-number">3.14.2</span> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</h3>
+<p>This section is for your general knowledge.</p>
 <p><code>scp</code> stands for ‘secure copy protocol,’ and is a widely used UNIX tool for moving files
 between computers. The simplest way to use <code>scp</code> is to run it in your local terminal,
 and use it to copy a single file:</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb113-1"><a href="week-2.html#cb113-1" aria-hidden="true" tabindex="-1"></a>scp <span class="kw">&lt;file</span><span class="ot"> I want to move</span><span class="kw">&gt;</span> <span class="kw">&lt;where</span><span class="ot"> I want to move it</span><span class="kw">&gt;</span></span></code></pre></div>
-<p>Note that you are always running <code>scp</code> locally, but that <em>doesn’t</em> mean that
-you can only move files from your local computer. In order to move a file from your local computer to an AWS instance, the command would look like this:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb114-1"><a href="week-2.html#cb114-1" aria-hidden="true" tabindex="-1"></a>$ scp <span class="kw">&lt;local</span><span class="ot"> file</span><span class="kw">&gt;</span> <span class="kw">&lt;AWS</span><span class="ot"> instance</span><span class="kw">&gt;</span></span></code></pre></div>
-<p>To move it back to your local computer, you re-order the <code>to</code> and <code>from</code> fields:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb115-1"><a href="week-2.html#cb115-1" aria-hidden="true" tabindex="-1"></a>$ scp <span class="kw">&lt;AWS</span><span class="ot"> instance</span><span class="kw">&gt;</span> <span class="kw">&lt;local</span><span class="ot"> file</span><span class="kw">&gt;</span></span></code></pre></div>
-<div id="uploading-data-to-your-virtual-machine-with-scp" class="section level4" number="3.16.1.1">
-<h4><span class="header-section-number">3.16.1.1</span> Uploading Data to your Virtual Machine with scp</h4>
-<p>Open the terminal and use the <code>scp</code> command to upload a file (e.g. local_file.txt) to the dcuser home directory:</p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb116-1"><a href="week-2.html#cb116-1" aria-hidden="true" tabindex="-1"></a>$  scp local_file.txt dcuser@ip.address:/home/dcuser/</span></code></pre></div>
-</div>
-<div id="downloading-data-from-your-virtual-machine-with-scp" class="section level4" number="3.16.1.2">
-<h4><span class="header-section-number">3.16.1.2</span> Downloading Data from your Virtual Machine with scp</h4>
-<p>Let’s download a text file from our remote machine. You should have a file that contains bad reads called ~/data_week2/Week2/data_week2/scripted_bad_reads.txt.</p>
-<p>Download the bad reads file in ~/data_week2/Week2/data_week2/scripted_bad_reads.txt to your home ~/Download directory using the following command <strong>(make sure you substitute <a href="mailto:dcuser@ip.address" class="email">dcuser@ip.address</a> with your remote login credentials)</strong>:</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb117-1"><a href="week-2.html#cb117-1" aria-hidden="true" tabindex="-1"></a>$ scp dcuser@ip.address:/home/dcuser/data_week2/Week2/data_week2/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads</span></code></pre></div>
-Remember that in both instances, the command is run from your local machine, we’ve just flipped the order of the to and from parts of the command.
-</div>
-<div id="div_win" style="display:block" markdown="1">
-
-
-
+<div class="sourceCode" id="cb111"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb111-1"><a href="week-2.html#cb111-1" aria-hidden="true" tabindex="-1"></a>scp <span class="kw">&lt;file</span><span class="ot"> I want to move</span><span class="kw">&gt;</span> <span class="kw">&lt;where</span><span class="ot"> I want to move it</span><span class="kw">&gt;</span></span></code></pre></div>
+<p>In terminal,you can use the <code>scp</code> command to upload a file (e.g. local_file.txt) to the cluster home directory:</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb112-1"><a href="week-2.html#cb112-1" aria-hidden="true" tabindex="-1"></a>$  scp local_file.txt UserName@cluster.address:/scratch/</span></code></pre></div>
+<p>If you wanted to download data from your virtual machine, we would put the location of the folder within the virtual machine in the location of <file I want to move></p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb113-1"><a href="week-2.html#cb113-1" aria-hidden="true" tabindex="-1"></a>$  scp UserName@cluster.address:/scratch/VirtualMachine_file.txt /home/margeno/data_week2/Week2/data_week2/untrimmed_fastq/</span></code></pre></div>
 </div>
 </div>
-</div>
-<div id="project-organization" class="section level2" number="3.17">
-<h2><span class="header-section-number">3.17</span> Project Organization</h2>
-<ul>
-<li>Questions
-<ul>
-<li>How can I organize my file system for a new bioinformatics project?</li>
-<li>How can I document my work?</li>
-</ul></li>
-<li>Objectives:
-<ul>
-<li>Create a file system for a bioinformatics project.</li>
-<li>Explain what types of files should go in your <code>docs</code>, <code>data</code>, and <code>results</code> directories.</li>
-<li>Use the <code>history</code> command and a text editor like <code>nano</code> to document your work on your project.</li>
-</ul></li>
-<li>Keypoints:
-<ul>
-<li>Spend the time to organize your file system when you start a new project. Your future self will thank you!</li>
-<li>Always save a write-protected copy of your raw data.</li>
-</ul></li>
-</ul>
-</div>
-<div id="getting-your-project-started" class="section level2" number="3.18">
-<h2><span class="header-section-number">3.18</span> Getting your project started</h2>
-<p>Project organization is one of the most important parts of a sequencing project, and yet is often overlooked amidst the
-excitement of getting a first look at new data. Of course, while it’s best to get yourself organized before you even begin your analyses,
-it’s never too late to start, either.</p>
-<p>You should approach your sequencing project similarly to how you do a biological experiment and this ideally begins with experimental design. We’re going to assume that you’ve already designed a beautiful
-sequencing experiment to address your biological question, collected appropriate samples, and that you have
-enough statistical power to answer the questions you’re interested in asking. These
-steps are all incredibly important, but beyond the scope of our course.
-For all of those steps (collecting specimens, extracting DNA, prepping your samples)
-you’ve likely kept a lab notebook that details how and why you did each step. However, the process of documentation doesn’t stop at
-the sequencer!</p>
-<p>Genomics projects can quickly accumulate hundreds of files across
-tens of folders. Every computational analysis you perform over the course of your project is going to create
-many files, which can especially become a problem when you’ll inevitably want to run some of those
-analyses again. For instance, you might have made significant headway into your project, but then have to remember the PCR conditions
-you used to create your sequencing library months prior.</p>
-<p>Other questions might arise along the way:
-- What were your best alignment results?
-- Which folder were they in: Analysis1, AnalysisRedone, or AnalysisRedone2?
-- Which quality cutoff did you use?
-- What version of a given program did you implement your analysis in?</p>
-<p>Good documentation is key to avoiding this issue, and luckily enough,
-recording your computational experiments is even easier than recording lab data. Copy/Paste will become
-your best friend, sensible file names will make your analysis understandable by you and your collaborators, and
-writing the methods section for your next paper will be easy! Remember that in any given project of yours, it’s worthwhile to consider
-a future version of yourself as an entirely separate collaborator. The better your documenation is, the more this ‘collaborator’ will
-feel indebted to you!</p>
-<p>With this in mind, let’s have a look at the best practices for
-documenting your genomics project. Your future self will thank you.</p>
-<p>In this exercise we will setup a file system for the project we will be working on during this workshop.</p>
-<p>We will start by creating a directory that we can use for the rest of the workshop. First navigate to your home directory. Then confirm that you are in the correct directory using the <code>pwd</code> command.</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb118-1"><a href="week-2.html#cb118-1" aria-hidden="true" tabindex="-1"></a>$ cd</span>
-<span id="cb118-2"><a href="week-2.html#cb118-2" aria-hidden="true" tabindex="-1"></a>$ pwd</span></code></pre></div>
-<p>You should see the output:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb119-1"><a href="week-2.html#cb119-1" aria-hidden="true" tabindex="-1"></a>/home/margeno </span></code></pre></div>
-<blockquote>
-<h3 id="tip">Tip</h3>
-<p>If you aren’t in your home directory, the easiest way to get there is to enter the command <code>cd</code>, which
-always returns you to home.</p>
-</blockquote>
-<blockquote>
-<h3 id="exercise-13">Exercise</h3>
-<p>Use the <code>mkdir</code> command to make the following directories:<br />
-- <code>dc_workshop</code>
-- <code>dc_workshop/docs</code>
-- <code>dc_workshop/data</code>
-- <code>dc_workshop/results</code></p>
-</blockquote>
+<div id="awk" class="section level2" number="3.15">
+<h2><span class="header-section-number">3.15</span> Awk</h2>
+<p><code>Awk</code> is a fast and versatile pattern matching programming language. <code>Awk</code> can do the same tasks that <code>sed</code>, <code>grep</code>, <code>cat</code>, and <code>wc</code>; and then it can do a lot more <a href="https://www.gnu.org/software/gawk/manual/gawk.html" class="uri">https://www.gnu.org/software/gawk/manual/gawk.html</a>. This program deserves a full class to go into details, so instead we just have this section to make you aware that the program exists.</p>
 <details>
 <summary>
-Solution
+Awk commands examples
 </summary>
 <p>
-<blockquote>
-<blockquote>
-<h3 id="solution-13">Solution</h3>
-<div class="sourceCode" id="cb120"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb120-1"><a href="week-2.html#cb120-1" aria-hidden="true" tabindex="-1"></a>$ mkdir dc_workshop</span>
-<span id="cb120-2"><a href="week-2.html#cb120-2" aria-hidden="true" tabindex="-1"></a>$ mkdir dc_workshop/docs</span>
-<span id="cb120-3"><a href="week-2.html#cb120-3" aria-hidden="true" tabindex="-1"></a>$ mkdir dc_workshop/data</span>
-<span id="cb120-4"><a href="week-2.html#cb120-4" aria-hidden="true" tabindex="-1"></a>$ mkdir dc_workshop/results</span></code></pre></div>
-</blockquote>
-</blockquote>
-</p>
-</details>
-<p> </p>
-<p>Use <code>ls -R</code> to verify that you have created these directories. The <code>-R</code> option for <code>ls</code> stands for recursive. This option causes
-<code>ls</code> to return the contents of each subdirectory within the directory
-iteratively.</p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb121-1"><a href="week-2.html#cb121-1" aria-hidden="true" tabindex="-1"></a>$ ls -R dc_workshop</span></code></pre></div>
-<p>You should see the following output:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb122-1"><a href="week-2.html#cb122-1" aria-hidden="true" tabindex="-1"></a>dc_workshop/:</span>
-<span id="cb122-2"><a href="week-2.html#cb122-2" aria-hidden="true" tabindex="-1"></a>data  docs  results</span>
-<span id="cb122-3"><a href="week-2.html#cb122-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-4"><a href="week-2.html#cb122-4" aria-hidden="true" tabindex="-1"></a>dc_workshop/data:</span>
-<span id="cb122-5"><a href="week-2.html#cb122-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-6"><a href="week-2.html#cb122-6" aria-hidden="true" tabindex="-1"></a>dc_workshop/docs:</span>
-<span id="cb122-7"><a href="week-2.html#cb122-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-8"><a href="week-2.html#cb122-8" aria-hidden="true" tabindex="-1"></a>dc_workshop/results: </span></code></pre></div>
-</div>
-<div id="organizing-your-files" class="section level2" number="3.19">
-<h2><span class="header-section-number">3.19</span> Organizing your files</h2>
-<p>Before beginning any analysis, it’s important to save a copy of your
-raw data. The raw data should never be changed. Regardless of how
-sure you are that you want to carry out a particular data cleaning
-step, there’s always the chance that you’ll change your mind later
-or that there will be an error in carrying out the data cleaning and
-you’ll need to go back a step in the process. Having a raw copy of
-your data that you never modify guarantees that you will always be
-able to start over if something goes wrong with your analysis. When
-starting any analysis, you can make a copy of your raw data file and
-do your manipulations on that file, rather than the raw version. We
-learned in <a href="http://www.datacarpentry.org/shell-genomics/03-working-with-files/#file-permissions">a previous episode</a> how to prevent overwriting our raw data
-files by setting restrictive file permissions.</p>
-<p>You can store any results that are generated from your analysis in
-the <code>results</code> folder. This guarantees that you won’t confuse results
-file and data files in six months or two years when you are looking
-back through your files in preparation for publishing your study.</p>
-<p>The <code>docs</code> folder is the place to store any written analysis of your
-results, notes about how your analyses were carried out, and
-documents related to your eventual publication.</p>
-</div>
-<div id="documenting-your-activity-on-the-project" class="section level2" number="3.20">
-<h2><span class="header-section-number">3.20</span> Documenting your activity on the project</h2>
-<p>When carrying out wet-lab analyses, most scientists work from a
-written protocol and keep a hard copy of written notes in their lab
-notebook, including any things they did differently from the
-written protocol. This detailed
-record-keeping process is just as important when doing computational
-analyses. Luckily, it’s even easier to record the steps you’ve
-carried out computational than it is when working at the bench.</p>
-<p>The <code>history</code> command is a convenient way to document all the
-commands you have used while analyzing and manipulating your project
-files. Let’s document the work we have done on our project so far.</p>
-<p>View the commands that you have used so far during this session using <code>history</code>:</p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb123-1"><a href="week-2.html#cb123-1" aria-hidden="true" tabindex="-1"></a>$ history</span></code></pre></div>
-<p>The history likely contains many more commands than you have used for the current project. Let’s view the last
-several commands that focus on just what we need for this project.</p>
-<p>View the last n lines of your history (where n = approximately the last few lines you think relevant). For our example, we will use the last 7:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb124-1"><a href="week-2.html#cb124-1" aria-hidden="true" tabindex="-1"></a>$ history | tail -n 7</span></code></pre></div>
-<blockquote>
-<h3 id="exercise-14">Exercise</h3>
-<p>Using your knowledge of the shell, use the append redirect <code>&gt;&gt;</code> to create a file called
-<code>dc_workshop_log_XXXX_XX_XX.sh</code> (Use the four-digit year, two-digit month, and two digit day, e.g.
-<code>dc_workshop_log_2017_10_27.sh</code>)<br />
-&gt;</p>
-</blockquote>
-<details>
-<summary>
-Solution
-</summary>
-<p>
-<blockquote>
-<blockquote>
-<h3 id="solution-14">Solution</h3>
-<div class="sourceCode" id="cb125"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb125-1"><a href="week-2.html#cb125-1" aria-hidden="true" tabindex="-1"></a>$ history | tail -n 8 &gt;&gt; dc_workshop_log_2017_10_27.sh</span></code></pre></div>
-<p>Note we used the last 7 lines as an example, the number of lines may vary.</p>
-</blockquote>
-</blockquote>
-</p>
-</details>
-<p> </p>
-<p>You may have noticed that your history contains the <code>history</code> command itself. To remove this redundancy
-from our log, let’s use the <code>nano</code> text editor to fix the file:</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb126-1"><a href="week-2.html#cb126-1" aria-hidden="true" tabindex="-1"></a>$ nano dc_workshop_log_2017_10_27.sh</span></code></pre></div>
-<p>(Remember to replace the <code>2017_10_27</code> with your workshop date.)</p>
-<p>From the <code>nano</code> screen, you can use your cursor to navigate, type, and delete any redundant lines.</p>
-<blockquote>
-<h3 id="navigating-in-nano">Navigating in Nano</h3>
-<p>Although <code>nano</code> is useful, it can be frustrating to edit documents, as you
-can’t use your mouse to navigate to the part of the document you would like to edit.
-Here are some useful keyboard shortcuts for moving around within a text document in
-<code>nano</code>. You can find more information by typing <kbd>Ctrl</kbd>-<kbd>G</kbd> within <code>nano</code>.</p>
-<table>
-<thead>
-<tr class="header">
-<th>key</th>
-<th>action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><kbd>Ctrl</kbd>-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>-<kbd>→</kbd></td>
-<td>to move forward one word</td>
-</tr>
-<tr class="even">
-<td><kbd>Alt</kbd>-<kbd>Space</kbd> OR <kbd>Esc</kbd>-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>-<kbd>←</kbd></td>
-<td>to move back one word</td>
-</tr>
-<tr class="odd">
-<td><kbd>Ctrl</kbd>-<kbd>A</kbd></td>
-<td>to move to the beginning of the current line</td>
-</tr>
-<tr class="even">
-<td><kbd>Ctrl</kbd>-<kbd>E</kbd></td>
-<td>to move to the end of the current line</td>
-</tr>
-<tr class="odd">
-<td><kbd>Ctrl</kbd>-<kbd>W</kbd></td>
-<td>to search</td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<p>Add a date line and comment to the line where you have created the directory. Recall that any
-text on a line after a <code>#</code> is ignored by bash when evaluating the text as code. For example:</p>
-<div class="sourceCode" id="cb127"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb127-1"><a href="week-2.html#cb127-1" aria-hidden="true" tabindex="-1"></a># 2017_10_27   </span>
-<span id="cb127-2"><a href="week-2.html#cb127-2" aria-hidden="true" tabindex="-1"></a># Created sample directories for the Data Carpentry workshop  </span></code></pre></div>
-<p>Next, remove any lines of the history that are not relevant by navigating to those lines and using your
-delete key. Save your file and close <code>nano</code>.</p>
-<p>Your file should look something like this:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb128-1"><a href="week-2.html#cb128-1" aria-hidden="true" tabindex="-1"></a># 2017_10_27</span>
-<span id="cb128-2"><a href="week-2.html#cb128-2" aria-hidden="true" tabindex="-1"></a># Created sample directories for the Data Carpentry workshop</span>
-<span id="cb128-3"><a href="week-2.html#cb128-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb128-4"><a href="week-2.html#cb128-4" aria-hidden="true" tabindex="-1"></a>mkdir dc_workshop</span>
-<span id="cb128-5"><a href="week-2.html#cb128-5" aria-hidden="true" tabindex="-1"></a>mkdir dc_workshop/docs</span>
-<span id="cb128-6"><a href="week-2.html#cb128-6" aria-hidden="true" tabindex="-1"></a>mkdir dc_workshop/data</span>
-<span id="cb128-7"><a href="week-2.html#cb128-7" aria-hidden="true" tabindex="-1"></a>mkdir dc_workshop/results</span></code></pre></div>
-<p>If you keep this file up to date, you can use it to re-do your work on your project if something happens to your results files. To demonstrate how this works, first delete
-your <code>dc_workshop</code> directory and all of its subdirectories. Look at your directory
-contents to verify the directory is gone.</p>
-<div class="sourceCode" id="cb129"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb129-1"><a href="week-2.html#cb129-1" aria-hidden="true" tabindex="-1"></a>$ rm -r dc_workshop</span>
-<span id="cb129-2"><a href="week-2.html#cb129-2" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
-<div class="sourceCode" id="cb130"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb130-1"><a href="week-2.html#cb130-1" aria-hidden="true" tabindex="-1"></a>data_week2  dc_workshop_log_2017_10_27.sh</span></code></pre></div>
-<p>Then run your workshop log file as a bash script. You should see the <code>dc_workshop</code>
-directory and all of its subdirectories reappear.</p>
-<div class="sourceCode" id="cb131"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb131-1"><a href="week-2.html#cb131-1" aria-hidden="true" tabindex="-1"></a>$ bash dc_workshop_log_2017_10_27.sh</span>
-<span id="cb131-2"><a href="week-2.html#cb131-2" aria-hidden="true" tabindex="-1"></a>$ ls</span></code></pre></div>
-<div class="sourceCode" id="cb132"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb132-1"><a href="week-2.html#cb132-1" aria-hidden="true" tabindex="-1"></a>data_week2  dc_workshop dc_workshop_log_2017_10_27.sh</span></code></pre></div>
-<p>It’s important that we keep our workshop log file outside of our <code>dc_workshop</code> directory
-if we want to use it to recreate our work. It’s also important for us to keep it up to
-date by regularly updating with the commands that we used to generate our results files.</p>
-<p>Congratulations! You’ve finished your introduction to using the shell for genomics
-projects. You now know how to navigate your file system, create, copy, move,
-and remove files and directories, and automate repetitive tasks using scripts and
-wildcards. With this solid foundation, you’re ready to move on to apply all of these new
-skills to carrying out more sophisticated bioinformatics
-analysis work. Don’t worry if everything doesn’t feel perfectly comfortable yet. We’re
-going to have many more opportunities for practice as we move forward on our
-bioinformatics journey!</p>
-</div>
-<div id="awk" class="section level2" number="3.21">
-<h2><span class="header-section-number">3.21</span> Awk</h2>
-<p>If we need to count the number of lines in a file, we can use the previously
-showed command for word counting wc. Let’s use a representative table from the “Table S2. Significant QTL loci for mate choice and morphology” from the Bay et al. 2017 publication ~/data_week2/Week2/data_week2/TableS2_QTL_Bay_2017.txt</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb133-1"><a href="week-2.html#cb133-1" aria-hidden="true" tabindex="-1"></a>$ wc -l TableS2_QTL_Bay_2017.txt</span></code></pre></div>
-<div class="sourceCode" id="cb134"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb134-1"><a href="week-2.html#cb134-1" aria-hidden="true" tabindex="-1"></a>19 TableS2_QTL_Bay_2017.txt</span></code></pre></div>
-<p>As you probably remember, -l is an option that asks for the number of lines only.</p>
-<p>However, wc counts the number of newlines in the file, if the last line does
-not contain a carriage return (i.e. there is no emptyline at the end of the file),
-the result is going be the actual number of lines minus one.</p>
-<p>A workaround is to use Awk. Awk is command line program that takes as input a set
-of instructions and one or more files. The instructions are executed on each line
-of the input file(s).</p>
-<p>The instructions are enclosed in single quotes or they can be read from a file.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb135"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb135-1"><a href="week-2.html#cb135-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print $0}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
-<div class="sourceCode" id="cb136"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb136-1"><a href="week-2.html#cb136-1" aria-hidden="true" tabindex="-1"></a>Trait   n   LOD Chr Position (cM)   Nearest SNP </span>
-<span id="cb136-2"><a href="week-2.html#cb136-2" aria-hidden="true" tabindex="-1"></a>mate choice 200 4.5 14  22.43   chrXIV:1713227 </span>
-<span id="cb136-3"><a href="week-2.html#cb136-3" aria-hidden="true" tabindex="-1"></a>mate choice     200 4.61    21  8   chrXXI:9373717 </span>
-<span id="cb136-4"><a href="week-2.html#cb136-4" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.83    12  17  chrXII:7504339 </span>
-<span id="cb136-5"><a href="week-2.html#cb136-5" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.23    14  8.1 chrXIV:4632223 </span>
-<span id="cb136-6"><a href="week-2.html#cb136-6" aria-hidden="true" tabindex="-1"></a>PC2 200 4.04    4   30.76   chrIV:11367975 </span>
-<span id="cb136-7"><a href="week-2.html#cb136-7" aria-hidden="true" tabindex="-1"></a>PC2 200 6.67    7   47  chrVII:26448674 </span>
-<span id="cb136-8"><a href="week-2.html#cb136-8" aria-hidden="true" tabindex="-1"></a>centroid size   200 6.97    9   47.8    chrIX:19745222 </span>
-<span id="cb136-9"><a href="week-2.html#cb136-9" aria-hidden="true" tabindex="-1"></a>x2* 200 3.93    7   60  chrUn:29400087 </span>
-<span id="cb136-10"><a href="week-2.html#cb136-10" aria-hidden="true" tabindex="-1"></a>y2* 200 9.99    4   32  chrIV:11367975 </span>
-<span id="cb136-11"><a href="week-2.html#cb136-11" aria-hidden="true" tabindex="-1"></a>x3  200 4.45    1   32.3    chrI:15145305 </span>
-<span id="cb136-12"><a href="week-2.html#cb136-12" aria-hidden="true" tabindex="-1"></a>x4  200 5.13    16  30.9    chrXVI:12111717 </span>
-<span id="cb136-13"><a href="week-2.html#cb136-13" aria-hidden="true" tabindex="-1"></a>x5* 200 4.54    15  6   chrXV:505537 </span>
-<span id="cb136-14"><a href="week-2.html#cb136-14" aria-hidden="true" tabindex="-1"></a>y5  200 4.21    4   24.9    chrIV:15721538 </span>
-<span id="cb136-15"><a href="week-2.html#cb136-15" aria-hidden="true" tabindex="-1"></a>x6  200 3.96    16  29.5    chrXVI:13588796 </span>
-<span id="cb136-16"><a href="week-2.html#cb136-16" aria-hidden="true" tabindex="-1"></a>y6* 200 4.14    9   30.2    chrIX:18942598 </span>
-<span id="cb136-17"><a href="week-2.html#cb136-17" aria-hidden="true" tabindex="-1"></a>y15*    200 5.3 2   27  chrII:19324477 </span>
-<span id="cb136-18"><a href="week-2.html#cb136-18" aria-hidden="true" tabindex="-1"></a>x16 200 5.49    7   60  chrUn:29400087 </span>
-<span id="cb136-19"><a href="week-2.html#cb136-19" aria-hidden="true" tabindex="-1"></a>x17     200 4.92    1   32.8    chrI:14261764 </span>
-<span id="cb136-20"><a href="week-2.html#cb136-20" aria-hidden="true" tabindex="-1"></a>Table S2. Significant QTL loci for mate choice and morphology</span></code></pre></div>
-<p>This command has the same output of “cat”: it prints each line from the example.fasta
-file.</p>
+<p>Let’s see how awk can behave like <code>wc</code>.</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb114-1"><a href="week-2.html#cb114-1" aria-hidden="true" tabindex="-1"></a>$ cd /home/margeno/data_week2/Week2/data_week2</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb115-1"><a href="week-2.html#cb115-1" aria-hidden="true" tabindex="-1"></a>$ ls TableS2_QTL_Bay_2017.txt  sra_metadata  untrimmed_fastq</span></code></pre></div>
+<p>This table is from the Bay et al. 2017 publication ~/data_week2/Week2/data_week2/TableS2_QTL_Bay_2017.txt and we will use it as our example file for this section.</p>
+<p>We can look inside the file by using <code>cat</code> or <code>awk</code></p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb116-1"><a href="week-2.html#cb116-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print $0}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>The instructions are enclosed in single quotes</p>
+<p>This command has the same output of “cat”: it prints each line from the example file TableS2_QTL_Bay_2017.txt</p>
 <p>The structure of the instruction is the following:
 - curly braces surround the set of instructions
 - print is the instruction that sends its arguments to the terminal
 - $0 is a variable, it means “the content of the current line”</p>
 <p>As you can see, the file contains a table.</p>
-<p>Awk automatically splits the processed line by looking at spaces: in our case it has
-knowledge of the different columns in the table.</p>
-<p>Each column value for the current line is stored into a variable: $1 for the first
-column, $2 for the second and so on.</p>
-<p>So, if we like to print only the second column from the table, we execute</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb137-1"><a href="week-2.html#cb137-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print $2}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
-<div class="sourceCode" id="cb138"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb138-1"><a href="week-2.html#cb138-1" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-2"><a href="week-2.html#cb138-2" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-3"><a href="week-2.html#cb138-3" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-4"><a href="week-2.html#cb138-4" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-5"><a href="week-2.html#cb138-5" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-6"><a href="week-2.html#cb138-6" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-7"><a href="week-2.html#cb138-7" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-8"><a href="week-2.html#cb138-8" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-9"><a href="week-2.html#cb138-9" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-10"><a href="week-2.html#cb138-10" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-11"><a href="week-2.html#cb138-11" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-12"><a href="week-2.html#cb138-12" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-13"><a href="week-2.html#cb138-13" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-14"><a href="week-2.html#cb138-14" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-15"><a href="week-2.html#cb138-15" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-16"><a href="week-2.html#cb138-16" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-17"><a href="week-2.html#cb138-17" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-18"><a href="week-2.html#cb138-18" aria-hidden="true" tabindex="-1"></a>200</span>
-<span id="cb138-19"><a href="week-2.html#cb138-19" aria-hidden="true" tabindex="-1"></a>S2.</span></code></pre></div>
-<p>We can also print more than one value, or add text to the printed line:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb139-1"><a href="week-2.html#cb139-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print &quot;Significant_QTL_loci&quot;,$4,$5}&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
-<div class="sourceCode" id="cb140"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb140-1"><a href="week-2.html#cb140-1" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci Chr Position</span>
-<span id="cb140-2"><a href="week-2.html#cb140-2" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 14 22.43</span>
-<span id="cb140-3"><a href="week-2.html#cb140-3" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 21 8</span>
-<span id="cb140-4"><a href="week-2.html#cb140-4" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 12 17</span>
-<span id="cb140-5"><a href="week-2.html#cb140-5" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 14 8.1</span>
-<span id="cb140-6"><a href="week-2.html#cb140-6" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 4 30.76</span>
-<span id="cb140-7"><a href="week-2.html#cb140-7" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 7 47</span>
-<span id="cb140-8"><a href="week-2.html#cb140-8" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 9 47.8</span>
-<span id="cb140-9"><a href="week-2.html#cb140-9" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 7 60</span>
-<span id="cb140-10"><a href="week-2.html#cb140-10" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 4 32</span>
-<span id="cb140-11"><a href="week-2.html#cb140-11" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 1 32.3</span>
-<span id="cb140-12"><a href="week-2.html#cb140-12" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 16 30.9</span>
-<span id="cb140-13"><a href="week-2.html#cb140-13" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 15 6</span>
-<span id="cb140-14"><a href="week-2.html#cb140-14" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 4 24.9</span>
-<span id="cb140-15"><a href="week-2.html#cb140-15" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 16 29.5</span>
-<span id="cb140-16"><a href="week-2.html#cb140-16" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 9 30.2</span>
-<span id="cb140-17"><a href="week-2.html#cb140-17" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 2 27</span>
-<span id="cb140-18"><a href="week-2.html#cb140-18" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 7 60</span>
-<span id="cb140-19"><a href="week-2.html#cb140-19" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci 1 32.8</span>
-<span id="cb140-20"><a href="week-2.html#cb140-20" aria-hidden="true" tabindex="-1"></a>Significant_QTL_loci QTL loci </span></code></pre></div>
-<p>The comma puts a space between the printed values. Strings of text should be enclosed in
-double quotes. In this case we are printing the text “Significant_QTL_loci,” the fourth and the fifth column
-for each row in the table.</p>
-<p>So, $0 is the whole line, $1 the first field, $2 the second and so on. What if we want
-to print the last column, but we don’t know its number? Maybe it is a huge table, or maybe
-different lines have a different number of columns.</p>
-<p>Awk helps us thanks to the variable NF. NF stores the number of fields (our columns) in the row.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb117-1"><a href="week-2.html#cb117-1" aria-hidden="true" tabindex="-1"></a>Trait   n   LOD Chr Position (cM)   Nearest SNP </span>
+<span id="cb117-2"><a href="week-2.html#cb117-2" aria-hidden="true" tabindex="-1"></a>mate choice 200 4.5 14  22.43   chrXIV:1713227 </span>
+<span id="cb117-3"><a href="week-2.html#cb117-3" aria-hidden="true" tabindex="-1"></a>mate choice     200 4.61    21  8   chrXXI:9373717 </span>
+<span id="cb117-4"><a href="week-2.html#cb117-4" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.83    12  17  chrXII:7504339 </span>
+<span id="cb117-5"><a href="week-2.html#cb117-5" aria-hidden="true" tabindex="-1"></a>discriminant function   200 4.23    14  8.1 chrXIV:4632223 </span>
+<span id="cb117-6"><a href="week-2.html#cb117-6" aria-hidden="true" tabindex="-1"></a>PC2 200 4.04    4   30.76   chrIV:11367975 </span>
+<span id="cb117-7"><a href="week-2.html#cb117-7" aria-hidden="true" tabindex="-1"></a>PC2 200 6.67    7   47  chrVII:26448674 </span>
+<span id="cb117-8"><a href="week-2.html#cb117-8" aria-hidden="true" tabindex="-1"></a>centroid size   200 6.97    9   47.8    chrIX:19745222 </span>
+<span id="cb117-9"><a href="week-2.html#cb117-9" aria-hidden="true" tabindex="-1"></a>x2* 200 3.93    7   60  chrUn:29400087 </span>
+<span id="cb117-10"><a href="week-2.html#cb117-10" aria-hidden="true" tabindex="-1"></a>y2* 200 9.99    4   32  chrIV:11367975 </span>
+<span id="cb117-11"><a href="week-2.html#cb117-11" aria-hidden="true" tabindex="-1"></a>x3  200 4.45    1   32.3    chrI:15145305 </span>
+<span id="cb117-12"><a href="week-2.html#cb117-12" aria-hidden="true" tabindex="-1"></a>x4  200 5.13    16  30.9    chrXVI:12111717 </span>
+<span id="cb117-13"><a href="week-2.html#cb117-13" aria-hidden="true" tabindex="-1"></a>x5* 200 4.54    15  6   chrXV:505537 </span>
+<span id="cb117-14"><a href="week-2.html#cb117-14" aria-hidden="true" tabindex="-1"></a>y5  200 4.21    4   24.9    chrIV:15721538 </span>
+<span id="cb117-15"><a href="week-2.html#cb117-15" aria-hidden="true" tabindex="-1"></a>x6  200 3.96    16  29.5    chrXVI:13588796 </span>
+<span id="cb117-16"><a href="week-2.html#cb117-16" aria-hidden="true" tabindex="-1"></a>y6* 200 4.14    9   30.2    chrIX:18942598 </span>
+<span id="cb117-17"><a href="week-2.html#cb117-17" aria-hidden="true" tabindex="-1"></a>y15*    200 5.3 2   27  chrII:19324477 </span>
+<span id="cb117-18"><a href="week-2.html#cb117-18" aria-hidden="true" tabindex="-1"></a>x16 200 5.49    7   60  chrUn:29400087 </span>
+<span id="cb117-19"><a href="week-2.html#cb117-19" aria-hidden="true" tabindex="-1"></a>x17     200 4.92    1   32.8    chrI:14261764 </span>
+<span id="cb117-20"><a href="week-2.html#cb117-20" aria-hidden="true" tabindex="-1"></a>Table S2. Significant QTL loci for mate choice and morphology</span></code></pre></div>
+<p>Now let’s use <code>awk</code> to count the lines of a file, similarly to what <code>wc -l</code> would do.</p>
+<p>As you probably remember, -l is an option that asks for the number of lines only.</p>
+<p>However, wc counts the number of newlines in the file, if the last line does
+not contain a carriage return (i.e. there is no emptyline at the end of the file),
+the result is going be the actual number of lines minus one.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb118-1"><a href="week-2.html#cb118-1" aria-hidden="true" tabindex="-1"></a>$ wc -l TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb119-1"><a href="week-2.html#cb119-1" aria-hidden="true" tabindex="-1"></a>19 TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>A workaround is to use <code>awk</code>. <code>Awk</code> is command line program that takes as input a set
+of instructions and one or more files. The instructions are executed on each line
+of the input file(s).</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb120-1"><a href="week-2.html#cb120-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;{print NR;}&#39; TableS2_QTL_Bay_2017.txt | tail -1</span></code></pre></div>
+<p><code>Awk</code> can also search within a file like <code>grep</code> can. Let’s see if there are any significant QTL loci in the chromosome “chrXIV”</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb121-1"><a href="week-2.html#cb121-1" aria-hidden="true" tabindex="-1"></a>$ awk &#39;/chrXIV/&#39; TableS2_QTL_Bay_2017.txt</span></code></pre></div>
+<p>This chromosome had two significant QTL Loci for mate choice and morphology.</p>
+</p>
+</details>
+<p> </p>
+<p>When to use awk?</p>
+<ul>
+<li>for search and replacement of large files (it’s fast!)</li>
+<li>when manipulating multiple large files</li>
+</ul>
 
 </div>
 </div>
