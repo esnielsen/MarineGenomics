@@ -983,7 +983,7 @@ $ wc -l bad_reads.txt
 
 
 ```html
-802 bad_reads.txt
+537 bad_reads.txt
 ```
 
 
@@ -1012,7 +1012,7 @@ $ wc -l bad_reads.txt
 
 
 ```html
-802 bad_reads.txt
+537 bad_reads.txt
 ```
 
 
@@ -1023,7 +1023,7 @@ $ wc -l bad_reads.txt
 
 
 ```html
-802 bad_reads.txt
+537 bad_reads.txt
 ```
 
 
@@ -1038,7 +1038,7 @@ $ wc -l bad_reads.txt
 
 
 ```html
-802 bad_reads.txt
+537 bad_reads.txt
 ```
 
 

@@ -932,7 +932,7 @@ This is called “overwriting” and, just like you don’t want to overwrite yo
 of your kid’s first birthday party, you also want to avoid overwriting your data files.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb64-1"><a href="week-2.html#cb64-1" aria-hidden="true" tabindex="-1"></a>$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq &gt; bad_reads.txt</span>
 <span id="cb64-2"><a href="week-2.html#cb64-2" aria-hidden="true" tabindex="-1"></a>$ wc -l bad_reads.txt</span></code></pre></div>
-<div class="sourceCode" id="cb65"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb65-1"><a href="week-2.html#cb65-1" aria-hidden="true" tabindex="-1"></a>802 bad_reads.txt</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb65-1"><a href="week-2.html#cb65-1" aria-hidden="true" tabindex="-1"></a>537 bad_reads.txt</span></code></pre></div>
 <div class="sourceCode" id="cb66"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb66-1"><a href="week-2.html#cb66-1" aria-hidden="true" tabindex="-1"></a>$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq &gt; bad_reads.txt</span>
 <span id="cb66-2"><a href="week-2.html#cb66-2" aria-hidden="true" tabindex="-1"></a>$ wc -l bad_reads.txt</span></code></pre></div>
 <div class="sourceCode" id="cb67"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb67-1"><a href="week-2.html#cb67-1" aria-hidden="true" tabindex="-1"></a>0 bad_reads.txt</span></code></pre></div>
@@ -943,15 +943,15 @@ search sequence. So our file was overwritten and is now empty.</p>
 append new output to the end of a file, rather than overwriting it.</p>
 <div class="sourceCode" id="cb68"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb68-1"><a href="week-2.html#cb68-1" aria-hidden="true" tabindex="-1"></a>$ grep -B1 -A2 NNNNNNNNNN SRR098026.fastq &gt; bad_reads.txt</span>
 <span id="cb68-2"><a href="week-2.html#cb68-2" aria-hidden="true" tabindex="-1"></a>$ wc -l bad_reads.txt</span></code></pre></div>
-<div class="sourceCode" id="cb69"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb69-1"><a href="week-2.html#cb69-1" aria-hidden="true" tabindex="-1"></a>802 bad_reads.txt</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb69-1"><a href="week-2.html#cb69-1" aria-hidden="true" tabindex="-1"></a>537 bad_reads.txt</span></code></pre></div>
 <div class="sourceCode" id="cb70"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb70-1"><a href="week-2.html#cb70-1" aria-hidden="true" tabindex="-1"></a>$ grep -B1 -A2 NNNNNNNNNN SRR097977.fastq &gt;&gt; bad_reads.txt</span>
 <span id="cb70-2"><a href="week-2.html#cb70-2" aria-hidden="true" tabindex="-1"></a>$ wc -l bad_reads.txt</span></code></pre></div>
-<div class="sourceCode" id="cb71"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb71-1"><a href="week-2.html#cb71-1" aria-hidden="true" tabindex="-1"></a>802 bad_reads.txt</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb71-1"><a href="week-2.html#cb71-1" aria-hidden="true" tabindex="-1"></a>537 bad_reads.txt</span></code></pre></div>
 <p>The output of our second call to <code>wc</code> shows that we have not overwritten our original data.</p>
 <p>We can also do this with a single line of code by using a wildcard:</p>
 <div class="sourceCode" id="cb72"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb72-1"><a href="week-2.html#cb72-1" aria-hidden="true" tabindex="-1"></a>$ grep -B1 -A2 NNNNNNNNNN *.fastq &gt; bad_reads.txt</span>
 <span id="cb72-2"><a href="week-2.html#cb72-2" aria-hidden="true" tabindex="-1"></a>$ wc -l bad_reads.txt</span></code></pre></div>
-<div class="sourceCode" id="cb73"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb73-1"><a href="week-2.html#cb73-1" aria-hidden="true" tabindex="-1"></a>802 bad_reads.txt</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb73-1"><a href="week-2.html#cb73-1" aria-hidden="true" tabindex="-1"></a>537 bad_reads.txt</span></code></pre></div>
 <blockquote>
 <h3 id="file-extensions---part-2">File extensions - part 2</h3>
 <p>This is where we would have trouble if we were naming our output file with a <code>.fastq</code> extension.
