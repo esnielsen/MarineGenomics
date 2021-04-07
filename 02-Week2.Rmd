@@ -3,8 +3,8 @@ title: "Marine Genomics Week 2"
 author: 'The Carpentries, edited by Vanessa Guerra and Serena Caplins '
 date: "4/6/2021"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -462,9 +462,6 @@ The `#` character and each of the `!` characters represent the encoded quality f
 individual nucleotide. The numerical value assigned to each of these characters depends on the 
 sequencing platform that generated the reads. The sequencing machine used to generate our data 
 uses the standard Sanger quality PHRED score encoding, Illumina version 1.8 onwards.
-
-Link for what each symbol means: https://support.illumina.com/help/BaseSpace_OLH_009008/Content/Source/Informatics/BS/QualityScoreEncoding_swBS.htm
-
 Each character is assigned a quality score between 0 and 42 as shown in the chart below.
 
 ```html
@@ -591,7 +588,7 @@ characters relate to the permissions that the file owner has, the next three rel
 three characters specify what other users outside of your group can do with the file. We're going to concentrate on the three positions
 that deal with your permissions (as the file owner). 
 
-![Permissions breakdown](./figs/fig_week2/rwx_figure.png)
+![Permissions breakdown](./fig_week2/rwx_figure.png)
 
 Here the three positions that relate to the file owner are `rw-`. The `r` means that you have permission to read the file, the `w` 
 indicates that you have permission to write to (i.e. make changes to) the file, and the third position is a `-`, indicating that you 
@@ -893,7 +890,7 @@ $ wc bad_reads.txt
 
 
 ```html
-  537    1073   23217 bad_reads.txt
+  537  1073 23217 bad_reads.txt
 ```
 
 
@@ -983,7 +980,7 @@ $ wc -l bad_reads.txt
 
 
 ```html
-802 bad_reads.txt
+537 bad_reads.txt
 ```
 
 
@@ -1012,7 +1009,7 @@ $ wc -l bad_reads.txt
 
 
 ```html
-802 bad_reads.txt
+537 bad_reads.txt
 ```
 
 
@@ -1023,7 +1020,7 @@ $ wc -l bad_reads.txt
 
 
 ```html
-802 bad_reads.txt
+537 bad_reads.txt
 ```
 
 
@@ -1038,7 +1035,7 @@ $ wc -l bad_reads.txt
 
 
 ```html
-802 bad_reads.txt
+537 bad_reads.txt
 ```
 
 
@@ -1289,7 +1286,8 @@ $ for filename in *.fastq
 > done
 ```
 
-
+<details><summary>Exercise</summary>
+<p>
 
 
 > ### Exercise
@@ -1319,7 +1317,6 @@ $ for filename in *.fastq
 &nbsp;
 
 
-
 One way this is really useful is to move files. Let's rename all of our .txt files using `mv` so that they have the years on them, which will document when we created them. 
 
 ```html
@@ -1330,7 +1327,8 @@ $ for filename in *.txt
 > done
 ```
 
-
+<details><summary>Exercise</summary>
+<p>
 
 > ### Exercise
 >
@@ -1354,6 +1352,11 @@ $ for filename in *.txt
 >> 
 >>
 > 
+
+</p>
+</details>
+&nbsp;
+
 
 </p>
 </details>
@@ -1412,9 +1415,13 @@ $ nano README.txt
 
 You should see something like this: 
 
-![nano201711.png](./figs/img_week2/nano201711.png)
+![nano201711.png](./img_week2/nano201711.png)
 
 The text at the bottom of the screen shows the keyboard shortcuts for performing various tasks in `nano`. We will talk more about how to interpret this information soon.
+
+
+<details><summary>Which Editor?</summary>
+<p>
 
 > ### Which Editor?
 >
@@ -1439,6 +1446,9 @@ The text at the bottom of the screen shows the keyboard shortcuts for performing
 > documents directory instead. You can change this by navigating to
 > another directory the first time you "Save As..."
 
+</p>
+</details>
+&nbsp;
 
 Let's type in a few lines of text. Describe what the files in this
 directory are or what you've been doing with them.
@@ -1470,6 +1480,10 @@ return to the shell.
 
 Now you've written a file. You can take a look at it with `less` or `cat`, or open it up again and edit it with `nano`.
 
+
+<details><summary>Exercise</summary>
+<p>
+
 > ### Exercise
 >
 > Open `README.txt` and add the date to the top of the file and save the file. 
@@ -1485,6 +1499,11 @@ Now you've written a file. You can take a look at it with `less` or `cat`, or op
 > >
 > 
 >
+
+</p>
+</details>
+&nbsp;
+
 
 </p>
 </details>
@@ -1530,6 +1549,9 @@ $ bash bad-reads-script.sh
 It will look like nothing happened, but now if you look at `scripted_bad_reads.txt`, you can see that there are now reads in the file.
 
 
+<details><summary>Exercise</summary>
+<p>
+
 > ### Exercise
 >
 > We want the script to tell us when it's done.  
@@ -1553,7 +1575,13 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 </details>
 &nbsp;
 
-## Making the script into a program
+</p>
+</details>
+&nbsp;
+
+
+<details><summary>Making the script into a program Exercise</summary>
+<p>
 
 We had to type `bash` because we needed to tell the computer what program to use to run this script. Instead, we can turn this script into its own program. We need to tell it that it's a program by making it executable. We can do this by changing the file permissions. We talked about permissions in [an earlier episode](http://www.datacarpentry.org/shell-genomics/03-working-with-files/).
 
@@ -1565,11 +1593,14 @@ $ ls -l bad-reads-script.sh
 
 
 ```html
--rw-rw-r-- 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh
+-rw-rw-r-- 1 margeno margeno 75 Apr  8 12:46 bad-reads-script.sh
 ```
 
 
-We see that it says `-rw-r--r--`. This shows that the file can be read by any user and written to by the file owner (you). We want to change these permissions so that the file can be executed as a program. We use the command `chmod` like we did earlier when we removed write permissions. Here we are adding (`+`) executable permissions (`+x`).
+We see that it says `-rw-r--r--`. This shows that the file can be read by any user and written to by the file owner (you). We want to change these permissions so that the file can be executed as a program using `./` . 
+
+We use the command `chmod` like we did earlier when we removed write permissions. Here we are adding (`+`) executable permissions (`+x`).
+
 
 ```html
 $ chmod +x bad-reads-script.sh
@@ -1584,7 +1615,7 @@ $ ls -l bad-reads-script.sh
 
 
 ```html
--rwxrwxr-x 1 dcuser dcuser 0 Oct 25 21:46 bad-reads-script.sh
+-rwxrwxr-x 1 margeno margeno 75 Apr  8 12:48 bad-reads-script.sh
 ```
 
 
@@ -1594,16 +1625,16 @@ Now we see that it says `-rwxr-xr-x`. The `x`'s that are there now tell us we ca
 $ ./bad-reads-script.sh
 ```
 
-
 The script should run the same way as before, but now we've created our very own computer program!
 
-You will learn more about writing scripts in [a later lesson](https://datacarpentry.org/wrangling-genomics/05-automation/index.html).
+</p>
+</details>
+&nbsp;
+
 
 ## Moving and Downloading Data
 
-So far, we've worked with data that is pre-loaded on the instance in the cloud. Usually, however,
-most analyses begin with moving data onto the instance. Below we'll show you some commands to 
-download data onto your instance, or to move data between your computer and the cloud.
+Below we'll show you some commands to download data onto your instance, or to move data between your computer and the cloud.
 
 ### Getting data from the cloud
 
@@ -1621,8 +1652,12 @@ the same behaviour, but they are mostly interchangeable.
 Which one you need to use mostly depends on your operating system, as most computers will
 only have one or the other installed by default.
 
-Let's say you want to download some data from Ensembl. We're going to download a very small
-tab-delimited file that just tells us what data is available on the Ensembl bacteria server.
+Today we will use wget to download some data from Ensembl.
+
+
+<details><summary>Exercise</summary>
+<p>
+
 Before we can start our download, we need to know whether we're using ``curl`` or ``wget``.
 
 To see which program you have, type:
@@ -1640,15 +1675,6 @@ results.
 
 On Mac OSX, you'll likely get the following output:
 
-```html
-$ which curl
-```
-
-
-```html
-/usr/bin/curl
-```
-
 
 ```html
 $ which wget
@@ -1656,50 +1682,34 @@ $ which wget
 
 
 ```html
-$
+$ /usr/bin/wget
 ```
-
-
-This output means that you have ``curl`` installed, but not ``wget``.
 
 Once you know whether you have ``curl`` or ``wget``, use one of the
 following commands to download the file:
+
+</p>
+</details>
+&nbsp;
+
 
 ```html
 $ cd
 $ wget ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt
 ```
 
-
-or
+Let's see if the file from ensembl downloaded
 
 ```html
-$ cd
-$ curl -O ftp://ftp.ensemblgenomes.org/pub/release-37/bacteria/species_EnsemblBacteria.txt
+ls species_EnsemblBacteria.txt
 ```
 
+it did!
 
-Since we wanted to *download* the file rather than just view it, we used ``wget`` without
-any modifiers. With ``curl`` however, we had to use the -O flag, which simultaneously tells ``curl`` to
-download the page instead of showing it to us **and** specifies that it should save the
-file using the same name it had on the server: species_EnsemblBacteria.txt
 
-It's important to note that both ``curl`` and ``wget`` download to the computer that the
-command line belongs to. So, if you are logged into AWS on the command line and execute
-the ``curl`` command above in the AWS terminal, the file will be downloaded to your AWS
-machine, not your local one.
+### Uploading and Downloading Data to your Virtual Machine with scp - UNIX
 
-### Moving files between your laptop and your instance
-
-What if the data you need is on your local computer, but you need to get it *into* the
-cloud? There are also several ways to do this, but it's *always* easier
-to start the transfer locally. **This means if you're typing into a terminal, the terminal
-should not be logged into your instance, it should be showing your local computer. If you're
-using a transfer program, it needs to be installed on your local machine, not your instance.**
-
-## Transferring Data Between your Local Machine and the Cloud
-
-### Uploading Data to your Virtual Machine with scp - UNIX
+This section is for your general knowledge.
 
 `scp` stands for 'secure copy protocol', and is a widely used UNIX tool for moving files
 between computers. The simplest way to use `scp` is to run it in your local terminal,
@@ -1709,383 +1719,53 @@ and use it to copy a single file:
 scp <file I want to move> <where I want to move it>
 ```
 
-
-Note that you are always running `scp` locally, but that *doesn't* mean that
-you can only move files from your local computer. In order to move a file from your local computer to an AWS instance, the command would look like this:
+In terminal,you can use the `scp` command to upload a file (e.g. local_file.txt) to the cluster home directory:
 
 ```html
-$ scp <local file> <AWS instance>
+$  scp local_file.txt UserName@cluster.address:/scratch/
 ```
 
-
-To move it back to your local computer, you re-order the `to` and `from` fields:
+If you wanted to download data from your virtual machine, we would put the location of the folder within the virtual machine in the location of <file I want to move>
 
 ```html
-$ scp <AWS instance> <local file>
+$  scp UserName@cluster.address:/scratch/VirtualMachine_file.txt /home/margeno/data_week2/Week2/data_week2/untrimmed_fastq/
 ```
-
-
-#### Uploading Data to your Virtual Machine with scp
-
-Open the terminal and use the `scp` command to upload a file (e.g. local_file.txt) to the dcuser home directory:
-
-```html
-$  scp local_file.txt dcuser@ip.address:/home/dcuser/
-```
-
-
-#### Downloading Data from your Virtual Machine with scp
-
-Let's download a text file from our remote machine. You should have a file that contains bad reads called ~/data_week2/Week2/data_week2/scripted_bad_reads.txt.
-
-
-Download the bad reads file in ~/data_week2/Week2/data_week2/scripted_bad_reads.txt to your home ~/Download directory using the following command **(make sure you substitute dcuser@ip.address with your remote login credentials)**:
-
-```html
-$ scp dcuser@ip.address:/home/dcuser/data_week2/Week2/data_week2/untrimmed_fastq/scripted_bad_reads.txt ~/Downloads
-```
-
-
-Remember that in both instances, the command is run from your local machine, we've just flipped the order of the to and from parts of the command.
-</div>
-
-
-<div id="div_win" style="display:block" markdown="1">
-
-
-
-## Project Organization
-
-* Questions
-   + How can I organize my file system for a new bioinformatics project?
-   + How can I document my work?
-* Objectives:
-   + Create a file system for a bioinformatics project.
-   + Explain what types of files should go in your `docs`, `data`, and `results` directories.
-   + Use the `history` command and a text editor like `nano` to document your work on your project.
-* Keypoints:
-   + Spend the time to organize your file system when you start a new project. Your future self will thank you!
-   + Always save a write-protected copy of your raw data.
-
-
-## Getting your project started
-
-Project organization is one of the most important parts of a sequencing project, and yet is often overlooked amidst the
-excitement of getting a first look at new data. Of course, while it's best to get yourself organized before you even begin your analyses,
-it's never too late to start, either.  
-
-You should approach your sequencing project similarly to how you do a biological experiment and this ideally begins with experimental design. We're going to assume that you've already designed a beautiful 
-sequencing experiment to address your biological question, collected appropriate samples, and that you have 
-enough statistical power to answer the questions you're interested in asking. These 
-steps are all incredibly important, but beyond the scope of our course. 
-For all of those steps (collecting specimens, extracting DNA, prepping your samples)
-you've likely kept a lab notebook that details how and why you did each step. However, the process of documentation doesn't stop at 
-the sequencer!  
-
-Genomics projects can quickly accumulate hundreds of files across 
-tens of folders. Every computational analysis you perform over the course of your project is going to create
-many files, which can especially become a problem when you'll inevitably want to run some of those
-analyses again. For instance, you might have made significant headway into your project, but then have to remember the PCR conditions
-you used to create your sequencing library months prior. 
-
-Other questions might arise along the way: 
-- What were your best alignment results?
-- Which folder were they in: Analysis1, AnalysisRedone, or AnalysisRedone2?
-- Which quality cutoff did you use?
-- What version of a given program did you implement your analysis in?
-
-Good documentation is key to avoiding this issue, and luckily enough,
-recording your computational experiments is even easier than recording lab data. Copy/Paste will become
-your best friend, sensible file names will make your analysis understandable by you and your collaborators, and 
-writing the methods section for your next paper will be easy! Remember that in any given project of yours, it's worthwhile to consider
-a future version of yourself as an entirely separate collaborator. The better your documenation is, the more this 'collaborator' will
-feel indebted to you!
-
-With this in mind, let's have a look at the best practices for 
-documenting your genomics project. Your future self will thank you.  
-
-In this exercise we will setup a file system for the project we will be working on during this workshop.  
-
-We will start by creating a directory that we can use for the rest of the workshop. First navigate to your home directory. Then confirm that you are in the correct directory using the `pwd` command.
-
-```html
-$ cd
-$ pwd
-```
-
-
-You should see the output: 
-
-```html
-/home/margeno 
-```
-
-
-> ### Tip  
-> If you aren't in your home directory, the easiest way to get there is to enter the command `cd`, which
-> always returns you to home.  
-
-
-> ### Exercise  
-> Use the `mkdir` command to make the following directories:   
-> - `dc_workshop`
-> - `dc_workshop/docs`
-> - `dc_workshop/data`
-> - `dc_workshop/results`
-> 
-
-
-<details><summary>Solution</summary>
-<p>
-
-
-> > ### Solution
-> > 
-> > ```html
-> > $ mkdir dc_workshop
-> > $ mkdir dc_workshop/docs
-> > $ mkdir dc_workshop/data
-> > $ mkdir dc_workshop/results
-> > ```
-> > 
-> 
-
-</p>
-</details>
-&nbsp;
-
-
-Use `ls -R` to verify that you have created these directories. The `-R` option for `ls` stands for recursive. This option causes
-`ls` to return the contents of each subdirectory within the directory
-iteratively. 
-
-```html
-$ ls -R dc_workshop
-```
-
-
-You should see the following output:
-
-```html
-dc_workshop/:
-data  docs  results
-
-dc_workshop/data:
-
-dc_workshop/docs:
-
-dc_workshop/results: 
-```
-
-## Organizing your files
-
-Before beginning any analysis, it's important to save a copy of your
-raw data. The raw data should never be changed. Regardless of how
-sure you are that you want to carry out a particular data cleaning
-step, there's always the chance that you'll change your mind later 
-or that there will be an error in carrying out the data cleaning and
-you'll need to go back a step in the process. Having a raw copy of 
-your data that you never modify guarantees that you will always be
-able to start over if something goes wrong with your analysis. When
-starting any analysis, you can make a copy of your raw data file and
-do your manipulations on that file, rather than the raw version. We
-learned in [a previous episode](http://www.datacarpentry.org/shell-genomics/03-working-with-files/#file-permissions) how to prevent overwriting our raw data
-files by setting restrictive file permissions. 
-
-You can store any results that are generated from your analysis in
-the `results` folder. This guarantees that you won't confuse results
-file and data files in six months or two years when you are looking
-back through your files in preparation for publishing your study.
-
-The `docs` folder is the place to store any written analysis of your
-results, notes about how your analyses were carried out, and 
-documents related to your eventual publication.
-
-## Documenting your activity on the project
-
-When carrying out wet-lab analyses, most scientists work from a 
-written protocol and keep a hard copy of written notes in their lab
-notebook, including any things they did differently from the 
-written protocol. This detailed
-record-keeping process is just as important when doing computational
-analyses. Luckily, it's even easier to record the steps you've 
-carried out computational than it is when working at the bench.
-
-The `history` command is a convenient way to document all the
-commands you have used while analyzing and manipulating your project
-files. Let's document the work we have done on our project so far. 
-
-View the commands that you have used so far during this session using `history`:
-
-```html
-$ history
-```
-
-
-The history likely contains many more commands than you have used for the current project. Let's view the last
-several commands that focus on just what we need for this project.   
-
-View the last n lines of your history (where n = approximately the last few lines you think relevant). For our example, we will use the last 7:
-
-```html   
-$ history | tail -n 7
-```
-
-
-> ### Exercise
-> Using your knowledge of the shell, use the append redirect `>>` to create a file called
-> `dc_workshop_log_XXXX_XX_XX.sh` (Use the four-digit year, two-digit month, and two digit day, e.g.
-> `dc_workshop_log_2017_10_27.sh`)  
-> > 
-
-<details><summary>Solution</summary>
-<p>
-
-
-> > ### Solution
-> > ```html
-> > $ history | tail -n 8 >> dc_workshop_log_2017_10_27.sh
-> > ```
-> > 
-> > Note we used the last 7 lines as an example, the number of lines may vary.
-> 
-
-</p>
-</details>
-&nbsp;
-
-You may have noticed that your history contains the `history` command itself. To remove this redundancy
-from our log, let's use the `nano` text editor to fix the file:  
-
-```html
-$ nano dc_workshop_log_2017_10_27.sh
-```
-
-
-(Remember to replace the `2017_10_27` with your workshop date.)
-
-From the `nano` screen, you can use your cursor to navigate, type, and delete any redundant lines.   
-
-> ### Navigating in Nano
-> 
-> Although `nano` is useful, it can be frustrating to edit documents, as you 
-> can't use your mouse to navigate to the part of the document you would like to edit.
-> Here are some useful keyboard shortcuts for moving around within a text document in 
-> `nano`. You can find more information by typing <kbd>Ctrl</kbd>-<kbd>G</kbd> within `nano`.
-> 
-> | key     | action |
-> | ------- | ---------- |
-> | <kbd>Ctrl</kbd>-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>-<kbd>→</kbd> | to move forward one word |
-> | <kbd>Alt</kbd>-<kbd>Space</kbd> OR <kbd>Esc</kbd>-<kbd>Space</kbd> OR <kbd>Ctrl</kbd>-<kbd>←</kbd> | to move back one word |
-> | <kbd>Ctrl</kbd>-<kbd>A</kbd> | to move to the beginning of the current line |
-> | <kbd>Ctrl</kbd>-<kbd>E</kbd> | to move to the end of the current line |
-> | <kbd>Ctrl</kbd>-<kbd>W</kbd> | to search |
-> 
-
-
-Add a date line and comment to the line where you have created the directory. Recall that any
-text on a line after a `#` is ignored by bash when evaluating the text as code. For example:   
-
-```html
-# 2017_10_27   
-# Created sample directories for the Data Carpentry workshop  
-```
-
-
-Next, remove any lines of the history that are not relevant by navigating to those lines and using your 
-delete key. Save your file and close `nano`.
-
-Your file should look something like this: 
-
-```html
-# 2017_10_27
-# Created sample directories for the Data Carpentry workshop
-
-mkdir dc_workshop
-mkdir dc_workshop/docs
-mkdir dc_workshop/data
-mkdir dc_workshop/results
-```
-
-
-If you keep this file up to date, you can use it to re-do your work on your project if something happens to your results files. To demonstrate how this works, first delete
-your `dc_workshop` directory and all of its subdirectories. Look at your directory 
-contents to verify the directory is gone. 
-
-```html
-$ rm -r dc_workshop
-$ ls
-```
-
-
-```html
-data_week2	dc_workshop_log_2017_10_27.sh
-```
-
-
-Then run your workshop log file as a bash script. You should see the `dc_workshop`
-directory and all of its subdirectories reappear. 
-
-```html
-$ bash dc_workshop_log_2017_10_27.sh
-$ ls
-```
-
-
-```html
-data_week2	dc_workshop dc_workshop_log_2017_10_27.sh
-```
-
-
-It's important that we keep our workshop log file outside of our `dc_workshop` directory
-if we want to use it to recreate our work. It's also important for us to keep it up to
-date by regularly updating with the commands that we used to generate our results files.
-
-Congratulations! You've finished your introduction to using the shell for genomics
-projects. You now know how to navigate your file system, create, copy, move,
-and remove files and directories, and automate repetitive tasks using scripts and 
-wildcards. With this solid foundation, you're ready to move on to apply all of these new
-skills to carrying out more sophisticated bioinformatics
-analysis work. Don't worry if everything doesn't feel perfectly comfortable yet. We're
-going to have many more opportunities for practice as we move forward on our 
-bioinformatics journey!
-
 
 ## Awk
 
-If we need to count the number of lines in a file, we can use the previously
-showed command for word counting wc. Let's use a representative table from the "Table S2. Significant QTL loci for mate choice and morphology" from the Bay et al. 2017 publication ~/data_week2/Week2/data_week2/TableS2_QTL_Bay_2017.txt 
+`Awk` is a fast and versatile pattern matching programming language. `Awk` can do the same tasks that `sed`, `grep`, `cat`, and `wc`; and then it can do a lot more https://www.gnu.org/software/gawk/manual/gawk.html. This program deserves a full class to go into details, so instead we just have this section to make you aware that the program exists. 
 
+<details><summary>Awk commands examples</summary>
+<p>
 
-```html 
-$ wc -l TableS2_QTL_Bay_2017.txt
-```
-
+Let's see how awk can behave like `wc`.
 
 ```html
-19 TableS2_QTL_Bay_2017.txt
+$ cd /home/margeno/data_week2/Week2/data_week2
 ```
 
+```html
+$ ls TableS2_QTL_Bay_2017.txt  sra_metadata  untrimmed_fastq
+```
 
-As you probably remember, -l is an option that asks for the number of lines only.
+This table is from the Bay et al. 2017 publication ~/data_week2/Week2/data_week2/TableS2_QTL_Bay_2017.txt and we will use it as our example file for this section.
 
-However, wc counts the number of newlines in the file, if the last line does
-not contain a carriage return (i.e. there is no emptyline at the end of the file),
-the result is going be the actual number of lines minus one.
-	
-A workaround is to use Awk. Awk is command line program that takes as input a set
-of instructions and one or more files. The instructions are executed on each line
-of the input file(s).
-
-The instructions are enclosed in single quotes or they can be read from a file.
-
-Example:
-
+We can look inside the file by using `cat` or `awk`
 
 ```html 
 $ awk '{print $0}' TableS2_QTL_Bay_2017.txt
 ```
 
+The instructions are enclosed in single quotes
+
+This command has the same output of "cat": it prints each line from the example file TableS2_QTL_Bay_2017.txt
+
+The structure of the instruction is the following:
+- curly braces surround the set of instructions
+- print is the instruction that sends its arguments to the terminal
+- $0 is a variable, it means "the content of the current line"
+
+As you can see, the file contains a table.
 
 ```html
 Trait 	n	LOD	Chr	Position (cM) 	Nearest SNP 
@@ -2108,96 +1788,48 @@ y15*	200	5.3	2	27	chrII:19324477
 x16	200	5.49	7	60	chrUn:29400087 
 x17 	200	4.92	1	32.8	chrI:14261764 
 Table S2. Significant QTL loci for mate choice and morphology
-```
+``` 
 
-This command has the same output of "cat": it prints each line from the example.fasta
-file.
+Now let's use `awk` to count the lines of a file, similarly to what `wc -l` would do. 
 
-The structure of the instruction is the following:
-- curly braces surround the set of instructions
-- print is the instruction that sends its arguments to the terminal
-- $0 is a variable, it means "the content of the current line"
+As you probably remember, -l is an option that asks for the number of lines only.
 
-As you can see, the file contains a table.
-
-Awk automatically splits the processed line by looking at spaces: in our case it has
-knowledge of the different columns in the table.
-
-Each column value for the current line is stored into a variable: $1 for the first
-column, $2 for the second and so on.
-
-So, if we like to print only the second column from the table, we execute
-
+However, wc counts the number of newlines in the file, if the last line does
+not contain a carriage return (i.e. there is no emptyline at the end of the file),
+the result is going be the actual number of lines minus one.
 
 ```html 
-$ awk '{print $2}' TableS2_QTL_Bay_2017.txt
+$ wc -l TableS2_QTL_Bay_2017.txt
 ```
-
 
 ```html
-200
-200
-200
-200
-200
-200
-200
-200
-200
-200
-200
-200
-200
-200
-200
-200
-200
-200
-S2.
+19 TableS2_QTL_Bay_2017.txt
 ```
-
-
-We can also print more than one value, or add text to the printed line:
-
-
-
-```html 
-$ awk '{print "Significant_QTL_loci",$4,$5}' TableS2_QTL_Bay_2017.txt
-```
-
+	
+A workaround is to use `awk`. `Awk` is command line program that takes as input a set
+of instructions and one or more files. The instructions are executed on each line
+of the input file(s).
 
 ```html
-Significant_QTL_loci Chr Position
-Significant_QTL_loci 14 22.43
-Significant_QTL_loci 21 8
-Significant_QTL_loci 12 17
-Significant_QTL_loci 14 8.1
-Significant_QTL_loci 4 30.76
-Significant_QTL_loci 7 47
-Significant_QTL_loci 9 47.8
-Significant_QTL_loci 7 60
-Significant_QTL_loci 4 32
-Significant_QTL_loci 1 32.3
-Significant_QTL_loci 16 30.9
-Significant_QTL_loci 15 6
-Significant_QTL_loci 4 24.9
-Significant_QTL_loci 16 29.5
-Significant_QTL_loci 9 30.2
-Significant_QTL_loci 2 27
-Significant_QTL_loci 7 60
-Significant_QTL_loci 1 32.8
-Significant_QTL_loci QTL loci 
+$ awk '{print NR;}' TableS2_QTL_Bay_2017.txt | tail -1
 ```
 
-The comma puts a space between the printed values. Strings of text should be enclosed in
-double quotes. In this case we are printing the text "Significant_QTL_loci", the fourth and the fifth column
-for each row in the table.
+`Awk` can also search within a file like `grep` can. Let's see if there are any significant QTL loci in the chromosome "chrXIV" 
 
-So, $0 is the whole line, $1 the first field, $2 the second and so on. What if we want
-to print the last column, but we don't know its number? Maybe it is a huge table, or maybe
-different lines have a different number of columns.
+```html
+$ awk '/chrXIV/' TableS2_QTL_Bay_2017.txt
+```
+This chromosome had two significant QTL Loci for mate choice and morphology. 
 
-Awk helps us thanks to the variable NF. NF stores the number of fields (our columns) in the row. 
+</p>
+</details>
+&nbsp;
+
+
+When to use awk? 
+
+ *  for search and replacement of large files (it's fast!)
+ *  when manipulating multiple large files
 
 
 
