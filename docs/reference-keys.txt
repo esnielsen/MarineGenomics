@@ -71,3 +71,12 @@ uploading-data-to-your-virtual-machine-with-scp---unix
 project-organization
 awk
 uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix
+week-3
+what-is-a-genetic-variant
+to-get-started-lets-dowload-the-data-and-install-a-few-programs
+raw-read-quality-control
+trimming-to-remove-adapters
+building-an-index-of-our-genome
+map-reads-to-the-genome
+sam-to-bam-file-conversion
+genotype-likelihoods
