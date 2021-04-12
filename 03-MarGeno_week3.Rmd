@@ -15,7 +15,7 @@ knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
 
 ## What is a Genetic Variant?
 
-You'll find the lecture discussing the definition and identification of genetic variation [here](ppt/MarineGenomics_Lecture3.pdf)
+You'll find the lecture discussing the definition and identification of genetic variation [here](https://github.com/BayLab/MarineGenomics/blob/0e7ead526047e02518c33d01e3a6c88d6a3068a3/ppt/MarineGenomics_Lecture3.pdf)
 
 
 ## To get started lets dowload the data and install a few programs
