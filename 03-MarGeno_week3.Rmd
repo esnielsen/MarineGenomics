@@ -201,11 +201,16 @@ ls *.bam > bam.filelist
 
 ```
 
+Look at the list:
+```html
+cat bam.filelist
+```
+
 Run the following code to calculate genotype likelihoods
 
 ```html
 
-../angsd/angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1
+../../angsd/angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1
 
 ```
 
