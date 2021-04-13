@@ -102,14 +102,14 @@ There are many programs to trim sequence files. We'll use the same paper that wa
 
 
 ```html
-$ cutadapt -a SEQUENCETOTRIM -o name_of_input_file name_of_output_file 
+$ cutadapt -g SEQUENCETOTRIM -o name_of_input_file name_of_output_file 
 
 ```
 
 Let's do this on one of our files to test it out.
 
 ```html
-cutadapt -a TGCAG SRR6805880.tiny.fastq.gz -o SRR6805880.tiny_trimmed.fastq.gz 
+cutadapt -g TGCAG SRR6805880.tiny.fastq.gz -o SRR6805880.tiny_trimmed.fastq.gz 
 
 ```
 This works for a single file, but if we want to do it for all our read files we need to either do them all individually (slow and error prone) or use a for loop.
@@ -129,6 +129,10 @@ done
 
 Yay! You should see a little report for each of these files that showing how many reads were trimmed and some other info (how long are the reads, etc)
 
+You can check if the trimmed files are there with:
+```html
+ls *trimmed*
+```
 
 Our reads are now ready to be mapped to the genome.
 
@@ -140,7 +144,7 @@ We give bowtie2-build two things, the name of our genome, and a general name to 
 
 ```html
 
-bowtie2-build bowtie2-build Ppar_tinygenome.fna.gz Ppar_tinygenome
+bowtie2-build Ppar_tinygenome.fna.gz Ppar_tinygenome
 
 ```
 This should produce several output files with extensions including: .bt2 and rev.1.bt2 etc (six files in total)

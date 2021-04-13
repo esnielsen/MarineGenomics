@@ -270,9 +270,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="trimming-to-remove-adapters" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Trimming to remove adapters</h2>
 <p>There are many programs to trim sequence files. We’ll use the same paper that was used in the Xuereb et al. 2018 paper [here]. Cutadapt is relatively easy to run with the code below, once we have identified our adaptor sequence and takes the general form below.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="week-3.html#cb8-1" aria-hidden="true" tabindex="-1"></a>$ cutadapt -a SEQUENCETOTRIM -o name_of_input_file name_of_output_file </span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="week-3.html#cb8-1" aria-hidden="true" tabindex="-1"></a>$ cutadapt -g SEQUENCETOTRIM -o name_of_input_file name_of_output_file </span></code></pre></div>
 <p>Let’s do this on one of our files to test it out.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="week-3.html#cb9-1" aria-hidden="true" tabindex="-1"></a>cutadapt -a TGCAG SRR6805880.tiny.fastq.gz -o SRR6805880.tiny_trimmed.fastq.gz </span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="week-3.html#cb9-1" aria-hidden="true" tabindex="-1"></a>cutadapt -g TGCAG SRR6805880.tiny.fastq.gz -o SRR6805880.tiny_trimmed.fastq.gz </span></code></pre></div>
 <p>This works for a single file, but if we want to do it for all our read files we need to either do them all individually (slow and error prone) or use a for loop.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="week-3.html#cb10-1" aria-hidden="true" tabindex="-1"></a>for filename in *.tiny.fastq.gz</span>
 <span id="cb10-2"><a href="week-3.html#cb10-2" aria-hidden="true" tabindex="-1"></a>do</span>
@@ -284,28 +284,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-8"><a href="week-3.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-9"><a href="week-3.html#cb10-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
 <p>Yay! You should see a little report for each of these files that showing how many reads were trimmed and some other info (how long are the reads, etc)</p>
+<p>You can check if the trimmed files are there with:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="week-3.html#cb11-1" aria-hidden="true" tabindex="-1"></a>ls *trimmed*</span></code></pre></div>
 <p>Our reads are now ready to be mapped to the genome.</p>
 </div>
 <div id="building-an-index-of-our-genome" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> Building an index of our genome</h2>
 <p>First we have to index our genome. We’ll do that with the bowtie2-build command. This will generate a lot of files that describe different aspects of our genome</p>
 <p>We give bowtie2-build two things, the name of our genome, and a general name to label the output files. I always keep the name of the output files the same as the original genome file (without the .fna.gz extension) to avoid confusion (what’s this file for?).</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="week-3.html#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-2"><a href="week-3.html#cb11-2" aria-hidden="true" tabindex="-1"></a>bowtie2-build bowtie2-build Ppar_tinygenome.fna.gz Ppar_tinygenome</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="week-3.html#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="week-3.html#cb12-2" aria-hidden="true" tabindex="-1"></a>bowtie2-build Ppar_tinygenome.fna.gz Ppar_tinygenome</span></code></pre></div>
 <p>This should produce several output files with extensions including: .bt2 and rev.1.bt2 etc (six files in total)</p>
 </div>
 <div id="map-reads-to-the-genome" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Map reads to the genome</h2>
 <p>Let’s map those reads using a for loop</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="week-3.html#cb12-1" aria-hidden="true" tabindex="-1"></a>for filename in *.tiny.fastq.gz</span>
-<span id="cb12-2"><a href="week-3.html#cb12-2" aria-hidden="true" tabindex="-1"></a>do</span>
-<span id="cb12-3"><a href="week-3.html#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="week-3.html#cb12-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny.fastq.gz)</span>
-<span id="cb12-5"><a href="week-3.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  echo=${base}</span>
-<span id="cb12-6"><a href="week-3.html#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="week-3.html#cb12-7" aria-hidden="true" tabindex="-1"></a>  bowtie2 -x Ppar_tinygenome -U ${base}.tiny.fastq.gz -S ${base}.sam</span>
-<span id="cb12-8"><a href="week-3.html#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="week-3.html#cb12-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="week-3.html#cb13-1" aria-hidden="true" tabindex="-1"></a>for filename in *.tiny.fastq.gz</span>
+<span id="cb13-2"><a href="week-3.html#cb13-2" aria-hidden="true" tabindex="-1"></a>do</span>
+<span id="cb13-3"><a href="week-3.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="week-3.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny.fastq.gz)</span>
+<span id="cb13-5"><a href="week-3.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  echo=${base}</span>
+<span id="cb13-6"><a href="week-3.html#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="week-3.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  bowtie2 -x Ppar_tinygenome -U ${base}.tiny.fastq.gz -S ${base}.sam</span>
+<span id="cb13-8"><a href="week-3.html#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="week-3.html#cb13-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
 <p>You should see a bunch of text telling you all about how well our reads mapped to the genome. For this example we’re getting a low percentage (20-30%) because of how the genome and reads were subset for this exercise. The full genome and full read files have a much higher mapping rate (70-80%) than our subset.</p>
 <p>You’ll also notice that we have made a bunch of .sam files. THis stands for Sequence Alignment Map file. Let’s use <code>less</code> to look at one of these files using <code>less</code></p>
 <p>There are several columns of data in a sam file</p>
@@ -313,25 +315,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="sam-to-bam-file-conversion" class="section level2" number="4.7">
 <h2><span class="header-section-number">4.7</span> sam to bam file conversion</h2>
 <p>The next step is to convert our sam file to a bam (Binary Alignment Map file). This gets our file ready to be read by angsd the program we’re going to use to call SNPs.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="week-3.html#cb13-1" aria-hidden="true" tabindex="-1"></a>for filename in *.sam</span>
-<span id="cb13-2"><a href="week-3.html#cb13-2" aria-hidden="true" tabindex="-1"></a>do</span>
-<span id="cb13-3"><a href="week-3.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="week-3.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .sam)</span>
-<span id="cb13-5"><a href="week-3.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  echo=${base}</span>
-<span id="cb13-6"><a href="week-3.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb13-7"><a href="week-3.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  samtools view -bhS ${base}.sam | samtools sort -o ${base}.bam</span>
-<span id="cb13-8"><a href="week-3.html#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="week-3.html#cb13-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="week-3.html#cb14-1" aria-hidden="true" tabindex="-1"></a>for filename in *.sam</span>
+<span id="cb14-2"><a href="week-3.html#cb14-2" aria-hidden="true" tabindex="-1"></a>do</span>
+<span id="cb14-3"><a href="week-3.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="week-3.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .sam)</span>
+<span id="cb14-5"><a href="week-3.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  echo=${base}</span>
+<span id="cb14-6"><a href="week-3.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-7"><a href="week-3.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  samtools view -bhS ${base}.sam | samtools sort -o ${base}.bam</span>
+<span id="cb14-8"><a href="week-3.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="week-3.html#cb14-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
 </div>
 <div id="genotype-likelihoods" class="section level2" number="4.8">
 <h2><span class="header-section-number">4.8</span> Genotype likelihoods</h2>
 <p>There are many ways and many programs that call genotypes. The program that we will use calculates genotype likelihoods, which account for uncertainty due to sequencing errors and/or mapping errors and is one of several programs in the package ANGSD. The purpose of this class is not to discuss which program is the “best,” but to teach you to use some commonly used programs.</p>
 <p>angsd needs a text file with the <code>.bam</code> file names listed. We can make that by running the command below</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="week-3.html#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-2"><a href="week-3.html#cb14-2" aria-hidden="true" tabindex="-1"></a>ls *.bam &gt; bam.filelist</span></code></pre></div>
-<p>Run the following code to calculate genotype likelihoods</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="week-3.html#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-2"><a href="week-3.html#cb15-2" aria-hidden="true" tabindex="-1"></a>../angsd/angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1</span></code></pre></div>
+<span id="cb15-2"><a href="week-3.html#cb15-2" aria-hidden="true" tabindex="-1"></a>ls *.bam &gt; bam.filelist</span></code></pre></div>
+<p>Run the following code to calculate genotype likelihoods</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="week-3.html#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-2"><a href="week-3.html#cb16-2" aria-hidden="true" tabindex="-1"></a>../angsd/angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1</span></code></pre></div>
 <p>This will generate two files, one with a .arg extension, this has a record of the script we ran to generate the output, and a .If you see these two files, Yay!! We did it!</p>
 <blockquote>
 <h3 id="suggested-exercises">Suggested Exercises</h3>
