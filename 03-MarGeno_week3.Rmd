@@ -67,10 +67,11 @@ Next let's use the program fastqc to check the quality of our data files
 ```html
 $ fastqc SRR6805880.tiny.fastq.gz
 
-Started analysis for SRR6805880.tiny.fastq.gz
-Analysis complete for SRR6805880.tiny.fastq.gz
-
 ```
+* Readout will say: 
+  + Started analysis for SRR6805880.tiny.fastq.gz
+  + Analysis complete for SRR6805880.tiny.fastq.gz
+
 
 Let's look to see that it worked
 ```html
