@@ -214,7 +214,7 @@ Run the following code to calculate genotype likelihoods
 
 ```
 
-This will generate two files, one with a .arg extension, this has a record of the script we ran to generate the output, and a .If you see these two files, Yay!! We did it!
+This will generate two files, one with a .arg extension, this has a record of the script we ran to generate the output, and a .maf file that will give you the minor allele frequencies and is the main output file. If you see these two files, Yay!! We did it!
 
 
 
