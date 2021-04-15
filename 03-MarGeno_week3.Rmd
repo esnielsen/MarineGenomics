@@ -36,7 +36,7 @@ Here are the programs that we are installing and a brief description of what the
 
 ```html
   sudo apt-get -y update && \
-  sudo apt-get -y install samtools bowtie2 cutadapt fastqc \
+  sudo apt-get -y install samtools bowtie2 cutadapt fastqc 
   
 ```
 
@@ -119,7 +119,7 @@ for filename in *.tiny.fastq.gz
 do
 
   base=$(basename $filename .tiny.fastq.gz)
-  echo=${base}
+  echo ${base}
 
   cutadapt -g TGCAG ${base}.tiny.fastq.gz -o ${base}.tiny_trimmed.fastq.gz 
 
@@ -158,7 +158,7 @@ for filename in *.tiny_trimmed.fastq.gz
 do
 
   base=$(basename $filename .tiny_trimmed.fastq.gz)
-  echo=${base}
+  echo ${base}
 
   bowtie2 -x Ppar_tinygenome -U ${base}.tiny_trimmed.fastq.gz -S ${base}.sam
 
@@ -181,7 +181,7 @@ for filename in *.sam
 do
 
   base=$(basename $filename .sam)
-  echo=${base}
+  echo ${base}
   
   samtools view -bhS ${base}.sam | samtools sort -o ${base}.bam
 
@@ -281,11 +281,6 @@ This will generate two files, one with a .arg extension, this has a record of th
 <p>
 
 > 5. If we remove the `-SNP_pval` command entirely we get ~72000 sites retained! Wow! That seems like a lot given our ~20% maping rate. If you instead increase the p-value threshold to 1e-3 we find 3 SNPs. 
-
-</p>
-</details>
-&nbsp;
-
 
 </p>
 </details>
