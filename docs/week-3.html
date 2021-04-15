@@ -230,7 +230,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 + cutadapt: will trim adaptor sequences from the reads
 + fastqc: used to view the quality of the read files</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="week-3.html#cb2-1" aria-hidden="true" tabindex="-1"></a>  sudo apt-get -y update <span class="er">&amp;&amp;</span> \</span>
-<span id="cb2-2"><a href="week-3.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  sudo apt-get -y install samtools bowtie2 cutadapt fastqc \</span>
+<span id="cb2-2"><a href="week-3.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  sudo apt-get -y install samtools bowtie2 cutadapt fastqc </span>
 <span id="cb2-3"><a href="week-3.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span></code></pre></div>
 <p>And one more program that we’ll install separately. This is angsd which we will use to find variants in our data. The first command navigates you to your home directory.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="week-3.html#cb3-1" aria-hidden="true" tabindex="-1"></a>  cd</span>
@@ -278,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-2"><a href="week-3.html#cb10-2" aria-hidden="true" tabindex="-1"></a>do</span>
 <span id="cb10-3"><a href="week-3.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="week-3.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny.fastq.gz)</span>
-<span id="cb10-5"><a href="week-3.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  echo=${base}</span>
+<span id="cb10-5"><a href="week-3.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
 <span id="cb10-6"><a href="week-3.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-7"><a href="week-3.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  cutadapt -g TGCAG ${base}.tiny.fastq.gz -o ${base}.tiny_trimmed.fastq.gz </span>
 <span id="cb10-8"><a href="week-3.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -299,13 +299,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="map-reads-to-the-genome" class="section level2" number="4.6">
 <h2><span class="header-section-number">4.6</span> Map reads to the genome</h2>
 <p>Let’s map those reads using a for loop</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="week-3.html#cb13-1" aria-hidden="true" tabindex="-1"></a>for filename in *.tiny.fastq.gz</span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="week-3.html#cb13-1" aria-hidden="true" tabindex="-1"></a>for filename in *.tiny_trimmed.fastq.gz</span>
 <span id="cb13-2"><a href="week-3.html#cb13-2" aria-hidden="true" tabindex="-1"></a>do</span>
 <span id="cb13-3"><a href="week-3.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="week-3.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny.fastq.gz)</span>
-<span id="cb13-5"><a href="week-3.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  echo=${base}</span>
+<span id="cb13-4"><a href="week-3.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny_trimmed.fastq.gz)</span>
+<span id="cb13-5"><a href="week-3.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
 <span id="cb13-6"><a href="week-3.html#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="week-3.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  bowtie2 -x Ppar_tinygenome -U ${base}.tiny.fastq.gz -S ${base}.sam</span>
+<span id="cb13-7"><a href="week-3.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  bowtie2 -x Ppar_tinygenome -U ${base}.tiny_trimmed.fastq.gz -S ${base}.sam</span>
 <span id="cb13-8"><a href="week-3.html#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="week-3.html#cb13-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
 <p>You should see a bunch of text telling you all about how well our reads mapped to the genome. For this example we’re getting a low percentage (20-30%) because of how the genome and reads were subset for this exercise. The full genome and full read files have a much higher mapping rate (70-80%) than our subset.</p>
@@ -319,7 +319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-2"><a href="week-3.html#cb14-2" aria-hidden="true" tabindex="-1"></a>do</span>
 <span id="cb14-3"><a href="week-3.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="week-3.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .sam)</span>
-<span id="cb14-5"><a href="week-3.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  echo=${base}</span>
+<span id="cb14-5"><a href="week-3.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
 <span id="cb14-6"><a href="week-3.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb14-7"><a href="week-3.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  samtools view -bhS ${base}.sam | samtools sort -o ${base}.bam</span>
 <span id="cb14-8"><a href="week-3.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
@@ -422,7 +422,7 @@ Solution
 <p> </p>
 <blockquote>
 <ol start="5" style="list-style-type: decimal">
-<li>change the parameters of the angsd genotype likelihoods command. How many more/less SNPs do we recover if we lower or raise the SNP p-value? To see what the other parameters do run `./angsd/angsd -h</li>
+<li>change the parameters of the angsd genotype likelihoods command. How many more/less SNPs do we recover if we lower or raise the SNP p-value? To see what the other parameters do run `../../angsd/angsd -h</li>
 </ol>
 </blockquote>
 <details>
@@ -434,6 +434,38 @@ Solutions
 <ol start="5" style="list-style-type: decimal">
 <li>If we remove the <code>-SNP_pval</code> command entirely we get ~72000 sites retained! Wow! That seems like a lot given our ~20% maping rate. If you instead increase the p-value threshold to 1e-3 we find 3 SNPs.</li>
 </ol>
+</blockquote>
+</p>
+</details>
+<p> </p>
+<blockquote>
+<ol start="6" style="list-style-type: decimal">
+<li>For this exercise we ran everything in the same directory and you can see that we generated quite a few files by the time we were done. Many population genomic studies have data for hundreds of individuals and running everything in the same directory gets confusing and messy. However, having the data in a different directory from the output complicates running things a little (you have to remember which directory you’re in). Make a new directory called <code>raw_data</code> and <code>mv</code> the raw data files (those that end in fastq.gz, and the tinygenome) into it. Then mv everything that we generated into a folder called <code>old_outputs</code>. Now rerun our code making a directory for the <code>trimmed_reads</code> and <code>sam_bam</code> files each.</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solutions
+</summary>
+<p>
+<blockquote>
+<ol start="6" style="list-style-type: decimal">
+<li>The commands you will run include:
+to make a new directory and move the raw data: <code>mkdir raw_data; mv *fastq.gz raw_data</code>
+to move all the old output that we generated <code>mkdir old_outputs; mv * old_outputs</code>
+then make output folder for each step in the process: <code>mkdir trimmed_reads; mkdir sam_bam</code>
+and then rerun the for loops but change the file path for the input and output data.
+For example this is how the cutadapt command will look:
+`for filename in raw_data/*.tiny.fastq.gz
+do</li>
+</ol>
+<p>base=$(basename <span class="math inline">\(filename .tiny.fastq.gz)  echo=\)</span>{base}</p>
+<p>cutadapt -g TGCAG raw_data/<span class="math inline">\({base}.tiny.fastq.gz -o trimmed_reads/\)</span>{base}.tiny_trimmed.fastq.gz</p>
+<p>done`</p>
+</blockquote>
+<blockquote>
+<p>you can see we’ve added the file name <code>raw_data</code> everytime we’re calling the read files (at the beginning of the for loop and withing the cutadapt program). And we specify to put our trimmed reads in the <code>trimmed_reads</code> folder. To see if they’re there run: <code>ls trimmed_reads</code>.
+Much more organized!</p>
 </blockquote>
 </p>
 </details>
@@ -497,6 +529,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
