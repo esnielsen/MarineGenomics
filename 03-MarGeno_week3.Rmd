@@ -154,13 +154,13 @@ This should produce several output files with extensions including: .bt2 and rev
 Let's map those reads using a for loop
 
 ```html
-for filename in *.tiny.fastq.gz
+for filename in *.tiny_trimmed.fastq.gz
 do
 
-  base=$(basename $filename .tiny.fastq.gz)
+  base=$(basename $filename .tiny_trimmed.fastq.gz)
   echo=${base}
 
-  bowtie2 -x Ppar_tinygenome -U ${base}.tiny.fastq.gz -S ${base}.sam
+  bowtie2 -x Ppar_tinygenome -U ${base}.tiny_trimmed.fastq.gz -S ${base}.sam
 
 done
 
