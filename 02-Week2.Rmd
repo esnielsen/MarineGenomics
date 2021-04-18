@@ -1836,5 +1836,7 @@ When to use awk?
  *  when manipulating multiple large files
 
 
+## Creature of the Week!
 
+![California Sheepshead Wrasse smiling for a photo!](./figs/creatures/sheepshead_wrasse.jpg)
 

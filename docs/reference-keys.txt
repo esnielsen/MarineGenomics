@@ -80,3 +80,6 @@ building-an-index-of-our-genome
 map-reads-to-the-genome
 sam-to-bam-file-conversion
 genotype-likelihoods
+creature-of-the-week
+creature-of-the-week-1
+creature-of-the-week-2

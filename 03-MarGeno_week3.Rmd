@@ -315,3 +315,6 @@ This will generate two files, one with a .arg extension, this has a record of th
 </details>
 &nbsp;
 
+## Creature of the Week!
+
+![Sea Cucumber relaxing on a rock (photo by Seattle Aquarium)](./figs/creatures/sea_cucumber.jpg)
