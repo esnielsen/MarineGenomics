@@ -9,8 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Week 4: The R environment
+# Week 4
 
+The R environment:
 This lesson is modified from materials of the STEMinist_R lessons produced by several UC Davis graduate student and which can be found [here](https://github.com/ecalfee/STEMinist_R.git). The lessons were shortened here to fit into two sessions (an 1.5hr session and a 50 min session).
 
 These materials are evenly divided between live coding examples performed by the instructor and exercises performed by the students. 
@@ -26,10 +27,9 @@ tar -xzvf week4.tar.gz
 ```
 
 
-# Lesson 1: ORIENTATION TO R 
+## Lesson 1: Orientation to R
 
-
-## R can be used for basic arithmetic
+R can be used for basic arithmetic
 
 ```{r , echo=T}
 
@@ -38,7 +38,7 @@ tar -xzvf week4.tar.gz
 ```
 
 
-## It can also store values in variables
+It can also store values in variables
 
 Assign an object using an assignment operator `<-` or  `=`.
 ```{r , echo=T}
@@ -81,7 +81,7 @@ animals<-c("woof", "meow", "hiss", "baa")
 
 ```
 
-# Manipulating a vector object 
+## Manipulating a vector object 
 
 We can get summaries of vectors.
 ```{r , echo=T}
@@ -220,10 +220,10 @@ sum(x) - sum(y)
 
 
 
-## 1.2 CHARACTERIZE A DATAFRAME 
+## 1.2 Characterizing a dataframe
 
 
-We'll now move from working with objects and vectors to working with dataframes
+We'll now move from working with objects and vectors to working with dataframes:
 
 Here are a few useful functions: install.packages(), library(), data(), str(), dim(), colnames(), rownames()
                  # class(), as.factor(), as.numeric(), unique(), t(), max(), min(), mean(), summary()
@@ -272,8 +272,7 @@ str(msleep)
 
 ```
 
-## Classes of data & subsetting datasets
-### How to access parts of the data
+## How to access parts of the data:
 
 We can look at a single column at a time. There are three ways to access this $, [,#], [,"a"]. Each way has it's own advantages. 
 ```{r, echo=T}
@@ -564,7 +563,7 @@ median(iris$Sepal.Length)
 
 We'll continue with this material on Thursday!
 
-# 1.3 SUBSETTING DATASETS & LOGICALS 
+## 1.3 Subsetting datasets & logicals
 
 
 A few useful commands: equals `==`,  does not equal `!=`, greater than `>`, less than `<`, and `&`, and a pipe which can also indicate "and" `|`.
@@ -598,7 +597,8 @@ sum(c(TRUE,TRUE,FALSE,FALSE))
 !c(TRUE,TRUE,FALSE,FALSE)
 ```
 
-## logicals will be the output of various tests
+
+Logicals will be the output of various tests:
 
 ```{r, echo=T}
 
@@ -630,7 +630,7 @@ sum(c(TRUE,TRUE,FALSE,FALSE))
 !TRUE
 ```
 
-## This is very useful because we can use logicals to query a data frame or vector.
+This is very useful because we can use logicals to query a data frame or vector.
 ```{r, echo=T}
 
  # Which numbers in 1:10 are greater than 3?

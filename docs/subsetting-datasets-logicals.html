@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 1.3 SUBSETTING DATASETS &amp; LOGICALS | Marine Genomics Week 4</title>
+  <meta name="description" content="7 1.3 SUBSETTING DATASETS &amp; LOGICALS | Marine Genomics Week 4" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 1.3 SUBSETTING DATASETS &amp; LOGICALS | Marine Genomics Week 4" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 1.3 SUBSETTING DATASETS &amp; LOGICALS | Marine Genomics Week 4" />
+  
+  
+  
+
+<meta name="author" content="STEMinist_R, modified by Serena Caplins" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="manipulating-a-vector-object.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Marine Genomics 2021</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics</a></li>
+<li class="chapter" data-level="2" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i><b>2</b> Week 1</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="week-1.html"><a href="week-1.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1.html"><a href="week-1.html#how-to-access-the-shell"><i class="fa fa-check"></i><b>2.2</b> How to access the shell</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1.html"><a href="week-1.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.3</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1.html"><a href="week-1.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.4</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1.html"><a href="week-1.html#summary-key-points"><i class="fa fa-check"></i><b>2.5</b> Summary &amp; Key Points</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1.html"><a href="week-1.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.6</b> Navigating Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1.html"><a href="week-1.html#week-1-objectives"><i class="fa fa-check"></i><b>2.7</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.8" data-path="week-1.html"><a href="week-1.html#moving-around-the-file-system"><i class="fa fa-check"></i><b>2.8</b> Moving around the file system</a></li>
+<li class="chapter" data-level="2.9" data-path="week-1.html"><a href="week-1.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.9</b> Examining the contents of other directories</a></li>
+<li class="chapter" data-level="2.10" data-path="week-1.html"><a href="week-1.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.10</b> Full vs Relative Paths</a></li>
+<li class="chapter" data-level="2.11" data-path="week-1.html"><a href="week-1.html#navigational-shortcuts"><i class="fa fa-check"></i><b>2.11</b> Navigational shortcuts</a></li>
+<li class="chapter" data-level="2.12" data-path="week-1.html"><a href="week-1.html#key-points"><i class="fa fa-check"></i><b>2.12</b> Key Points</a></li>
+<li class="chapter" data-level="2.13" data-path="week-1.html"><a href="week-1.html#creature-of-the-week"><i class="fa fa-check"></i><b>2.13</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-2.html"><a href="week-2.html"><i class="fa fa-check"></i><b>3</b> Week 2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="week-2.html"><a href="week-2.html#working-with-files"><i class="fa fa-check"></i><b>3.1</b> Working With Files</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="week-2.html"><a href="week-2.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.1.1</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="3.1.2" data-path="week-2.html"><a href="week-2.html#wildcards"><i class="fa fa-check"></i><b>3.1.2</b> Wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="week-2.html"><a href="week-2.html#command-history"><i class="fa fa-check"></i><b>3.2</b> Command History</a></li>
+<li class="chapter" data-level="3.3" data-path="week-2.html"><a href="week-2.html#examining-files"><i class="fa fa-check"></i><b>3.3</b> Examining Files</a></li>
+<li class="chapter" data-level="3.4" data-path="week-2.html"><a href="week-2.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.4</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="3.5" data-path="week-2.html"><a href="week-2.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>3.5</b> Creating, moving, copying, and removing</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="week-2.html"><a href="week-2.html#copying-files"><i class="fa fa-check"></i><b>3.5.1</b> Copying Files</a></li>
+<li class="chapter" data-level="3.5.2" data-path="week-2.html"><a href="week-2.html#creating-directories"><i class="fa fa-check"></i><b>3.5.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="3.5.3" data-path="week-2.html"><a href="week-2.html#moving-renaming"><i class="fa fa-check"></i><b>3.5.3</b> Moving / Renaming</a></li>
+<li class="chapter" data-level="3.5.4" data-path="week-2.html"><a href="week-2.html#file-permissions"><i class="fa fa-check"></i><b>3.5.4</b> File Permissions</a></li>
+<li class="chapter" data-level="3.5.5" data-path="week-2.html"><a href="week-2.html#removing"><i class="fa fa-check"></i><b>3.5.5</b> Removing</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="week-2.html"><a href="week-2.html#redirections"><i class="fa fa-check"></i><b>3.6</b> Redirections</a></li>
+<li class="chapter" data-level="3.7" data-path="week-2.html"><a href="week-2.html#searching-files"><i class="fa fa-check"></i><b>3.7</b> Searching files</a></li>
+<li class="chapter" data-level="3.8" data-path="week-2.html"><a href="week-2.html#redirecting-output"><i class="fa fa-check"></i><b>3.8</b> Redirecting output</a></li>
+<li class="chapter" data-level="3.9" data-path="week-2.html"><a href="week-2.html#writing-for-loops"><i class="fa fa-check"></i><b>3.9</b> Writing for loops</a></li>
+<li class="chapter" data-level="3.10" data-path="week-2.html"><a href="week-2.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>3.10</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="3.11" data-path="week-2.html"><a href="week-2.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>3.11</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="3.12" data-path="week-2.html"><a href="week-2.html#writing-files"><i class="fa fa-check"></i><b>3.12</b> Writing files</a></li>
+<li class="chapter" data-level="3.13" data-path="week-2.html"><a href="week-2.html#writing-scripts"><i class="fa fa-check"></i><b>3.13</b> Writing scripts</a></li>
+<li class="chapter" data-level="3.14" data-path="week-2.html"><a href="week-2.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>3.14</b> Moving and Downloading Data</a>
+<ul>
+<li class="chapter" data-level="3.14.1" data-path="week-2.html"><a href="week-2.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>3.14.1</b> Getting data from the cloud</a></li>
+<li class="chapter" data-level="3.14.2" data-path="week-2.html"><a href="week-2.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>3.14.2</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
+</ul></li>
+<li class="chapter" data-level="3.15" data-path="week-2.html"><a href="week-2.html#awk"><i class="fa fa-check"></i><b>3.15</b> Awk</a></li>
+<li class="chapter" data-level="3.16" data-path="week-2.html"><a href="week-2.html#creature-of-the-week-1"><i class="fa fa-check"></i><b>3.16</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-3.html"><a href="week-3.html"><i class="fa fa-check"></i><b>4</b> Week 3</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="week-3.html"><a href="week-3.html#what-is-a-genetic-variant"><i class="fa fa-check"></i><b>4.1</b> What is a Genetic Variant?</a></li>
+<li class="chapter" data-level="4.2" data-path="week-3.html"><a href="week-3.html#to-get-started-lets-dowload-the-data-and-install-a-few-programs"><i class="fa fa-check"></i><b>4.2</b> To get started lets dowload the data and install a few programs</a></li>
+<li class="chapter" data-level="4.3" data-path="week-3.html"><a href="week-3.html#raw-read-quality-control"><i class="fa fa-check"></i><b>4.3</b> Raw read quality control</a></li>
+<li class="chapter" data-level="4.4" data-path="week-3.html"><a href="week-3.html#trimming-to-remove-adapters"><i class="fa fa-check"></i><b>4.4</b> Trimming to remove adapters</a></li>
+<li class="chapter" data-level="4.5" data-path="week-3.html"><a href="week-3.html#building-an-index-of-our-genome"><i class="fa fa-check"></i><b>4.5</b> Building an index of our genome</a></li>
+<li class="chapter" data-level="4.6" data-path="week-3.html"><a href="week-3.html#map-reads-to-the-genome"><i class="fa fa-check"></i><b>4.6</b> Map reads to the genome</a></li>
+<li class="chapter" data-level="4.7" data-path="week-3.html"><a href="week-3.html#sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>4.7</b> sam to bam file conversion</a></li>
+<li class="chapter" data-level="4.8" data-path="week-3.html"><a href="week-3.html#genotype-likelihoods"><i class="fa fa-check"></i><b>4.8</b> Genotype likelihoods</a></li>
+<li class="chapter" data-level="4.9" data-path="week-3.html"><a href="week-3.html#creature-of-the-week-2"><i class="fa fa-check"></i><b>4.9</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-4-the-r-environment.html"><a href="week-4-the-r-environment.html"><i class="fa fa-check"></i><b>5</b> Week 4: The R environment</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="week-4-the-r-environment.html"><a href="week-4-the-r-environment.html#lesson-1-orientation-to-r"><i class="fa fa-check"></i><b>5.1</b> Lesson 1: ORIENTATION TO R</a></li>
+<li class="chapter" data-level="5.2" data-path="week-4-the-r-environment.html"><a href="week-4-the-r-environment.html#r-can-be-used-for-basic-arithmetic"><i class="fa fa-check"></i><b>5.2</b> R can be used for basic arithmetic</a></li>
+<li class="chapter" data-level="5.3" data-path="week-4-the-r-environment.html"><a href="week-4-the-r-environment.html#it-can-also-store-values-in-variables"><i class="fa fa-check"></i><b>5.3</b> It can also store values in variables</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="manipulating-a-vector-object.html"><a href="manipulating-a-vector-object.html"><i class="fa fa-check"></i><b>6</b> Manipulating a vector object</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="manipulating-a-vector-object.html"><a href="manipulating-a-vector-object.html#operations-act-on-each-element-of-a-vector"><i class="fa fa-check"></i><b>6.1</b> Operations act on each element of a vector</a></li>
+<li class="chapter" data-level="6.2" data-path="manipulating-a-vector-object.html"><a href="manipulating-a-vector-object.html#operations-can-also-work-with-two-vectors"><i class="fa fa-check"></i><b>6.2</b> Operations can also work with two vectors</a></li>
+<li class="chapter" data-level="6.3" data-path="manipulating-a-vector-object.html"><a href="manipulating-a-vector-object.html#a-few-tips-for-working-with-objects"><i class="fa fa-check"></i><b>6.3</b> A few tips for working with objects</a></li>
+<li class="chapter" data-level="6.4" data-path="manipulating-a-vector-object.html"><a href="manipulating-a-vector-object.html#characterize-a-dataframe"><i class="fa fa-check"></i><b>6.4</b> 1.2 CHARACTERIZE A DATAFRAME</a></li>
+<li class="chapter" data-level="6.5" data-path="manipulating-a-vector-object.html"><a href="manipulating-a-vector-object.html#classes-of-data-subsetting-datasets"><i class="fa fa-check"></i><b>6.5</b> Classes of data &amp; subsetting datasets</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="manipulating-a-vector-object.html"><a href="manipulating-a-vector-object.html#how-to-access-parts-of-the-data"><i class="fa fa-check"></i><b>6.5.1</b> How to access parts of the data</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="manipulating-a-vector-object.html"><a href="manipulating-a-vector-object.html#data-manipulation"><i class="fa fa-check"></i><b>6.6</b> Data Manipulation</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="subsetting-datasets-logicals.html"><a href="subsetting-datasets-logicals.html"><i class="fa fa-check"></i><b>7</b> 1.3 SUBSETTING DATASETS &amp; LOGICALS</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="subsetting-datasets-logicals.html"><a href="subsetting-datasets-logicals.html#logical-conditions-vs.-assignment-operators"><i class="fa fa-check"></i><b>7.1</b> logical conditions vs. assignment operators</a></li>
+<li class="chapter" data-level="7.2" data-path="subsetting-datasets-logicals.html"><a href="subsetting-datasets-logicals.html#logicals-will-be-the-output-of-various-tests"><i class="fa fa-check"></i><b>7.2</b> logicals will be the output of various tests</a></li>
+<li class="chapter" data-level="7.3" data-path="subsetting-datasets-logicals.html"><a href="subsetting-datasets-logicals.html#this-is-very-useful-because-we-can-use-logicals-to-query-a-data-frame-or-vector."><i class="fa fa-check"></i><b>7.3</b> This is very useful because we can use logicals to query a data frame or vector.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Marine Genomics Week 4</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="subsetting-datasets-logicals" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> 1.3 SUBSETTING DATASETS &amp; LOGICALS</h1>
+<p>A few useful commands: equals <code>==</code>, does not equal <code>!=</code>, greater than <code>&gt;</code>, less than <code>&lt;</code>, and <code>&amp;</code>, and a pipe which can also indicate “and” <code>|</code>.</p>
+<p>Reminder there are two assignment operators in R <code>&lt;-</code> and a single equals sign <code>=</code>. The one you use really depends on how you learned to use R, and are otherwise equivalent.</p>
+<div id="logical-conditions-vs.-assignment-operators" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> logical conditions vs. assignment operators</h2>
+<p>Logical values of TRUE and FALSE are special in R. What class is a logical value?</p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="subsetting-datasets-logicals.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="subsetting-datasets-logicals.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="subsetting-datasets-logicals.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what class is a logical value?</span></span>
+<span id="cb120-2"><a href="subsetting-datasets-logicals.html#cb120-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-3"><a href="subsetting-datasets-logicals.html#cb120-3" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(<span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<p>Logical values are stored as 0 for FALSE and 1 for TRUE. Which means you can do math with them!</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="subsetting-datasets-logicals.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="subsetting-datasets-logicals.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="subsetting-datasets-logicals.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>))</span></code></pre></div>
+<pre><code>## [1] 2</code></pre>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="subsetting-datasets-logicals.html#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="subsetting-datasets-logicals.html#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="fu">c</span>(<span class="cn">TRUE</span>,<span class="cn">TRUE</span>,<span class="cn">FALSE</span>,<span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] FALSE FALSE  TRUE  TRUE</code></pre>
+</div>
+<div id="logicals-will-be-the-output-of-various-tests" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> logicals will be the output of various tests</h2>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="subsetting-datasets-logicals.html#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="subsetting-datasets-logicals.html#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="subsetting-datasets-logicals.html#cb136-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># does not equal</span></span>
+<span id="cb136-2"><a href="subsetting-datasets-logicals.html#cb136-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb136-3"><a href="subsetting-datasets-logicals.html#cb136-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="subsetting-datasets-logicals.html#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">!=</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="subsetting-datasets-logicals.html#cb140-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># greater than</span></span>
+<span id="cb140-2"><a href="subsetting-datasets-logicals.html#cb140-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb140-3"><a href="subsetting-datasets-logicals.html#cb140-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&gt;</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="subsetting-datasets-logicals.html#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&gt;=</span> <span class="dv">1</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="subsetting-datasets-logicals.html#cb144-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># less than</span></span>
+<span id="cb144-2"><a href="subsetting-datasets-logicals.html#cb144-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb144-3"><a href="subsetting-datasets-logicals.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">&lt;</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="subsetting-datasets-logicals.html#cb146-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># combining logical conditions with and (&amp;), or(|)</span></span>
+<span id="cb146-2"><a href="subsetting-datasets-logicals.html#cb146-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-3"><a href="subsetting-datasets-logicals.html#cb146-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="subsetting-datasets-logicals.html#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="subsetting-datasets-logicals.html#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="subsetting-datasets-logicals.html#cb152-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># we can take the opposite of a logical by using !</span></span>
+<span id="cb152-2"><a href="subsetting-datasets-logicals.html#cb152-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-3"><a href="subsetting-datasets-logicals.html#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+</div>
+<div id="this-is-very-useful-because-we-can-use-logicals-to-query-a-data-frame-or-vector." class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> This is very useful because we can use logicals to query a data frame or vector.</h2>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="subsetting-datasets-logicals.html#cb154-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Which numbers in 1:10 are greater than 3?</span></span>
+<span id="cb154-2"><a href="subsetting-datasets-logicals.html#cb154-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-3"><a href="subsetting-datasets-logicals.html#cb154-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>##  [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="subsetting-datasets-logicals.html#cb156-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># How many numbers in 1:10 are greater than 3?</span></span>
+<span id="cb156-2"><a href="subsetting-datasets-logicals.html#cb156-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-3"><a href="subsetting-datasets-logicals.html#cb156-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> <span class="sc">&gt;</span> <span class="dv">3</span>)</span></code></pre></div>
+<pre><code>## [1] 7</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="subsetting-datasets-logicals.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in our msleep data frame, which species have total sleep greater than 18 hours?</span></span>
+<span id="cb158-2"><a href="subsetting-datasets-logicals.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="co"># reload the msleep data with library(ggplot2) and data(msleep) if you need to</span></span>
+<span id="cb158-3"><a href="subsetting-datasets-logicals.html#cb158-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-4"><a href="subsetting-datasets-logicals.html#cb158-4" aria-hidden="true" tabindex="-1"></a>msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span></span></code></pre></div>
+<pre><code>##       sleep_total
+##  [1,]       FALSE
+##  [2,]       FALSE
+##  [3,]       FALSE
+##  [4,]       FALSE
+##  [5,]       FALSE
+##  [6,]       FALSE
+##  [7,]       FALSE
+##  [8,]       FALSE
+##  [9,]       FALSE
+## [10,]       FALSE
+## [11,]       FALSE
+## [12,]       FALSE
+## [13,]       FALSE
+## [14,]       FALSE
+## [15,]       FALSE
+## [16,]       FALSE
+## [17,]       FALSE
+## [18,]       FALSE
+## [19,]       FALSE
+## [20,]       FALSE
+## [21,]       FALSE
+## [22,]        TRUE
+## [23,]       FALSE
+## [24,]       FALSE
+## [25,]       FALSE
+## [26,]       FALSE
+## [27,]       FALSE
+## [28,]       FALSE
+## [29,]       FALSE
+## [30,]       FALSE
+## [31,]       FALSE
+## [32,]       FALSE
+## [33,]       FALSE
+## [34,]       FALSE
+## [35,]       FALSE
+## [36,]       FALSE
+## [37,]        TRUE
+## [38,]       FALSE
+## [39,]       FALSE
+## [40,]       FALSE
+## [41,]       FALSE
+## [42,]       FALSE
+## [43,]        TRUE
+## [44,]       FALSE
+## [45,]       FALSE
+## [46,]       FALSE
+## [47,]       FALSE
+## [48,]       FALSE
+## [49,]       FALSE
+## [50,]       FALSE
+## [51,]       FALSE
+## [52,]       FALSE
+## [53,]       FALSE
+## [54,]       FALSE
+## [55,]       FALSE
+## [56,]       FALSE
+## [57,]       FALSE
+## [58,]       FALSE
+## [59,]       FALSE
+## [60,]       FALSE
+## [61,]       FALSE
+## [62,]        TRUE
+## [63,]       FALSE
+## [64,]       FALSE
+## [65,]       FALSE
+## [66,]       FALSE
+## [67,]       FALSE
+## [68,]       FALSE
+## [69,]       FALSE
+## [70,]       FALSE
+## [71,]       FALSE
+## [72,]       FALSE
+## [73,]       FALSE
+## [74,]       FALSE
+## [75,]       FALSE
+## [76,]       FALSE
+## [77,]       FALSE
+## [78,]       FALSE
+## [79,]       FALSE
+## [80,]       FALSE
+## [81,]       FALSE
+## [82,]       FALSE
+## [83,]       FALSE</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="subsetting-datasets-logicals.html#cb160-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># Using which() to identify which rows match the logical values (TRUE) and length to count how many species there are</span></span>
+<span id="cb160-2"><a href="subsetting-datasets-logicals.html#cb160-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb160-3"><a href="subsetting-datasets-logicals.html#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>)</span></code></pre></div>
+<pre><code>## [1] 22 37 43 62</code></pre>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="subsetting-datasets-logicals.html#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>))</span></code></pre></div>
+<pre><code>## [1] 4</code></pre>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="subsetting-datasets-logicals.html#cb164-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># which four species are these?</span></span>
+<span id="cb164-2"><a href="subsetting-datasets-logicals.html#cb164-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb164-3"><a href="subsetting-datasets-logicals.html#cb164-3" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span>),]</span></code></pre></div>
+<pre><code>## # A tibble: 4 x 12
+##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+## 1 Big … Epte… inse… Chir… lc                  19.7       3.9       0.117
+## 2 Thic… Lutr… carni Dide… lc                  19.4       6.6      NA    
+## 3 Litt… Myot… inse… Chir… &lt;NA&gt;                19.9       2         0.2  
+## 4 Gian… Prio… inse… Cing… en                  18.1       6.1      NA    
+## # … with 4 more variables: awake &lt;dbl&gt;, brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;,
+## #   total_rem &lt;dbl&gt;</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="subsetting-datasets-logicals.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="co"># what if we only want to see the bats that sleep more than 18 hours per 24 hour period?</span></span>
+<span id="cb166-2"><a href="subsetting-datasets-logicals.html#cb166-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-3"><a href="subsetting-datasets-logicals.html#cb166-3" aria-hidden="true" tabindex="-1"></a>msleep[<span class="fu">which</span>(msleep[,<span class="st">&quot;sleep_total&quot;</span>]<span class="sc">&gt;</span><span class="dv">18</span> <span class="sc">&amp;</span> msleep[,<span class="st">&quot;order&quot;</span>] <span class="sc">==</span> <span class="st">&quot;Chiroptera&quot;</span>),]</span></code></pre></div>
+<pre><code>## # A tibble: 2 x 12
+##   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle
+##   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+## 1 Big … Epte… inse… Chir… lc                  19.7       3.9       0.117
+## 2 Litt… Myot… inse… Chir… &lt;NA&gt;                19.9       2         0.2  
+## # … with 4 more variables: awake &lt;dbl&gt;, brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;,
+## #   total_rem &lt;dbl&gt;</code></pre>
+<blockquote>
+<p>EXERCISE 1.3 indexing by logical statements</p>
+</blockquote>
+<blockquote>
+<p>A few useful commands: “==,” “!=,” “&gt;,” “&lt;,” “&amp;,” “|,” sum(), which(), table(), !</p>
+</blockquote>
+<blockquote>
+<ol style="list-style-type: decimal">
+<li>Create your own logical vector with three TRUEs and three FALSEs</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="subsetting-datasets-logicals.html#cb168-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>)</span>
+<span id="cb168-2"><a href="subsetting-datasets-logicals.html#cb168-2" aria-hidden="true" tabindex="-1"></a>a <span class="do">## let&#39;s print to screen and make sure it is stored in this variable</span></span></code></pre></div>
+<pre><code>## [1]  TRUE  TRUE FALSE FALSE  TRUE FALSE</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Produce a vector of the index number of the <code>TRUE</code> values</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="subsetting-datasets-logicals.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a)  <span class="do">## which gives you the index of TRUE values automatically</span></span></code></pre></div>
+<pre><code>## [1] 1 2 5</code></pre>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="subsetting-datasets-logicals.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a <span class="sc">==</span> <span class="cn">TRUE</span>)   <span class="do">## but sometimes it&#39;s reassuring to state exactly what you&#39;re doing</span></span></code></pre></div>
+<pre><code>## [1] 1 2 5</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Produce a second vector which indexes the numbers of the falses</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="subsetting-datasets-logicals.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="sc">!</span>a)</span></code></pre></div>
+<pre><code>## [1] 3 4 6</code></pre>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="subsetting-datasets-logicals.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(a <span class="sc">==</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 3 4 6</code></pre>
+</p>
+</details>
+<blockquote>
+<p>Go back to the iris dataset, which can be loaded with data(iris)</p>
+</blockquote>
+<blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>How many irises have sepals less than 5.5 cm?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="subsetting-datasets-logicals.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)  <span class="do">## this reloads the data set in case you&#39;ve closed R since using iris</span></span>
+<span id="cb178-2"><a href="subsetting-datasets-logicals.html#cb178-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>)  <span class="do">## remember TRUE&#39;s are 1 and FALSE&#39;s are 0</span></span></code></pre></div>
+<pre><code>## [1] 52</code></pre>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="subsetting-datasets-logicals.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">which</span>(iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>))  <span class="do">## here, which() will only return the index of TRUE values, so we&#39;re counting how many there are</span></span></code></pre></div>
+<pre><code>## [1] 52</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="5" style="list-style-type: decimal">
+<li>Which iris individual has the largest petal length? What is the width of it’s petal?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="subsetting-datasets-logicals.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>])  <span class="do">## this gives us the length of the longest petal</span></span></code></pre></div>
+<pre><code>## [1] 6.9</code></pre>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="subsetting-datasets-logicals.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>]))  <span class="do">## this gives us the index of the individual with the longest petal</span></span></code></pre></div>
+<pre><code>## [1] 119</code></pre>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="subsetting-datasets-logicals.html#cb186-1" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;Petal.Width&#39;</span>][<span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>]))] <span class="do">## now we&#39;re subsetting the Petal.Width column by the index of the individual with the longest petal</span></span></code></pre></div>
+<pre><code>## [1] 2.3</code></pre>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="subsetting-datasets-logicals.html#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="do">## another way to do this would be to use the index of the individual with the longest petal to pick rows, and the Petal.Width name to pick columns and subset the entire data frame</span></span>
+<span id="cb188-2"><a href="subsetting-datasets-logicals.html#cb188-2" aria-hidden="true" tabindex="-1"></a>iris[<span class="fu">which</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">==</span> <span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>])) , <span class="st">&#39;Petal.Width&#39;</span>]</span></code></pre></div>
+<pre><code>## [1] 2.3</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="6" style="list-style-type: decimal">
+<li>How many of the irises are in this dataset belong to the species versicolor?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="subsetting-datasets-logicals.html#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;versicolor&#39;</span>)</span></code></pre></div>
+<pre><code>## [1] 50</code></pre>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="subsetting-datasets-logicals.html#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris[,<span class="st">&#39;Species&#39;</span>]) <span class="do">## this gets us all three species</span></span></code></pre></div>
+<pre><code>## 
+##     setosa versicolor  virginica 
+##         50         50         50</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="7" style="list-style-type: decimal">
+<li>How many irises have petals longer than 6cm?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="subsetting-datasets-logicals.html#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1] 9</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="8" style="list-style-type: decimal">
+<li>Create a vector of species name for each iris with sepals longer than 6cm.</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="subsetting-datasets-logicals.html#cb196-1" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;Species&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>]</span></code></pre></div>
+<pre><code>##  [1] versicolor versicolor versicolor versicolor versicolor versicolor
+##  [7] versicolor versicolor versicolor versicolor versicolor versicolor
+## [13] versicolor versicolor versicolor versicolor versicolor versicolor
+## [19] versicolor versicolor virginica  virginica  virginica  virginica 
+## [25] virginica  virginica  virginica  virginica  virginica  virginica 
+## [31] virginica  virginica  virginica  virginica  virginica  virginica 
+## [37] virginica  virginica  virginica  virginica  virginica  virginica 
+## [43] virginica  virginica  virginica  virginica  virginica  virginica 
+## [49] virginica  virginica  virginica  virginica  virginica  virginica 
+## [55] virginica  virginica  virginica  virginica  virginica  virginica 
+## [61] virginica 
+## Levels: setosa versicolor virginica</code></pre>
+<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="subsetting-datasets-logicals.html#cb198-1" aria-hidden="true" tabindex="-1"></a>iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&gt;</span><span class="dv">6</span>, <span class="st">&#39;Species&#39;</span>] <span class="do">## alternatively, we can put the logical vector in the row part, and Species in the column part, to get a vector back</span></span></code></pre></div>
+<pre><code>##  [1] versicolor versicolor versicolor versicolor versicolor versicolor
+##  [7] versicolor versicolor versicolor versicolor versicolor versicolor
+## [13] versicolor versicolor versicolor versicolor versicolor versicolor
+## [19] versicolor versicolor virginica  virginica  virginica  virginica 
+## [25] virginica  virginica  virginica  virginica  virginica  virginica 
+## [31] virginica  virginica  virginica  virginica  virginica  virginica 
+## [37] virginica  virginica  virginica  virginica  virginica  virginica 
+## [43] virginica  virginica  virginica  virginica  virginica  virginica 
+## [49] virginica  virginica  virginica  virginica  virginica  virginica 
+## [55] virginica  virginica  virginica  virginica  virginica  virginica 
+## [61] virginica 
+## Levels: setosa versicolor virginica</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="9" style="list-style-type: decimal">
+<li>How many irises have sepals shorter than 5cm, but wider than 3cm?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="subsetting-datasets-logicals.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&lt;</span> <span class="dv">5</span> <span class="sc">&amp;</span> iris[,<span class="st">&#39;Sepal.Width&#39;</span>] <span class="sc">&gt;</span> <span class="dv">3</span> )</span></code></pre></div>
+<pre><code>## [1] 13</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="10" style="list-style-type: decimal">
+<li>How many irises have petals narrower than 0.2cm or shorter than 1.5cm?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="subsetting-datasets-logicals.html#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>( iris[,<span class="st">&#39;Petal.Width&#39;</span>] <span class="sc">&lt;</span> <span class="fl">0.2</span> <span class="sc">|</span> iris[,<span class="st">&#39;Petal.Length&#39;</span>] <span class="sc">&lt;</span> <span class="fl">1.5</span> )</span></code></pre></div>
+<pre><code>## [1] 26</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="11" style="list-style-type: decimal">
+<li>What is the average width of setosa iris sepals that are longer than 5cm?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="subsetting-datasets-logicals.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[,<span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>]) <span class="do">## convince yourself the second part is a logical vector that subsets iris[,&#39;Sepal.Width&#39;]</span></span></code></pre></div>
+<pre><code>## [1] 3.048305</code></pre>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="subsetting-datasets-logicals.html#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">&#39;Sepal.Width&#39;</span>]) <span class="do">## again, we can alternatively subset using logical vectors in the row position</span></span></code></pre></div>
+<pre><code>## [1] 3.048305</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="12" style="list-style-type: decimal">
+<li>What is the difference between the longest and shortest petal lengths of the species virginica?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="subsetting-datasets-logicals.html#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>]) <span class="sc">-</span> <span class="fu">min</span>(iris[,<span class="st">&#39;Petal.Length&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;virginica&#39;</span>])</span></code></pre></div>
+<pre><code>## [1] 2.4</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="13" style="list-style-type: decimal">
+<li>What proportion of flowers in the dataset have petals wider than 1cm?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb210"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb210-1"><a href="subsetting-datasets-logicals.html#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(iris[,<span class="st">&#39;Petal.Width&#39;</span>] <span class="sc">&gt;</span> <span class="dv">1</span> ) <span class="sc">/</span> <span class="fu">nrow</span>(iris) <span class="do">## here, we&#39;re counting up how many are wider than 1 cm, and dividing by the total number of flowers to get a proportion</span></span></code></pre></div>
+<pre><code>## [1] 0.62</code></pre>
+</p>
+</details>
+<blockquote>
+<ol start="14" style="list-style-type: decimal">
+<li>Create a new column within your dataframe, called sepalCategory, and set all values equal to ‘long’
+Subset short values of this column, and set their values to ‘short’
+(Short sepals are those less than 5.5 cm)
+How many plants with short sepals are there? How many long?</li>
+</ol>
+</blockquote>
+<details>
+<summary>
+Solution
+</summary>
+<p>
+<div class="sourceCode" id="cb212"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb212-1"><a href="subsetting-datasets-logicals.html#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="co"># new column for long</span></span>
+<span id="cb212-2"><a href="subsetting-datasets-logicals.html#cb212-2" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;sepalCategory&#39;</span>] <span class="ot">=</span> <span class="st">&#39;long&#39;</span>  <span class="do">## this sets ever entry in the column equal to &#39;long&#39;</span></span>
+<span id="cb212-3"><a href="subsetting-datasets-logicals.html#cb212-3" aria-hidden="true" tabindex="-1"></a><span class="co"># new column for short (&lt; 5.5 cm)</span></span>
+<span id="cb212-4"><a href="subsetting-datasets-logicals.html#cb212-4" aria-hidden="true" tabindex="-1"></a>iris[,<span class="st">&#39;sepalCategory&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>]<span class="sc">&lt;</span><span class="fl">5.5</span>] <span class="ot">=</span> <span class="st">&#39;short&#39;</span>  <span class="do">## this sets only those entries that match our condition to &#39;short&#39;</span></span>
+<span id="cb212-5"><a href="subsetting-datasets-logicals.html#cb212-5" aria-hidden="true" tabindex="-1"></a><span class="co"># how many plants with short sepals are there? How many long?</span></span>
+<span id="cb212-6"><a href="subsetting-datasets-logicals.html#cb212-6" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris[,<span class="st">&#39;sepalCategory&#39;</span>])</span></code></pre></div>
+<pre><code>## 
+##  long short 
+##    98    52</code></pre>
+</p>
+</details>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="manipulating-a-vector-object.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Test.pdf", "Test.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
