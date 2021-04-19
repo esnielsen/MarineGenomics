@@ -17,6 +17,14 @@ These materials are evenly divided between live coding examples performed by the
 
 This class will take place with students typing directly into an R script for the exercises all of which can be found in the Week 4 file [here](https://github.com/BayLab/MarineGenomicsData.git) 
 
+You can dowload just the R files for the course via wget with the following link
+```{html
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week4.tar.gz
+# this is a commpressed file which can be uncompressed via
+tar -xzvf week4.tar.gz
+
+```
+
 
 # Lesson 1: ORIENTATION TO R 
 
