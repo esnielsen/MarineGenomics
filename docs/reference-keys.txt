@@ -105,3 +105,4 @@ a-few-tips-below-for-working-with-objects
 practice-r-operations
 practice-exploring-a-dataframe
 practice-subsetting-datasetslogicals
+creature-of-the-week-3

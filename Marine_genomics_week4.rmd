@@ -19,7 +19,7 @@ These materials are evenly divided between live coding examples performed by the
 
 This class will take place with students typing directly into an R script for the exercises all of which can be found in the Week 4 file [here](https://github.com/BayLab/MarineGenomicsData.git) 
 
-You can dowload just the R files for the course via wget with the following link
+You can dowload just the R files for just this week via wget with the following link
 ```{html
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week4.tar.gz
 ```
@@ -78,7 +78,8 @@ n<-1:100
 
 ```
 
-Vectors can also include characters (in quotes):
+Vectors can also include characters (in quotes): 
+`c()`=concatenate, aka link things together!
 ```{r , echo=T}
 
 animals<-c("woof", "meow", "hiss", "baa")
@@ -87,7 +88,7 @@ animals<-c("woof", "meow", "hiss", "baa")
 
 ## Manipulating a vector object 
 
-We can get summaries of vectors with the command `summary()`
+We can get summaries of vectors with `summary()`
 ```{r , echo=T}
 
 summary(n)
@@ -146,19 +147,20 @@ numbers * y
 
 ## A few tips below for working with objects:
 
+We can keep track of what objects R is using, with the functions `ls()` and `objects()`
 ```{r , echo=T}
-# We can keep track of what objects R is using, with the functions ls() and objects()
 ls()
 objects() #returns the same results as ls() in this case. because we only have objects in our environment.
 
-# how to get help for a function
+# how to get help for a function; you can also write help()
 ?ls
 
 # you can get rid of objects you don't want
-# rm(numbers)
+
+rm(numbers)
 
 # and make sure it got rid of them
-#ls()
+ls()
 
 ```
 ## Practice R Operations
@@ -865,3 +867,5 @@ table(iris[,'sepalCategory'])
 </p>
 </details>    
 
+## Creature of the Week!
+![Portuguese man o' war drifting in the ocean. It is also known as the "floating terror" or "bluebottle" (Image credit: Getty Images)](./figs/creatures/portuguesemanowar.jpg)
