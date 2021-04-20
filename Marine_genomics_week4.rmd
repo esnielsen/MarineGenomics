@@ -11,7 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Week 4
 
-The R environment:
+*The R environment:*
+
 This lesson is modified from materials of the STEMinist_R lessons produced by several UC Davis graduate student and which can be found [here](https://github.com/ecalfee/STEMinist_R.git). The lessons were shortened here to fit into two sessions (an 1.5hr session and a 50 min session).
 
 These materials are evenly divided between live coding examples performed by the instructor and exercises performed by the students. 
@@ -21,7 +22,10 @@ This class will take place with students typing directly into an R script for th
 You can dowload just the R files for the course via wget with the following link
 ```{html
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week4.tar.gz
-# this is a commpressed file which can be uncompressed via
+```
+
+this is a commpressed file which can be uncompressed via:
+```
 tar -xzvf week4.tar.gz
 
 ```
@@ -29,7 +33,7 @@ tar -xzvf week4.tar.gz
 
 ## Lesson 1: Orientation to R
 
-R can be used for basic arithmetic
+R can be used for basic arithmetic:
 
 ```{r , echo=T}
 
@@ -38,9 +42,9 @@ R can be used for basic arithmetic
 ```
 
 
-It can also store values in variables
+It can also store values in variables:
 
-Assign an object using an assignment operator `<-` or  `=`.
+You can assign an object using an assignment operator `<-` or  `=`.
 ```{r , echo=T}
 
 number<-10
@@ -48,7 +52,7 @@ number<-10
 numbers<-c(10, 11, 12, 14, 16)
 ```
 
-See that object by typing the name you assigned it.
+You can see your assigned object by typing the name you gave it.
 ```{r , echo=T}
 
 number
@@ -57,7 +61,7 @@ numbers
 
 ```
 
-Objects can be numbers or characters.
+Objects can be numbers or characters:
 ```{r , echo=T}
 
 cat<-"meow"
@@ -67,14 +71,14 @@ dog<-"woof"
 ```
 
 
-We can use colons to get sequences of numbers.
+We can use colons to get sequences of numbers:
 ```{r , echo=T}
 
 n<-1:100
 
 ```
 
-Vectors can include characters (in quotes).
+Vectors can also include characters (in quotes):
 ```{r , echo=T}
 
 animals<-c("woof", "meow", "hiss", "baa")
@@ -83,20 +87,20 @@ animals<-c("woof", "meow", "hiss", "baa")
 
 ## Manipulating a vector object 
 
-We can get summaries of vectors.
+We can get summaries of vectors with the command `summary()`
 ```{r , echo=T}
 
 summary(n)
 
 ```
 
-We can see how long a vector is.
+We can see how long a vector is with `length()`
 ```{r , echo=T}
 
 length(n)
 
 ```  
-Use square brackets `[]` to get parts of vectors.
+You can use square brackets `[]` to get parts of vectors.
 
 ```{r , echo=T}
 
@@ -105,7 +109,7 @@ n[50]
 ```  
 
 
-## Operations act on each element of a vector
+## Operations act on each element of a vector:
 ```{r , echo=T}
 
 # +2
@@ -126,7 +130,7 @@ sum(numbers)
 ```  
 
 
-## Operations can also work with two vectors
+## Operations can also work with two vectors:
 ```{r , echo=T}
 
 #define a new object y
@@ -140,7 +144,7 @@ numbers * y
 
 ```
 
-## A few tips for working with objects
+## A few tips below for working with objects:
 
 ```{r , echo=T}
 # We can keep track of what objects R is using, with the functions ls() and objects()
@@ -157,7 +161,7 @@ objects() #returns the same results as ls() in this case. because we only have o
 #ls()
 
 ```
-
+## Practice R Operations
 > ## EXERCISE 1.1 # 
 
 
@@ -225,13 +229,24 @@ sum(x) - sum(y)
 
 We'll now move from working with objects and vectors to working with dataframes:
 
-Here are a few useful functions: install.packages(), library(), data(), str(), dim(), colnames(), rownames()
-                 # class(), as.factor(), as.numeric(), unique(), t(), max(), min(), mean(), summary()
+* Here are a few useful functions: 
+  + install.packages()
+  + library()
+  + data()
+  + str()
+  + dim()
+  + colnames() and rownames()
+  + class()
+  + as.factor()
+  + as.numeric()
+  + unique() 
+  + t()
+  + max(), min(), mean() and summary()
 
 
 We're going to use data on sleep patterns in mammals. This requires installing a package (ggplot2) and loading the data
  
-Install the package `ggplot2`. This only has to be done once and we should then comment out the command to install the package with a #.
+Install the package `ggplot2`. This only has to be done once and after installation we should then **comment out the command to install the package with a #.**
 
 ```{r, echo=T}
 
@@ -250,7 +265,7 @@ data("msleep")
 ```
 
 
-There are many functions in R that allow us to get an idea of what the data looks like. What are it's dimensions (how many rows and columns?) etc?
+There are many functions in R that allow us to get an idea of what the data looks like. For example, what are it's dimensions (how many rows and columns)? 
 
 ```{r, echo=T}
 
@@ -274,7 +289,7 @@ str(msleep)
 
 ## How to access parts of the data:
 
-We can look at a single column at a time. There are three ways to access this $, [,#], [,"a"]. Each way has it's own advantages. 
+We can also look at a single column at a time. There are three ways to access this: $, [,#] or [,"a"]. Each way has it's own advantages:
 ```{r, echo=T}
 
 msleep[,3]
@@ -283,7 +298,7 @@ msleep$vore
 
 ```
 
-Sometimes it is useful to know what class() the column is.
+Sometimes it is useful to know what class() the column is:
 ```{r, echo=T}
 
 class(msleep$vore)
@@ -299,7 +314,7 @@ msleep[msleep$name == "Mountain beaver",]
 
 ```
 
-We can select more than one row or column at a time.
+We can select more than one row or column at a time:
 ```{r, echo=T} 
  # see two columns
 
@@ -310,7 +325,7 @@ msleep[,c(1, 6)]
 subsleep<-msleep[,c(1, 6)]
 
 ```
-But what if we actually care about how many unique things are in a column?
+But what if we actually care about how many **unique** things are in a column?
 ```{r, echo=T}
  # unique()
 unique(msleep[, "order"])
@@ -326,7 +341,7 @@ levels(as.factor(msleep$order))
 
 If your data is transposed in a way that isn't useful to you, you can switch it. Note that this often changes the class of each column!
 
-In R, each column must have the same type of data
+In R, each column must have the same type of data:
 ```{r, echo=T}
  # t()
 
@@ -352,7 +367,7 @@ str(msleep)
 
 ```
 
-Often we want to summarize data. There are many ways of doing this in R.
+Often we want to summarize data. There are many ways of doing this in R:
 ```{r, echo=T}
 
  # calculate mean() of a column
@@ -368,7 +383,7 @@ min(msleep$sleep_rem)
 summary(msleep$sleep_cycle)
 ```
 
-Sometimes, the values we care about aren't provided in a data set. When this happens, we can create a new column that contains the values we're interested in.
+Sometimes, the values we care about aren't provided in a data set. When this happens, we can create a new column that contains the values we're interested in:
 
 ```{r, echo=T}
 
@@ -382,10 +397,10 @@ head(msleep)
 ```
 
 
-
+## Practice exploring a dataframe
 > ## EXERCISE 1.2 
 
-> A few useful commands: dataframename[row , col], str(), dim(), nrow(), unique(), length(), rownames(), summary(), min(), max(), mean(), range(), levels(), factor(), as.factor(), class(), ncol(), nrow(), table(), sum(), quantile(), var()
+> Reminder: a few useful commands: dataframename[row , col], str(), dim(), nrow(), unique(), length(), rownames(), summary(), min(), max(), mean(), range(), levels(), factor(), as.factor(), class(), ncol(), nrow(), table(), sum(), quantile(), var()
 
 > We'll use the built-in 'iris' dataset. the command: `data(iris)` # this loads the 'iris' dataset. You can view more information about this dataset with `help(iris` or `?iris`
 
@@ -570,7 +585,7 @@ A few useful commands: equals `==`,  does not equal `!=`, greater than `>`, less
 
 Reminder there are two assignment operators in R `<-` and a single equals sign `=`. The one you use really depends on how you learned to use R, and are otherwise equivalent.
 
-## logical conditions vs. assignment operators
+**Logical conditions vs. assignment operators:**
 
 Logical values of TRUE and FALSE are special in R. What class is a logical value?
 
@@ -660,8 +675,9 @@ msleep[which(msleep[,"sleep_total"]>18),]
 msleep[which(msleep[,"sleep_total"]>18 & msleep[,"order"] == "Chiroptera"),]
 
 ```
+## Practice Subsetting datasets/logicals
 
-> EXERCISE 1.3 indexing by logical statements
+> ## EXERCISE 1.3 indexing by logical statements
 
 > A few useful commands:  "==", "!=", ">", "<", "&", "|", sum(), which(), table(), !
 

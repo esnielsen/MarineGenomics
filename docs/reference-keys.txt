@@ -100,3 +100,8 @@ lesson-1-orientation-to-r
 manipulating-a-vector-object
 subsetting-datasets-logicals
 characterizing-a-dataframe
+this-is-a-commpressed-file-which-can-be-uncompressed-via
+a-few-tips-below-for-working-with-objects
+practice-r-operations
+practice-exploring-a-dataframe
+practice-subsetting-datasetslogicals
