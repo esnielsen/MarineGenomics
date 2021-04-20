@@ -271,27 +271,29 @@ There are many functions in R that allow us to get an idea of what the data look
 
 ```{r, echo=T}
 
-# head(), tail()
+# head() -look at the beginning of the data file
+# tail() -look at the end of the data file
 
 head(msleep)
 tail(msleep)
 
 # str()
 str(msleep)
-
-# dim(), ncol(), nrow()
-
-
-# colnames(), rownames()
-
-
-# Rstudio also allows us to View() the data
-
 ```
+dim(), ncol(), nrow()- dimensions, number of columns, number of rows
+colnames(), rownames() - column names, row names
+
+ Rstudio also allows us to just look into the data file with `View()`
+
 
 ## How to access parts of the data:
 
-We can also look at a single column at a time. There are three ways to access this: $, [,#] or [,"a"]. Each way has it's own advantages:
+We can also look at a single column at a time. There are three ways to access this: $, [,#] or [,"a"]. 
+
+**Quick Tip:**
+Think about "rc cola" or "remote control car" to remember that [5,] means fifth row and [,5] means fifth column!
+
+Each way has it's own advantages:
 ```{r, echo=T}
 
 msleep[,3]
