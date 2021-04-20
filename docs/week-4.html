@@ -649,12 +649,12 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 <span id="cb87-2"><a href="week-4.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
 <pre><code>## [1] 19.9</code></pre>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="week-4.html#cb89-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># min()</span></span>
-<span id="cb89-2"><a href="week-4.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(msleep<span class="sc">$</span>sleep_rem)</span></code></pre></div>
-<pre><code>## [1] NA</code></pre>
+<span id="cb89-2"><a href="week-4.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
+<pre><code>## [1] 1.9</code></pre>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="week-4.html#cb91-1" aria-hidden="true" tabindex="-1"></a> <span class="co"># summary()</span></span>
-<span id="cb91-2"><a href="week-4.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep<span class="sc">$</span>sleep_cycle)</span></code></pre></div>
-<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
-##  0.1167  0.1833  0.3333  0.4396  0.5792  1.5000      51</code></pre>
+<span id="cb91-2"><a href="week-4.html#cb91-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(msleep<span class="sc">$</span>sleep_total)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##    1.90    7.85   10.10   10.43   13.75   19.90</code></pre>
 <p>Sometimes, the values we care about aren’t provided in a data set. When this happens, we can create a new column that contains the values we’re interested in:</p>
 <div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="week-4.html#cb93-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># what if what we cared about was our sleep_total/sleep_rem ratio?</span></span>
 <span id="cb93-2"><a href="week-4.html#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add a sleep_total/sleep_rem ratio column to our msleep dataframe with $</span></span>
@@ -680,10 +680,10 @@ Think about “rc cola” or “remote control car” to remember that [5,] mean
 <h2 id="exercise-1.2">EXERCISE 1.2</h2>
 </blockquote>
 <blockquote>
-<p>Reminder: a few useful commands: dataframename[row , col], str(), dim(), nrow(), unique(), length(), rownames(), summary(), min(), max(), mean(), range(), levels(), factor(), as.factor(), class(), ncol(), nrow(), table(), sum(), quantile(), var()</p>
+<p>Reminder of those useful commands: dataframename[row , col], str(), dim(), nrow(), unique(), length(), rownames(), summary(), min(), max(), mean(), range(), levels(), factor(), as.factor(), class(), ncol(), nrow(), table(), sum(), quantile(), var()</p>
 </blockquote>
 <blockquote>
-<p>We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code> # this loads the ‘iris’ dataset. You can view more information about this dataset with <code>help(iris</code> or <code>?iris</code></p>
+<p>We’ll use the built-in ‘iris’ dataset. the command: <code>data(iris)</code> # this loads the ‘iris’ dataset. You can view more information about this dataset with <code>help(iris)</code> or <code>?iris</code></p>
 </blockquote>
 <blockquote>
 <ol style="list-style-type: decimal">

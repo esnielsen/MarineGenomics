@@ -381,10 +381,10 @@ mean(msleep$sleep_total)
 max(msleep$sleep_total)
 
  # min()
-min(msleep$sleep_rem)
+min(msleep$sleep_total)
 
  # summary()
-summary(msleep$sleep_cycle)
+summary(msleep$sleep_total)
 ```
 
 Sometimes, the values we care about aren't provided in a data set. When this happens, we can create a new column that contains the values we're interested in:
@@ -404,9 +404,9 @@ head(msleep)
 ## Practice exploring a dataframe
 > ## EXERCISE 1.2 
 
-> Reminder: a few useful commands: dataframename[row , col], str(), dim(), nrow(), unique(), length(), rownames(), summary(), min(), max(), mean(), range(), levels(), factor(), as.factor(), class(), ncol(), nrow(), table(), sum(), quantile(), var()
+> Reminder of those useful commands: dataframename[row , col], str(), dim(), nrow(), unique(), length(), rownames(), summary(), min(), max(), mean(), range(), levels(), factor(), as.factor(), class(), ncol(), nrow(), table(), sum(), quantile(), var()
 
-> We'll use the built-in 'iris' dataset. the command: `data(iris)` # this loads the 'iris' dataset. You can view more information about this dataset with `help(iris` or `?iris`
+> We'll use the built-in 'iris' dataset. the command: `data(iris)` # this loads the 'iris' dataset. You can view more information about this dataset with `help(iris)` or `?iris`
 
 
 > 01. How many rows are in the dataset?
