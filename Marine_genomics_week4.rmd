@@ -667,8 +667,9 @@ msleep[,"sleep_total"]>18
 
  # Using which() to identify which rows match the logical values (TRUE) and length to count how many species there are
 
-which(msleep[,"sleep_total"]>18)
-length(which(msleep[,"sleep_total"]>18))
+which(msleep[,"sleep_total"]>18)  #22 37 43 62 --> the rows that contain organisms that sleep more than 18 hrs
+
+length(which(msleep[,"sleep_total"]>18)) #4 --> number of species that sleep more than 18 hrs 
 
  # which four species are these?
 
