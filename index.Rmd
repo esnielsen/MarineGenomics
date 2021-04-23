@@ -22,8 +22,10 @@ TA: Madison Armstrong (mlarmstrong@ucdavis.edu)
 
 Lecture Tuesdays 12:10-1:30, Coding session Thursdays 12:10-1:00
 
-Office hours: Serena Caplins Thursday 1:10-2:00 PM
+Office hours: 
 
-Madison Armstrong By appointment, please email/slack message me!
+Serena Caplins: Thursday 1:10-2:00 PM
+
+Madison Armstrong: By appointment, please email/slack message me!
 
 ![](./figs/urchins.jpg)
