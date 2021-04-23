@@ -817,14 +817,14 @@ sum( iris[,'Petal.Width'] < 0.2 | iris[,'Petal.Length'] < 1.5 )
 </p>
 </details>
 
-> 11. What is the average width of setosa iris sepals that are longer than 5cm?
+> 11. What is the average width of *setosa iris* sepals that are longer than 5cm?
 
 <details><summary>Solution</summary>
 <p>
 
 ```{r, echo=T}
-mean( iris[,'Sepal.Width'][iris[,'Sepal.Length'] > 5]) ## convince yourself the second part is a logical vector that subsets iris[,'Sepal.Width']
-mean( iris[iris[,'Sepal.Length'] > 5, 'Sepal.Width']) ## again, we can alternatively subset using logical vectors in the row position
+mean( iris[,'Sepal.Width'][iris[,'Sepal.Length'] > 5][iris[,'Species']=='setosa']) ## convince yourself the second part is a logical vector that subsets iris[,'Sepal.Width']
+mean( iris[iris[,'Sepal.Length'] > 5, 'Sepal.Width'][iris[,'Species']=='setosa']) ## again, we can alternatively subset using logical vectors in the row position
 ```
 </p>
 </details>

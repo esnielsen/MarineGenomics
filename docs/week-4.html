@@ -1258,7 +1258,7 @@ Solution
 </details>
 <blockquote>
 <ol start="11" style="list-style-type: decimal">
-<li>What is the average width of setosa iris sepals that are longer than 5cm?</li>
+<li>What is the average width of <em>setosa iris</em> sepals that are longer than 5cm?</li>
 </ol>
 </blockquote>
 <details>
@@ -1266,10 +1266,10 @@ Solution
 Solution
 </summary>
 <p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="week-4.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[,<span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>]) <span class="do">## convince yourself the second part is a logical vector that subsets iris[,&#39;Sepal.Width&#39;]</span></span></code></pre></div>
-<pre><code>## [1] 3.048305</code></pre>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="week-4.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">&#39;Sepal.Width&#39;</span>]) <span class="do">## again, we can alternatively subset using logical vectors in the row position</span></span></code></pre></div>
-<pre><code>## [1] 3.048305</code></pre>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="week-4.html#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[,<span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>]) <span class="do">## convince yourself the second part is a logical vector that subsets iris[,&#39;Sepal.Width&#39;]</span></span></code></pre></div>
+<pre><code>## [1] 3.22</code></pre>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="week-4.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>( iris[iris[,<span class="st">&#39;Sepal.Length&#39;</span>] <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="st">&#39;Sepal.Width&#39;</span>][iris[,<span class="st">&#39;Species&#39;</span>]<span class="sc">==</span><span class="st">&#39;setosa&#39;</span>]) <span class="do">## again, we can alternatively subset using logical vectors in the row position</span></span></code></pre></div>
+<pre><code>## [1] 3.22</code></pre>
 </p>
 </details>
 <blockquote>
