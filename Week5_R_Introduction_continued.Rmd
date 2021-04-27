@@ -15,7 +15,7 @@ These lessons are evenly divided between live coding and performed by the instru
 
 This class will take place with students typing directly into an R script for the exercises all of which can be found in the Week 4 file [here](https://github.com/BayLab/MarineGenomicsData.git) 
 
-You can dowload just the R files for just this week via wget with the following link
+You can download just the R files for just this week via wget with the following link
 ```{html
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week5.tar.gz
 ```
@@ -61,7 +61,7 @@ plot(msleep$sleep_total~msleep$sleep_rem) #you'll notice this swaps the x and y 
 
 You can view different point characters with `?pch`
 
-There are many color options in R. For some general colors you can write the name (blue, red, green, etc). There are apparently 657 named colors in R (including "slateblue3, and peachpuff4) but you can also use the color hexidecimal code for a given color. There are several comprehensives guides for colors in R online and one of which can be found (here)[https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf]  
+There are **many** color options in R. For some general colors you can write the name (blue, red, green, etc). There are apparently 657 named colors in R (including "slateblue3, and peachpuff4) but you can also use the color hexidecimal code for a given color. There are several comprehensives guides for colors in R online and one of which can be found (here)[https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf]  
 
 
 Let's remake the total_sleep against sleep_rem plot and add-in some modifiers
@@ -93,7 +93,7 @@ abline(lm(msleep$sleep_total~msleep$sleep_rem))
 
 You can add a legend to a plot with `legend()` which needs you to specify the location. 
 
-Let's make a cutoff for our points and color them by points above and below the cutoff. We'll use our subsetting skills from last week. Feel free to review that section (1.3).
+To do this, let's make a cutoff for our points and color them by points above and below the cutoff. We'll use our subsetting skills from last week. Feel free to review that section (1.3).
 
 ```{r, echo=T}
 #start by defining points by whether they are greater than sleep_total 16 and storing
@@ -106,7 +106,9 @@ msleep$colors[msleep$sleep_total < 17] <-"black"
 
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col=msleep$colors, bty="L", xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)") 
 
+        
 ```
+
 
 In addition to scatterplots you can make histograms and boxplots in base R. The same parameter options (pch, col, ylab, xlab, etc) apply for these plots as well as scatterplots.
 
@@ -118,6 +120,7 @@ R will automatically plot a barplot if you give to the `plot()` function a conti
 
 hist(msleep$sleep_total, col=rainbow(10))
 
+
 #let's make a boxplot of sleep_total and order making eachone a different color (how would you find out how many unique orders are in msleep?)
 #using plot
 #plot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) #this is commented out simply to avoid ploting the same plot twice
@@ -125,6 +128,10 @@ hist(msleep$sleep_total, col=rainbow(10))
 #or boxplot
 boxplot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) 
 
+```
+Another example looking at sleep variation across the different types of consumers (carnivore, herbivore, insectivore and omnivore):
+```{r, echo=T}
+plot(msleep$sleep_total~as.factor(msleep$vore),col=rainbow(4), xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)")
 ```
 
 ## Practice Problems 2.1
@@ -423,7 +430,7 @@ ggplot(midwest, aes(x=state, y=popdensity, color=state))+
 </p>
 </details>
 
-## Creature of the Week:
+## Creature of the Week!
 ![Juvenile Banded Wobbegong, photo © Grey McNeil](./figs/creatures/wobbegong.jpg)
 
 
