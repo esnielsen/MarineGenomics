@@ -242,7 +242,7 @@ ggplot(data=states, aes(x=Population, y=Income))+geom_point()+geom_smooth(method
 
 ```
 
-Let's use the `msleep` data set to explore what ggplot can do with character vectors. Make a plot of total sleep against REM sleep and then group by order.
+Let's use the `msleep` data set to explore what ggplot can do with character vectors. Make a plot of total sleep against REM sleep and then group by "vore".
 
 ```{r, echo=T}
 
