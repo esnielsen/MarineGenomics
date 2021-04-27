@@ -10,6 +10,18 @@ We're again drawing some of this material from the STEMinist_R materials which c
 
 These lessons are evenly divided between live coding and performed by the instructor and exercises performed by the students in class with instructor support.
 
+This class will take place with students typing directly into an R script for the exercises all of which can be found in the Week 4 file [here](https://github.com/BayLab/MarineGenomicsData.git) 
+
+You can dowload just the R files for just this week via wget with the following link
+```{html
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week5.tar.gz
+```
+
+this is a commpressed file which can be uncompressed via:
+```
+tar -xzvf week5.tar.gz
+```
+
 A few useful commands that we will cover include:
 + plot()
 + points()
