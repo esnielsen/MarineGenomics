@@ -117,7 +117,7 @@ each result starts with `/`.
 > what you need to solve the bonus problem.
 > 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 > > ### Solution
@@ -154,7 +154,7 @@ each result starts with `/`.
 > `echo *.missing` and `ls *.missing`.
 > 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 
@@ -235,7 +235,7 @@ For more information on advanced usage of `history`, read section 9.3 of
 > files in `/usr/bin`. Rerun that command.
 >
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 > > ### Solution
@@ -272,7 +272,7 @@ This will print out all of the contents of the `SRR098026.fastq` to the screen.
 > the `./data_week2/Week2/data_week2/untrimmed_fastq` directory.
 > 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 
@@ -331,7 +331,7 @@ return, you will search backwards and move up the file to previous examples of t
 > What are the next three nucleotides (characters) after the first instance of the sequence quoted above?
 > 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 > > ### Solution
@@ -665,7 +665,7 @@ you will be asked whether you want to override your permission settings.
 > 4. Change the permissions on all of your backup files to be write-protected.  
 >
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 
@@ -795,7 +795,7 @@ CNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
 > that contains a match.
 > 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 
@@ -916,7 +916,7 @@ $ wc -l bad_reads.txt
 > How many sequences are there in `SRR098026.fastq`? Remember that every sequence is formed by four lines.
 >
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 
@@ -946,7 +946,7 @@ $ wc -l bad_reads.txt
 > How many sequences in `SRR098026.fastq` contain at least 3 consecutive Ns?
 >
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 
@@ -1298,7 +1298,7 @@ $ for filename in *.fastq
 >
 > Print the file prefix of all of the `.txt` files in our current directory.
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 >
@@ -1340,7 +1340,7 @@ $ for filename in *.txt
 >
 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 >> ### Solution
@@ -1493,7 +1493,7 @@ Now you've written a file. You can take a look at it with `less` or `cat`, or op
 > Open `README.txt` and add the date to the top of the file and save the file. 
 >
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 > > ### Solution
@@ -1563,7 +1563,7 @@ It will look like nothing happened, but now if you look at `scripted_bad_reads.t
 > 2. Run the updated script.
 >
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 > > ### Solution

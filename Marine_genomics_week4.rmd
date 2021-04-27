@@ -169,7 +169,7 @@ ls()
 
 > 01. Open Rstudio and perform an arithmetic calculation in the command line.
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -188,7 +188,7 @@ ls()
 > + Multiply x by 10, and save the result as a new object named y
 > + Calculate the difference in the sum of the x vector and the sum of the y vector
         
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -213,7 +213,7 @@ sum(x) - sum(y)
 > + What are the arguments for the ls() function?
 > + What does the 'sorted' argument do? 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -411,7 +411,7 @@ head(msleep)
 
 > 01. How many rows are in the dataset?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -426,7 +426,7 @@ nrow(iris)
 
 > 02. What are three distinct ways to figure this out? 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -441,7 +441,7 @@ nrow(iris)
 
 > 03. How many species of flowers are in the dataset?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -456,7 +456,7 @@ levels(iris$Species)
 
 > 04. What class is iris?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -469,7 +469,7 @@ class(iris)
 
 > 05. How many columns does this data frame have? What are their names?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 colnames(iris)
@@ -482,7 +482,7 @@ colnames(iris)
 
 > 06. What class did R assign to each column?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 str(iris)
@@ -495,7 +495,7 @@ str(iris)
 
 > 07. Assign the first flower's petal's width and length to new objects called setosa1.petalwidth and setosa1.petallength
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 
@@ -510,7 +510,7 @@ setosa1.petallength<-iris[1,3]
 
 > 08. Calculate the approximate area of the petal of the first flower, setosa1 (assume petal area can be approximated by a rectangle).
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 
@@ -525,7 +525,7 @@ setosa1area2<-setosa1.petalwidth*setosa1.petallength
 
 > 09. Calculate the petal area of each flower in the iris dataset and assign this to a new column named PetalArea.
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 iris$PetalArea<-iris$Petal.Length*iris$Petal.Width
@@ -538,7 +538,7 @@ iris$PetalArea<-iris$Petal.Length*iris$Petal.Width
 
 > 10. What is the maximum sepal length of the irises?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -552,7 +552,7 @@ max(iris$Sepal.Length)
 
 > 11. What is the average sepal length among all flowers in the dataset?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 mean(iris$Sepal.Length)
@@ -565,7 +565,7 @@ mean(iris$Sepal.Length)
 
 > 12. How about the minimum and median sepal length? 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 
@@ -688,7 +688,7 @@ msleep[which(msleep[,"sleep_total"]>18 & msleep[,"order"] == "Chiroptera"),]
 
 > 1. Create your own logical vector with three TRUEs and three FALSEs
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -702,7 +702,7 @@ a ## let's print to screen and make sure it is stored in this variable
 
 > 2. Produce a vector of the index number of the `TRUE` values
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -715,7 +715,7 @@ which(a == TRUE)   ## but sometimes it's reassuring to state exactly what you're
 
 > 3. Produce a second vector which indexes the numbers of the falses
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -730,7 +730,7 @@ which(a == FALSE)
 
 > 4. How many irises have sepals less than 5.5 cm?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -745,7 +745,7 @@ length(which(iris[,'Sepal.Length']<5.5))  ## here, which() will only return the 
 
 > 5. Which iris individual has the largest petal length? What is the width of it's petal? 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -761,7 +761,7 @@ iris[which(iris[,'Petal.Length'] == max(iris[,'Petal.Length'])) , 'Petal.Width']
 
 > 6.  How many of the irises are in this dataset belong to the species versicolor?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -774,7 +774,7 @@ table(iris[,'Species']) ## this gets us all three species
 
 > 7. How many irises have petals longer than 6cm?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -785,7 +785,7 @@ sum(iris[,'Petal.Length'] > 6)
 
 > 8. Create a vector of species name for each iris with sepals longer than 6cm.
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -797,7 +797,7 @@ iris[iris[,'Sepal.Length']>6, 'Species'] ## alternatively, we can put the logica
 
 > 9. How many irises have sepals shorter than 5cm, but wider than 3cm?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -808,7 +808,7 @@ sum( iris[,'Sepal.Length'] < 5 & iris[,'Sepal.Width'] > 3 )
 
 > 10. How many irises have petals narrower than 0.2cm or shorter than 1.5cm?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -819,7 +819,7 @@ sum( iris[,'Petal.Width'] < 0.2 | iris[,'Petal.Length'] < 1.5 )
 
 > 11. What is the average width of *setosa iris* sepals that are longer than 5cm?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -829,9 +829,9 @@ mean( iris[iris[,'Sepal.Length'] > 5, 'Sepal.Width'][iris[,'Species']=='setosa']
 </p>
 </details>
 
-> 12. What is the difference between the longest and shortest petal lengths of the species virginica?
+> 12. What is the difference between the longest and shortest petal lengths of the species *virginica*?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -841,7 +841,7 @@ max(iris[,'Petal.Length'][iris[,'Species']=='virginica']) - min(iris[,'Petal.Len
 </details>
 > 13. What proportion of flowers in the dataset have petals wider than 1cm?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -855,7 +855,7 @@ sum(iris[,'Petal.Width'] > 1 ) / nrow(iris) ## here, we're counting up how many 
 >       (Short sepals are those less than 5.5 cm)
 >       How many plants with short sepals are there? How many long?
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: blue;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}

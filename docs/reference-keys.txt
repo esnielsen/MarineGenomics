@@ -113,3 +113,4 @@ there-are-several-different-arguments-within-plotting-functions-that-can-be-used
 customizing-your-plot
 practice-problems-2.1
 practice-problems-2.2
+creature-of-the-week-4

@@ -140,7 +140,7 @@ data("ChickWeight")
 How many chicks are in the dataset? 
 How many different diets are in the experiment? 
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 length(unique(ChickWeight$Chick))
@@ -149,9 +149,10 @@ length(unique(ChickWeight$Diet))
 </p>
 </details>
 
+
 > 2. To vizualize the basics of the data, plot weight versus time
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 plot(ChickWeight$weight ~ ChickWeight$Time, 
@@ -161,9 +162,10 @@ plot(ChickWeight$weight ~ ChickWeight$Time,
 </p>
 </details>
 
+
 > 3. Plot a histogram of the weights of the chicks at the final day of the experiments (i.e. only the chicks who made it to the last day)
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 par(mfrow = c(1,1))
@@ -175,9 +177,10 @@ hist(ChickWeight$weight[ChickWeight$Time == max(ChickWeight$Time)],
 </p>
 </details>
 
+
 > 4. Create a boxplot where the x-axis represents the different diets and the y-axis is the weights of the chicks at the final day of the experiments
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 ```{r}
 my.new = ChickWeight[ChickWeight$Time == max(ChickWeight$Time), ]
@@ -191,6 +194,7 @@ boxplot(weight ~ Diet,
 </p>
 </details>
 
+
 > Try using the package R Color Brewer to generate color palettes. Go to http://colorbrewer2.org/ to vizualize palettes. You can choose palettes that are colorblind safe, print friendly, etc.
 ```{r}
 # Install R Color Brewer
@@ -201,7 +205,7 @@ library("RColorBrewer")
 > 4. Define a color pallete with 10 colors and re-plot the histogram of the weights of the chicks at the final day of the experiments in these colors
 Note: if histogram has n breaks and n is less than 10, it will just use first n colors. If n is greater than 10, it will reuse colors.
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 ```{r}
 my.colors = brewer.pal(10, "Paired")
@@ -209,6 +213,7 @@ hist(ChickWeight$weight[ChickWeight$Time == max(ChickWeight$Time)], xlab = "Weig
 ```
 </p>
 </details>
+
 
 ## 2.2 plotting with ggplot2 
 
@@ -340,7 +345,7 @@ ggplot(ChickWeight, aes(x=Time, y=weight, group=Diet, color=Diet))+
 
 > 1. Add best fit lines to our msleep plot for each order.
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -354,7 +359,7 @@ g+geom_smooth(method="lm")
 
 > 2. In the msleep data, make a boxplot of sleep_total against vore. Make sure vore is a factor. Color the boxplots by vore (remember how we had to color the boxplots in base R) it is similar in ggplot.  
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -365,9 +370,10 @@ ggplot(msleep, aes(y=sleep_total, x=as.factor(vore), fill=as.factor(vore)))+geom
 </p>
 </details>
 
+
 > 3. Load a new dataframe `midwest`(run data(midwest)) and plot a scatterplot of area against popdensity grouped and color by state. Do a facet grid by state.
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -383,7 +389,7 @@ ggplot(midwest, aes(y=area, x=popdensity, col=as.factor(state)))+geom_point()+fa
 
 > 4. In the midwest dataframe make a scatterplot of the popdensity by poptotal of only IL (this requires you to subset your data for illinois).
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 
 ```{r, echo=T}
@@ -402,7 +408,7 @@ ggplot(il, aes(x=popdensity, y=poptotal))+geom_point()
 
 > 5. In the midwest dataframe plot the mean and standard error for popdensity for each state. Color this plot in your favorite palette.
 
-<details><summary>Solution</summary>
+<details><summary><span style="color: red;">Solution</span></summary>
 <p>
 ```{r, echo=T}
 ggplot(midwest, aes(x=state, y=popdensity, color=state))+
@@ -417,5 +423,7 @@ ggplot(midwest, aes(x=state, y=popdensity, color=state))+
 </p>
 </details>
 
+## Creature of the Week:
+![Juvenile Banded Wobbegong, photo © Grey McNeil](./figs/creatures/wobbegong.jpg)
 
 
