@@ -215,8 +215,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.1" data-path="week-5.html"><a href="week-5.html#plotting"><i class="fa fa-check"></i><b>6.1</b> 2.1 Plotting</a></li>
 <li class="chapter" data-level="6.2" data-path="week-5.html"><a href="week-5.html#scatterplots"><i class="fa fa-check"></i><b>6.2</b> Scatterplots</a></li>
-<li class="chapter" data-level="6.3" data-path="week-5.html"><a href="week-5.html#there-are-several-different-arguments-within-plotting-functions-that-can-be-used-to-customize-your-plot."><i class="fa fa-check"></i><b>6.3</b> There are several different arguments within plotting functions that can be used to customize your plot.</a></li>
-<li class="chapter" data-level="6.4" data-path="week-5.html"><a href="week-5.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>6.4</b> 2.2 plotting with ggplot2</a></li>
+<li class="chapter" data-level="6.3" data-path="week-5.html"><a href="week-5.html#customizing-your-plot"><i class="fa fa-check"></i><b>6.3</b> Customizing your plot</a></li>
+<li class="chapter" data-level="6.4" data-path="week-5.html"><a href="week-5.html#practice-problems-2.1"><i class="fa fa-check"></i><b>6.4</b> Practice Problems 2.1</a></li>
+<li class="chapter" data-level="6.5" data-path="week-5.html"><a href="week-5.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>6.5</b> 2.2 plotting with ggplot2</a></li>
+<li class="chapter" data-level="6.6" data-path="week-5.html"><a href="week-5.html#practice-problems-2.2"><i class="fa fa-check"></i><b>6.6</b> Practice Problems 2.2</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -247,16 +249,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This class will take place with students typing directly into an R script for the exercises all of which can be found in the Week 4 file <a href="https://github.com/BayLab/MarineGenomicsData.git">here</a></p>
 <p>You can dowload just the R files for just this week via wget with the following link</p>
 <pre class="{html"><code>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week5.tar.gz</code></pre>
-<p>this is a commpressed file which can be uncompressed via:</p>
+<p>this is a compressed file which can be uncompressed via:</p>
 <pre><code>tar -xzvf week5.tar.gz</code></pre>
-<p>A few useful commands that we will cover include:
-+ plot()
-+ points()
-+ lines()
-+ abline()
-+ hist()
-+ boxplot</p>
-<p>A few useful arguments within plot(): main, xlab, ylab, col, pch, cex</p>
+<ul>
+<li>A few useful commands that we will cover include:
+<ul>
+<li>points()</li>
+<li>lines()</li>
+<li>abline()</li>
+<li>hist()</li>
+<li>boxplot()</li>
+<li>plot()
+<ul>
+<li>A few useful arguments within plot(): main, xlab, ylab, col, pch, cex</li>
+</ul></li>
+</ul></li>
+</ul>
 </div>
 <div id="scatterplots" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Scatterplots</h2>
@@ -271,8 +279,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-3"><a href="week-5.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem) <span class="co">#you&#39;ll notice this swaps the x and y axis</span></span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
 </div>
-<div id="there-are-several-different-arguments-within-plotting-functions-that-can-be-used-to-customize-your-plot." class="section level2" number="6.3">
-<h2><span class="header-section-number">6.3</span> There are several different arguments within plotting functions that can be used to customize your plot.</h2>
+<div id="customizing-your-plot" class="section level2" number="6.3">
+<h2><span class="header-section-number">6.3</span> Customizing your plot</h2>
+<ul>
+<li>There are several different arguments within plotting functions that can be used to customize your plot.
 <ul>
 <li><code>col</code> changes color</li>
 <li><code>pch</code> changes point character</li>
@@ -280,6 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>type</code> changes type (“l” = line, “p” = points, “b” = both)</li>
 <li><code>lty</code> changes line type</li>
 <li><code>bty</code> changes (or removes) the border around the plot (“n” = no box, “7” = top + right, “L” = bottom+left, “C” top+left+bottom, “U” = left+bottom+right)</li>
+</ul></li>
 </ul>
 <p>You can view different point characters with <code>?pch</code></p>
 <p>There are many color options in R. For some general colors you can write the name (blue, red, green, etc). There are apparently 657 named colors in R (including "slateblue3, and peachpuff4) but you can also use the color hexidecimal code for a given color. There are several comprehensives guides for colors in R online and one of which can be found (here)[<a href="https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf" class="uri">https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf</a>]</p>
@@ -324,8 +335,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb10-5"><a href="week-5.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#or boxplot</span></span>
 <span id="cb10-6"><a href="week-5.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span><span class="fu">as.factor</span>(msleep<span class="sc">$</span>order), <span class="at">col=</span><span class="fu">rainbow</span>(<span class="dv">19</span>)) </span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
+</div>
+<div id="practice-problems-2.1" class="section level2" number="6.4">
+<h2><span class="header-section-number">6.4</span> Practice Problems 2.1</h2>
 <blockquote>
-<h1 id="excerise-2.1">Excerise 2.1</h1>
+<h1 id="exercise-2.1">Exercise 2.1</h1>
 <p>Read in the data using <code>data(ChickWeight)</code></p>
 </blockquote>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-5.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: this dataset can also be accessed directly from the ChickWeight package in R </span></span>
@@ -426,8 +440,8 @@ Solution
 </p>
 </details>
 </div>
-<div id="plotting-with-ggplot2" class="section level2" number="6.4">
-<h2><span class="header-section-number">6.4</span> 2.2 plotting with ggplot2</h2>
+<div id="plotting-with-ggplot2" class="section level2" number="6.5">
+<h2><span class="header-section-number">6.5</span> 2.2 plotting with ggplot2</h2>
 <p>GGPlot is a package that allows you to make a lot of different kinds of plots and has become increasingly popular. There are also many tutorials on how to use ggplot as well as example code that could be modified to fit the data you’re interested in plotting. There is a really helpful cheatsheat (here)[<a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf</a>]</p>
 <p>There is a little bit of a learning curve for ggplot as the syntax is structured differently than base R plotting. One thing that remains the same and is even more noticible in ggplot is the iterative process of building a plot, one aspect at a time.</p>
 <p>Let’s demonstrate what ggplot can do with the states data set</p>
@@ -519,7 +533,12 @@ Finally in ggplot we may be interested in seeing the mean values plotted with er
 <span id="cb33-4"><a href="week-5.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, </span>
 <span id="cb33-5"><a href="week-5.html#cb33-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">width=</span><span class="fl">0.1</span>), <span class="at">size=</span><span class="fl">0.5</span>)</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-22-1.png" width="672" /></p>
-<p>#Exercise 2.2 Ploting in ggplot</p>
+</div>
+<div id="practice-problems-2.2" class="section level2" number="6.6">
+<h2><span class="header-section-number">6.6</span> Practice Problems 2.2</h2>
+<blockquote>
+<h1 id="exercise-2.2-plotting-in-ggplot">Exercise 2.2 Plotting in ggplot</h1>
+</blockquote>
 <blockquote>
 <ol style="list-style-type: decimal">
 <li>Add best fit lines to our msleep plot for each order.</li>

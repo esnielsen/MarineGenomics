@@ -110,3 +110,6 @@ plotting
 plotting-with-ggplot2
 scatterplots
 there-are-several-different-arguments-within-plotting-functions-that-can-be-used-to-customize-your-plot.
+customizing-your-plot
+practice-problems-2.1
+practice-problems-2.2

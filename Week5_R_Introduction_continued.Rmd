@@ -20,20 +20,19 @@ You can dowload just the R files for just this week via wget with the following 
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week5.tar.gz
 ```
 
-this is a commpressed file which can be uncompressed via:
+this is a compressed file which can be uncompressed via:
 ```
 tar -xzvf week5.tar.gz
 ```
 
-A few useful commands that we will cover include:
-+ plot()
-+ points()
-+ lines() 
-+ abline() 
-+ hist() 
-+ boxplot
-
-A few useful arguments within plot(): main, xlab, ylab, col, pch, cex
+* A few useful commands that we will cover include:
+  + points()
+  + lines() 
+  + abline() 
+  + hist() 
+  + boxplot()
+  + plot()
+      + A few useful arguments within plot(): main, xlab, ylab, col, pch, cex
 
 ## Scatterplots
 Within our `msleep` dataframe let's plot sleep_total by bodywt (bodyweight)
@@ -48,15 +47,17 @@ plot(msleep$sleep_total,msleep$sleep_rem)
 
 plot(msleep$sleep_total~msleep$sleep_rem) #you'll notice this swaps the x and y axis
 
-````
+```
 
-## There are several different arguments within plotting functions that can be used to customize your plot.
-+ `col` changes color
-+ `pch` changes point character
-+ `cex` changes size
-+ `type` changes type ("l" = line, "p" = points, "b" = both)
-+ `lty` changes line type
-+ `bty` changes (or removes) the border around the plot ("n" = no box, "7" = top + right, "L" = bottom+left, "C" top+left+bottom, "U" = left+bottom+right)
+## Customizing your plot
+
+* There are several different arguments within plotting functions that can be used to customize your plot.
+  + `col` changes color
+  + `pch` changes point character
+  + `cex` changes size
+  + `type` changes type ("l" = line, "p" = points, "b" = both)
+  + `lty` changes line type
+  + `bty` changes (or removes) the border around the plot ("n" = no box, "7" = top + right, "L" = bottom+left, "C" top+left+bottom, "U" = left+bottom+right)
 
 You can view different point characters with `?pch`
 
@@ -68,14 +69,14 @@ Let's remake the total_sleep against sleep_rem plot and add-in some modifiers
 #Choose a pch and make the color blue and give it a bottom+left border
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col="blue", bty="L")
 
-````
+```
 
 We can change the axes and title labels using "xlab", "ylab", and "main" arguments. Let's add labels to our plot.
 ```{r, echo=T}
 #Choose a pch and make the color blue and give it a bottom+left border
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col="blue", bty="L", xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)") 
 
-````
+```
 
 You may want to find out which points are on a plot. You can use `identify()` in place of `plot()` to identify specific points within your plot. This function prints out the row numbers for the points that you selected. 
 
@@ -88,7 +89,7 @@ plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col="blue", bty="L", xlab="R
 #then add a line. The function lm runs a linear model on our x, y values.
 abline(lm(msleep$sleep_total~msleep$sleep_rem))
 
-````
+```
 
 You can add a legend to a plot with `legend()` which needs you to specify the location. 
 
@@ -105,7 +106,7 @@ msleep$colors[msleep$sleep_total < 17] <-"black"
 
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col=msleep$colors, bty="L", xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)") 
 
-````
+```
 
 In addition to scatterplots you can make histograms and boxplots in base R. The same parameter options (pch, col, ylab, xlab, etc) apply for these plots as well as scatterplots.
 
@@ -126,7 +127,8 @@ boxplot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19))
 
 ```
 
-> # Excerise 2.1
+## Practice Problems 2.1
+> # Exercise 2.1
 > Read in the data using `data(ChickWeight)`
 ```{r, echo=T}
 # Note: this dataset can also be accessed directly from the ChickWeight package in R 
@@ -333,7 +335,8 @@ ggplot(ChickWeight, aes(x=Time, y=weight, group=Diet, color=Diet))+
 
 ```
 
-#Exercise 2.2 Ploting in ggplot
+## Practice Problems 2.2
+> # Exercise 2.2 Plotting in ggplot
 
 > 1. Add best fit lines to our msleep plot for each order.
 
