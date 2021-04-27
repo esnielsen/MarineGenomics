@@ -106,3 +106,7 @@ practice-r-operations
 practice-exploring-a-dataframe
 practice-subsetting-datasetslogicals
 creature-of-the-week-3
+plotting
+plotting-with-ggplot2
+scatterplots
+there-are-several-different-arguments-within-plotting-functions-that-can-be-used-to-customize-your-plot.

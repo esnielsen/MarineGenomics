@@ -4,9 +4,12 @@ author: "Steminist_R lessons edited by Serena Caplins"
 date: "4/23/2021"
 output: html_document
 ---
-# 2.1 Plotting 
+# Week 5
 
-We're again drawing some of this material from the STEMinist_R materials which can be found (here)[].
+We're again drawing some of this material from the STEMinist_R materials which can be found [here](https://github.com/ecalfee/STEMinist_R.git)
+
+## 2.1 Plotting 
+
 
 These lessons are evenly divided between live coding and performed by the instructor and exercises performed by the students in class with instructor support.
 
@@ -32,7 +35,7 @@ A few useful commands that we will cover include:
 
 A few useful arguments within plot(): main, xlab, ylab, col, pch, cex
 
-# Scatterplots
+## Scatterplots
 Within our `msleep` dataframe let's plot sleep_total by bodywt (bodyweight)
 ```{r, echo=T}
 
@@ -47,7 +50,7 @@ plot(msleep$sleep_total~msleep$sleep_rem) #you'll notice this swaps the x and y 
 
 ````
 
-# There are several different arguments within plotting functions that can be used to customize your plot.
+## There are several different arguments within plotting functions that can be used to customize your plot.
 + `col` changes color
 + `pch` changes point character
 + `cex` changes size
