@@ -271,6 +271,12 @@ ggplot(data=states, aes(x=Population, y=Income))+geom_point()+geom_smooth(method
 
 ```
 
+Another plot example:
+
+```{r, echo=T}
+ggplot(data=states, aes(x=Income, y=Illiteracy, color=Population)) +geom_point()+geom_smooth(method="lm", color="red")+theme_classic() 
+```
+
 Let's use the `msleep` data set to explore what ggplot can do with character vectors. Make a plot of total sleep against REM sleep and then group by "vore".
 
 ```{r, echo=T}
