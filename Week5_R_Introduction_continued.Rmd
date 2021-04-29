@@ -571,10 +571,12 @@ apply(states,
 
 ## Exercise 3.2 apply and tapply
 
+> # Exercise 3.2
+
 A few useful commands: function(){ }, apply(), tapply(), hist(), dim(), prod(), sd()
 
 
-01. what is the average population, income, and area of all 50 states ins the `states` dataset
+> 1. what is the average population, income, and area of all 50 states ins the `states` dataset
 
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
@@ -596,7 +598,7 @@ colMeans(states[,c("Population", "Income", "Area")])
 </p>
 </details>
 
-02. what is the average area of the states from different regions of the country?
+> 2. what is the average area of the states from different regions of the country?
 Hint: use the object state.region in your environment 
 
 
@@ -612,7 +614,7 @@ tapply(states$Area, state.region, mean)
 </details>
 
 
-03. Plot a histogram for each column in the states data (Population, Income, Illiteracy etc.)
+> 3. Plot a histogram for each column in the states data (Population, Income, Illiteracy etc.)
 
 
 <details><summary><span style="color: red;">Solution</span></summary>
@@ -629,7 +631,7 @@ apply(states, 2, hist)
 </p>
 </details>
 
-04. let's assume that we don't want to live in a state with high illiteracy, high murder, and many freezing days; also assume that each of these factors contribute equally to our opinion (Illiteracy * Murder * Frost) = undesirable
+> 4. let's assume that we don't want to live in a state with high illiteracy, high murder, and many freezing days; also assume that each of these factors contribute equally to our opinion (Illiteracy * Murder * Frost) = undesirable
   What 10 states should we avoid? # hint use prod(); and maybe order()
 
 
@@ -645,13 +647,14 @@ livability[order(livability, decreasing = T)][1:10] # top ten least livable stat
 </details>
 
 
-05. use sapply() to plot a histogram of the data below 4 times, in 4 different colors. 
+> 5. use sapply() to plot a histogram of the data below 4 times, in 4 different colors. 
   For extra style, title the plot by it's color, e.g. the red plot is titled "red"
 
+```{r, echo=T}
 data_to_plot = c(1,3,4,5,6,3,3,4,5,1,1,1,1,1)
 
 par(mfrow = c(2,2))# run this line to set your plot to make 4 plots in total (2rows, 2columns)
-
+```
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
 ```{r, echo=T}
@@ -665,7 +668,7 @@ sapply(my_colors, FUN = function(i) hist(data_to_plot, main = i, col = i))
 </p>
 </details>
 
-06. Standardize all the variables in the states dataset and save your answer to a new dataframe, states_standardized
+> 6. Standardize all the variables in the states dataset and save your answer to a new dataframe, states_standardized
 Hint: to standardize a variable, you subtract the mean and divide by the standard deviation (sd)
 
 <details><summary><span style="color: red;">Solution</span></summary>
@@ -684,7 +687,7 @@ head(states_standardized)
 </p>
 </details>
 
-07. Create a histogram again for each variable in the states data, but this time label each histogram with the variable names when you plot
+> 7. Create a histogram again for each variable in the states data, but this time label each histogram with the variable names when you plot
 Hint: instead of using apply to iterate over the columns themselves, you can often iterate over the column names with sapply
 
 <details><summary><span style="color: red;">Solution</span></summary>

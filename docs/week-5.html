@@ -903,10 +903,15 @@ Example syntax for the dataframe or matrix X:
 </div>
 <div id="exercise-3.2-apply-and-tapply" class="section level2" number="6.9">
 <h2><span class="header-section-number">6.9</span> Exercise 3.2 apply and tapply</h2>
+<blockquote>
+<h1 id="exercise-3.2">Exercise 3.2</h1>
+</blockquote>
 <p>A few useful commands: function(){ }, apply(), tapply(), hist(), dim(), prod(), sd()</p>
+<blockquote>
 <ol style="list-style-type: decimal">
 <li>what is the average population, income, and area of all 50 states ins the <code>states</code> dataset</li>
 </ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: red;">Solution</span>
@@ -930,10 +935,12 @@ Example syntax for the dataframe or matrix X:
 ##    4246.42    4435.80   70735.88</code></pre>
 </p>
 </details>
+<blockquote>
 <ol start="2" style="list-style-type: decimal">
 <li>what is the average area of the states from different regions of the country?
 Hint: use the object state.region in your environment</li>
 </ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: red;">Solution</span>
@@ -944,9 +951,11 @@ Hint: use the object state.region in your environment</li>
 ##      18141.00      54605.12      62652.00     134463.00</code></pre>
 </p>
 </details>
+<blockquote>
 <ol start="3" style="list-style-type: decimal">
 <li>Plot a histogram for each column in the states data (Population, Income, Illiteracy etc.)</li>
 </ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: red;">Solution</span>
@@ -1135,10 +1144,12 @@ Hint: use the object state.region in your environment</li>
 ## [1] &quot;histogram&quot;</code></pre>
 </p>
 </details>
+<blockquote>
 <ol start="4" style="list-style-type: decimal">
 <li>let’s assume that we don’t want to live in a state with high illiteracy, high murder, and many freezing days; also assume that each of these factors contribute equally to our opinion (Illiteracy * Murder * Frost) = undesirable
 What 10 states should we avoid? # hint use prod(); and maybe order()</li>
 </ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: red;">Solution</span>
@@ -1152,22 +1163,25 @@ What 10 states should we avoid? # hint use prod(); and maybe order()</li>
 ##        1598.40        1500.00        1309.00        1251.32        1248.75</code></pre>
 </p>
 </details>
+<blockquote>
 <ol start="5" style="list-style-type: decimal">
 <li>use sapply() to plot a histogram of the data below 4 times, in 4 different colors.
 For extra style, title the plot by it’s color, e.g. the red plot is titled “red”</li>
 </ol>
-<p>data_to_plot = c(1,3,4,5,6,3,3,4,5,1,1,1,1,1)</p>
-<p>par(mfrow = c(2,2))# run this line to set your plot to make 4 plots in total (2rows, 2columns)</p>
+</blockquote>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="week-5.html#cb99-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb99-2"><a href="week-5.html#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb99-3"><a href="week-5.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))<span class="co"># run this line to set your plot to make 4 plots in total (2rows, 2columns)</span></span></code></pre></div>
 <details>
 <summary>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="week-5.html#cb99-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb99-2"><a href="week-5.html#cb99-2" aria-hidden="true" tabindex="-1"></a>my_colors <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;deeppink&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>)</span>
-<span id="cb99-3"><a href="week-5.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># extra styling, plots in a 2x2 grid</span></span>
-<span id="cb99-4"><a href="week-5.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_colors, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">hist</span>(data_to_plot, <span class="at">main =</span> i, <span class="at">col =</span> i))</span></code></pre></div>
-<p><img src="Test_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="week-5.html#cb100-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb100-2"><a href="week-5.html#cb100-2" aria-hidden="true" tabindex="-1"></a>my_colors <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;deeppink&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>)</span>
+<span id="cb100-3"><a href="week-5.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># extra styling, plots in a 2x2 grid</span></span>
+<span id="cb100-4"><a href="week-5.html#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_colors, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">hist</span>(data_to_plot, <span class="at">main =</span> i, <span class="at">col =</span> i))</span></code></pre></div>
+<p><img src="Test_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <pre><code>##          deeppink       red            blue           darkgreen     
 ## breaks   Integer,6      Integer,6      Integer,6      Integer,6     
 ## counts   Integer,5      Integer,5      Integer,5      Integer,5     
@@ -1177,18 +1191,20 @@ For extra style, title the plot by it’s color, e.g. the red plot is titled �
 ## equidist TRUE           TRUE           TRUE           TRUE</code></pre>
 </p>
 </details>
+<blockquote>
 <ol start="6" style="list-style-type: decimal">
 <li>Standardize all the variables in the states dataset and save your answer to a new dataframe, states_standardized
 Hint: to standardize a variable, you subtract the mean and divide by the standard deviation (sd)</li>
 </ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="week-5.html#cb101-1" aria-hidden="true" tabindex="-1"></a>states_standardized <span class="ot">=</span> <span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="cf">function</span>(x) (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x))</span>
-<span id="cb101-2"><a href="week-5.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="co"># original:</span></span>
-<span id="cb101-3"><a href="week-5.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states)</span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="week-5.html#cb102-1" aria-hidden="true" tabindex="-1"></a>states_standardized <span class="ot">=</span> <span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="cf">function</span>(x) (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x))</span>
+<span id="cb102-2"><a href="week-5.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="co"># original:</span></span>
+<span id="cb102-3"><a href="week-5.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states)</span></code></pre></div>
 <pre><code>##            Population Income Illiteracy Life Exp Murder HS Grad Frost
 ## Alabama          3615   3624        2.1    69.05   15.1    41.3    20
 ## Alaska            365   6315        1.5    69.31   11.3    66.7   152
@@ -1203,8 +1219,8 @@ Hint: to standardize a variable, you subtract the mean and divide by the standar
 ## Arkansas    51945
 ## California 156361
 ## Colorado   103766</code></pre>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="week-5.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardized</span></span>
-<span id="cb103-2"><a href="week-5.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states_standardized)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="week-5.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardized</span></span>
+<span id="cb104-2"><a href="week-5.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states_standardized)</span></code></pre></div>
 <pre><code>##            Population     Income Illiteracy   Life Exp     Murder
 ## Alabama    -0.1414316 -1.3211387   1.525758 -1.3621937  2.0918101
 ## Alaska     -0.8693980  3.0582456   0.541398 -1.1685098  1.0624293
@@ -1221,18 +1237,20 @@ Hint: to standardize a variable, you subtract the mean and divide by the standar
 ## Colorado    1.3361400  1.1838976  0.3870991</code></pre>
 </p>
 </details>
+<blockquote>
 <ol start="7" style="list-style-type: decimal">
 <li>Create a histogram again for each variable in the states data, but this time label each histogram with the variable names when you plot
 Hint: instead of using apply to iterate over the columns themselves, you can often iterate over the column names with sapply</li>
 </ol>
+</blockquote>
 <details>
 <summary>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="week-5.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb105-2"><a href="week-5.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">colnames</span>(states), <span class="cf">function</span>(x)<span class="fu">hist</span>(states[ , x],<span class="at">main =</span> x, <span class="at">xlab =</span> x,<span class="at">col =</span> <span class="st">&quot;darkblue&quot;</span>))</span></code></pre></div>
-<p><img src="Test_files/figure-html/unnamed-chunk-43-1.png" width="672" /><img src="Test_files/figure-html/unnamed-chunk-43-2.png" width="672" /></p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="week-5.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb106-2"><a href="week-5.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">colnames</span>(states), <span class="cf">function</span>(x)<span class="fu">hist</span>(states[ , x],<span class="at">main =</span> x, <span class="at">xlab =</span> x,<span class="at">col =</span> <span class="st">&quot;darkblue&quot;</span>))</span></code></pre></div>
+<p><img src="Test_files/figure-html/unnamed-chunk-44-1.png" width="672" /><img src="Test_files/figure-html/unnamed-chunk-44-2.png" width="672" /></p>
 <pre><code>##          Population    Income        Illiteracy    Life Exp     
 ## breaks   Numeric,6     Integer,8     Numeric,6     Integer,8    
 ## counts   Integer,5     Integer,7     Integer,5     Integer,7    
