@@ -434,7 +434,6 @@ ggplot(midwest, aes(x=state, y=popdensity, color=state))+
 </p>
 </details>
 
-
 # For loops and the apply family of functions
 
 A few useful commands: function(), is.na, which, var, length, for(){ }, 
@@ -453,7 +452,7 @@ squares
 
 ```
 
-A natural alternative to for-loops in R is using the 'apply' family, while for-loops apply a function to one item at a time and then go on to the next one, "apply" applies functions to every item at once
+An alternative to for-loops in R is using the 'apply' family, while for-loops apply a function to one item at a time and then go on to the next one, "apply" applies functions to every item at once
 
 ## apply family
 
@@ -597,9 +596,6 @@ colMeans(states[,c("Population", "Income", "Area")])
 </p>
 </details>
 
-
-
-
 02. what is the average area of the states from different regions of the country?
 Hint: use the object state.region in your environment 
 
@@ -700,4 +696,5 @@ sapply(colnames(states), function(x)hist(states[ , x],main = x, xlab = x,col = "
 </p>
 </details>
 
-
+## Creature of the Week!
+![Juvenile Banded Wobbegong, photo © Grey McNeil](./figs/creatures/wobbegong.jpg)
