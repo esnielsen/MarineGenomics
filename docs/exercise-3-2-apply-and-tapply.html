@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Exercise 3.2 apply and tapply | Untitled</title>
+  <meta name="description" content="8 Exercise 3.2 apply and tapply | Untitled" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Exercise 3.2 apply and tapply | Untitled" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Exercise 3.2 apply and tapply | Untitled" />
+  
+  
+  
+
+<meta name="author" content="Steminist_R lessons edited by Serena Caplins" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="for-loops-and-the-apply-family-of-functions.html"/>
+
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Marine Genomics 2021</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics</a></li>
+<li class="chapter" data-level="2" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i><b>2</b> Week 1</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="week-1.html"><a href="week-1.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1.html"><a href="week-1.html#how-to-access-the-shell"><i class="fa fa-check"></i><b>2.2</b> How to access the shell</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1.html"><a href="week-1.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.3</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1.html"><a href="week-1.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.4</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1.html"><a href="week-1.html#summary-key-points"><i class="fa fa-check"></i><b>2.5</b> Summary &amp; Key Points</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1.html"><a href="week-1.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.6</b> Navigating Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1.html"><a href="week-1.html#week-1-objectives"><i class="fa fa-check"></i><b>2.7</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.8" data-path="week-1.html"><a href="week-1.html#moving-around-the-file-system"><i class="fa fa-check"></i><b>2.8</b> Moving around the file system</a></li>
+<li class="chapter" data-level="2.9" data-path="week-1.html"><a href="week-1.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.9</b> Examining the contents of other directories</a></li>
+<li class="chapter" data-level="2.10" data-path="week-1.html"><a href="week-1.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.10</b> Full vs Relative Paths</a></li>
+<li class="chapter" data-level="2.11" data-path="week-1.html"><a href="week-1.html#navigational-shortcuts"><i class="fa fa-check"></i><b>2.11</b> Navigational shortcuts</a></li>
+<li class="chapter" data-level="2.12" data-path="week-1.html"><a href="week-1.html#key-points"><i class="fa fa-check"></i><b>2.12</b> Key Points</a></li>
+<li class="chapter" data-level="2.13" data-path="week-1.html"><a href="week-1.html#creature-of-the-week"><i class="fa fa-check"></i><b>2.13</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-2.html"><a href="week-2.html"><i class="fa fa-check"></i><b>3</b> Week 2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="week-2.html"><a href="week-2.html#working-with-files"><i class="fa fa-check"></i><b>3.1</b> Working With Files</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="week-2.html"><a href="week-2.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.1.1</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="3.1.2" data-path="week-2.html"><a href="week-2.html#wildcards"><i class="fa fa-check"></i><b>3.1.2</b> Wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="week-2.html"><a href="week-2.html#command-history"><i class="fa fa-check"></i><b>3.2</b> Command History</a></li>
+<li class="chapter" data-level="3.3" data-path="week-2.html"><a href="week-2.html#examining-files"><i class="fa fa-check"></i><b>3.3</b> Examining Files</a></li>
+<li class="chapter" data-level="3.4" data-path="week-2.html"><a href="week-2.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.4</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="3.5" data-path="week-2.html"><a href="week-2.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>3.5</b> Creating, moving, copying, and removing</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="week-2.html"><a href="week-2.html#copying-files"><i class="fa fa-check"></i><b>3.5.1</b> Copying Files</a></li>
+<li class="chapter" data-level="3.5.2" data-path="week-2.html"><a href="week-2.html#creating-directories"><i class="fa fa-check"></i><b>3.5.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="3.5.3" data-path="week-2.html"><a href="week-2.html#moving-renaming"><i class="fa fa-check"></i><b>3.5.3</b> Moving / Renaming</a></li>
+<li class="chapter" data-level="3.5.4" data-path="week-2.html"><a href="week-2.html#file-permissions"><i class="fa fa-check"></i><b>3.5.4</b> File Permissions</a></li>
+<li class="chapter" data-level="3.5.5" data-path="week-2.html"><a href="week-2.html#removing"><i class="fa fa-check"></i><b>3.5.5</b> Removing</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="week-2.html"><a href="week-2.html#redirections"><i class="fa fa-check"></i><b>3.6</b> Redirections</a></li>
+<li class="chapter" data-level="3.7" data-path="week-2.html"><a href="week-2.html#searching-files"><i class="fa fa-check"></i><b>3.7</b> Searching files</a></li>
+<li class="chapter" data-level="3.8" data-path="week-2.html"><a href="week-2.html#redirecting-output"><i class="fa fa-check"></i><b>3.8</b> Redirecting output</a></li>
+<li class="chapter" data-level="3.9" data-path="week-2.html"><a href="week-2.html#writing-for-loops"><i class="fa fa-check"></i><b>3.9</b> Writing for loops</a></li>
+<li class="chapter" data-level="3.10" data-path="week-2.html"><a href="week-2.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>3.10</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="3.11" data-path="week-2.html"><a href="week-2.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>3.11</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="3.12" data-path="week-2.html"><a href="week-2.html#writing-files"><i class="fa fa-check"></i><b>3.12</b> Writing files</a></li>
+<li class="chapter" data-level="3.13" data-path="week-2.html"><a href="week-2.html#writing-scripts"><i class="fa fa-check"></i><b>3.13</b> Writing scripts</a></li>
+<li class="chapter" data-level="3.14" data-path="week-2.html"><a href="week-2.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>3.14</b> Moving and Downloading Data</a>
+<ul>
+<li class="chapter" data-level="3.14.1" data-path="week-2.html"><a href="week-2.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>3.14.1</b> Getting data from the cloud</a></li>
+<li class="chapter" data-level="3.14.2" data-path="week-2.html"><a href="week-2.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>3.14.2</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
+</ul></li>
+<li class="chapter" data-level="3.15" data-path="week-2.html"><a href="week-2.html#awk"><i class="fa fa-check"></i><b>3.15</b> Awk</a></li>
+<li class="chapter" data-level="3.16" data-path="week-2.html"><a href="week-2.html#creature-of-the-week-1"><i class="fa fa-check"></i><b>3.16</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-3.html"><a href="week-3.html"><i class="fa fa-check"></i><b>4</b> Week 3</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="week-3.html"><a href="week-3.html#what-is-a-genetic-variant"><i class="fa fa-check"></i><b>4.1</b> What is a Genetic Variant?</a></li>
+<li class="chapter" data-level="4.2" data-path="week-3.html"><a href="week-3.html#to-get-started-lets-dowload-the-data-and-install-a-few-programs"><i class="fa fa-check"></i><b>4.2</b> To get started lets dowload the data and install a few programs</a></li>
+<li class="chapter" data-level="4.3" data-path="week-3.html"><a href="week-3.html#raw-read-quality-control"><i class="fa fa-check"></i><b>4.3</b> Raw read quality control</a></li>
+<li class="chapter" data-level="4.4" data-path="week-3.html"><a href="week-3.html#trimming-to-remove-adapters"><i class="fa fa-check"></i><b>4.4</b> Trimming to remove adapters</a></li>
+<li class="chapter" data-level="4.5" data-path="week-3.html"><a href="week-3.html#building-an-index-of-our-genome"><i class="fa fa-check"></i><b>4.5</b> Building an index of our genome</a></li>
+<li class="chapter" data-level="4.6" data-path="week-3.html"><a href="week-3.html#map-reads-to-the-genome"><i class="fa fa-check"></i><b>4.6</b> Map reads to the genome</a></li>
+<li class="chapter" data-level="4.7" data-path="week-3.html"><a href="week-3.html#sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>4.7</b> sam to bam file conversion</a></li>
+<li class="chapter" data-level="4.8" data-path="week-3.html"><a href="week-3.html#genotype-likelihoods"><i class="fa fa-check"></i><b>4.8</b> Genotype likelihoods</a></li>
+<li class="chapter" data-level="4.9" data-path="week-3.html"><a href="week-3.html#creature-of-the-week-2"><i class="fa fa-check"></i><b>4.9</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-4.html"><a href="week-4.html"><i class="fa fa-check"></i><b>5</b> Week 4</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="week-4.html"><a href="week-4.html#lesson-1-orientation-to-r"><i class="fa fa-check"></i><b>5.1</b> Lesson 1: Orientation to R</a></li>
+<li class="chapter" data-level="5.2" data-path="week-4.html"><a href="week-4.html#manipulating-a-vector-object"><i class="fa fa-check"></i><b>5.2</b> Manipulating a vector object</a></li>
+<li class="chapter" data-level="5.3" data-path="week-4.html"><a href="week-4.html#operations-act-on-each-element-of-a-vector"><i class="fa fa-check"></i><b>5.3</b> Operations act on each element of a vector:</a></li>
+<li class="chapter" data-level="5.4" data-path="week-4.html"><a href="week-4.html#operations-can-also-work-with-two-vectors"><i class="fa fa-check"></i><b>5.4</b> Operations can also work with two vectors:</a></li>
+<li class="chapter" data-level="5.5" data-path="week-4.html"><a href="week-4.html#a-few-tips-below-for-working-with-objects"><i class="fa fa-check"></i><b>5.5</b> A few tips below for working with objects:</a></li>
+<li class="chapter" data-level="5.6" data-path="week-4.html"><a href="week-4.html#practice-r-operations"><i class="fa fa-check"></i><b>5.6</b> Practice R Operations</a></li>
+<li class="chapter" data-level="5.7" data-path="week-4.html"><a href="week-4.html#characterizing-a-dataframe"><i class="fa fa-check"></i><b>5.7</b> 1.2 Characterizing a dataframe</a></li>
+<li class="chapter" data-level="5.8" data-path="week-4.html"><a href="week-4.html#how-to-access-parts-of-the-data"><i class="fa fa-check"></i><b>5.8</b> How to access parts of the data:</a></li>
+<li class="chapter" data-level="5.9" data-path="week-4.html"><a href="week-4.html#data-manipulation"><i class="fa fa-check"></i><b>5.9</b> Data Manipulation</a></li>
+<li class="chapter" data-level="5.10" data-path="week-4.html"><a href="week-4.html#practice-exploring-a-dataframe"><i class="fa fa-check"></i><b>5.10</b> Practice exploring a dataframe</a></li>
+<li class="chapter" data-level="5.11" data-path="week-4.html"><a href="week-4.html#subsetting-datasets-logicals"><i class="fa fa-check"></i><b>5.11</b> 1.3 Subsetting datasets &amp; logicals</a></li>
+<li class="chapter" data-level="5.12" data-path="week-4.html"><a href="week-4.html#practice-subsetting-datasetslogicals"><i class="fa fa-check"></i><b>5.12</b> Practice Subsetting datasets/logicals</a></li>
+<li class="chapter" data-level="5.13" data-path="week-4.html"><a href="week-4.html#creature-of-the-week-3"><i class="fa fa-check"></i><b>5.13</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="week-5.html"><a href="week-5.html"><i class="fa fa-check"></i><b>6</b> Week 5</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="week-5.html"><a href="week-5.html#plotting"><i class="fa fa-check"></i><b>6.1</b> 2.1 Plotting</a></li>
+<li class="chapter" data-level="6.2" data-path="week-5.html"><a href="week-5.html#scatterplots"><i class="fa fa-check"></i><b>6.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="6.3" data-path="week-5.html"><a href="week-5.html#customizing-your-plot"><i class="fa fa-check"></i><b>6.3</b> Customizing your plot</a></li>
+<li class="chapter" data-level="6.4" data-path="week-5.html"><a href="week-5.html#practice-problems-2.1"><i class="fa fa-check"></i><b>6.4</b> Practice Problems 2.1</a></li>
+<li class="chapter" data-level="6.5" data-path="week-5.html"><a href="week-5.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>6.5</b> 2.2 plotting with ggplot2</a></li>
+<li class="chapter" data-level="6.6" data-path="week-5.html"><a href="week-5.html#practice-problems-2.2"><i class="fa fa-check"></i><b>6.6</b> Practice Problems 2.2</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html"><i class="fa fa-check"></i><b>7</b> For loops and the apply family of functions</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#for-loops"><i class="fa fa-check"></i><b>7.1</b> for loops</a></li>
+<li class="chapter" data-level="7.2" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#apply-family"><i class="fa fa-check"></i><b>7.2</b> apply family</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#sapply"><i class="fa fa-check"></i><b>7.2.1</b> sapply</a></li>
+<li class="chapter" data-level="7.2.2" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#apply"><i class="fa fa-check"></i><b>7.2.2</b> apply</a></li>
+<li class="chapter" data-level="7.2.3" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#lapply-list-apply"><i class="fa fa-check"></i><b>7.2.3</b> lapply – “list” apply</a></li>
+<li class="chapter" data-level="7.2.4" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#tapply---per-type-apply"><i class="fa fa-check"></i><b>7.2.4</b> tapply - “per Type” apply</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercise-3-2-apply-and-tapply.html"><a href="exercise-3-2-apply-and-tapply.html"><i class="fa fa-check"></i><b>8</b> Exercise 3.2 apply and tapply</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exercise-3-2-apply-and-tapply.html"><a href="exercise-3-2-apply-and-tapply.html#creature-of-the-week-4"><i class="fa fa-check"></i><b>8.1</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Untitled</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exercise-3.2-apply-and-tapply" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Exercise 3.2 apply and tapply</h1>
+<p>A few useful commands: function(){ }, apply(), tapply(), hist(), dim(), prod(), sd()</p>
+<ol style="list-style-type: decimal">
+<li>what is the average population, income, and area of all 50 states ins the <code>states</code> dataset</li>
+</ol>
+<details>
+<summary>
+<span style="color: red;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="exercise-3-2-apply-and-tapply.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data</span></span>
+<span id="cb87-2"><a href="exercise-3-2-apply-and-tapply.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="co">#?state</span></span>
+<span id="cb87-3"><a href="exercise-3-2-apply-and-tapply.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb87-4"><a href="exercise-3-2-apply-and-tapply.html#cb87-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-5"><a href="exercise-3-2-apply-and-tapply.html#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="co"># this data is stored in a slightly different way than other datasets we&#39;ve used so far</span></span>
+<span id="cb87-6"><a href="exercise-3-2-apply-and-tapply.html#cb87-6" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># run this line of code to avoid later confusion</span></span>
+<span id="cb87-7"><a href="exercise-3-2-apply-and-tapply.html#cb87-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb87-8"><a href="exercise-3-2-apply-and-tapply.html#cb87-8" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,<span class="dv">2</span>,mean)</span></code></pre></div>
+<pre><code>## Population     Income Illiteracy   Life Exp     Murder    HS Grad 
+##  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080 
+##      Frost       Area 
+##   104.4600 70735.8800</code></pre>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="exercise-3-2-apply-and-tapply.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co">#or an alternative that will get you only the columns requested</span></span>
+<span id="cb89-2"><a href="exercise-3-2-apply-and-tapply.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Income&quot;</span>, <span class="st">&quot;Area&quot;</span>)])</span></code></pre></div>
+<pre><code>## Population     Income       Area 
+##    4246.42    4435.80   70735.88</code></pre>
+</p>
+</details>
+<ol start="2" style="list-style-type: decimal">
+<li>what is the average area of the states from different regions of the country?
+Hint: use the object state.region in your environment</li>
+</ol>
+<details>
+<summary>
+<span style="color: red;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="exercise-3-2-apply-and-tapply.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Area, state.region, mean)</span></code></pre></div>
+<pre><code>##     Northeast         South North Central          West 
+##      18141.00      54605.12      62652.00     134463.00</code></pre>
+</p>
+</details>
+<ol start="3" style="list-style-type: decimal">
+<li>Plot a histogram for each column in the states data (Population, Income, Illiteracy etc.)</li>
+</ol>
+<details>
+<summary>
+<span style="color: red;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="exercise-3-2-apply-and-tapply.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co">#how many columns do we have? </span></span>
+<span id="cb93-2"><a href="exercise-3-2-apply-and-tapply.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(states)</span></code></pre></div>
+<pre><code>## [1] 50  8</code></pre>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="exercise-3-2-apply-and-tapply.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># make your plot window show 2 rows and 2 columns at once</span></span>
+<span id="cb95-2"><a href="exercise-3-2-apply-and-tapply.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, hist)</span></code></pre></div>
+<p><img src="Test_files/figure-html/unnamed-chunk-39-1.png" width="672" /><img src="Test_files/figure-html/unnamed-chunk-39-2.png" width="672" /></p>
+<pre><code>## $Population
+## $breaks
+## [1]     0  5000 10000 15000 20000 25000
+## 
+## $counts
+## [1] 38  6  4  1  1
+## 
+## $density
+## [1] 0.000152 0.000024 0.000016 0.000004 0.000004
+## 
+## $mids
+## [1]  2500  7500 12500 17500 22500
+## 
+## $xname
+## [1] &quot;newX[, i]&quot;
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;histogram&quot;
+## 
+## $Income
+## $breaks
+## [1] 3000 3500 4000 4500 5000 5500 6000 6500
+## 
+## $counts
+## [1]  2 11 11 18  7  0  1
+## 
+## $density
+## [1] 0.00008 0.00044 0.00044 0.00072 0.00028 0.00000 0.00004
+## 
+## $mids
+## [1] 3250 3750 4250 4750 5250 5750 6250
+## 
+## $xname
+## [1] &quot;newX[, i]&quot;
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;histogram&quot;
+## 
+## $Illiteracy
+## $breaks
+## [1] 0.5 1.0 1.5 2.0 2.5 3.0
+## 
+## $counts
+## [1] 26 11  7  5  1
+## 
+## $density
+## [1] 1.04 0.44 0.28 0.20 0.04
+## 
+## $mids
+## [1] 0.75 1.25 1.75 2.25 2.75
+## 
+## $xname
+## [1] &quot;newX[, i]&quot;
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;histogram&quot;
+## 
+## $`Life Exp`
+## $breaks
+## [1] 67 68 69 70 71 72 73 74
+## 
+## $counts
+## [1]  1  3  5 21  8 11  1
+## 
+## $density
+## [1] 0.02 0.06 0.10 0.42 0.16 0.22 0.02
+## 
+## $mids
+## [1] 67.5 68.5 69.5 70.5 71.5 72.5 73.5
+## 
+## $xname
+## [1] &quot;newX[, i]&quot;
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;histogram&quot;
+## 
+## $Murder
+## $breaks
+## [1]  0  2  4  6  8 10 12 14 16
+## 
+## $counts
+## [1]  2  9  8 10  4 12  4  1
+## 
+## $density
+## [1] 0.02 0.09 0.08 0.10 0.04 0.12 0.04 0.01
+## 
+## $mids
+## [1]  1  3  5  7  9 11 13 15
+## 
+## $xname
+## [1] &quot;newX[, i]&quot;
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;histogram&quot;
+## 
+## $`HS Grad`
+## $breaks
+## [1] 35 40 45 50 55 60 65 70
+## 
+## $counts
+## [1]  4  6  4 15 13  5  3
+## 
+## $density
+## [1] 0.016 0.024 0.016 0.060 0.052 0.020 0.012
+## 
+## $mids
+## [1] 37.5 42.5 47.5 52.5 57.5 62.5 67.5
+## 
+## $xname
+## [1] &quot;newX[, i]&quot;
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;histogram&quot;
+## 
+## $Frost
+## $breaks
+##  [1]   0  20  40  60  80 100 120 140 160 180 200
+## 
+## $counts
+##  [1]  6  2  3  4  5  7 11  4  6  2
+## 
+## $density
+##  [1] 0.006 0.002 0.003 0.004 0.005 0.007 0.011 0.004 0.006 0.002
+## 
+## $mids
+##  [1]  10  30  50  70  90 110 130 150 170 190
+## 
+## $xname
+## [1] &quot;newX[, i]&quot;
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;histogram&quot;
+## 
+## $Area
+## $breaks
+## [1] 0e+00 1e+05 2e+05 3e+05 4e+05 5e+05 6e+05
+## 
+## $counts
+## [1] 42  6  1  0  0  1
+## 
+## $density
+## [1] 8.4e-06 1.2e-06 2.0e-07 0.0e+00 0.0e+00 2.0e-07
+## 
+## $mids
+## [1]  50000 150000 250000 350000 450000 550000
+## 
+## $xname
+## [1] &quot;newX[, i]&quot;
+## 
+## $equidist
+## [1] TRUE
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;histogram&quot;</code></pre>
+</p>
+</details>
+<ol start="4" style="list-style-type: decimal">
+<li>let’s assume that we don’t want to live in a state with high illiteracy, high murder, and many freezing days; also assume that each of these factors contribute equally to our opinion (Illiteracy * Murder * Frost) = undesirable
+What 10 states should we avoid? # hint use prod(); and maybe order()</li>
+</ol>
+<details>
+<summary>
+<span style="color: red;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="exercise-3-2-apply-and-tapply.html#cb97-1" aria-hidden="true" tabindex="-1"></a>livability <span class="ot">&lt;-</span> <span class="fu">apply</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Illiteracy&quot;</span>, <span class="st">&quot;Murder&quot;</span>, <span class="st">&quot;Frost&quot;</span>)], <span class="dv">1</span>, prod) <span class="co"># subset to variables of interest</span></span>
+<span id="cb97-2"><a href="exercise-3-2-apply-and-tapply.html#cb97-2" aria-hidden="true" tabindex="-1"></a>livability[<span class="fu">order</span>(livability, <span class="at">decreasing =</span> T)][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] <span class="co"># top ten least livable states</span></span></code></pre></div>
+<pre><code>##         Alaska     New Mexico South Carolina        Georgia       Kentucky 
+##        2576.40        2560.80        1734.20        1668.00        1611.20 
+## North Carolina    Mississippi      Tennessee       New York       Michigan 
+##        1598.40        1500.00        1309.00        1251.32        1248.75</code></pre>
+</p>
+</details>
+<ol start="5" style="list-style-type: decimal">
+<li>use sapply() to plot a histogram of the data below 4 times, in 4 different colors.
+For extra style, title the plot by it’s color, e.g. the red plot is titled “red”</li>
+</ol>
+<p>data_to_plot = c(1,3,4,5,6,3,3,4,5,1,1,1,1,1)</p>
+<p>par(mfrow = c(2,2))# run this line to set your plot to make 4 plots in total (2rows, 2columns)</p>
+<details>
+<summary>
+<span style="color: red;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="exercise-3-2-apply-and-tapply.html#cb99-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb99-2"><a href="exercise-3-2-apply-and-tapply.html#cb99-2" aria-hidden="true" tabindex="-1"></a>my_colors <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;deeppink&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>)</span>
+<span id="cb99-3"><a href="exercise-3-2-apply-and-tapply.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># extra styling, plots in a 2x2 grid</span></span>
+<span id="cb99-4"><a href="exercise-3-2-apply-and-tapply.html#cb99-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_colors, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">hist</span>(data_to_plot, <span class="at">main =</span> i, <span class="at">col =</span> i))</span></code></pre></div>
+<p><img src="Test_files/figure-html/unnamed-chunk-41-1.png" width="672" /></p>
+<pre><code>##          deeppink       red            blue           darkgreen     
+## breaks   Integer,6      Integer,6      Integer,6      Integer,6     
+## counts   Integer,5      Integer,5      Integer,5      Integer,5     
+## density  Numeric,5      Numeric,5      Numeric,5      Numeric,5     
+## mids     Numeric,5      Numeric,5      Numeric,5      Numeric,5     
+## xname    &quot;data_to_plot&quot; &quot;data_to_plot&quot; &quot;data_to_plot&quot; &quot;data_to_plot&quot;
+## equidist TRUE           TRUE           TRUE           TRUE</code></pre>
+</p>
+</details>
+<ol start="6" style="list-style-type: decimal">
+<li>Standardize all the variables in the states dataset and save your answer to a new dataframe, states_standardized
+Hint: to standardize a variable, you subtract the mean and divide by the standard deviation (sd)</li>
+</ol>
+<details>
+<summary>
+<span style="color: red;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="exercise-3-2-apply-and-tapply.html#cb101-1" aria-hidden="true" tabindex="-1"></a>states_standardized <span class="ot">=</span> <span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="cf">function</span>(x) (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x))</span>
+<span id="cb101-2"><a href="exercise-3-2-apply-and-tapply.html#cb101-2" aria-hidden="true" tabindex="-1"></a><span class="co"># original:</span></span>
+<span id="cb101-3"><a href="exercise-3-2-apply-and-tapply.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states)</span></code></pre></div>
+<pre><code>##            Population Income Illiteracy Life Exp Murder HS Grad Frost
+## Alabama          3615   3624        2.1    69.05   15.1    41.3    20
+## Alaska            365   6315        1.5    69.31   11.3    66.7   152
+## Arizona          2212   4530        1.8    70.55    7.8    58.1    15
+## Arkansas         2110   3378        1.9    70.66   10.1    39.9    65
+## California      21198   5114        1.1    71.71   10.3    62.6    20
+## Colorado         2541   4884        0.7    72.06    6.8    63.9   166
+##              Area
+## Alabama     50708
+## Alaska     566432
+## Arizona    113417
+## Arkansas    51945
+## California 156361
+## Colorado   103766</code></pre>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="exercise-3-2-apply-and-tapply.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardized</span></span>
+<span id="cb103-2"><a href="exercise-3-2-apply-and-tapply.html#cb103-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states_standardized)</span></code></pre></div>
+<pre><code>##            Population     Income Illiteracy   Life Exp     Murder
+## Alabama    -0.1414316 -1.3211387   1.525758 -1.3621937  2.0918101
+## Alaska     -0.8693980  3.0582456   0.541398 -1.1685098  1.0624293
+## Arizona    -0.4556891  0.1533029   1.033578 -0.2447866  0.1143154
+## Arkansas   -0.4785360 -1.7214837   1.197638 -0.1628435  0.7373617
+## California  3.7969790  1.1037155  -0.114842  0.6193415  0.7915396
+## Colorado   -0.3819965  0.7294092  -0.771082  0.8800698 -0.1565742
+##               HS Grad      Frost       Area
+## Alabama    -1.4619293 -1.6248292 -0.2347183
+## Alaska      1.6828035  0.9145676  5.8093497
+## Arizona     0.6180514 -1.7210185  0.5002047
+## Arkansas   -1.6352611 -0.7591257 -0.2202212
+## California  1.1751891 -1.6248292  1.0034903
+## Colorado    1.3361400  1.1838976  0.3870991</code></pre>
+</p>
+</details>
+<ol start="7" style="list-style-type: decimal">
+<li>Create a histogram again for each variable in the states data, but this time label each histogram with the variable names when you plot
+Hint: instead of using apply to iterate over the columns themselves, you can often iterate over the column names with sapply</li>
+</ol>
+<details>
+<summary>
+<span style="color: red;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="exercise-3-2-apply-and-tapply.html#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb105-2"><a href="exercise-3-2-apply-and-tapply.html#cb105-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">colnames</span>(states), <span class="cf">function</span>(x)<span class="fu">hist</span>(states[ , x],<span class="at">main =</span> x, <span class="at">xlab =</span> x,<span class="at">col =</span> <span class="st">&quot;darkblue&quot;</span>))</span></code></pre></div>
+<p><img src="Test_files/figure-html/unnamed-chunk-43-1.png" width="672" /><img src="Test_files/figure-html/unnamed-chunk-43-2.png" width="672" /></p>
+<pre><code>##          Population    Income        Illiteracy    Life Exp     
+## breaks   Numeric,6     Integer,8     Numeric,6     Integer,8    
+## counts   Integer,5     Integer,7     Integer,5     Integer,7    
+## density  Numeric,5     Numeric,7     Numeric,5     Numeric,7    
+## mids     Numeric,5     Numeric,7     Numeric,5     Numeric,7    
+## xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
+## equidist TRUE          TRUE          TRUE          TRUE         
+##          Murder        HS Grad       Frost         Area         
+## breaks   Numeric,9     Integer,8     Numeric,11    Numeric,7    
+## counts   Integer,8     Integer,7     Integer,10    Integer,6    
+## density  Numeric,8     Numeric,7     Numeric,10    Numeric,6    
+## mids     Numeric,8     Numeric,7     Numeric,10    Numeric,6    
+## xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
+## equidist TRUE          TRUE          TRUE          TRUE</code></pre>
+</p>
+</details>
+<div id="creature-of-the-week-4" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Creature of the Week!</h2>
+<div class="figure">
+<img src="figs/creatures/wobbegong.jpg" alt="" />
+<p class="caption">Juvenile Banded Wobbegong, photo © Grey McNeil</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="for-loops-and-the-apply-family-of-functions.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Test.pdf", "Test.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

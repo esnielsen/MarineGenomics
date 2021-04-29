@@ -114,3 +114,11 @@ customizing-your-plot
 practice-problems-2.1
 practice-problems-2.2
 creature-of-the-week-4
+for-loops-and-the-apply-family-of-functions
+for-loops
+apply-family
+sapply
+apply
+lapply-list-apply
+tapply---per-type-apply
+exercise-3.2-apply-and-tapply

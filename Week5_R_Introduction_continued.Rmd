@@ -434,12 +434,12 @@ ggplot(midwest, aes(x=state, y=popdensity, color=state))+
 </p>
 </details>
 
-# For loops and the apply family of functions
+## For loops and the apply family of functions
 
 A few useful commands: function(), is.na, which, var, length, for(){ }, 
  points, print, paste, plot, unique, sample
  
-## for loops
+for loops: 
 In many languages, the best way to repeat a calculation is to use a for-loop:
 For example, we could square each number 1 to 10
 
@@ -458,7 +458,7 @@ An alternative to for-loops in R is using the 'apply' family, while for-loops ap
 
 ### sapply
 
-There are several apply functions that vary in the output the return and vary somewhat in the input they require. We'll go over sapply "simplifying" apply which returns a vector, first.
+There are several apply functions that vary in the output the return and vary somewhat in the input they require. We'll go over **sapply** "simplifying" apply which returns a vector, first.
 
 ```{r, echo=T}
 #?sapply 
@@ -569,7 +569,7 @@ apply(states,
 
 ```
 
-# Exercise 3.2 apply and tapply
+## Exercise 3.2 apply and tapply
 
 A few useful commands: function(){ }, apply(), tapply(), hist(), dim(), prod(), sd()
 

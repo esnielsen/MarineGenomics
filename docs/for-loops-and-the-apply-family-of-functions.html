@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 For loops and the apply family of functions | Untitled</title>
+  <meta name="description" content="7 For loops and the apply family of functions | Untitled" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 For loops and the apply family of functions | Untitled" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 For loops and the apply family of functions | Untitled" />
+  
+  
+  
+
+<meta name="author" content="Steminist_R lessons edited by Serena Caplins" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="week-5.html"/>
+<link rel="next" href="exercise-3-2-apply-and-tapply.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Marine Genomics 2021</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics</a></li>
+<li class="chapter" data-level="2" data-path="week-1.html"><a href="week-1.html"><i class="fa fa-check"></i><b>2</b> Week 1</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="week-1.html"><a href="week-1.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
+<li class="chapter" data-level="2.2" data-path="week-1.html"><a href="week-1.html#how-to-access-the-shell"><i class="fa fa-check"></i><b>2.2</b> How to access the shell</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1.html"><a href="week-1.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.3</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1.html"><a href="week-1.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.4</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1.html"><a href="week-1.html#summary-key-points"><i class="fa fa-check"></i><b>2.5</b> Summary &amp; Key Points</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1.html"><a href="week-1.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.6</b> Navigating Files and Directories</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1.html"><a href="week-1.html#week-1-objectives"><i class="fa fa-check"></i><b>2.7</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.8" data-path="week-1.html"><a href="week-1.html#moving-around-the-file-system"><i class="fa fa-check"></i><b>2.8</b> Moving around the file system</a></li>
+<li class="chapter" data-level="2.9" data-path="week-1.html"><a href="week-1.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.9</b> Examining the contents of other directories</a></li>
+<li class="chapter" data-level="2.10" data-path="week-1.html"><a href="week-1.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.10</b> Full vs Relative Paths</a></li>
+<li class="chapter" data-level="2.11" data-path="week-1.html"><a href="week-1.html#navigational-shortcuts"><i class="fa fa-check"></i><b>2.11</b> Navigational shortcuts</a></li>
+<li class="chapter" data-level="2.12" data-path="week-1.html"><a href="week-1.html#key-points"><i class="fa fa-check"></i><b>2.12</b> Key Points</a></li>
+<li class="chapter" data-level="2.13" data-path="week-1.html"><a href="week-1.html#creature-of-the-week"><i class="fa fa-check"></i><b>2.13</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="week-2.html"><a href="week-2.html"><i class="fa fa-check"></i><b>3</b> Week 2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="week-2.html"><a href="week-2.html#working-with-files"><i class="fa fa-check"></i><b>3.1</b> Working With Files</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="week-2.html"><a href="week-2.html#our-data-set-fastq-files"><i class="fa fa-check"></i><b>3.1.1</b> Our data set: FASTQ files</a></li>
+<li class="chapter" data-level="3.1.2" data-path="week-2.html"><a href="week-2.html#wildcards"><i class="fa fa-check"></i><b>3.1.2</b> Wildcards</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="week-2.html"><a href="week-2.html#command-history"><i class="fa fa-check"></i><b>3.2</b> Command History</a></li>
+<li class="chapter" data-level="3.3" data-path="week-2.html"><a href="week-2.html#examining-files"><i class="fa fa-check"></i><b>3.3</b> Examining Files</a></li>
+<li class="chapter" data-level="3.4" data-path="week-2.html"><a href="week-2.html#details-on-the-fastq-format"><i class="fa fa-check"></i><b>3.4</b> Details on the FASTQ format</a></li>
+<li class="chapter" data-level="3.5" data-path="week-2.html"><a href="week-2.html#creating-moving-copying-and-removing"><i class="fa fa-check"></i><b>3.5</b> Creating, moving, copying, and removing</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="week-2.html"><a href="week-2.html#copying-files"><i class="fa fa-check"></i><b>3.5.1</b> Copying Files</a></li>
+<li class="chapter" data-level="3.5.2" data-path="week-2.html"><a href="week-2.html#creating-directories"><i class="fa fa-check"></i><b>3.5.2</b> Creating Directories</a></li>
+<li class="chapter" data-level="3.5.3" data-path="week-2.html"><a href="week-2.html#moving-renaming"><i class="fa fa-check"></i><b>3.5.3</b> Moving / Renaming</a></li>
+<li class="chapter" data-level="3.5.4" data-path="week-2.html"><a href="week-2.html#file-permissions"><i class="fa fa-check"></i><b>3.5.4</b> File Permissions</a></li>
+<li class="chapter" data-level="3.5.5" data-path="week-2.html"><a href="week-2.html#removing"><i class="fa fa-check"></i><b>3.5.5</b> Removing</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="week-2.html"><a href="week-2.html#redirections"><i class="fa fa-check"></i><b>3.6</b> Redirections</a></li>
+<li class="chapter" data-level="3.7" data-path="week-2.html"><a href="week-2.html#searching-files"><i class="fa fa-check"></i><b>3.7</b> Searching files</a></li>
+<li class="chapter" data-level="3.8" data-path="week-2.html"><a href="week-2.html#redirecting-output"><i class="fa fa-check"></i><b>3.8</b> Redirecting output</a></li>
+<li class="chapter" data-level="3.9" data-path="week-2.html"><a href="week-2.html#writing-for-loops"><i class="fa fa-check"></i><b>3.9</b> Writing for loops</a></li>
+<li class="chapter" data-level="3.10" data-path="week-2.html"><a href="week-2.html#using-basename-in-for-loops"><i class="fa fa-check"></i><b>3.10</b> Using Basename in for loops</a></li>
+<li class="chapter" data-level="3.11" data-path="week-2.html"><a href="week-2.html#writing-scripts-and-working-with-data"><i class="fa fa-check"></i><b>3.11</b> Writing Scripts and Working with Data</a></li>
+<li class="chapter" data-level="3.12" data-path="week-2.html"><a href="week-2.html#writing-files"><i class="fa fa-check"></i><b>3.12</b> Writing files</a></li>
+<li class="chapter" data-level="3.13" data-path="week-2.html"><a href="week-2.html#writing-scripts"><i class="fa fa-check"></i><b>3.13</b> Writing scripts</a></li>
+<li class="chapter" data-level="3.14" data-path="week-2.html"><a href="week-2.html#moving-and-downloading-data"><i class="fa fa-check"></i><b>3.14</b> Moving and Downloading Data</a>
+<ul>
+<li class="chapter" data-level="3.14.1" data-path="week-2.html"><a href="week-2.html#getting-data-from-the-cloud"><i class="fa fa-check"></i><b>3.14.1</b> Getting data from the cloud</a></li>
+<li class="chapter" data-level="3.14.2" data-path="week-2.html"><a href="week-2.html#uploading-and-downloading-data-to-your-virtual-machine-with-scp---unix"><i class="fa fa-check"></i><b>3.14.2</b> Uploading and Downloading Data to your Virtual Machine with scp - UNIX</a></li>
+</ul></li>
+<li class="chapter" data-level="3.15" data-path="week-2.html"><a href="week-2.html#awk"><i class="fa fa-check"></i><b>3.15</b> Awk</a></li>
+<li class="chapter" data-level="3.16" data-path="week-2.html"><a href="week-2.html#creature-of-the-week-1"><i class="fa fa-check"></i><b>3.16</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="week-3.html"><a href="week-3.html"><i class="fa fa-check"></i><b>4</b> Week 3</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="week-3.html"><a href="week-3.html#what-is-a-genetic-variant"><i class="fa fa-check"></i><b>4.1</b> What is a Genetic Variant?</a></li>
+<li class="chapter" data-level="4.2" data-path="week-3.html"><a href="week-3.html#to-get-started-lets-dowload-the-data-and-install-a-few-programs"><i class="fa fa-check"></i><b>4.2</b> To get started lets dowload the data and install a few programs</a></li>
+<li class="chapter" data-level="4.3" data-path="week-3.html"><a href="week-3.html#raw-read-quality-control"><i class="fa fa-check"></i><b>4.3</b> Raw read quality control</a></li>
+<li class="chapter" data-level="4.4" data-path="week-3.html"><a href="week-3.html#trimming-to-remove-adapters"><i class="fa fa-check"></i><b>4.4</b> Trimming to remove adapters</a></li>
+<li class="chapter" data-level="4.5" data-path="week-3.html"><a href="week-3.html#building-an-index-of-our-genome"><i class="fa fa-check"></i><b>4.5</b> Building an index of our genome</a></li>
+<li class="chapter" data-level="4.6" data-path="week-3.html"><a href="week-3.html#map-reads-to-the-genome"><i class="fa fa-check"></i><b>4.6</b> Map reads to the genome</a></li>
+<li class="chapter" data-level="4.7" data-path="week-3.html"><a href="week-3.html#sam-to-bam-file-conversion"><i class="fa fa-check"></i><b>4.7</b> sam to bam file conversion</a></li>
+<li class="chapter" data-level="4.8" data-path="week-3.html"><a href="week-3.html#genotype-likelihoods"><i class="fa fa-check"></i><b>4.8</b> Genotype likelihoods</a></li>
+<li class="chapter" data-level="4.9" data-path="week-3.html"><a href="week-3.html#creature-of-the-week-2"><i class="fa fa-check"></i><b>4.9</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="week-4.html"><a href="week-4.html"><i class="fa fa-check"></i><b>5</b> Week 4</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="week-4.html"><a href="week-4.html#lesson-1-orientation-to-r"><i class="fa fa-check"></i><b>5.1</b> Lesson 1: Orientation to R</a></li>
+<li class="chapter" data-level="5.2" data-path="week-4.html"><a href="week-4.html#manipulating-a-vector-object"><i class="fa fa-check"></i><b>5.2</b> Manipulating a vector object</a></li>
+<li class="chapter" data-level="5.3" data-path="week-4.html"><a href="week-4.html#operations-act-on-each-element-of-a-vector"><i class="fa fa-check"></i><b>5.3</b> Operations act on each element of a vector:</a></li>
+<li class="chapter" data-level="5.4" data-path="week-4.html"><a href="week-4.html#operations-can-also-work-with-two-vectors"><i class="fa fa-check"></i><b>5.4</b> Operations can also work with two vectors:</a></li>
+<li class="chapter" data-level="5.5" data-path="week-4.html"><a href="week-4.html#a-few-tips-below-for-working-with-objects"><i class="fa fa-check"></i><b>5.5</b> A few tips below for working with objects:</a></li>
+<li class="chapter" data-level="5.6" data-path="week-4.html"><a href="week-4.html#practice-r-operations"><i class="fa fa-check"></i><b>5.6</b> Practice R Operations</a></li>
+<li class="chapter" data-level="5.7" data-path="week-4.html"><a href="week-4.html#characterizing-a-dataframe"><i class="fa fa-check"></i><b>5.7</b> 1.2 Characterizing a dataframe</a></li>
+<li class="chapter" data-level="5.8" data-path="week-4.html"><a href="week-4.html#how-to-access-parts-of-the-data"><i class="fa fa-check"></i><b>5.8</b> How to access parts of the data:</a></li>
+<li class="chapter" data-level="5.9" data-path="week-4.html"><a href="week-4.html#data-manipulation"><i class="fa fa-check"></i><b>5.9</b> Data Manipulation</a></li>
+<li class="chapter" data-level="5.10" data-path="week-4.html"><a href="week-4.html#practice-exploring-a-dataframe"><i class="fa fa-check"></i><b>5.10</b> Practice exploring a dataframe</a></li>
+<li class="chapter" data-level="5.11" data-path="week-4.html"><a href="week-4.html#subsetting-datasets-logicals"><i class="fa fa-check"></i><b>5.11</b> 1.3 Subsetting datasets &amp; logicals</a></li>
+<li class="chapter" data-level="5.12" data-path="week-4.html"><a href="week-4.html#practice-subsetting-datasetslogicals"><i class="fa fa-check"></i><b>5.12</b> Practice Subsetting datasets/logicals</a></li>
+<li class="chapter" data-level="5.13" data-path="week-4.html"><a href="week-4.html#creature-of-the-week-3"><i class="fa fa-check"></i><b>5.13</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="week-5.html"><a href="week-5.html"><i class="fa fa-check"></i><b>6</b> Week 5</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="week-5.html"><a href="week-5.html#plotting"><i class="fa fa-check"></i><b>6.1</b> 2.1 Plotting</a></li>
+<li class="chapter" data-level="6.2" data-path="week-5.html"><a href="week-5.html#scatterplots"><i class="fa fa-check"></i><b>6.2</b> Scatterplots</a></li>
+<li class="chapter" data-level="6.3" data-path="week-5.html"><a href="week-5.html#customizing-your-plot"><i class="fa fa-check"></i><b>6.3</b> Customizing your plot</a></li>
+<li class="chapter" data-level="6.4" data-path="week-5.html"><a href="week-5.html#practice-problems-2.1"><i class="fa fa-check"></i><b>6.4</b> Practice Problems 2.1</a></li>
+<li class="chapter" data-level="6.5" data-path="week-5.html"><a href="week-5.html#plotting-with-ggplot2"><i class="fa fa-check"></i><b>6.5</b> 2.2 plotting with ggplot2</a></li>
+<li class="chapter" data-level="6.6" data-path="week-5.html"><a href="week-5.html#practice-problems-2.2"><i class="fa fa-check"></i><b>6.6</b> Practice Problems 2.2</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html"><i class="fa fa-check"></i><b>7</b> For loops and the apply family of functions</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#for-loops"><i class="fa fa-check"></i><b>7.1</b> for loops</a></li>
+<li class="chapter" data-level="7.2" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#apply-family"><i class="fa fa-check"></i><b>7.2</b> apply family</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#sapply"><i class="fa fa-check"></i><b>7.2.1</b> sapply</a></li>
+<li class="chapter" data-level="7.2.2" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#apply"><i class="fa fa-check"></i><b>7.2.2</b> apply</a></li>
+<li class="chapter" data-level="7.2.3" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#lapply-list-apply"><i class="fa fa-check"></i><b>7.2.3</b> lapply – “list” apply</a></li>
+<li class="chapter" data-level="7.2.4" data-path="for-loops-and-the-apply-family-of-functions.html"><a href="for-loops-and-the-apply-family-of-functions.html#tapply---per-type-apply"><i class="fa fa-check"></i><b>7.2.4</b> tapply - “per Type” apply</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercise-3-2-apply-and-tapply.html"><a href="exercise-3-2-apply-and-tapply.html"><i class="fa fa-check"></i><b>8</b> Exercise 3.2 apply and tapply</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exercise-3-2-apply-and-tapply.html"><a href="exercise-3-2-apply-and-tapply.html#creature-of-the-week-4"><i class="fa fa-check"></i><b>8.1</b> Creature of the Week!</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Untitled</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="for-loops-and-the-apply-family-of-functions" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> For loops and the apply family of functions</h1>
+<p>A few useful commands: function(), is.na, which, var, length, for(){ },
+points, print, paste, plot, unique, sample</p>
+<div id="for-loops" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> for loops</h2>
+<p>In many languages, the best way to repeat a calculation is to use a for-loop:
+For example, we could square each number 1 to 10</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb44-1" aria-hidden="true" tabindex="-1"></a>squares <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">10</span>) <span class="co"># use rep to create a vector length 10 of NAs to store the result</span></span>
+<span id="cb44-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) { <span class="co"># for loop</span></span>
+<span id="cb44-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  squares[i] <span class="ot">=</span> i<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb44-4"><a href="for-loops-and-the-apply-family-of-functions.html#cb44-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb44-5"><a href="for-loops-and-the-apply-family-of-functions.html#cb44-5" aria-hidden="true" tabindex="-1"></a>squares</span></code></pre></div>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<p>An alternative to for-loops in R is using the ‘apply’ family, while for-loops apply a function to one item at a time and then go on to the next one, “apply” applies functions to every item at once</p>
+</div>
+<div id="apply-family" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> apply family</h2>
+<div id="sapply" class="section level3" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> sapply</h3>
+<p>There are several apply functions that vary in the output the return and vary somewhat in the input they require. We’ll go over sapply “simplifying” apply which returns a vector, first.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?sapply </span></span>
+<span id="cb46-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># syntax: sapply(X = object_to_repeat_over, FUN = function_to_repeat)</span></span>
+<span id="cb46-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="for-loops-and-the-apply-family-of-functions.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># simple example of sapply over a vector</span></span>
+<span id="cb46-5"><a href="for-loops-and-the-apply-family-of-functions.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># we can use an in-line function definition</span></span>
+<span id="cb46-6"><a href="for-loops-and-the-apply-family-of-functions.html#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># equivalently, we can define our own functions separately for sapply</span></span>
+<span id="cb48-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. a function that calculates the area of a circle radius r, pi*r^2</span></span>
+<span id="cb48-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb48-3" aria-hidden="true" tabindex="-1"></a>areaCircle <span class="ot">=</span> <span class="cf">function</span>(r){</span>
+<span id="cb48-4"><a href="for-loops-and-the-apply-family-of-functions.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pi <span class="sc">*</span> r<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb48-5"><a href="for-loops-and-the-apply-family-of-functions.html#cb48-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb48-6"><a href="for-loops-and-the-apply-family-of-functions.html#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="for-loops-and-the-apply-family-of-functions.html#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, areaCircle)</span></code></pre></div>
+<pre><code>##  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336
+##  [7] 153.938040 201.061930 254.469005 314.159265</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in R, we can also just use short-hand for simple vector calculations:</span></span>
+<span id="cb50-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb50-2" aria-hidden="true" tabindex="-1"></a>pi<span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<pre><code>##  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336
+##  [7] 153.938040 201.061930 254.469005 314.159265</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># but unlike the short-hand, sapply can also iterate over elements in a list</span></span>
+<span id="cb52-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb52-2" aria-hidden="true" tabindex="-1"></a>listy <span class="ot">=</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="cn">TRUE</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">c =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb52-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(listy) <span class="co"># look at the structure of &#39;listy&#39;</span></span></code></pre></div>
+<pre><code>## List of 3
+##  $ a: logi TRUE
+##  $ b: chr [1:3] &quot;a&quot; &quot;b&quot; &quot;c&quot;
+##  $ c: int [1:91] 10 11 12 13 14 15 16 17 18 19 ...</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(listy) <span class="co"># look at the length of &#39;listy&#39;</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use sapply to return a vector for length of each object within the list</span></span>
+<span id="cb56-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(listy, <span class="at">FUN =</span> length) </span></code></pre></div>
+<pre><code>##  a  b  c 
+##  1  3 91</code></pre>
+<p>You can also use sapply to create plots! For example, use sapply to plot these 4 dataframes at once:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb58-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb58-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb58-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x2 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y2 =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">10</span>)</span>
+<span id="cb58-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb58-3" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x3 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y3 =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb58-4"><a href="for-loops-and-the-apply-family-of-functions.html#cb58-4" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb58-5"><a href="for-loops-and-the-apply-family-of-functions.html#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-6"><a href="for-loops-and-the-apply-family-of-functions.html#cb58-6" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">=</span> <span class="fu">list</span>(df1, df2, df3, df4) <span class="co"># put 4 data frames together in a list</span></span>
+<span id="cb58-7"><a href="for-loops-and-the-apply-family-of-functions.html#cb58-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-8"><a href="for-loops-and-the-apply-family-of-functions.html#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># set up frame for 4 plots</span></span>
+<span id="cb58-9"><a href="for-loops-and-the-apply-family-of-functions.html#cb58-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_list, plot) <span class="co"># plot my_list with sapply</span></span></code></pre></div>
+<p><img src="Test_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
+<pre><code>## [[1]]
+## NULL
+## 
+## [[2]]
+## NULL
+## 
+## [[3]]
+## NULL
+## 
+## [[4]]
+## NULL</code></pre>
+</div>
+<div id="apply" class="section level3" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> apply</h3>
+<p>The apply function is highly useful for applying a function to rows or columns of a dataframe or matrix.
+Example syntax for the dataframe or matrix X:
+<code>apply(X = over this object, MARGIN 1 for rows or 2 for columns,FUN = apply this function)</code></p>
+<p>You can also use apply on a dataframe we worked with earlier the states data to plot each column against Population</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load in the data</span></span>
+<span id="cb60-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb60-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb60-3" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
+<span id="cb60-4"><a href="for-loops-and-the-apply-family-of-functions.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    50 obs. of  8 variables:
+##  $ Population: num  3615 365 2212 2110 21198 ...
+##  $ Income    : num  3624 6315 4530 3378 5114 ...
+##  $ Illiteracy: num  2.1 1.5 1.8 1.9 1.1 0.7 1.1 0.9 1.3 2 ...
+##  $ Life Exp  : num  69 69.3 70.5 70.7 71.7 ...
+##  $ Murder    : num  15.1 11.3 7.8 10.1 10.3 6.8 3.1 6.2 10.7 13.9 ...
+##  $ HS Grad   : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...
+##  $ Frost     : num  20 152 15 65 20 166 139 103 11 60 ...
+##  $ Area      : num  50708 566432 113417 51945 156361 ...</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the mean for each column</span></span>
+<span id="cb62-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, mean)</span></code></pre></div>
+<pre><code>## Population     Income Illiteracy   Life Exp     Murder    HS Grad 
+##  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080 
+##      Frost       Area 
+##   104.4600 70735.8800</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note you could get this with colMeans() or summary(), along with the min and max and other values, but there may be instances where you only want the mean</span></span>
+<span id="cb64-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># you could also plot each column against Population in ggplot</span></span>
+<span id="cb64-4"><a href="for-loops-and-the-apply-family-of-functions.html#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-5"><a href="for-loops-and-the-apply-family-of-functions.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y =</span> i))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span><span class="fu">theme_classic</span>())</span></code></pre></div>
+<pre><code>## $Population</code></pre>
+<p><img src="Test_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
+<pre><code>## 
+## $Income</code></pre>
+<p><img src="Test_files/figure-html/unnamed-chunk-33-2.png" width="672" /></p>
+<pre><code>## 
+## $Illiteracy</code></pre>
+<p><img src="Test_files/figure-html/unnamed-chunk-33-3.png" width="672" /></p>
+<pre><code>## 
+## $`Life Exp`</code></pre>
+<p><img src="Test_files/figure-html/unnamed-chunk-33-4.png" width="672" /></p>
+<pre><code>## 
+## $Murder</code></pre>
+<p><img src="Test_files/figure-html/unnamed-chunk-33-5.png" width="672" /></p>
+<pre><code>## 
+## $`HS Grad`</code></pre>
+<p><img src="Test_files/figure-html/unnamed-chunk-33-6.png" width="672" /></p>
+<pre><code>## 
+## $Frost</code></pre>
+<p><img src="Test_files/figure-html/unnamed-chunk-33-7.png" width="672" /></p>
+<pre><code>## 
+## $Area</code></pre>
+<p><img src="Test_files/figure-html/unnamed-chunk-33-8.png" width="672" /></p>
+<p>We can do the same things across all rows. But if you want to plot all the rows as we did the columns above, I suggest you do that with a smaller dataset than the states dataframe.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the sum across each row in states</span></span>
+<span id="cb73-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">1</span>, sum)</span></code></pre></div>
+<pre><code>##        Alabama         Alaska        Arizona       Arkansas     California 
+##       58094.55      573412.81      120312.25       57620.56      182838.71 
+##       Colorado    Connecticut       Delaware        Florida        Georgia 
+##      111500.46       13581.68        7604.76       67328.26       67280.04 
+##         Hawaii          Idaho       Illinois        Indiana           Iowa 
+##       12399.60       87872.27       72312.94       46121.58       63704.36 
+##         Kansas       Kentucky      Louisiana          Maine       Maryland 
+##       88987.58       46964.80       52419.96       35961.49       19544.92 
+##  Massachusetts       Michigan      Minnesota    Mississippi       Missouri 
+##       18632.73       70939.43       88178.46       52908.99       78253.59 
+##        Montana       Nebraska         Nevada  New Hampshire     New Jersey 
+##      150970.36       82809.40      115962.23       14426.83       20335.73 
+##     New Mexico       New York North Carolina   North Dakota           Ohio 
+##      126414.42       71027.55       58314.61       75308.28       56527.22 
+##       Oklahoma         Oregon   Pennsylvania   Rhode Island South Carolina 
+##       75692.52      103308.93       61528.73        6787.00       36860.66 
+##   South Dakota      Tennessee          Texas           Utah        Vermont 
+##       81102.58       49516.61      278726.70       87603.30       13948.84 
+##       Virginia     Washington  West Virginia      Wisconsin        Wyoming 
+##       49675.78       75165.12       29705.18       63800.68      102458.69</code></pre>
+</div>
+<div id="lapply-list-apply" class="section level3" number="7.2.3">
+<h3><span class="header-section-number">7.2.3</span> lapply – “list” apply</h3>
+<p>We’ll just show a quick example of lapply. It works in the same way as sapply, but returns a list instead of a vector.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># lapply returns list</span></span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 4
+## 
+## [[3]]
+## [1] 9
+## 
+## [[4]]
+## [1] 16
+## 
+## [[5]]
+## [1] 25
+## 
+## [[6]]
+## [1] 36
+## 
+## [[7]]
+## [1] 49
+## 
+## [[8]]
+## [1] 64
+## 
+## [[9]]
+## [1] 81
+## 
+## [[10]]
+## [1] 100</code></pre>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>) <span class="co"># same as an lapply</span></span></code></pre></div>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] 4
+## 
+## [[3]]
+## [1] 9
+## 
+## [[4]]
+## [1] 16
+## 
+## [[5]]
+## [1] 25
+## 
+## [[6]]
+## [1] 36
+## 
+## [[7]]
+## [1] 49
+## 
+## [[8]]
+## [1] 64
+## 
+## [[9]]
+## [1] 81
+## 
+## [[10]]
+## [1] 100</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># default is simplify = TRUE which retuns a vector</span></span></code></pre></div>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+</div>
+<div id="tapply---per-type-apply" class="section level3" number="7.2.4">
+<h3><span class="header-section-number">7.2.4</span> tapply - “per Type” apply</h3>
+<p>The tapply function is one of my favorites because it is a really great way to sumarize data that has multiple categorical variables that can be</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data again, you can skip this if you already have it loaded</span></span>
+<span id="cb81-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb81-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb81-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-4"><a href="for-loops-and-the-apply-family-of-functions.html#cb81-4" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
+<span id="cb81-5"><a href="for-loops-and-the-apply-family-of-functions.html#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    50 obs. of  8 variables:
+##  $ Population: num  3615 365 2212 2110 21198 ...
+##  $ Income    : num  3624 6315 4530 3378 5114 ...
+##  $ Illiteracy: num  2.1 1.5 1.8 1.9 1.1 0.7 1.1 0.9 1.3 2 ...
+##  $ Life Exp  : num  69 69.3 70.5 70.7 71.7 ...
+##  $ Murder    : num  15.1 11.3 7.8 10.1 10.3 6.8 3.1 6.2 10.7 13.9 ...
+##  $ HS Grad   : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...
+##  $ Frost     : num  20 152 15 65 20 166 139 103 11 60 ...
+##  $ Area      : num  50708 566432 113417 51945 156361 ...</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example syntax --- tapply(variable of interest, grouping variable, function)</span></span>
+<span id="cb83-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb83-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="co"># for each US region in our dataset, finds the mean of Frost for states in that region</span></span>
+<span id="cb83-4"><a href="for-loops-and-the-apply-family-of-functions.html#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Frost, state.region, mean) <span class="co"># state.region contains the region information for each state</span></span></code></pre></div>
+<pre><code>##     Northeast         South North Central          West 
+##      132.7778       64.6250      138.8333      102.1538</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="for-loops-and-the-apply-family-of-functions.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can nest apply statements! Let&#39;s find the region average for all the variables in the states dataset</span></span>
+<span id="cb85-2"><a href="for-loops-and-the-apply-family-of-functions.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,</span>
+<span id="cb85-3"><a href="for-loops-and-the-apply-family-of-functions.html#cb85-3" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span>, <span class="co"># apply over columns of my_states</span></span>
+<span id="cb85-4"><a href="for-loops-and-the-apply-family-of-functions.html#cb85-4" aria-hidden="true" tabindex="-1"></a>      <span class="cf">function</span>(x) <span class="fu">tapply</span>(x, state.region, mean)) <span class="co"># each column = variable of interest for tapply</span></span></code></pre></div>
+<pre><code>##               Population   Income Illiteracy Life Exp    Murder  HS Grad
+## Northeast       5495.111 4570.222   1.000000 71.26444  4.722222 53.96667
+## South           4208.125 4011.938   1.737500 69.70625 10.581250 44.34375
+## North Central   4803.000 4611.083   0.700000 71.76667  5.275000 54.51667
+## West            2915.308 4702.615   1.023077 71.23462  7.215385 62.00000
+##                  Frost      Area
+## Northeast     132.7778  18141.00
+## South          64.6250  54605.12
+## North Central 138.8333  62652.00
+## West          102.1538 134463.00</code></pre>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="week-5.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercise-3-2-apply-and-tapply.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Test.pdf", "Test.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
