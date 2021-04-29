@@ -122,3 +122,4 @@ apply
 lapply-list-apply
 tapply---per-type-apply
 exercise-3.2-apply-and-tapply
+exercise-2.3-apply-and-tapply

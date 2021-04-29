@@ -569,9 +569,9 @@ apply(states,
 
 ```
 
-## Exercise 3.2 apply and tapply
+## Exercise 2.3 apply and tapply
 
-> # Exercise 3.2
+> # Exercise 2.3
 
 A few useful commands: function(){ }, apply(), tapply(), hist(), dim(), prod(), sd()
 
