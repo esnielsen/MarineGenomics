@@ -22,7 +22,7 @@ The first portion of this lesson will be performed in bash and then we will gene
 We first need to download the data. Use the link below to download it to jetstream, and then us the tar command to un-compress it.
 
 
-```{html}
+```html
 
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week6.tar.gz
 
@@ -32,7 +32,7 @@ tar -xzvf week6.tar.gz
 
 Our data this week consists of genotype_likelihood files in beagle format and a bam.filelist which contains id information for our samples. 
 
-```{html}
+```html
 
 ls -lh MarineGenomicsData/Week6
 
@@ -42,7 +42,7 @@ ls -lh MarineGenomicsData/Week6
 
 We will also need to install a few programs. The code below installs the program pcangsd, and a few dependencies for pcangsd
 
-```{html}
+```html
 
 #install pip for python
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -69,7 +69,7 @@ pip install --user -r requirements.txt
 
 
 Check that it's installed correctly.
-```{html}
+```html
 #navigate to your home directory
 cd
 
@@ -81,7 +81,7 @@ You should see the help menu for pcangsd.
 
 ## Run pcangsd on our data
 
-```{html}
+```html
 
 python3 ../../pcangsd/pcangsd.py -beagle genolike_beagle.beagle.gz -o pca_out -threads 28
 
