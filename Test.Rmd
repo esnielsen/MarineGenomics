@@ -1,3 +1,140 @@
+--- 
+title: "Marine Genomics"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: ""
+---
+
+# Introduction to Marine Genomics
+
+Placeholder
+
+
+
+<!--chapter:end:index.Rmd-->
+
+
+# Week 1
+
+Placeholder
+
+
+## Introduction to shell computing via the data carpentry tutorial
+## How to access the shell
+## Navigating your file system
+## Shortcut: Tab Completion
+## Summary & Key Points
+## Navigating Files and Directories
+## Week 1 Objectives
+## Moving around the file system
+## Examining the contents of other directories
+## Full vs Relative Paths
+## Navigational shortcuts
+## Key Points
+## Creature of the Week!
+
+<!--chapter:end:01-Week1.Rmd-->
+
+
+# Week 2
+
+Placeholder
+
+
+## Working With Files
+### Our data set: FASTQ files
+### Wildcards
+## Command History
+## Examining Files
+## Details on the FASTQ format
+## Creating, moving, copying, and removing
+### Copying Files
+### Creating Directories
+### Moving / Renaming 
+### File Permissions
+### Removing
+## Redirections
+## Searching files
+## Redirecting output
+## Writing for loops
+## Using Basename in for loops
+## Writing Scripts and Working with Data
+## Writing files
+## Writing scripts
+## Moving and Downloading Data
+### Getting data from the cloud
+### Uploading and Downloading Data to your Virtual Machine with scp - UNIX
+## Awk
+## Creature of the Week!
+
+<!--chapter:end:02-Week2.Rmd-->
+
+
+# Week 3
+
+Placeholder
+
+
+## What is a Genetic Variant?
+## To get started lets dowload the data and install a few programs
+## Raw read quality control
+## Trimming to remove adapters
+## Building an index of our genome
+## Map reads to the genome
+## sam to bam file conversion
+## Genotype likelihoods
+## Creature of the Week!
+
+<!--chapter:end:03-MarGeno_week3.Rmd-->
+
+
+# Week 4
+
+Placeholder
+
+
+## Lesson 1: Orientation to R
+## Manipulating a vector object 
+## Operations act on each element of a vector:
+## Operations can also work with two vectors:
+## A few tips below for working with objects:
+## Practice R Operations
+## 1.2 Characterizing a dataframe
+## How to access parts of the data:
+## Data Manipulation
+## Practice exploring a dataframe
+## 1.3 Subsetting datasets & logicals
+## Practice Subsetting datasets/logicals
+## Creature of the Week!
+
+<!--chapter:end:Marine_genomics_week4.rmd-->
+
+
+# Week 5
+
+Placeholder
+
+
+## 2.1 Plotting 
+## Scatterplots
+## Customizing your plot
+## Practice Problems 2.1
+## 2.2 plotting with ggplot2 
+## Practice Problems 2.2
+## For loops and the apply family of functions
+## apply family
+### sapply
+### apply 
+### lapply -- "list" apply
+### tapply - "per Type" apply 
+## Exercise 2.3 apply and tapply
+## Creature of the Week!
+
+<!--chapter:end:Week5_R_Introduction_continued.Rmd-->
+
 ---
 title: "Week 6"
 author: "Serena Caplins"
@@ -204,3 +341,6 @@ Hint use the command `read.table(gzfile("path/to/genotypelikelihoodfile/), heade
 ```
 </p>
 </details>
+
+<!--chapter:end:Week6.Rmd-->
+

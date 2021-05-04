@@ -123,3 +123,10 @@ lapply-list-apply
 tapply---per-type-apply
 exercise-3.2-apply-and-tapply
 exercise-2.3-apply-and-tapply
+week-6-pca
+download-the-data
+installing-programs
+run-pcangsd-on-our-data
+setting-up-a-new-project-in-r
+reading-data-into-r
+exercises
