@@ -209,4 +209,4 @@ Hint use the command `read.table(gzfile("path/to/genotypelikelihoodfile/), heade
 </details>
 
 ## Creature of the Week!
-![Portuguese man o' war drifting in the ocean. It is also known as the "floating terror" or "bluebottle" (Image credit: Getty Images)](./figs/creatures/portuguesemanowar.jpg)
+![Yellow Boring Sponge, the inspiration for Spongebob! (Image credit: Bernard Picton/Encyclopedia of Marine Life of Britain and Ireland)](./figs/creatures/boringsponge.jpg)
