@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Plotting a PCA
 
-The lecture for this week can be found (here)[].
+The lecture for this week can be found [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week6_lecture.pdf).
 
 In week 3 we mapped reads to a genome so we could call our genetic variants (SNPs) and generated bam files for each read file (= sequence data from an individual). Now that we know how to do some R basics we can use those SNPs to plot patterns of population structure via a principal component analysis. 
 
