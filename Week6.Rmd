@@ -2,6 +2,7 @@
 title: "Week 6"
 author: "Serena Caplins"
 date: "5/3/2021"
+output:
 html_document: default
 pdf_document: default
 ---
@@ -10,7 +11,7 @@ pdf_document: default
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Week 6: PCA 
+# Week 6: PCA 
 
 
 The lecture for this week focused on **Plotting a PCA** can be found [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week6_lecture.pdf).
@@ -24,7 +25,7 @@ The first portion of this lesson will be performed in **bash** and then we will 
 We first need to download the data. Use the link below to download it to jetstream, and then us the tar command to un-compress it.
 
 
-```{html}
+```html
 
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week6.tar.gz
 
@@ -34,7 +35,7 @@ tar -xzvf week6.tar.gz
 
 Our data this week consists of genotype_likelihood files in beagle format and a bam.filelist which contains id information for our samples. 
 
-```{html}
+```html
 
 ls -lh MarineGenomicsData/Week6
 
@@ -44,7 +45,7 @@ ls -lh MarineGenomicsData/Week6
 
 We will also need to install a few programs. The code below installs the program pcangsd, and a few dependencies for pcangsd:
 
-```{html}
+```html
 
 #install pip for python
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
@@ -71,7 +72,7 @@ pip install --user -r requirements.txt
 
 
 Check that it's installed correctly.
-```{html}
+```html
 #navigate to your home directory
 cd
 
@@ -83,7 +84,7 @@ You should see the help menu for pcangsd.
 
 ## Run pcangsd on our data
 
-```{html}
+```html
 
 python3 ../../pcangsd/pcangsd.py -beagle genolike_beagle.beagle.gz -o pca_out -threads 28
 
@@ -126,7 +127,7 @@ Now well read the data output by angsd into R using `read.table()` and `as.matri
 
 ```{r, echo=T}
 
-cov<-as.matrix(read.table("MarineGenomicsData/Week6/pca_out.cov"))
+#cov<-as.matrix(read.table("MarineGenomicsData/Week6/pca_out.cov"))
 
 ```
 
@@ -136,7 +137,7 @@ And then we can compute the eigenvalues from our covariance matrix with the func
 
 ```{r, echo=T}
 
-e<-eigen(cov)
+#e<-eigen(cov)
 
 ```
 
@@ -146,14 +147,14 @@ And make a simple plot in base R
 ```{r, echo=T}
 
 
-plot(e$vectors[,1:2])
+#plot(e$vectors[,1:2])
 
 ```
 We may be interested in how much of the variance our first two components explain. You can look at this in the `e` object under values. We divide the eigen values by the sum of all the values to get the percent explained by each value.
 
 ```{r, echo=T}
 
-e$values/sum(e$values)
+#e$values/sum(e$values)
 
 
 ```
@@ -165,14 +166,16 @@ We now want to make the colors match population labels. The information for whic
 ```{r, echo=T}
 
 #read in the data
-names<-read.table("MarineGenomicsData/Week6/bam.filelist")
+
+#names<-read.table("MarineGenomicsData/Week6/bam.filelist")
 
 #assign the rownames of the covariance matix the 
-rownames(cov)<-names$V2
+
+#rownames(cov)<-names$V2
 
 #remake the plot with the colors we want
 
-plot(e$vectors[,1:2], col=as.factor(rownames(cov)), pch=16)
+#plot(e$vectors[,1:2], col=as.factor(rownames(cov)), pch=16)
 
 ```
 
@@ -180,7 +183,7 @@ There is another column in the bam.filelist file that will allow us to color the
 
 
 ## Exercises
-> #Practice Questions
+> # Practice Questions
 
 > 01. In R, upload the genotype likelihood file. Filter the data so that we only use sites for which all 15 individuals have data present (i.e., subsite by the nInd column). How many SNPs does this leave us? 
 Hint use the command `read.table(gzfile("path/to/genotypelikelihoodfile/), header=T)` to read in the file in R. Dont forget to assign it to an object or R will print the whole thing to the screen.
@@ -204,3 +207,6 @@ Hint use the command `read.table(gzfile("path/to/genotypelikelihoodfile/), heade
 ```
 </p>
 </details>
+
+## Creature of the Week!
+![Portuguese man o' war drifting in the ocean. It is also known as the "floating terror" or "bluebottle" (Image credit: Getty Images)](./figs/creatures/portuguesemanowar.jpg)

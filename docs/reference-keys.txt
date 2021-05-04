@@ -130,3 +130,4 @@ run-pcangsd-on-our-data
 setting-up-a-new-project-in-r
 reading-data-into-r
 exercises
+creature-of-the-week-5
