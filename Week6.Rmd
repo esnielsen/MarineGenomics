@@ -49,7 +49,7 @@ We will also need to install a few programs. The code below installs the program
 
 #install pip for python
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python get-pip.py
+python3 get-pip.py
 
 #we need to add our home directory to the path for pip
 #look at path
