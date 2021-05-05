@@ -62,11 +62,8 @@ export PATH="$HOME/.local/bin:$PATH"
 #then install pcangsd
 git clone https://github.com/Rosemeis/pcangsd.git
 cd pcangsd/
+pip install --user -r requirements.txt #this installs additional requirements for pcangsd
 python3 setup.py build_ext --inplace
-
-
-#and then use pip to install the other requirements needed for pcangsd (note you must be in the pcangsd directory for this to work)
-pip install --user -r requirements.txt
 
 ```
 
