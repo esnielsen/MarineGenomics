@@ -183,25 +183,138 @@ There is another column in the bam.filelist file that will allow us to color the
 ## Exercises
 > # Practice Questions
 
-> 01. In R, upload the genotype likelihood file. Filter the data so that we only use sites for which all 15 individuals have data present (i.e., subsite by the nInd column). How many SNPs does this leave us? 
+> 01. In R, upload the genotype likelihood maf file (genolike.beagle.maf.gz). Filter the data so that we only use sites for which all 15 individuals have data present (i.e., subsite by the nInd column). How many SNPs does this leave us? How many SNPs did we start with?
 Hint use the command `read.table(gzfile("path/to/genotypelikelihoodfile/), header=T)` to read in the file in R. Dont forget to assign it to an object or R will print the whole thing to the screen.
 
 <details><summary><span style="color: goldenrod;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
-# coming soon!
+```html
+# read in the data
+
+#### read in genotype likelihood data and filter by all individuals
+gen<-read.table(gzfile("MarineGenomicsData/Week6/genolike_beagle.mafs.gz"), header=T)
+
+#filter by nind == 15
+
+gen_allIND<-gen[gen$nInd==15,]
+
+#find how many SNPs we had in the first dataset
+
+dim(gen)
+#[1] 282950      7
+
+#how many do we have in the filtered dataset?
+
+dim(gen_allIND)
+
+#[1] 31905     7
+
 ```
 </p>
 </details>
 
->02. Use the filtered file from 01 in pcangsd to recalculate the covarianve matrix and regenerate the pca plot. HOw does it differ from the one we generated in class?
+>02. Use the filtered file from 01 in pcangsd to recalculate the covarianve matrix and regenerate the pca plot. How does it differ from the one we generated in class?
+>Hint this will require you to merge the filtered data frame from exercise 1 with the beagle formated dataframe. Use the function `merge(x, y, by = )`, second hint, the function merge only works (properly) if the column names are the same. Change the column names to match across the two dataframes where they have the same info.
 
 <details><summary><span style="color: goldenrod;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
-# coming soon!
+```html
+## read in the beagle formatted data
+beag<-read.table(gzfile("MarineGenomicsData/Week6/genolike_beagle.beagle.gz"), header=T)
+
+#look at the column names between the two datasets
+
+colnames(gen)
+
+colnames(beag)
+
+#annoyingly the beagle formated data merges the chromo and position columns of the maf dataframe
+#two solutions: 1. we could split the columns in beag to match chromo and position
+#               2. we merge the columns in gen to match the format in beag
+
+#since we need the beagle format to run pcangsd lets do option 2. 
+
+#we'll use the paste() function to to this
+
+#we'll make a new column in gen that is labeled marker to match the beagle column
+#   gen_allIND$marker<-paste(gen_allIND$chromo, gen_allIND$position, sep="_")
+
+#then merge them by the marker column
+beag_allIND<-merge(gen_allIND, beag, by="marker")
+
+#that should return a dataframe with 31905 rows and 55 columns
+
+#pcangsd doesn't want those extra columns that came from our merge
+#lets get rid of them to leave the 48 columns that beagle needs.
+#use colnames to see which ones we want
+
+colnames(beag_allIND)
+
+#we want the first column and then columns 9-55
+
+beag_allIND_final<-beag_allIND[,c(1,9:55)]
+
+#now we have a dataframe with 31905 rows and 48 columns
+
+#let's write a table that we can use to run in pcangsd
+
+write.table(beag_allIND_final, "MarineGenomicsData/Week6/geno_like_filt_allIND.beagle", 
+            sep="\t",
+            row.names = F)#bydefault write.table outputs a dataframe with row names we dont want that
+            
+### This writes a file to our Marine Genomics data directory. 
+
+# pcangsd needs the file to be gzipped
+
+$ gzip geno_like_filt_allIND.beagle
+
+# and now we can run our pcangsd code
+
+$ python3 ../../pcangsd/pcangsd.py -beagle geno_like_filt_allIND.beagle.gz -o pca_out_allind -threads 28
+
+# and then we can go back to R and rerun our code to calulate the eigenvalues and eigenvectors for this covariance matrix. 
+
+#read in the new covariance matrix                               
+cov_allind<-as.matrix(read.table("MarineGenomicsData/Week6/pca_out_allind.cov"))
+
+#calculate eigenvalues
+e_allind<-eigen(cov_allind)
+
+
+#plot the data
+plot(e_allind$vectors[,1:2])
+
+#how much variance does our pc explain
+e_allind$values/sum(e_allind$values)                              
+                               
+                               
+```
+</p>
+</details>
+
+
+
+03. Remake the base R plot that we generated in class in ggplot. Use the group parameter in aes to group by region and/or population. Note, ggplot wants the data to be a dataframe and our data is a matrix. Use the function `as.data.frame(e$vectors)` to acheive this in the ggplot function. Don't forget to load the ggplot2 package with `library(ggplot2)
+
+<details><summary><span style="color: goldenrod;">Solution</span></summary>
+<p>
+```html
+
+# we need to use the function as.data.frame to make our matrix a dataframe.
+  
+ggplot(as.data.frame(e$vectors), aes(V1, V2, group=as.factor(names$V3), color=as.factor(names$V3)))+
+  geom_point()+
+  theme_classic()+
+  scale_color_manual(name="Region", 
+                     labels = c("North", 
+                                "South"), 
+                     values = c("a"="slateblue", 
+                                "b"="green"))  
+
+
+
 ```
 </p>
 </details>
