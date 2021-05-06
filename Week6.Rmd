@@ -69,6 +69,7 @@ python3 setup.py build_ext --inplace
 
 
 Check that it's installed correctly.
+
 ```html
 #navigate to your home directory
 cd
