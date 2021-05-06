@@ -356,7 +356,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li>In R, upload the genotype likelihood file. Filter the data so that we only use sites for which all 15 individuals have data present (i.e., subsite by the nInd column). How many SNPs does this leave us?
+<li>In R, upload the genotype likelihood maf file (genolike.beagle.maf.gz). Filter the data so that we only use sites for which all 15 individuals have data present (i.e., subsite by the nInd column). How many SNPs does this leave us? How many SNPs did we start with?
 Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), header=T)</code> to read in the file in R. Dont forget to assign it to an object or R will print the whole thing to the screen.</li>
 </ol>
 </blockquote>
@@ -365,12 +365,31 @@ Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), 
 <span style="color: goldenrod;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-6-pca.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># coming soon!</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="week-6-pca.html#cb12-1" aria-hidden="true" tabindex="-1"></a># read in the data</span>
+<span id="cb12-2"><a href="week-6-pca.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="week-6-pca.html#cb12-3" aria-hidden="true" tabindex="-1"></a>#### read in genotype likelihood data and filter by all individuals</span>
+<span id="cb12-4"><a href="week-6-pca.html#cb12-4" aria-hidden="true" tabindex="-1"></a>gen<span class="er">&lt;</span>-read.table(gzfile(&quot;MarineGenomicsData/Week6/genolike_beagle.mafs.gz&quot;), header=T)</span>
+<span id="cb12-5"><a href="week-6-pca.html#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="week-6-pca.html#cb12-6" aria-hidden="true" tabindex="-1"></a>#filter by nind == 15</span>
+<span id="cb12-7"><a href="week-6-pca.html#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="week-6-pca.html#cb12-8" aria-hidden="true" tabindex="-1"></a>gen_allIND<span class="er">&lt;</span>-gen[gen$nInd==15,]</span>
+<span id="cb12-9"><a href="week-6-pca.html#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="week-6-pca.html#cb12-10" aria-hidden="true" tabindex="-1"></a>#find how many SNPs we had in the first dataset</span>
+<span id="cb12-11"><a href="week-6-pca.html#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="week-6-pca.html#cb12-12" aria-hidden="true" tabindex="-1"></a>dim(gen)</span>
+<span id="cb12-13"><a href="week-6-pca.html#cb12-13" aria-hidden="true" tabindex="-1"></a>#[1] 282950      7</span>
+<span id="cb12-14"><a href="week-6-pca.html#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="week-6-pca.html#cb12-15" aria-hidden="true" tabindex="-1"></a>#how many do we have in the filtered dataset?</span>
+<span id="cb12-16"><a href="week-6-pca.html#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="week-6-pca.html#cb12-17" aria-hidden="true" tabindex="-1"></a>dim(gen_allIND)</span>
+<span id="cb12-18"><a href="week-6-pca.html#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-19"><a href="week-6-pca.html#cb12-19" aria-hidden="true" tabindex="-1"></a>#[1] 31905     7</span></code></pre></div>
 </p>
 </details>
 <blockquote>
 <ol start="2" style="list-style-type: decimal">
-<li>Use the filtered file from 01 in pcangsd to recalculate the covarianve matrix and regenerate the pca plot. HOw does it differ from the one we generated in class?</li>
+<li>Use the filtered file from 01 in pcangsd to recalculate the covarianve matrix and regenerate the pca plot. How does it differ from the one we generated in class?
+Hint this will require you to merge the filtered data frame from exercise 1 with the beagle formated dataframe. Use the function <code>merge(x, y, by = )</code>, second hint, the function merge only works (properly) if the column names are the same. Change the column names to match across the two dataframes where they have the same info.</li>
 </ol>
 </blockquote>
 <details>
@@ -378,7 +397,98 @@ Hint use the command <code>read.table(gzfile("path/to/genotypelikelihoodfile/), 
 <span style="color: goldenrod;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-6-pca.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># coming soon!</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="week-6-pca.html#cb13-1" aria-hidden="true" tabindex="-1"></a>## read in the beagle formatted data</span>
+<span id="cb13-2"><a href="week-6-pca.html#cb13-2" aria-hidden="true" tabindex="-1"></a>beag<span class="er">&lt;</span>-read.table(gzfile(&quot;MarineGenomicsData/Week6/genolike_beagle.beagle.gz&quot;), header=T)</span>
+<span id="cb13-3"><a href="week-6-pca.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="week-6-pca.html#cb13-4" aria-hidden="true" tabindex="-1"></a>#look at the column names between the two datasets</span>
+<span id="cb13-5"><a href="week-6-pca.html#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="week-6-pca.html#cb13-6" aria-hidden="true" tabindex="-1"></a>colnames(gen)</span>
+<span id="cb13-7"><a href="week-6-pca.html#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="week-6-pca.html#cb13-8" aria-hidden="true" tabindex="-1"></a>colnames(beag)</span>
+<span id="cb13-9"><a href="week-6-pca.html#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="week-6-pca.html#cb13-10" aria-hidden="true" tabindex="-1"></a>#annoyingly the beagle formated data merges the chromo and position columns of the maf dataframe</span>
+<span id="cb13-11"><a href="week-6-pca.html#cb13-11" aria-hidden="true" tabindex="-1"></a>#two solutions: 1. we could split the columns in beag to match chromo and position</span>
+<span id="cb13-12"><a href="week-6-pca.html#cb13-12" aria-hidden="true" tabindex="-1"></a>#               2. we merge the columns in gen to match the format in beag</span>
+<span id="cb13-13"><a href="week-6-pca.html#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="week-6-pca.html#cb13-14" aria-hidden="true" tabindex="-1"></a>#since we need the beagle format to run pcangsd lets do option 2. </span>
+<span id="cb13-15"><a href="week-6-pca.html#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="week-6-pca.html#cb13-16" aria-hidden="true" tabindex="-1"></a>#we&#39;ll use the paste() function to to this</span>
+<span id="cb13-17"><a href="week-6-pca.html#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="week-6-pca.html#cb13-18" aria-hidden="true" tabindex="-1"></a>#we&#39;ll make a new column in gen that is labeled marker to match the beagle column</span>
+<span id="cb13-19"><a href="week-6-pca.html#cb13-19" aria-hidden="true" tabindex="-1"></a>#   gen_allIND$marker<span class="er">&lt;</span>-paste(gen_allIND$chromo, gen_allIND$position, sep=&quot;_&quot;)</span>
+<span id="cb13-20"><a href="week-6-pca.html#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="week-6-pca.html#cb13-21" aria-hidden="true" tabindex="-1"></a>#then merge them by the marker column</span>
+<span id="cb13-22"><a href="week-6-pca.html#cb13-22" aria-hidden="true" tabindex="-1"></a>beag_allIND<span class="er">&lt;</span>-merge(gen_allIND, beag, by=&quot;marker&quot;)</span>
+<span id="cb13-23"><a href="week-6-pca.html#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="week-6-pca.html#cb13-24" aria-hidden="true" tabindex="-1"></a>#that should return a dataframe with 31905 rows and 55 columns</span>
+<span id="cb13-25"><a href="week-6-pca.html#cb13-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-26"><a href="week-6-pca.html#cb13-26" aria-hidden="true" tabindex="-1"></a>#pcangsd doesn&#39;t want those extra columns that came from our merge</span>
+<span id="cb13-27"><a href="week-6-pca.html#cb13-27" aria-hidden="true" tabindex="-1"></a>#lets get rid of them to leave the 48 columns that beagle needs.</span>
+<span id="cb13-28"><a href="week-6-pca.html#cb13-28" aria-hidden="true" tabindex="-1"></a>#use colnames to see which ones we want</span>
+<span id="cb13-29"><a href="week-6-pca.html#cb13-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-30"><a href="week-6-pca.html#cb13-30" aria-hidden="true" tabindex="-1"></a>colnames(beag_allIND)</span>
+<span id="cb13-31"><a href="week-6-pca.html#cb13-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-32"><a href="week-6-pca.html#cb13-32" aria-hidden="true" tabindex="-1"></a>#we want the first column and then columns 9-55</span>
+<span id="cb13-33"><a href="week-6-pca.html#cb13-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-34"><a href="week-6-pca.html#cb13-34" aria-hidden="true" tabindex="-1"></a>beag_allIND_final<span class="er">&lt;</span>-beag_allIND[,c(1,9:55)]</span>
+<span id="cb13-35"><a href="week-6-pca.html#cb13-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-36"><a href="week-6-pca.html#cb13-36" aria-hidden="true" tabindex="-1"></a>#now we have a dataframe with 31905 rows and 48 columns</span>
+<span id="cb13-37"><a href="week-6-pca.html#cb13-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-38"><a href="week-6-pca.html#cb13-38" aria-hidden="true" tabindex="-1"></a>#let&#39;s write a table that we can use to run in pcangsd</span>
+<span id="cb13-39"><a href="week-6-pca.html#cb13-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-40"><a href="week-6-pca.html#cb13-40" aria-hidden="true" tabindex="-1"></a>write.table(beag_allIND_final, &quot;MarineGenomicsData/Week6/geno_like_filt_allIND.beagle&quot;, </span>
+<span id="cb13-41"><a href="week-6-pca.html#cb13-41" aria-hidden="true" tabindex="-1"></a>            sep=&quot;\t&quot;,</span>
+<span id="cb13-42"><a href="week-6-pca.html#cb13-42" aria-hidden="true" tabindex="-1"></a>            row.names = F)#bydefault write.table outputs a dataframe with row names we dont want that</span>
+<span id="cb13-43"><a href="week-6-pca.html#cb13-43" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb13-44"><a href="week-6-pca.html#cb13-44" aria-hidden="true" tabindex="-1"></a>### This writes a file to our Marine Genomics data directory. </span>
+<span id="cb13-45"><a href="week-6-pca.html#cb13-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-46"><a href="week-6-pca.html#cb13-46" aria-hidden="true" tabindex="-1"></a># pcangsd needs the file to be gzipped</span>
+<span id="cb13-47"><a href="week-6-pca.html#cb13-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-48"><a href="week-6-pca.html#cb13-48" aria-hidden="true" tabindex="-1"></a>$ gzip geno_like_filt_allIND.beagle</span>
+<span id="cb13-49"><a href="week-6-pca.html#cb13-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-50"><a href="week-6-pca.html#cb13-50" aria-hidden="true" tabindex="-1"></a># and now we can run our pcangsd code</span>
+<span id="cb13-51"><a href="week-6-pca.html#cb13-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-52"><a href="week-6-pca.html#cb13-52" aria-hidden="true" tabindex="-1"></a>$ python3 ../../pcangsd/pcangsd.py -beagle geno_like_filt_allIND.beagle.gz -o pca_out_allind -threads 28</span>
+<span id="cb13-53"><a href="week-6-pca.html#cb13-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-54"><a href="week-6-pca.html#cb13-54" aria-hidden="true" tabindex="-1"></a># and then we can go back to R and rerun our code to calulate the eigenvalues and eigenvectors for this covariance matrix. </span>
+<span id="cb13-55"><a href="week-6-pca.html#cb13-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-56"><a href="week-6-pca.html#cb13-56" aria-hidden="true" tabindex="-1"></a>#read in the new covariance matrix                               </span>
+<span id="cb13-57"><a href="week-6-pca.html#cb13-57" aria-hidden="true" tabindex="-1"></a>cov_allind<span class="er">&lt;</span>-as.matrix(read.table(&quot;MarineGenomicsData/Week6/pca_out_allind.cov&quot;))</span>
+<span id="cb13-58"><a href="week-6-pca.html#cb13-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-59"><a href="week-6-pca.html#cb13-59" aria-hidden="true" tabindex="-1"></a>#calculate eigenvalues</span>
+<span id="cb13-60"><a href="week-6-pca.html#cb13-60" aria-hidden="true" tabindex="-1"></a>e_allind<span class="er">&lt;</span>-eigen(cov_allind)</span>
+<span id="cb13-61"><a href="week-6-pca.html#cb13-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-62"><a href="week-6-pca.html#cb13-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-63"><a href="week-6-pca.html#cb13-63" aria-hidden="true" tabindex="-1"></a>#plot the data</span>
+<span id="cb13-64"><a href="week-6-pca.html#cb13-64" aria-hidden="true" tabindex="-1"></a>plot(e_allind$vectors[,1:2])</span>
+<span id="cb13-65"><a href="week-6-pca.html#cb13-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-66"><a href="week-6-pca.html#cb13-66" aria-hidden="true" tabindex="-1"></a>#how much variance does our pc explain</span>
+<span id="cb13-67"><a href="week-6-pca.html#cb13-67" aria-hidden="true" tabindex="-1"></a>e_allind$values/sum(e_allind$values)                              </span>
+<span id="cb13-68"><a href="week-6-pca.html#cb13-68" aria-hidden="true" tabindex="-1"></a>                               </span>
+<span id="cb13-69"><a href="week-6-pca.html#cb13-69" aria-hidden="true" tabindex="-1"></a>                               </span></code></pre></div>
+</p>
+</details>
+<ol start="3" style="list-style-type: decimal">
+<li>Remake the base R plot that we generated in class in ggplot. Use the group parameter in aes to group by region and/or population. Note, ggplot wants the data to be a dataframe and our data is a matrix. Use the function <code>as.data.frame(e$vectors)</code> to acheive this in the ggplot function. Don’t forget to load the ggplot2 package with `library(ggplot2)</li>
+</ol>
+<details>
+<summary>
+<span style="color: goldenrod;">Solution</span>
+</summary>
+<p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="week-6-pca.html#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="week-6-pca.html#cb14-2" aria-hidden="true" tabindex="-1"></a># we need to use the function as.data.frame to make our matrix a dataframe.</span>
+<span id="cb14-3"><a href="week-6-pca.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-4"><a href="week-6-pca.html#cb14-4" aria-hidden="true" tabindex="-1"></a>ggplot(as.data.frame(e$vectors), aes(V1, V2, group=as.factor(names$V3), color=as.factor(names$V3)))+</span>
+<span id="cb14-5"><a href="week-6-pca.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  geom_point()+</span>
+<span id="cb14-6"><a href="week-6-pca.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  theme_classic()+</span>
+<span id="cb14-7"><a href="week-6-pca.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  scale_color_manual(name=&quot;Region&quot;, </span>
+<span id="cb14-8"><a href="week-6-pca.html#cb14-8" aria-hidden="true" tabindex="-1"></a>                     labels = c(&quot;North&quot;, </span>
+<span id="cb14-9"><a href="week-6-pca.html#cb14-9" aria-hidden="true" tabindex="-1"></a>                                &quot;South&quot;), </span>
+<span id="cb14-10"><a href="week-6-pca.html#cb14-10" aria-hidden="true" tabindex="-1"></a>                     values = c(&quot;a&quot;=&quot;slateblue&quot;, </span>
+<span id="cb14-11"><a href="week-6-pca.html#cb14-11" aria-hidden="true" tabindex="-1"></a>                                &quot;b&quot;=&quot;green&quot;))  </span>
+<span id="cb14-12"><a href="week-6-pca.html#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="week-6-pca.html#cb14-13" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
 </p>
 </details>
 </div>
