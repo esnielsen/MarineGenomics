@@ -131,3 +131,10 @@ setting-up-a-new-project-in-r
 reading-data-into-r
 exercises
 creature-of-the-week-5
+week-7-fst-and-outlier-analysis
+download-the-data-1
+getting-r-set-up
+finding-outliers-using-pcadapt
+pcadapt-exercises
+using-fst-to-find-outliers
+outflank-practice

@@ -9,6 +9,7 @@ pdf_document: default
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week7/MarineGenomicsData/Week7")
 ```
 
 # Week 7: F<sub>st</sub> and outlier analysis
@@ -49,8 +50,8 @@ Today we will be using two different packages: **pcadapt** and **OutFLANK** and 
 To save all of the progress we make today, first create your own script in the Week7 folder for this week named "Week7Script.R"
 
 ```{r, eval=F}
-
-install.packages(c("BiocManager","vcfR","pcadapt","devtools"))
+install.packages("devtools")
+install.packages(c("BiocManager","vcfR","pcadapt"))
 # type "yes" when prompted
 
 ```
@@ -81,27 +82,28 @@ library(qvalue)
 
 Lets start by setting a working directory. I'm going to set it to where we downloaded the data for week 7. I also like to define the paths to my input files at the top of the script, that way if I want to use a slightly different input file or if I want to share my script it's easy to see how to change it.
 
-```{r, echo=T}
-#setwd("/home/margeno/MarineGenomicsData/Week7")
-
+```{r, eval=F}
+setwd("/home/margeno/MarineGenomicsData/Week7")
+vcf.path=data("filtered_3699snps_californicus.vcf")
+meta.path=data("californicus_metadata.csv")
+```
+```{r, include=F}
 vcf.path="filtered_3699snps_californicus.vcf"
-
 meta.path="californicus_metadata.csv"
 ```
 
-Let's read in the genetic data from the VCF file. Because VCF is a common file format for SNP data, pcadapt comes with a special function for reading this type of file. You will get a warning message, don't worry about it.
+Let's read in the genetic data from the VCF file. Because VCF is a common file format for SNP data, pcadapt comes with a special function for reading this type of file. You will get a warning message if you run on your own computer, but don't worry about it.
 
 ```{r, warning=F}
-genos <- read.pcadapt(vcf.path,type="vcf") 
+genos <- read.pcadapt(vcf.path,type=c("vcf"))
 ```
 
 
 Now let's read in the metadata. This is a CSV (comma separated values) file, which is a spreadsheet-style format that can be output from programs like Excel. The columns are separated with commas. Once you load the file, take a minute to examine the contents.
 
 ```{r, echo=T}
-library(readr)
-californicus_metadata <- read_csv("californicus_metadata.csv")
-View(californicus_metadata)
+meta <- read.csv(meta.path)
+head(meta)
 ```
 
 IMPORTANT NOTE: Here the samples in the VCF are in the same order as the samples in the metadata file. Triple check ahead of time that this is the case otherwise you may get some weird results!
@@ -139,16 +141,9 @@ length(outliers)
 > # Practice Questions
 >
 > 1.  Perhaps we are particularly interested in SNPs associated with latitude. A first step might be to ask whether either of our PC axes represent latitudinal variation. `x$scores` gives you the PC loadings for each sample along the first and second PC axes. Combine these with the metadata to see whether either PC axes are correlated with latitude (for our purposes you can just visualize the relationship, you don't have to run the statistics.)
->
->     <details>
->
->     <summary>
->
->     [Solution]{style="color: olivegreen;"}
->
->     </summary>
->
->     <p>
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
 
 ```{r, echo=T}
 plot(x$scores[,1]~meta$LAT,pch=19,col="gray")
@@ -157,19 +152,10 @@ plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
 
 </p>
 
-</details>
-
 > 2.  If we are only interested in SNPs associated with a single principal component, we can get pcadapt to give us correlation scores for each PC axis independently. Using the guidance provided in the documentation [here](https://bcm-uga.github.io/pcadapt/articles/pcadapt.html#h-4-component-wise-genome-scans) make a manhattan plot of SNPs driving variation along the first principal component only
->
->     <details>
->
->     <summary>
->
->     [Solution]{style="color: olivegreen;"}
->
->     </summary>
->
->     <p>
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
 
 ```{r, echo=T}
 x_cw <- pcadapt(genos,K=2,metho="componentwise")
@@ -177,8 +163,6 @@ plot(x_cw,option="manhattan",K=2)
 ```
 
 </p>
-
-</details>
 
 ## Using F<sub>st</sub> to find outliers
 
@@ -257,16 +241,9 @@ points(P1$LocusName[outliers],P1$FST[outliers],col="magenta")
 > # Practice Questions
 >
 > 1.  We tested for Fst outliers between just the northernmost and southernmost sampling sites. Do we get more outliers that we expect between any two sites? Choose two sites within the northern and southern groups and see if there are any outliers.
->
->     <details>
->
->     <summary>
->
->     [Solution]{style="color: olivegreen;"}
->
->     </summary>
->
->     <p>
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
 
 ```{r, echo=T}
 subpops <- c("AK3","AK4")

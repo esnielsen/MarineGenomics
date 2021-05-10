@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>6 Week 5 | Untitled</title>
   <meta name="description" content="6 Week 5 | Untitled" />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="6 Week 5 | Untitled" />
   <meta property="og:type" content="book" />
@@ -32,7 +32,7 @@
   
 <link rel="prev" href="week-4.html"/>
 <link rel="next" href="week-6-pca.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -115,6 +117,7 @@ code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
+
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -240,6 +243,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.6" data-path="week-6-pca.html"><a href="week-6-pca.html#exercises"><i class="fa fa-check"></i><b>7.6</b> Exercises</a></li>
 <li class="chapter" data-level="7.7" data-path="week-6-pca.html"><a href="week-6-pca.html#creature-of-the-week-5"><i class="fa fa-check"></i><b>7.7</b> Creature of the Week!</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="week-7-fst-and-outlier-analysis.html"><a href="week-7-fst-and-outlier-analysis.html"><i class="fa fa-check"></i><b>8</b> Week 7: F<sub>st</sub> and outlier analysis</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="week-7-fst-and-outlier-analysis.html"><a href="week-7-fst-and-outlier-analysis.html#download-the-data-1"><i class="fa fa-check"></i><b>8.1</b> Download the data</a></li>
+<li class="chapter" data-level="8.2" data-path="week-7-fst-and-outlier-analysis.html"><a href="week-7-fst-and-outlier-analysis.html#getting-r-set-up"><i class="fa fa-check"></i><b>8.2</b> Getting R set up</a></li>
+<li class="chapter" data-level="8.3" data-path="week-7-fst-and-outlier-analysis.html"><a href="week-7-fst-and-outlier-analysis.html#finding-outliers-using-pcadapt"><i class="fa fa-check"></i><b>8.3</b> Finding outliers using pcadapt</a></li>
+<li class="chapter" data-level="8.4" data-path="week-7-fst-and-outlier-analysis.html"><a href="week-7-fst-and-outlier-analysis.html#pcadapt-exercises"><i class="fa fa-check"></i><b>8.4</b> pcadapt Exercises</a></li>
+<li class="chapter" data-level="8.5" data-path="week-7-fst-and-outlier-analysis.html"><a href="week-7-fst-and-outlier-analysis.html#using-fst-to-find-outliers"><i class="fa fa-check"></i><b>8.5</b> Using F<sub>st</sub> to find outliers</a></li>
+<li class="chapter" data-level="8.6" data-path="week-7-fst-and-outlier-analysis.html"><a href="week-7-fst-and-outlier-analysis.html#outflank-practice"><i class="fa fa-check"></i><b>8.6</b> OutFLANK Practice</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -289,14 +301,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="scatterplots" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Scatterplots</h2>
 <p>Within our <code>msleep</code> dataframe let’s plot sleep_total by bodywt (bodyweight)</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="week-5.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="week-5.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(msleep)</span>
-<span id="cb3-3"><a href="week-5.html#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="week-5.html#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total,msleep<span class="sc">$</span>sleep_rem)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="week-5.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<pre><code>## Warning: package &#39;ggplot2&#39; was built under R version 3.6.2</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="week-5.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(msleep)</span>
+<span id="cb5-2"><a href="week-5.html#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="week-5.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total,msleep<span class="sc">$</span>sleep_rem)</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="week-5.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or plot response variable as a function &quot;~&quot; of the predictor variable</span></span>
-<span id="cb4-2"><a href="week-5.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="week-5.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem) <span class="co">#you&#39;ll notice this swaps the x and y axis</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-5.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># or plot response variable as a function &quot;~&quot; of the predictor variable</span></span>
+<span id="cb6-2"><a href="week-5.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="week-5.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem) <span class="co">#you&#39;ll notice this swaps the x and y axis</span></span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
 </div>
 <div id="customizing-your-plot" class="section level2" number="6.3">
@@ -315,48 +328,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You can view different point characters with <code>?pch</code></p>
 <p>There are <strong>many</strong> color options in R. For some general colors you can write the name (blue, red, green, etc). There are apparently 657 named colors in R (including "slateblue3, and peachpuff4) but you can also use the color hexidecimal code for a given color. There are several comprehensives guides for colors in R online and one of which can be found (here)[<a href="https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf" class="uri">https://www.nceas.ucsb.edu/sites/default/files/2020-04/colorPaletteCheatsheet.pdf</a>]</p>
 <p>Let’s remake the total_sleep against sleep_rem plot and add-in some modifiers</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="week-5.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Choose a pch and make the color blue and give it a bottom+left border</span></span>
-<span id="cb5-2"><a href="week-5.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-5.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Choose a pch and make the color blue and give it a bottom+left border</span></span>
+<span id="cb7-2"><a href="week-5.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>)</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>We can change the axes and title labels using “xlab,” “ylab,” and “main” arguments. Let’s add labels to our plot.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-5.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Choose a pch and make the color blue and give it a bottom+left border</span></span>
-<span id="cb6-2"><a href="week-5.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-5.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Choose a pch and make the color blue and give it a bottom+left border</span></span>
+<span id="cb8-2"><a href="week-5.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>) </span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>You may want to find out which points are on a plot. You can use <code>identify()</code> in place of <code>plot()</code> to identify specific points within your plot. This function prints out the row numbers for the points that you selected.</p>
 <p>We can also add lines to an existing plot with <code>ablines()</code>. Let’s add a line fit from a linear model to our plot.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-5.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#first make a plot</span></span>
-<span id="cb7-2"><a href="week-5.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>) </span>
-<span id="cb7-3"><a href="week-5.html#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="week-5.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#then add a line. The function lm runs a linear model on our x, y values.</span></span>
-<span id="cb7-5"><a href="week-5.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-5.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#first make a plot</span></span>
+<span id="cb9-2"><a href="week-5.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span><span class="st">&quot;blue&quot;</span>, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>) </span>
+<span id="cb9-3"><a href="week-5.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="week-5.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#then add a line. The function lm runs a linear model on our x, y values.</span></span>
+<span id="cb9-5"><a href="week-5.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem))</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>You can add a legend to a plot with <code>legend()</code> which needs you to specify the location.</p>
 <p>To do this, let’s make a cutoff for our points and color them by points above and below the cutoff. We’ll use our subsetting skills from last week. Feel free to review that section (1.3).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-5.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#start by defining points by whether they are greater than sleep_total 16 and storing</span></span>
-<span id="cb8-2"><a href="week-5.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#first make a empty column named colors within the msleep dataframe</span></span>
-<span id="cb8-3"><a href="week-5.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="week-5.html#cb8-4" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>colors<span class="ot">=</span><span class="cn">NA</span></span>
-<span id="cb8-5"><a href="week-5.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#store the colors &quot;red&quot; or &quot;black&quot; in the color column for the rows that satsify the following criteria.</span></span>
-<span id="cb8-6"><a href="week-5.html#cb8-6" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>colors[msleep<span class="sc">$</span>sleep_total <span class="sc">&gt;=</span> <span class="dv">17</span>] <span class="ot">&lt;-</span><span class="st">&quot;red&quot;</span></span>
-<span id="cb8-7"><a href="week-5.html#cb8-7" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>colors[msleep<span class="sc">$</span>sleep_total <span class="sc">&lt;</span> <span class="dv">17</span>] <span class="ot">&lt;-</span><span class="st">&quot;black&quot;</span></span>
-<span id="cb8-8"><a href="week-5.html#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="week-5.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span>msleep<span class="sc">$</span>colors, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-5.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#start by defining points by whether they are greater than sleep_total 16 and storing</span></span>
+<span id="cb10-2"><a href="week-5.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#first make a empty column named colors within the msleep dataframe</span></span>
+<span id="cb10-3"><a href="week-5.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="week-5.html#cb10-4" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>colors<span class="ot">=</span><span class="cn">NA</span></span>
+<span id="cb10-5"><a href="week-5.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#store the colors &quot;red&quot; or &quot;black&quot; in the color column for the rows that satsify the following criteria.</span></span>
+<span id="cb10-6"><a href="week-5.html#cb10-6" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>colors[msleep<span class="sc">$</span>sleep_total <span class="sc">&gt;=</span> <span class="dv">17</span>] <span class="ot">&lt;-</span><span class="st">&quot;red&quot;</span></span>
+<span id="cb10-7"><a href="week-5.html#cb10-7" aria-hidden="true" tabindex="-1"></a>msleep<span class="sc">$</span>colors[msleep<span class="sc">$</span>sleep_total <span class="sc">&lt;</span> <span class="dv">17</span>] <span class="ot">&lt;-</span><span class="st">&quot;black&quot;</span></span>
+<span id="cb10-8"><a href="week-5.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="week-5.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span>msleep<span class="sc">$</span>sleep_rem, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">col=</span>msleep<span class="sc">$</span>colors, <span class="at">bty=</span><span class="st">&quot;L&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>) </span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>In addition to scatterplots you can make histograms and boxplots in base R. The same parameter options (pch, col, ylab, xlab, etc) apply for these plots as well as scatterplots.</p>
 <p>R will automatically plot a barplot if you give to the <code>plot()</code> function a continuous variable and a factor. If you have a vector stored as a character converting it to a factor via <code>as.factor</code> will make a boxplot.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-5.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s make a histogram of sleep_total and fill it with the color palette rainbow() which needs to know how many colors to use</span></span>
-<span id="cb9-2"><a href="week-5.html#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="week-5.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(msleep<span class="sc">$</span>sleep_total, <span class="at">col=</span><span class="fu">rainbow</span>(<span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-5.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s make a histogram of sleep_total and fill it with the color palette rainbow() which needs to know how many colors to use</span></span>
+<span id="cb11-2"><a href="week-5.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="week-5.html#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(msleep<span class="sc">$</span>sleep_total, <span class="at">col=</span><span class="fu">rainbow</span>(<span class="dv">10</span>))</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-5.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s make a boxplot of sleep_total and order making eachone a different color (how would you find out how many unique orders are in msleep?)</span></span>
-<span id="cb10-2"><a href="week-5.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#using plot</span></span>
-<span id="cb10-3"><a href="week-5.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) #this is commented out simply to avoid ploting the same plot twice</span></span>
-<span id="cb10-4"><a href="week-5.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="week-5.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">#or boxplot</span></span>
-<span id="cb10-6"><a href="week-5.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span><span class="fu">as.factor</span>(msleep<span class="sc">$</span>order), <span class="at">col=</span><span class="fu">rainbow</span>(<span class="dv">19</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-5.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#let&#39;s make a boxplot of sleep_total and order making eachone a different color (how would you find out how many unique orders are in msleep?)</span></span>
+<span id="cb12-2"><a href="week-5.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#using plot</span></span>
+<span id="cb12-3"><a href="week-5.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) #this is commented out simply to avoid ploting the same plot twice</span></span>
+<span id="cb12-4"><a href="week-5.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="week-5.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#or boxplot</span></span>
+<span id="cb12-6"><a href="week-5.html#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span><span class="fu">as.factor</span>(msleep<span class="sc">$</span>order), <span class="at">col=</span><span class="fu">rainbow</span>(<span class="dv">19</span>)) </span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-6-2.png" width="672" />
 Another example looking at sleep variation across the different types of consumers (carnivore, herbivore, insectivore and omnivore):</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-5.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span><span class="fu">as.factor</span>(msleep<span class="sc">$</span>vore),<span class="at">col=</span><span class="fu">rainbow</span>(<span class="dv">4</span>), <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-5.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(msleep<span class="sc">$</span>sleep_total<span class="sc">~</span><span class="fu">as.factor</span>(msleep<span class="sc">$</span>vore),<span class="at">col=</span><span class="fu">rainbow</span>(<span class="dv">4</span>), <span class="at">xlab=</span><span class="st">&quot;REM Sleep (hours)&quot;</span>, <span class="at">ylab=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>)</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 </div>
 <div id="practice-problems-2.1" class="section level2" number="6.4">
@@ -365,9 +378,9 @@ Another example looking at sleep variation across the different types of consume
 <h1 id="exercise-2.1">Exercise 2.1</h1>
 <p>Read in the data using <code>data(ChickWeight)</code></p>
 </blockquote>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-5.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: this dataset can also be accessed directly from the ChickWeight package in R </span></span>
-<span id="cb12-2"><a href="week-5.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (see ?ChickWeight)</span></span>
-<span id="cb12-3"><a href="week-5.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ChickWeight&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-5.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: this dataset can also be accessed directly from the ChickWeight package in R </span></span>
+<span id="cb14-2"><a href="week-5.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (see ?ChickWeight)</span></span>
+<span id="cb14-3"><a href="week-5.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ChickWeight&quot;</span>)</span></code></pre></div>
 <blockquote>
 <ol style="list-style-type: decimal">
 <li>First, explore the data.
@@ -380,9 +393,9 @@ How many different diets are in the experiment?</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-5.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(ChickWeight<span class="sc">$</span>Chick))</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-5.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(ChickWeight<span class="sc">$</span>Chick))</span></code></pre></div>
 <pre><code>## [1] 50</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-5.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(ChickWeight<span class="sc">$</span>Diet))</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-5.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">unique</span>(ChickWeight<span class="sc">$</span>Diet))</span></code></pre></div>
 <pre><code>## [1] 4</code></pre>
 </p>
 </details>
@@ -396,9 +409,9 @@ How many different diets are in the experiment?</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-5.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ChickWeight<span class="sc">$</span>weight <span class="sc">~</span> ChickWeight<span class="sc">$</span>Time, </span>
-<span id="cb17-2"><a href="week-5.html#cb17-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time (days)&quot;</span>, </span>
-<span id="cb17-3"><a href="week-5.html#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Weight (gm)&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-5.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ChickWeight<span class="sc">$</span>weight <span class="sc">~</span> ChickWeight<span class="sc">$</span>Time, </span>
+<span id="cb19-2"><a href="week-5.html#cb19-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Time (days)&quot;</span>, </span>
+<span id="cb19-3"><a href="week-5.html#cb19-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">&quot;Weight (gm)&quot;</span>)</span></code></pre></div>
 <img src="Test_files/figure-html/unnamed-chunk-10-1.png" width="672" />
 </p>
 </details>
@@ -412,11 +425,11 @@ How many different diets are in the experiment?</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="week-5.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
-<span id="cb18-2"><a href="week-5.html#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(ChickWeight<span class="sc">$</span>weight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="fu">max</span>(ChickWeight<span class="sc">$</span>Time)], </span>
-<span id="cb18-3"><a href="week-5.html#cb18-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Weight (gm)&quot;</span>, </span>
-<span id="cb18-4"><a href="week-5.html#cb18-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Weights at final day of experiment&quot;</span>, </span>
-<span id="cb18-5"><a href="week-5.html#cb18-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">10</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-5.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>))</span>
+<span id="cb20-2"><a href="week-5.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(ChickWeight<span class="sc">$</span>weight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="fu">max</span>(ChickWeight<span class="sc">$</span>Time)], </span>
+<span id="cb20-3"><a href="week-5.html#cb20-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;Weight (gm)&quot;</span>, </span>
+<span id="cb20-4"><a href="week-5.html#cb20-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Weights at final day of experiment&quot;</span>, </span>
+<span id="cb20-5"><a href="week-5.html#cb20-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">10</span>))</span></code></pre></div>
 <img src="Test_files/figure-html/unnamed-chunk-11-1.png" width="672" />
 </p>
 </details>
@@ -430,22 +443,22 @@ How many different diets are in the experiment?</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-5.html#cb19-1" aria-hidden="true" tabindex="-1"></a>my.new <span class="ot">=</span> ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="fu">max</span>(ChickWeight<span class="sc">$</span>Time), ]</span>
-<span id="cb19-2"><a href="week-5.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(weight <span class="sc">~</span> Diet, </span>
-<span id="cb19-3"><a href="week-5.html#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> my.new, </span>
-<span id="cb19-4"><a href="week-5.html#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Diet&quot;</span>, </span>
-<span id="cb19-5"><a href="week-5.html#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Weight (gm)&quot;</span>, </span>
-<span id="cb19-6"><a href="week-5.html#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Final weights given diet type&quot;</span>, </span>
-<span id="cb19-7"><a href="week-5.html#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;green&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-5.html#cb21-1" aria-hidden="true" tabindex="-1"></a>my.new <span class="ot">=</span> ChickWeight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="fu">max</span>(ChickWeight<span class="sc">$</span>Time), ]</span>
+<span id="cb21-2"><a href="week-5.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(weight <span class="sc">~</span> Diet, </span>
+<span id="cb21-3"><a href="week-5.html#cb21-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> my.new, </span>
+<span id="cb21-4"><a href="week-5.html#cb21-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Diet&quot;</span>, </span>
+<span id="cb21-5"><a href="week-5.html#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Weight (gm)&quot;</span>, </span>
+<span id="cb21-6"><a href="week-5.html#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Final weights given diet type&quot;</span>, </span>
+<span id="cb21-7"><a href="week-5.html#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;green&quot;</span>))</span></code></pre></div>
 <img src="Test_files/figure-html/unnamed-chunk-12-1.png" width="672" />
 </p>
 </details>
 <blockquote>
 <p>Try using the package R Color Brewer to generate color palettes. Go to <a href="http://colorbrewer2.org/" class="uri">http://colorbrewer2.org/</a> to vizualize palettes. You can choose palettes that are colorblind safe, print friendly, etc.</p>
 </blockquote>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-5.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R Color Brewer</span></span>
-<span id="cb20-2"><a href="week-5.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;RColorBrewer&quot;)</span></span>
-<span id="cb20-3"><a href="week-5.html#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;RColorBrewer&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="week-5.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install R Color Brewer</span></span>
+<span id="cb22-2"><a href="week-5.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;RColorBrewer&quot;)</span></span>
+<span id="cb22-3"><a href="week-5.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;RColorBrewer&quot;</span>)</span></code></pre></div>
 <blockquote>
 <ol start="4" style="list-style-type: decimal">
 <li>Define a color pallete with 10 colors and re-plot the histogram of the weights of the chicks at the final day of the experiments in these colors
@@ -457,8 +470,8 @@ Note: if histogram has n breaks and n is less than 10, it will just use first n 
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-5.html#cb21-1" aria-hidden="true" tabindex="-1"></a>my.colors <span class="ot">=</span> <span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;Paired&quot;</span>)</span>
-<span id="cb21-2"><a href="week-5.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(ChickWeight<span class="sc">$</span>weight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="fu">max</span>(ChickWeight<span class="sc">$</span>Time)], <span class="at">xlab =</span> <span class="st">&quot;Weight (gm)&quot;</span>,<span class="at">main =</span> <span class="st">&quot;Weights at final day of experiment&quot;</span>, <span class="at">col =</span> my.colors)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-5.html#cb23-1" aria-hidden="true" tabindex="-1"></a>my.colors <span class="ot">=</span> <span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;Paired&quot;</span>)</span>
+<span id="cb23-2"><a href="week-5.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(ChickWeight<span class="sc">$</span>weight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="fu">max</span>(ChickWeight<span class="sc">$</span>Time)], <span class="at">xlab =</span> <span class="st">&quot;Weight (gm)&quot;</span>,<span class="at">main =</span> <span class="st">&quot;Weights at final day of experiment&quot;</span>, <span class="at">col =</span> my.colors)</span></code></pre></div>
 <img src="Test_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 </p>
 </details>
@@ -468,10 +481,10 @@ Note: if histogram has n breaks and n is less than 10, it will just use first n 
 <p>GGPlot is a package that allows you to make a lot of different kinds of plots and has become increasingly popular. There are also many tutorials on how to use ggplot as well as example code that could be modified to fit the data you’re interested in plotting. There is a really helpful cheatsheat (here)[<a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf" class="uri">https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf</a>]</p>
 <p>There is a little bit of a learning curve for ggplot as the syntax is structured differently than base R plotting. One thing that remains the same and is even more noticible in ggplot is the iterative process of building a plot, one aspect at a time.</p>
 <p>Let’s demonstrate what ggplot can do with the states data set</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="week-5.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load in the data</span></span>
-<span id="cb22-2"><a href="week-5.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
-<span id="cb22-3"><a href="week-5.html#cb22-3" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
-<span id="cb22-4"><a href="week-5.html#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="week-5.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load in the data</span></span>
+<span id="cb24-2"><a href="week-5.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb24-3"><a href="week-5.html#cb24-3" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
+<span id="cb24-4"><a href="week-5.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    50 obs. of  8 variables:
 ##  $ Population: num  3615 365 2212 2110 21198 ...
 ##  $ Income    : num  3624 6315 4530 3378 5114 ...
@@ -481,83 +494,90 @@ Note: if histogram has n breaks and n is less than 10, it will just use first n 
 ##  $ HS Grad   : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...
 ##  $ Frost     : num  20 152 15 65 20 166 139 103 11 60 ...
 ##  $ Area      : num  50708 566432 113417 51945 156361 ...</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="week-5.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make an initial ggplot</span></span>
-<span id="cb24-2"><a href="week-5.html#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states) </span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="week-5.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make an initial ggplot</span></span>
+<span id="cb26-2"><a href="week-5.html#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states) </span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
 <p>We just see a grey box. In order to tell ggplot what to put in the box we use the <code>aes()</code>. The <code>aes()</code> function stands for aesthetics and will be used to specify our axes and how we want the data grouped.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="week-5.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets make a scatterplot of population and income</span></span>
-<span id="cb25-2"><a href="week-5.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co">#we specify which axes we want to be x and y with aes()</span></span>
-<span id="cb25-3"><a href="week-5.html#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="co">#we&#39;ll then use geom_point to tell it to make a scatterplot using the data we specified in the first command</span></span>
-<span id="cb25-4"><a href="week-5.html#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y=</span>Income))<span class="sc">+</span><span class="fu">geom_point</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-5.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#lets make a scatterplot of population and income</span></span>
+<span id="cb27-2"><a href="week-5.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co">#we specify which axes we want to be x and y with aes()</span></span>
+<span id="cb27-3"><a href="week-5.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co">#we&#39;ll then use geom_point to tell it to make a scatterplot using the data we specified in the first command</span></span>
+<span id="cb27-4"><a href="week-5.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y=</span>Income))<span class="sc">+</span><span class="fu">geom_point</span>() </span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>There are many types of plots in ggplot that can be called with <code>geom_</code> including <code>geom_line</code>, <code>geom_boxplot</code> <code>geom_bar</code> and many others!</p>
 <p>Let’s add a line to our plot that of best fit for Population ~ Income. Each time we add something to our plot we use the <code>+</code> sign. We’ll use <code>geom_smooth()</code> to draw a line with the method for <code>lm</code> which stands for linear model.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="week-5.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y=</span>Income))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="week-5.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y=</span>Income))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>) </span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>As you can already see ggplot works with many more parameters drawn in default than plotting in base R. For example, the background of our plot is grey the confidence interval of our line is drawn for us and is shaded dark grey and the line of best fit is in blue. All of these things can be modified if we wish. Many of these options can easily be changed with the <code>theme_</code> functions.</p>
 <p>Let’s change to a minimal theme which removes the gray backgroun in the back of the plot. Play around with the other themes to see what they change.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="week-5.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y=</span>Income))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span><span class="fu">theme_minimal</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="week-5.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y=</span>Income))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span><span class="fu">theme_minimal</span>() </span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>Another plot example:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="week-5.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states, <span class="fu">aes</span>(<span class="at">x=</span>Income, <span class="at">y=</span>Illiteracy, <span class="at">color=</span>Population)) <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span><span class="fu">theme_classic</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="week-5.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>states, <span class="fu">aes</span>(<span class="at">x=</span>Income, <span class="at">y=</span>Illiteracy, <span class="at">color=</span>Population)) <span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">color=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span><span class="fu">theme_classic</span>() </span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>Let’s use the <code>msleep</code> data set to explore what ggplot can do with character vectors. Make a plot of total sleep against REM sleep and then group by “vore.”</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-5.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># because our vore vector is a character vector we must convert it to a factor before we can use it to group or color</span></span>
-<span id="cb29-2"><a href="week-5.html#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="week-5.html#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(<span class="at">y=</span>sleep_total, <span class="at">x=</span>sleep_rem, <span class="at">group=</span><span class="fu">as.factor</span>(vore), <span class="at">color=</span><span class="fu">as.factor</span>(vore))) <span class="sc">+</span><span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-5.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># because our vore vector is a character vector we must convert it to a factor before we can use it to group or color</span></span>
+<span id="cb34-2"><a href="week-5.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="week-5.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(<span class="at">y=</span>sleep_total, <span class="at">x=</span>sleep_rem, <span class="at">group=</span><span class="fu">as.factor</span>(vore), <span class="at">color=</span><span class="fu">as.factor</span>(vore))) <span class="sc">+</span><span class="fu">geom_point</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 22 rows containing missing values (geom_point).</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
 <p>That looks fine, but we may want to add axis labels and change the legend. The code below does just that and changes the theme.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="week-5.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># as we add things to the plot the line can get really long, you can hit enter after the plus sign to start a new line</span></span>
-<span id="cb31-2"><a href="week-5.html#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="week-5.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(<span class="at">y=</span>sleep_total, <span class="at">x=</span>sleep_rem, <span class="at">group=</span><span class="fu">as.factor</span>(vore), <span class="at">color=</span><span class="fu">as.factor</span>(vore)))<span class="sc">+</span></span>
-<span id="cb31-4"><a href="week-5.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb31-5"><a href="week-5.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>, <span class="at">x=</span> <span class="st">&quot;REM sleep (hours)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb31-6"><a href="week-5.html#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb31-7"><a href="week-5.html#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">&quot;Diet&quot;</span>, </span>
-<span id="cb31-8"><a href="week-5.html#cb31-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Carnivore&quot;</span>, </span>
-<span id="cb31-9"><a href="week-5.html#cb31-9" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Herbivore&quot;</span>, </span>
-<span id="cb31-10"><a href="week-5.html#cb31-10" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Insectivore&quot;</span>, </span>
-<span id="cb31-11"><a href="week-5.html#cb31-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Omnivore&quot;</span>, </span>
-<span id="cb31-12"><a href="week-5.html#cb31-12" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;NA&quot;</span>), </span>
-<span id="cb31-13"><a href="week-5.html#cb31-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;carni&quot;</span><span class="ot">=</span><span class="st">&quot;blue&quot;</span>, </span>
-<span id="cb31-14"><a href="week-5.html#cb31-14" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;herbi&quot;</span><span class="ot">=</span><span class="st">&quot;red&quot;</span>, </span>
-<span id="cb31-15"><a href="week-5.html#cb31-15" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;insecti&quot;</span><span class="ot">=</span><span class="st">&quot;green&quot;</span>, </span>
-<span id="cb31-16"><a href="week-5.html#cb31-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;omni&quot;</span><span class="ot">=</span><span class="st">&quot;brown&quot;</span>, </span>
-<span id="cb31-17"><a href="week-5.html#cb31-17" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;NA&quot;</span><span class="ot">=</span><span class="st">&quot;orange&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="week-5.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># as we add things to the plot the line can get really long, you can hit enter after the plus sign to start a new line</span></span>
+<span id="cb36-2"><a href="week-5.html#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="week-5.html#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(<span class="at">y=</span>sleep_total, <span class="at">x=</span>sleep_rem, <span class="at">group=</span><span class="fu">as.factor</span>(vore), <span class="at">color=</span><span class="fu">as.factor</span>(vore)))<span class="sc">+</span></span>
+<span id="cb36-4"><a href="week-5.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb36-5"><a href="week-5.html#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>, <span class="at">x=</span> <span class="st">&quot;REM sleep (hours)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb36-6"><a href="week-5.html#cb36-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb36-7"><a href="week-5.html#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">&quot;Diet&quot;</span>, </span>
+<span id="cb36-8"><a href="week-5.html#cb36-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Carnivore&quot;</span>, </span>
+<span id="cb36-9"><a href="week-5.html#cb36-9" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Herbivore&quot;</span>, </span>
+<span id="cb36-10"><a href="week-5.html#cb36-10" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Insectivore&quot;</span>, </span>
+<span id="cb36-11"><a href="week-5.html#cb36-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Omnivore&quot;</span>, </span>
+<span id="cb36-12"><a href="week-5.html#cb36-12" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;NA&quot;</span>), </span>
+<span id="cb36-13"><a href="week-5.html#cb36-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;carni&quot;</span><span class="ot">=</span><span class="st">&quot;blue&quot;</span>, </span>
+<span id="cb36-14"><a href="week-5.html#cb36-14" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;herbi&quot;</span><span class="ot">=</span><span class="st">&quot;red&quot;</span>, </span>
+<span id="cb36-15"><a href="week-5.html#cb36-15" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;insecti&quot;</span><span class="ot">=</span><span class="st">&quot;green&quot;</span>, </span>
+<span id="cb36-16"><a href="week-5.html#cb36-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;omni&quot;</span><span class="ot">=</span><span class="st">&quot;brown&quot;</span>, </span>
+<span id="cb36-17"><a href="week-5.html#cb36-17" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;NA&quot;</span><span class="ot">=</span><span class="st">&quot;orange&quot;</span>))</span></code></pre></div>
 <pre><code>## Warning: Removed 27 rows containing missing values (geom_point).</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-21-1.png" width="672" />
 Our plot at this point is getting very clunky. You can assign what we have so far to an object and continue to add parameters without having to copy and paste the whole plot.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="week-5.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">#assign to an object</span></span>
-<span id="cb33-2"><a href="week-5.html#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="week-5.html#cb33-3" aria-hidden="true" tabindex="-1"></a>g<span class="ot">&lt;-</span><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(<span class="at">y=</span>sleep_total, <span class="at">x=</span>sleep_rem, <span class="at">group=</span><span class="fu">as.factor</span>(vore), <span class="at">color=</span><span class="fu">as.factor</span>(vore)))<span class="sc">+</span></span>
-<span id="cb33-4"><a href="week-5.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb33-5"><a href="week-5.html#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>, <span class="at">x=</span> <span class="st">&quot;REM sleep (hours)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb33-6"><a href="week-5.html#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb33-7"><a href="week-5.html#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">&quot;Diet&quot;</span>, </span>
-<span id="cb33-8"><a href="week-5.html#cb33-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Carnivore&quot;</span>, </span>
-<span id="cb33-9"><a href="week-5.html#cb33-9" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Herbivore&quot;</span>, </span>
-<span id="cb33-10"><a href="week-5.html#cb33-10" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Insectivore&quot;</span>, </span>
-<span id="cb33-11"><a href="week-5.html#cb33-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Omnivore&quot;</span>, </span>
-<span id="cb33-12"><a href="week-5.html#cb33-12" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;NA&quot;</span>), </span>
-<span id="cb33-13"><a href="week-5.html#cb33-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;carni&quot;</span><span class="ot">=</span><span class="st">&quot;blue&quot;</span>, </span>
-<span id="cb33-14"><a href="week-5.html#cb33-14" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;herbi&quot;</span><span class="ot">=</span><span class="st">&quot;red&quot;</span>, </span>
-<span id="cb33-15"><a href="week-5.html#cb33-15" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;insecti&quot;</span><span class="ot">=</span><span class="st">&quot;green&quot;</span>, </span>
-<span id="cb33-16"><a href="week-5.html#cb33-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;omni&quot;</span><span class="ot">=</span><span class="st">&quot;brown&quot;</span>, </span>
-<span id="cb33-17"><a href="week-5.html#cb33-17" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;NA&quot;</span><span class="ot">=</span><span class="st">&quot;orange&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="week-5.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#assign to an object</span></span>
+<span id="cb38-2"><a href="week-5.html#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="week-5.html#cb38-3" aria-hidden="true" tabindex="-1"></a>g<span class="ot">&lt;-</span><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(<span class="at">y=</span>sleep_total, <span class="at">x=</span>sleep_rem, <span class="at">group=</span><span class="fu">as.factor</span>(vore), <span class="at">color=</span><span class="fu">as.factor</span>(vore)))<span class="sc">+</span></span>
+<span id="cb38-4"><a href="week-5.html#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb38-5"><a href="week-5.html#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span> <span class="st">&quot;Total Sleep (hours)&quot;</span>, <span class="at">x=</span> <span class="st">&quot;REM sleep (hours)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb38-6"><a href="week-5.html#cb38-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb38-7"><a href="week-5.html#cb38-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">name=</span><span class="st">&quot;Diet&quot;</span>, </span>
+<span id="cb38-8"><a href="week-5.html#cb38-8" aria-hidden="true" tabindex="-1"></a>                        <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Carnivore&quot;</span>, </span>
+<span id="cb38-9"><a href="week-5.html#cb38-9" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Herbivore&quot;</span>, </span>
+<span id="cb38-10"><a href="week-5.html#cb38-10" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Insectivore&quot;</span>, </span>
+<span id="cb38-11"><a href="week-5.html#cb38-11" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;Omnivore&quot;</span>, </span>
+<span id="cb38-12"><a href="week-5.html#cb38-12" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">&quot;NA&quot;</span>), </span>
+<span id="cb38-13"><a href="week-5.html#cb38-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;carni&quot;</span><span class="ot">=</span><span class="st">&quot;blue&quot;</span>, </span>
+<span id="cb38-14"><a href="week-5.html#cb38-14" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;herbi&quot;</span><span class="ot">=</span><span class="st">&quot;red&quot;</span>, </span>
+<span id="cb38-15"><a href="week-5.html#cb38-15" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;insecti&quot;</span><span class="ot">=</span><span class="st">&quot;green&quot;</span>, </span>
+<span id="cb38-16"><a href="week-5.html#cb38-16" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;omni&quot;</span><span class="ot">=</span><span class="st">&quot;brown&quot;</span>, </span>
+<span id="cb38-17"><a href="week-5.html#cb38-17" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">&quot;NA&quot;</span><span class="ot">=</span><span class="st">&quot;orange&quot;</span>))</span></code></pre></div>
 <p>One final example to share. I use ggplot often with data sets that have multiple character vectors and I want to see how they relate to my continuous variables. For example in the iris dataframe we may be interested in looking at the relationship between Sepal.Length and Sepal.Width for each species. You can look at all of these together with <code>facet_wrap</code> or <code>facet_grid</code>.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="week-5.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">y=</span>Sepal.Length, <span class="at">x=</span>Sepal.Width, <span class="at">group=</span>Species, <span class="at">color=</span>Species))<span class="sc">+</span></span>
-<span id="cb34-2"><a href="week-5.html#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb34-3"><a href="week-5.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species)<span class="sc">+</span></span>
-<span id="cb34-4"><a href="week-5.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="week-5.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">y=</span>Sepal.Length, <span class="at">x=</span>Sepal.Width, <span class="at">group=</span>Species, <span class="at">color=</span>Species))<span class="sc">+</span></span>
+<span id="cb39-2"><a href="week-5.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb39-3"><a href="week-5.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species)<span class="sc">+</span></span>
+<span id="cb39-4"><a href="week-5.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-23-1.png" width="672" />
 Finally in ggplot we may be interested in seeing the mean values plotted with error bars for several groups. You can use the function <code>stat_summary</code> to find the mean and error around that mean for the given grouping.</p>
 <p>Here’s a plot looking at the mean chickweight by diet.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="week-5.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight, <span class="at">group=</span>Diet, <span class="at">color=</span>Diet))<span class="sc">+</span></span>
-<span id="cb35-2"><a href="week-5.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y=</span>mean, <span class="at">geom=</span><span class="st">&quot;point&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb35-3"><a href="week-5.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y=</span>mean, <span class="at">geom=</span><span class="st">&quot;line&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb35-4"><a href="week-5.html#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, </span>
-<span id="cb35-5"><a href="week-5.html#cb35-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">width=</span><span class="fl">0.1</span>), <span class="at">size=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="week-5.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ChickWeight, <span class="fu">aes</span>(<span class="at">x=</span>Time, <span class="at">y=</span>weight, <span class="at">group=</span>Diet, <span class="at">color=</span>Diet))<span class="sc">+</span></span>
+<span id="cb41-2"><a href="week-5.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y=</span>mean, <span class="at">geom=</span><span class="st">&quot;point&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb41-3"><a href="week-5.html#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y=</span>mean, <span class="at">geom=</span><span class="st">&quot;line&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb41-4"><a href="week-5.html#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, </span>
+<span id="cb41-5"><a href="week-5.html#cb41-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">width=</span><span class="fl">0.1</span>), <span class="at">size=</span><span class="fl">0.5</span>)</span></code></pre></div>
+<pre><code>## Warning: `fun.y` is deprecated. Use `fun` instead.
+
+## Warning: `fun.y` is deprecated. Use `fun` instead.</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 </div>
 <div id="practice-problems-2.2" class="section level2" number="6.6">
@@ -575,9 +595,10 @@ Finally in ggplot we may be interested in seeing the mean values plotted with er
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="week-5.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can just use the geom_smooth command from above and ggplot takes care of the rest!</span></span>
-<span id="cb36-2"><a href="week-5.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The code below will only work if you stored your plot in object g.</span></span>
-<span id="cb36-3"><a href="week-5.html#cb36-3" aria-hidden="true" tabindex="-1"></a>g<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="week-5.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we can just use the geom_smooth command from above and ggplot takes care of the rest!</span></span>
+<span id="cb43-2"><a href="week-5.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The code below will only work if you stored your plot in object g.</span></span>
+<span id="cb43-3"><a href="week-5.html#cb43-3" aria-hidden="true" tabindex="-1"></a>g<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)</span></code></pre></div>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 22 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 27 rows containing missing values (geom_point).</code></pre>
 <img src="Test_files/figure-html/unnamed-chunk-25-1.png" width="672" />
@@ -593,7 +614,7 @@ Finally in ggplot we may be interested in seeing the mean values plotted with er
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="week-5.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(<span class="at">y=</span>sleep_total, <span class="at">x=</span><span class="fu">as.factor</span>(vore), <span class="at">fill=</span><span class="fu">as.factor</span>(vore)))<span class="sc">+</span><span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="week-5.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(msleep, <span class="fu">aes</span>(<span class="at">y=</span>sleep_total, <span class="at">x=</span><span class="fu">as.factor</span>(vore), <span class="at">fill=</span><span class="fu">as.factor</span>(vore)))<span class="sc">+</span><span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <img src="Test_files/figure-html/unnamed-chunk-26-1.png" width="672" />
 </p>
 </details>
@@ -607,7 +628,7 @@ Finally in ggplot we may be interested in seeing the mean values plotted with er
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="week-5.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(<span class="at">y=</span>area, <span class="at">x=</span>popdensity, <span class="at">col=</span><span class="fu">as.factor</span>(state)))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">facet_grid</span>(<span class="sc">~</span>state)</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="week-5.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(<span class="at">y=</span>area, <span class="at">x=</span>popdensity, <span class="at">col=</span><span class="fu">as.factor</span>(state)))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">facet_grid</span>(<span class="sc">~</span>state)</span></code></pre></div>
 <img src="Test_files/figure-html/unnamed-chunk-27-1.png" width="672" />
 </p>
 </details>
@@ -621,11 +642,11 @@ Finally in ggplot we may be interested in seeing the mean values plotted with er
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="week-5.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we can subset our data first and store the subset in a new dataframe</span></span>
-<span id="cb41-2"><a href="week-5.html#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="week-5.html#cb41-3" aria-hidden="true" tabindex="-1"></a>il<span class="ot">&lt;-</span>midwest[midwest<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;IL&quot;</span>,]</span>
-<span id="cb41-4"><a href="week-5.html#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-5"><a href="week-5.html#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(il, <span class="fu">aes</span>(<span class="at">x=</span>popdensity, <span class="at">y=</span>poptotal))<span class="sc">+</span><span class="fu">geom_point</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="week-5.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we can subset our data first and store the subset in a new dataframe</span></span>
+<span id="cb49-2"><a href="week-5.html#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-3"><a href="week-5.html#cb49-3" aria-hidden="true" tabindex="-1"></a>il<span class="ot">&lt;-</span>midwest[midwest<span class="sc">$</span>state <span class="sc">==</span> <span class="st">&quot;IL&quot;</span>,]</span>
+<span id="cb49-4"><a href="week-5.html#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="week-5.html#cb49-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(il, <span class="fu">aes</span>(<span class="at">x=</span>popdensity, <span class="at">y=</span>poptotal))<span class="sc">+</span><span class="fu">geom_point</span>() </span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-28-1.png" width="672" /></p>
 </p>
 </details>
@@ -639,15 +660,18 @@ Finally in ggplot we may be interested in seeing the mean values plotted with er
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="week-5.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(<span class="at">x=</span>state, <span class="at">y=</span>popdensity, <span class="at">color=</span>state))<span class="sc">+</span></span>
-<span id="cb42-2"><a href="week-5.html#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y=</span>mean, <span class="at">geom=</span><span class="st">&quot;point&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb42-3"><a href="week-5.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y=</span>mean, <span class="at">geom=</span><span class="st">&quot;line&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb42-4"><a href="week-5.html#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, </span>
-<span id="cb42-5"><a href="week-5.html#cb42-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">width=</span><span class="fl">0.1</span>), <span class="at">size=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb42-6"><a href="week-5.html#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb42-7"><a href="week-5.html#cb42-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">rainbow</span>(<span class="dv">5</span>))</span></code></pre></div>
-<pre><code>## geom_path: Each group consists of only one observation. Do you need to
-## adjust the group aesthetic?</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="week-5.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(midwest, <span class="fu">aes</span>(<span class="at">x=</span>state, <span class="at">y=</span>popdensity, <span class="at">color=</span>state))<span class="sc">+</span></span>
+<span id="cb50-2"><a href="week-5.html#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y=</span>mean, <span class="at">geom=</span><span class="st">&quot;point&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb50-3"><a href="week-5.html#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.y=</span>mean, <span class="at">geom=</span><span class="st">&quot;line&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb50-4"><a href="week-5.html#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="at">fun.data =</span> mean_se, <span class="at">geom =</span> <span class="st">&quot;errorbar&quot;</span>, </span>
+<span id="cb50-5"><a href="week-5.html#cb50-5" aria-hidden="true" tabindex="-1"></a>               <span class="fu">aes</span>(<span class="at">width=</span><span class="fl">0.1</span>), <span class="at">size=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb50-6"><a href="week-5.html#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb50-7"><a href="week-5.html#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">rainbow</span>(<span class="dv">5</span>))</span></code></pre></div>
+<pre><code>## Warning: `fun.y` is deprecated. Use `fun` instead.
+
+## Warning: `fun.y` is deprecated. Use `fun` instead.</code></pre>
+<pre><code>## geom_path: Each group consists of only one observation. Do you need to adjust
+## the group aesthetic?</code></pre>
 <img src="Test_files/figure-html/unnamed-chunk-29-1.png" width="672" />
 </p>
 </details>
@@ -659,11 +683,11 @@ points, print, paste, plot, unique, sample</p>
 <p>for loops:
 In many languages, the best way to repeat a calculation is to use a for-loop:
 For example, we could square each number 1 to 10</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="week-5.html#cb44-1" aria-hidden="true" tabindex="-1"></a>squares <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">10</span>) <span class="co"># use rep to create a vector length 10 of NAs to store the result</span></span>
-<span id="cb44-2"><a href="week-5.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) { <span class="co"># for loop</span></span>
-<span id="cb44-3"><a href="week-5.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  squares[i] <span class="ot">=</span> i<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb44-4"><a href="week-5.html#cb44-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb44-5"><a href="week-5.html#cb44-5" aria-hidden="true" tabindex="-1"></a>squares</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="week-5.html#cb53-1" aria-hidden="true" tabindex="-1"></a>squares <span class="ot">=</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">10</span>) <span class="co"># use rep to create a vector length 10 of NAs to store the result</span></span>
+<span id="cb53-2"><a href="week-5.html#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) { <span class="co"># for loop</span></span>
+<span id="cb53-3"><a href="week-5.html#cb53-3" aria-hidden="true" tabindex="-1"></a>  squares[i] <span class="ot">=</span> i<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb53-4"><a href="week-5.html#cb53-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb53-5"><a href="week-5.html#cb53-5" aria-hidden="true" tabindex="-1"></a>squares</span></code></pre></div>
 <pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
 <p>An alternative to for-loops in R is using the ‘apply’ family, while for-loops apply a function to one item at a time and then go on to the next one, “apply” applies functions to every item at once</p>
 </div>
@@ -672,50 +696,50 @@ For example, we could square each number 1 to 10</p>
 <div id="sapply" class="section level3" number="6.8.1">
 <h3><span class="header-section-number">6.8.1</span> sapply</h3>
 <p>There are several apply functions that vary in the output the return and vary somewhat in the input they require. We’ll go over <strong>sapply</strong> “simplifying” apply which returns a vector, first.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="week-5.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?sapply </span></span>
-<span id="cb46-2"><a href="week-5.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># syntax: sapply(X = object_to_repeat_over, FUN = function_to_repeat)</span></span>
-<span id="cb46-3"><a href="week-5.html#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-4"><a href="week-5.html#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># simple example of sapply over a vector</span></span>
-<span id="cb46-5"><a href="week-5.html#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># we can use an in-line function definition</span></span>
-<span id="cb46-6"><a href="week-5.html#cb46-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="week-5.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?sapply </span></span>
+<span id="cb55-2"><a href="week-5.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="co"># syntax: sapply(X = object_to_repeat_over, FUN = function_to_repeat)</span></span>
+<span id="cb55-3"><a href="week-5.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="week-5.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="co"># simple example of sapply over a vector</span></span>
+<span id="cb55-5"><a href="week-5.html#cb55-5" aria-hidden="true" tabindex="-1"></a><span class="co"># we can use an in-line function definition</span></span>
+<span id="cb55-6"><a href="week-5.html#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="week-5.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># equivalently, we can define our own functions separately for sapply</span></span>
-<span id="cb48-2"><a href="week-5.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. a function that calculates the area of a circle radius r, pi*r^2</span></span>
-<span id="cb48-3"><a href="week-5.html#cb48-3" aria-hidden="true" tabindex="-1"></a>areaCircle <span class="ot">=</span> <span class="cf">function</span>(r){</span>
-<span id="cb48-4"><a href="week-5.html#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pi <span class="sc">*</span> r<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb48-5"><a href="week-5.html#cb48-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb48-6"><a href="week-5.html#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-7"><a href="week-5.html#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, areaCircle)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="week-5.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># equivalently, we can define our own functions separately for sapply</span></span>
+<span id="cb57-2"><a href="week-5.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="co"># e.g. a function that calculates the area of a circle radius r, pi*r^2</span></span>
+<span id="cb57-3"><a href="week-5.html#cb57-3" aria-hidden="true" tabindex="-1"></a>areaCircle <span class="ot">=</span> <span class="cf">function</span>(r){</span>
+<span id="cb57-4"><a href="week-5.html#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(pi <span class="sc">*</span> r<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb57-5"><a href="week-5.html#cb57-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb57-6"><a href="week-5.html#cb57-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-7"><a href="week-5.html#cb57-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, areaCircle)</span></code></pre></div>
 <pre><code>##  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336
 ##  [7] 153.938040 201.061930 254.469005 314.159265</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="week-5.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in R, we can also just use short-hand for simple vector calculations:</span></span>
-<span id="cb50-2"><a href="week-5.html#cb50-2" aria-hidden="true" tabindex="-1"></a>pi<span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="week-5.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in R, we can also just use short-hand for simple vector calculations:</span></span>
+<span id="cb59-2"><a href="week-5.html#cb59-2" aria-hidden="true" tabindex="-1"></a>pi<span class="sc">*</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
 <pre><code>##  [1]   3.141593  12.566371  28.274334  50.265482  78.539816 113.097336
 ##  [7] 153.938040 201.061930 254.469005 314.159265</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="week-5.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># but unlike the short-hand, sapply can also iterate over elements in a list</span></span>
-<span id="cb52-2"><a href="week-5.html#cb52-2" aria-hidden="true" tabindex="-1"></a>listy <span class="ot">=</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="cn">TRUE</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">c =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>)</span>
-<span id="cb52-3"><a href="week-5.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(listy) <span class="co"># look at the structure of &#39;listy&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="week-5.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># but unlike the short-hand, sapply can also iterate over elements in a list</span></span>
+<span id="cb61-2"><a href="week-5.html#cb61-2" aria-hidden="true" tabindex="-1"></a>listy <span class="ot">=</span> <span class="fu">list</span>(<span class="at">a =</span> <span class="cn">TRUE</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>), <span class="at">c =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb61-3"><a href="week-5.html#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(listy) <span class="co"># look at the structure of &#39;listy&#39;</span></span></code></pre></div>
 <pre><code>## List of 3
 ##  $ a: logi TRUE
 ##  $ b: chr [1:3] &quot;a&quot; &quot;b&quot; &quot;c&quot;
 ##  $ c: int [1:91] 10 11 12 13 14 15 16 17 18 19 ...</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="week-5.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(listy) <span class="co"># look at the length of &#39;listy&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="week-5.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(listy) <span class="co"># look at the length of &#39;listy&#39;</span></span></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="week-5.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use sapply to return a vector for length of each object within the list</span></span>
-<span id="cb56-2"><a href="week-5.html#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-3"><a href="week-5.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(listy, <span class="at">FUN =</span> length) </span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="week-5.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use sapply to return a vector for length of each object within the list</span></span>
+<span id="cb65-2"><a href="week-5.html#cb65-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb65-3"><a href="week-5.html#cb65-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(listy, <span class="at">FUN =</span> length) </span></code></pre></div>
 <pre><code>##  a  b  c 
 ##  1  3 91</code></pre>
 <p>You can also use sapply to create plots! For example, use sapply to plot these 4 dataframes at once:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="week-5.html#cb58-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb58-2"><a href="week-5.html#cb58-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x2 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y2 =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">10</span>)</span>
-<span id="cb58-3"><a href="week-5.html#cb58-3" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x3 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y3 =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>)</span>
-<span id="cb58-4"><a href="week-5.html#cb58-4" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
-<span id="cb58-5"><a href="week-5.html#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-6"><a href="week-5.html#cb58-6" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">=</span> <span class="fu">list</span>(df1, df2, df3, df4) <span class="co"># put 4 data frames together in a list</span></span>
-<span id="cb58-7"><a href="week-5.html#cb58-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb58-8"><a href="week-5.html#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># set up frame for 4 plots</span></span>
-<span id="cb58-9"><a href="week-5.html#cb58-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_list, plot) <span class="co"># plot my_list with sapply</span></span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="week-5.html#cb67-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y1 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb67-2"><a href="week-5.html#cb67-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x2 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y2 =</span> <span class="sc">-</span><span class="dv">1</span><span class="sc">:-</span><span class="dv">10</span>)</span>
+<span id="cb67-3"><a href="week-5.html#cb67-3" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x3 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y3 =</span> <span class="dv">10</span><span class="sc">:</span><span class="dv">1</span>)</span>
+<span id="cb67-4"><a href="week-5.html#cb67-4" aria-hidden="true" tabindex="-1"></a>df4 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">y4 =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb67-5"><a href="week-5.html#cb67-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-6"><a href="week-5.html#cb67-6" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">=</span> <span class="fu">list</span>(df1, df2, df3, df4) <span class="co"># put 4 data frames together in a list</span></span>
+<span id="cb67-7"><a href="week-5.html#cb67-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-8"><a href="week-5.html#cb67-8" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># set up frame for 4 plots</span></span>
+<span id="cb67-9"><a href="week-5.html#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_list, plot) <span class="co"># plot my_list with sapply</span></span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-32-1.png" width="672" /></p>
 <pre><code>## [[1]]
 ## NULL
@@ -735,10 +759,10 @@ For example, we could square each number 1 to 10</p>
 Example syntax for the dataframe or matrix X:
 <code>apply(X = over this object, MARGIN 1 for rows or 2 for columns,FUN = apply this function)</code></p>
 <p>You can also use apply on a dataframe we worked with earlier the states data to plot each column against Population</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="week-5.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load in the data</span></span>
-<span id="cb60-2"><a href="week-5.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
-<span id="cb60-3"><a href="week-5.html#cb60-3" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
-<span id="cb60-4"><a href="week-5.html#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="week-5.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load in the data</span></span>
+<span id="cb69-2"><a href="week-5.html#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb69-3"><a href="week-5.html#cb69-3" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
+<span id="cb69-4"><a href="week-5.html#cb69-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    50 obs. of  8 variables:
 ##  $ Population: num  3615 365 2212 2110 21198 ...
 ##  $ Income    : num  3624 6315 4530 3378 5114 ...
@@ -748,43 +772,51 @@ Example syntax for the dataframe or matrix X:
 ##  $ HS Grad   : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...
 ##  $ Frost     : num  20 152 15 65 20 166 139 103 11 60 ...
 ##  $ Area      : num  50708 566432 113417 51945 156361 ...</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="week-5.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the mean for each column</span></span>
-<span id="cb62-2"><a href="week-5.html#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, mean)</span></code></pre></div>
-<pre><code>## Population     Income Illiteracy   Life Exp     Murder    HS Grad 
-##  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080 
-##      Frost       Area 
-##   104.4600 70735.8800</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="week-5.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note you could get this with colMeans() or summary(), along with the min and max and other values, but there may be instances where you only want the mean</span></span>
-<span id="cb64-2"><a href="week-5.html#cb64-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-3"><a href="week-5.html#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="co"># you could also plot each column against Population in ggplot</span></span>
-<span id="cb64-4"><a href="week-5.html#cb64-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb64-5"><a href="week-5.html#cb64-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y =</span> i))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span><span class="fu">theme_classic</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="week-5.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate the mean for each column</span></span>
+<span id="cb71-2"><a href="week-5.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, mean)</span></code></pre></div>
+<pre><code>## Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost 
+##  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080   104.4600 
+##       Area 
+## 70735.8800</code></pre>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="week-5.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># note you could get this with colMeans() or summary(), along with the min and max and other values, but there may be instances where you only want the mean</span></span>
+<span id="cb73-2"><a href="week-5.html#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-3"><a href="week-5.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co"># you could also plot each column against Population in ggplot</span></span>
+<span id="cb73-4"><a href="week-5.html#cb73-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-5"><a href="week-5.html#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">ggplot</span>(states, <span class="fu">aes</span>(<span class="at">x=</span>Population, <span class="at">y =</span> i))<span class="sc">+</span><span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span><span class="fu">theme_classic</span>())</span></code></pre></div>
 <pre><code>## $Population</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-33-1.png" width="672" /></p>
 <pre><code>## 
 ## $Income</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-33-2.png" width="672" /></p>
 <pre><code>## 
 ## $Illiteracy</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-33-3.png" width="672" /></p>
 <pre><code>## 
 ## $`Life Exp`</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-33-4.png" width="672" /></p>
 <pre><code>## 
 ## $Murder</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-33-5.png" width="672" /></p>
 <pre><code>## 
 ## $`HS Grad`</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-33-6.png" width="672" /></p>
 <pre><code>## 
 ## $Frost</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-33-7.png" width="672" /></p>
 <pre><code>## 
 ## $Area</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="Test_files/figure-html/unnamed-chunk-33-8.png" width="672" /></p>
 <p>We can do the same things across all rows. But if you want to plot all the rows as we did the columns above, I suggest you do that with a smaller dataset than the states dataframe.</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="week-5.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the sum across each row in states</span></span>
-<span id="cb73-2"><a href="week-5.html#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">1</span>, sum)</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="week-5.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co">#calculate the sum across each row in states</span></span>
+<span id="cb90-2"><a href="week-5.html#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">1</span>, sum)</span></code></pre></div>
 <pre><code>##        Alabama         Alaska        Arizona       Arkansas     California 
 ##       58094.55      573412.81      120312.25       57620.56      182838.71 
 ##       Colorado    Connecticut       Delaware        Florida        Georgia 
@@ -809,7 +841,7 @@ Example syntax for the dataframe or matrix X:
 <div id="lapply-list-apply" class="section level3" number="6.8.3">
 <h3><span class="header-section-number">6.8.3</span> lapply – “list” apply</h3>
 <p>We’ll just show a quick example of lapply. It works in the same way as sapply, but returns a list instead of a vector.</p>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="week-5.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># lapply returns list</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="week-5.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># lapply returns list</span></span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -839,7 +871,7 @@ Example syntax for the dataframe or matrix X:
 ## 
 ## [[10]]
 ## [1] 100</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="week-5.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>) <span class="co"># same as an lapply</span></span></code></pre></div>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="week-5.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>, <span class="at">simplify =</span> <span class="cn">FALSE</span>) <span class="co"># same as an lapply</span></span></code></pre></div>
 <pre><code>## [[1]]
 ## [1] 1
 ## 
@@ -869,17 +901,17 @@ Example syntax for the dataframe or matrix X:
 ## 
 ## [[10]]
 ## [1] 100</code></pre>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="week-5.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># default is simplify = TRUE which retuns a vector</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="week-5.html#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="cf">function</span>(x)  x<span class="sc">^</span><span class="dv">2</span>) <span class="co"># default is simplify = TRUE which retuns a vector</span></span></code></pre></div>
 <pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
 </div>
 <div id="tapply---per-type-apply" class="section level3" number="6.8.4">
 <h3><span class="header-section-number">6.8.4</span> tapply - “per Type” apply</h3>
 <p>The tapply function is one of my favorites because it is a really great way to sumarize data that has multiple categorical variables that can be</p>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="week-5.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data again, you can skip this if you already have it loaded</span></span>
-<span id="cb81-2"><a href="week-5.html#cb81-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
-<span id="cb81-3"><a href="week-5.html#cb81-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-4"><a href="week-5.html#cb81-4" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
-<span id="cb81-5"><a href="week-5.html#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="week-5.html#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data again, you can skip this if you already have it loaded</span></span>
+<span id="cb98-2"><a href="week-5.html#cb98-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb98-3"><a href="week-5.html#cb98-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb98-4"><a href="week-5.html#cb98-4" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># convert data to a familiar format - data frame</span></span>
+<span id="cb98-5"><a href="week-5.html#cb98-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(states) <span class="co"># let&#39;s take a look at the dataframe</span></span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    50 obs. of  8 variables:
 ##  $ Population: num  3615 365 2212 2110 21198 ...
 ##  $ Income    : num  3624 6315 4530 3378 5114 ...
@@ -889,16 +921,16 @@ Example syntax for the dataframe or matrix X:
 ##  $ HS Grad   : num  41.3 66.7 58.1 39.9 62.6 63.9 56 54.6 52.6 40.6 ...
 ##  $ Frost     : num  20 152 15 65 20 166 139 103 11 60 ...
 ##  $ Area      : num  50708 566432 113417 51945 156361 ...</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="week-5.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example syntax --- tapply(variable of interest, grouping variable, function)</span></span>
-<span id="cb83-2"><a href="week-5.html#cb83-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb83-3"><a href="week-5.html#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="co"># for each US region in our dataset, finds the mean of Frost for states in that region</span></span>
-<span id="cb83-4"><a href="week-5.html#cb83-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Frost, state.region, mean) <span class="co"># state.region contains the region information for each state</span></span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="week-5.html#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example syntax --- tapply(variable of interest, grouping variable, function)</span></span>
+<span id="cb100-2"><a href="week-5.html#cb100-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-3"><a href="week-5.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="co"># for each US region in our dataset, finds the mean of Frost for states in that region</span></span>
+<span id="cb100-4"><a href="week-5.html#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Frost, state.region, mean) <span class="co"># state.region contains the region information for each state</span></span></code></pre></div>
 <pre><code>##     Northeast         South North Central          West 
 ##      132.7778       64.6250      138.8333      102.1538</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="week-5.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can nest apply statements! Let&#39;s find the region average for all the variables in the states dataset</span></span>
-<span id="cb85-2"><a href="week-5.html#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,</span>
-<span id="cb85-3"><a href="week-5.html#cb85-3" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span>, <span class="co"># apply over columns of my_states</span></span>
-<span id="cb85-4"><a href="week-5.html#cb85-4" aria-hidden="true" tabindex="-1"></a>      <span class="cf">function</span>(x) <span class="fu">tapply</span>(x, state.region, mean)) <span class="co"># each column = variable of interest for tapply</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="week-5.html#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="co"># you can nest apply statements! Let&#39;s find the region average for all the variables in the states dataset</span></span>
+<span id="cb102-2"><a href="week-5.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,</span>
+<span id="cb102-3"><a href="week-5.html#cb102-3" aria-hidden="true" tabindex="-1"></a>      <span class="dv">2</span>, <span class="co"># apply over columns of my_states</span></span>
+<span id="cb102-4"><a href="week-5.html#cb102-4" aria-hidden="true" tabindex="-1"></a>      <span class="cf">function</span>(x) <span class="fu">tapply</span>(x, state.region, mean)) <span class="co"># each column = variable of interest for tapply</span></span></code></pre></div>
 <pre><code>##               Population   Income Illiteracy Life Exp    Murder  HS Grad
 ## Northeast       5495.111 4570.222   1.000000 71.26444  4.722222 53.96667
 ## South           4208.125 4011.938   1.737500 69.70625 10.581250 44.34375
@@ -927,20 +959,20 @@ Example syntax for the dataframe or matrix X:
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="week-5.html#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data</span></span>
-<span id="cb87-2"><a href="week-5.html#cb87-2" aria-hidden="true" tabindex="-1"></a><span class="co">#?state</span></span>
-<span id="cb87-3"><a href="week-5.html#cb87-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
-<span id="cb87-4"><a href="week-5.html#cb87-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-5"><a href="week-5.html#cb87-5" aria-hidden="true" tabindex="-1"></a><span class="co"># this data is stored in a slightly different way than other datasets we&#39;ve used so far</span></span>
-<span id="cb87-6"><a href="week-5.html#cb87-6" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># run this line of code to avoid later confusion</span></span>
-<span id="cb87-7"><a href="week-5.html#cb87-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-8"><a href="week-5.html#cb87-8" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,<span class="dv">2</span>,mean)</span></code></pre></div>
-<pre><code>## Population     Income Illiteracy   Life Exp     Murder    HS Grad 
-##  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080 
-##      Frost       Area 
-##   104.4600 70735.8800</code></pre>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="week-5.html#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co">#or an alternative that will get you only the columns requested</span></span>
-<span id="cb89-2"><a href="week-5.html#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Income&quot;</span>, <span class="st">&quot;Area&quot;</span>)])</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="week-5.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load state data</span></span>
+<span id="cb104-2"><a href="week-5.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="co">#?state</span></span>
+<span id="cb104-3"><a href="week-5.html#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(state)</span>
+<span id="cb104-4"><a href="week-5.html#cb104-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-5"><a href="week-5.html#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="co"># this data is stored in a slightly different way than other datasets we&#39;ve used so far</span></span>
+<span id="cb104-6"><a href="week-5.html#cb104-6" aria-hidden="true" tabindex="-1"></a>states <span class="ot">=</span> <span class="fu">as.data.frame</span>(state.x77) <span class="co"># run this line of code to avoid later confusion</span></span>
+<span id="cb104-7"><a href="week-5.html#cb104-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb104-8"><a href="week-5.html#cb104-8" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states,<span class="dv">2</span>,mean)</span></code></pre></div>
+<pre><code>## Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost 
+##  4246.4200  4435.8000     1.1700    70.8786     7.3780    53.1080   104.4600 
+##       Area 
+## 70735.8800</code></pre>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="week-5.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="co">#or an alternative that will get you only the columns requested</span></span>
+<span id="cb106-2"><a href="week-5.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colMeans</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Population&quot;</span>, <span class="st">&quot;Income&quot;</span>, <span class="st">&quot;Area&quot;</span>)])</span></code></pre></div>
 <pre><code>## Population     Income       Area 
 ##    4246.42    4435.80   70735.88</code></pre>
 </p>
@@ -956,7 +988,7 @@ Hint: use the object state.region in your environment</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="week-5.html#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Area, state.region, mean)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="week-5.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(states<span class="sc">$</span>Area, state.region, mean)</span></code></pre></div>
 <pre><code>##     Northeast         South North Central          West 
 ##      18141.00      54605.12      62652.00     134463.00</code></pre>
 </p>
@@ -971,11 +1003,11 @@ Hint: use the object state.region in your environment</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="week-5.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co">#how many columns do we have? </span></span>
-<span id="cb93-2"><a href="week-5.html#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(states)</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="week-5.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="co">#how many columns do we have? </span></span>
+<span id="cb110-2"><a href="week-5.html#cb110-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(states)</span></code></pre></div>
 <pre><code>## [1] 50  8</code></pre>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="week-5.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># make your plot window show 2 rows and 2 columns at once</span></span>
-<span id="cb95-2"><a href="week-5.html#cb95-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, hist)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="week-5.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># make your plot window show 2 rows and 2 columns at once</span></span>
+<span id="cb112-2"><a href="week-5.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="fu">apply</span>(states, <span class="dv">2</span>, hist)</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-39-1.png" width="672" /><img src="Test_files/figure-html/unnamed-chunk-39-2.png" width="672" /></p>
 <pre><code>## $Population
 ## $breaks
@@ -1165,8 +1197,8 @@ What 10 states should we avoid? # hint use prod(); and maybe order()</li>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="week-5.html#cb97-1" aria-hidden="true" tabindex="-1"></a>livability <span class="ot">&lt;-</span> <span class="fu">apply</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Illiteracy&quot;</span>, <span class="st">&quot;Murder&quot;</span>, <span class="st">&quot;Frost&quot;</span>)], <span class="dv">1</span>, prod) <span class="co"># subset to variables of interest</span></span>
-<span id="cb97-2"><a href="week-5.html#cb97-2" aria-hidden="true" tabindex="-1"></a>livability[<span class="fu">order</span>(livability, <span class="at">decreasing =</span> T)][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] <span class="co"># top ten least livable states</span></span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="week-5.html#cb114-1" aria-hidden="true" tabindex="-1"></a>livability <span class="ot">&lt;-</span> <span class="fu">apply</span>(states[,<span class="fu">c</span>(<span class="st">&quot;Illiteracy&quot;</span>, <span class="st">&quot;Murder&quot;</span>, <span class="st">&quot;Frost&quot;</span>)], <span class="dv">1</span>, prod) <span class="co"># subset to variables of interest</span></span>
+<span id="cb114-2"><a href="week-5.html#cb114-2" aria-hidden="true" tabindex="-1"></a>livability[<span class="fu">order</span>(livability, <span class="at">decreasing =</span> T)][<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>] <span class="co"># top ten least livable states</span></span></code></pre></div>
 <pre><code>##         Alaska     New Mexico South Carolina        Georgia       Kentucky 
 ##        2576.40        2560.80        1734.20        1668.00        1611.20 
 ## North Carolina    Mississippi      Tennessee       New York       Michigan 
@@ -1179,18 +1211,18 @@ What 10 states should we avoid? # hint use prod(); and maybe order()</li>
 For extra style, title the plot by it’s color, e.g. the red plot is titled “red”</li>
 </ol>
 </blockquote>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="week-5.html#cb99-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb99-2"><a href="week-5.html#cb99-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb99-3"><a href="week-5.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))<span class="co"># run this line to set your plot to make 4 plots in total (2rows, 2columns)</span></span></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="week-5.html#cb116-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb116-2"><a href="week-5.html#cb116-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb116-3"><a href="week-5.html#cb116-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))<span class="co"># run this line to set your plot to make 4 plots in total (2rows, 2columns)</span></span></code></pre></div>
 <details>
 <summary>
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="week-5.html#cb100-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
-<span id="cb100-2"><a href="week-5.html#cb100-2" aria-hidden="true" tabindex="-1"></a>my_colors <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;deeppink&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>)</span>
-<span id="cb100-3"><a href="week-5.html#cb100-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># extra styling, plots in a 2x2 grid</span></span>
-<span id="cb100-4"><a href="week-5.html#cb100-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_colors, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">hist</span>(data_to_plot, <span class="at">main =</span> i, <span class="at">col =</span> i))</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="week-5.html#cb117-1" aria-hidden="true" tabindex="-1"></a>data_to_plot <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>)</span>
+<span id="cb117-2"><a href="week-5.html#cb117-2" aria-hidden="true" tabindex="-1"></a>my_colors <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;deeppink&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;darkgreen&quot;</span>)</span>
+<span id="cb117-3"><a href="week-5.html#cb117-3" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>)) <span class="co"># extra styling, plots in a 2x2 grid</span></span>
+<span id="cb117-4"><a href="week-5.html#cb117-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(my_colors, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">hist</span>(data_to_plot, <span class="at">main =</span> i, <span class="at">col =</span> i))</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-42-1.png" width="672" /></p>
 <pre><code>##          deeppink       red            blue           darkgreen     
 ## breaks   Integer,6      Integer,6      Integer,6      Integer,6     
@@ -1212,39 +1244,32 @@ Hint: to standardize a variable, you subtract the mean and divide by the standar
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="week-5.html#cb102-1" aria-hidden="true" tabindex="-1"></a>states_standardized <span class="ot">=</span> <span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="cf">function</span>(x) (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x))</span>
-<span id="cb102-2"><a href="week-5.html#cb102-2" aria-hidden="true" tabindex="-1"></a><span class="co"># original:</span></span>
-<span id="cb102-3"><a href="week-5.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states)</span></code></pre></div>
-<pre><code>##            Population Income Illiteracy Life Exp Murder HS Grad Frost
-## Alabama          3615   3624        2.1    69.05   15.1    41.3    20
-## Alaska            365   6315        1.5    69.31   11.3    66.7   152
-## Arizona          2212   4530        1.8    70.55    7.8    58.1    15
-## Arkansas         2110   3378        1.9    70.66   10.1    39.9    65
-## California      21198   5114        1.1    71.71   10.3    62.6    20
-## Colorado         2541   4884        0.7    72.06    6.8    63.9   166
-##              Area
-## Alabama     50708
-## Alaska     566432
-## Arizona    113417
-## Arkansas    51945
-## California 156361
-## Colorado   103766</code></pre>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="week-5.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardized</span></span>
-<span id="cb104-2"><a href="week-5.html#cb104-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states_standardized)</span></code></pre></div>
-<pre><code>##            Population     Income Illiteracy   Life Exp     Murder
-## Alabama    -0.1414316 -1.3211387   1.525758 -1.3621937  2.0918101
-## Alaska     -0.8693980  3.0582456   0.541398 -1.1685098  1.0624293
-## Arizona    -0.4556891  0.1533029   1.033578 -0.2447866  0.1143154
-## Arkansas   -0.4785360 -1.7214837   1.197638 -0.1628435  0.7373617
-## California  3.7969790  1.1037155  -0.114842  0.6193415  0.7915396
-## Colorado   -0.3819965  0.7294092  -0.771082  0.8800698 -0.1565742
-##               HS Grad      Frost       Area
-## Alabama    -1.4619293 -1.6248292 -0.2347183
-## Alaska      1.6828035  0.9145676  5.8093497
-## Arizona     0.6180514 -1.7210185  0.5002047
-## Arkansas   -1.6352611 -0.7591257 -0.2202212
-## California  1.1751891 -1.6248292  1.0034903
-## Colorado    1.3361400  1.1838976  0.3870991</code></pre>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="week-5.html#cb119-1" aria-hidden="true" tabindex="-1"></a>states_standardized <span class="ot">=</span> <span class="fu">apply</span>(states, <span class="dv">2</span>, <span class="cf">function</span>(x) (x<span class="sc">-</span><span class="fu">mean</span>(x))<span class="sc">/</span><span class="fu">sd</span>(x))</span>
+<span id="cb119-2"><a href="week-5.html#cb119-2" aria-hidden="true" tabindex="-1"></a><span class="co"># original:</span></span>
+<span id="cb119-3"><a href="week-5.html#cb119-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states)</span></code></pre></div>
+<pre><code>##            Population Income Illiteracy Life Exp Murder HS Grad Frost   Area
+## Alabama          3615   3624        2.1    69.05   15.1    41.3    20  50708
+## Alaska            365   6315        1.5    69.31   11.3    66.7   152 566432
+## Arizona          2212   4530        1.8    70.55    7.8    58.1    15 113417
+## Arkansas         2110   3378        1.9    70.66   10.1    39.9    65  51945
+## California      21198   5114        1.1    71.71   10.3    62.6    20 156361
+## Colorado         2541   4884        0.7    72.06    6.8    63.9   166 103766</code></pre>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="week-5.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="co"># standardized</span></span>
+<span id="cb121-2"><a href="week-5.html#cb121-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(states_standardized)</span></code></pre></div>
+<pre><code>##            Population     Income Illiteracy   Life Exp     Murder    HS Grad
+## Alabama    -0.1414316 -1.3211387   1.525758 -1.3621937  2.0918101 -1.4619293
+## Alaska     -0.8693980  3.0582456   0.541398 -1.1685098  1.0624293  1.6828035
+## Arizona    -0.4556891  0.1533029   1.033578 -0.2447866  0.1143154  0.6180514
+## Arkansas   -0.4785360 -1.7214837   1.197638 -0.1628435  0.7373617 -1.6352611
+## California  3.7969790  1.1037155  -0.114842  0.6193415  0.7915396  1.1751891
+## Colorado   -0.3819965  0.7294092  -0.771082  0.8800698 -0.1565742  1.3361400
+##                 Frost       Area
+## Alabama    -1.6248292 -0.2347183
+## Alaska      0.9145676  5.8093497
+## Arizona    -1.7210185  0.5002047
+## Arkansas   -0.7591257 -0.2202212
+## California -1.6248292  1.0034903
+## Colorado    1.1838976  0.3870991</code></pre>
 </p>
 </details>
 <blockquote>
@@ -1258,23 +1283,23 @@ Hint: instead of using apply to iterate over the columns themselves, you can oft
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="week-5.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb106-2"><a href="week-5.html#cb106-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">colnames</span>(states), <span class="cf">function</span>(x)<span class="fu">hist</span>(states[ , x],<span class="at">main =</span> x, <span class="at">xlab =</span> x,<span class="at">col =</span> <span class="st">&quot;darkblue&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="week-5.html#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb123-2"><a href="week-5.html#cb123-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(<span class="fu">colnames</span>(states), <span class="cf">function</span>(x)<span class="fu">hist</span>(states[ , x],<span class="at">main =</span> x, <span class="at">xlab =</span> x,<span class="at">col =</span> <span class="st">&quot;darkblue&quot;</span>))</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-44-1.png" width="672" /><img src="Test_files/figure-html/unnamed-chunk-44-2.png" width="672" /></p>
-<pre><code>##          Population    Income        Illiteracy    Life Exp     
-## breaks   Numeric,6     Integer,8     Numeric,6     Integer,8    
-## counts   Integer,5     Integer,7     Integer,5     Integer,7    
-## density  Numeric,5     Numeric,7     Numeric,5     Numeric,7    
-## mids     Numeric,5     Numeric,7     Numeric,5     Numeric,7    
-## xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
-## equidist TRUE          TRUE          TRUE          TRUE         
-##          Murder        HS Grad       Frost         Area         
-## breaks   Numeric,9     Integer,8     Numeric,11    Numeric,7    
-## counts   Integer,8     Integer,7     Integer,10    Integer,6    
-## density  Numeric,8     Numeric,7     Numeric,10    Numeric,6    
-## mids     Numeric,8     Numeric,7     Numeric,10    Numeric,6    
-## xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
-## equidist TRUE          TRUE          TRUE          TRUE</code></pre>
+<pre><code>##          Population    Income        Illiteracy    Life Exp      Murder       
+## breaks   Numeric,6     Integer,8     Numeric,6     Integer,8     Numeric,9    
+## counts   Integer,5     Integer,7     Integer,5     Integer,7     Integer,8    
+## density  Numeric,5     Numeric,7     Numeric,5     Numeric,7     Numeric,8    
+## mids     Numeric,5     Numeric,7     Numeric,5     Numeric,7     Numeric,8    
+## xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
+## equidist TRUE          TRUE          TRUE          TRUE          TRUE         
+##          HS Grad       Frost         Area         
+## breaks   Integer,8     Numeric,11    Numeric,7    
+## counts   Integer,7     Integer,10    Integer,6    
+## density  Numeric,7     Numeric,10    Numeric,6    
+## mids     Numeric,7     Numeric,10    Numeric,6    
+## xname    &quot;states[, x]&quot; &quot;states[, x]&quot; &quot;states[, x]&quot;
+## equidist TRUE          TRUE          TRUE</code></pre>
 </p>
 </details>
 </div>
@@ -1316,6 +1341,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
