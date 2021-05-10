@@ -252,8 +252,9 @@ genos <- read.pcadapt(vcf.path,type="vcf")
 Now let's read in the metadata. This is a CSV (comma separated values) file, which is a spreadsheet-style format that can be output from programs like Excel. The columns are separated with commas. Once you load the file, take a minute to examine the contents.
 
 ```{r, echo=T}
-meta <- read.csv(meta.path)
-head(meta)
+library(readr)
+californicus_metadata <- read_csv("californicus_metadata.csv")
+View(californicus_metadata)
 ```
 
 IMPORTANT NOTE: Here the samples in the VCF are in the same order as the samples in the metadata file. Triple check ahead of time that this is the case otherwise you may get some weird results!
