@@ -221,7 +221,7 @@ OutFLANKResultsPlotter(OF,withOutliers=T,
                        Zoom=F,RightZoomFraction=0.05,titletext=NULL)
 ```
 
-It's a little hard to tell from these plots, but there may be some SNPs with high F<sub>st</sub> even where the distribution predicts there should be none. To find these SNPs, we ask which SNPs are statistical outliers?
+It's a little hard to tell from these plots, but there may be some SNPs with high F<sub>st</sub> even where the distribution predicts there should be none. To find these SNPs, we ask **which SNPs are statistical outliers?**
 
 ```{r, echo=T}
 P1 <- pOutlierFinderChiSqNoCorr(fst,Fstbar=OF$FSTNoCorrbar,
@@ -230,7 +230,7 @@ outliers <- P1$OutlierFlag==TRUE
 table(outliers)
 ```
 
-Now we can make a manhattan plot! We can even plot the outliers in a different color:
+Looks like there are 17 outlier SNPs. Now we can make a manhattan plot! We can even plot the outliers in a different color:
 ```{r, echo=T}
 plot(P1$LocusName,P1$FST,xlab="Position",ylab="FST",col=rgb(0,0,0,alpha=0.1))
 points(P1$LocusName[outliers],P1$FST[outliers],col="magenta")
@@ -256,4 +256,11 @@ P1 <- pOutlierFinderChiSqNoCorr(fst,Fstbar=OF$FSTNoCorrbar,
                                 dfInferred=OF$dfInferred,qthreshold=0.05,Hmin=0.1)
 outliers <- P1$OutlierFlag==TRUE
 table(outliers)
+
+#FALSE  TRUE 
+# 1284     1 
 ```
+
+## Creature of the Week!
+![Black Sea Devil Angler Fish (Image credit: Bluegreen Pictures/Alamy)](./figs/creatures/anglerfish.jpg)
+

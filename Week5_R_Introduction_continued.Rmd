@@ -4,7 +4,7 @@ author: "Steminist_R lessons edited by Serena Caplins"
 date: "4/23/2021"
 output: html_document
 ---
-# Week 5
+# Week 5- R Continued
 
 We're again drawing some of this material from the STEMinist_R materials which can be found [here](https://github.com/ecalfee/STEMinist_R.git)
 

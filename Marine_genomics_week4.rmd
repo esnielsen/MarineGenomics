@@ -9,9 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Week 4
-
-*The R environment:*
+# Week 4- The R environment
 
 This lesson is modified from materials of the STEMinist_R lessons produced by several UC Davis graduate student and which can be found [here](https://github.com/ecalfee/STEMinist_R.git). The lessons were shortened here to fit into two sessions (an 1.5hr session and a 50 min session).
 

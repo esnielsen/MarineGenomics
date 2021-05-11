@@ -138,3 +138,9 @@ finding-outliers-using-pcadapt
 pcadapt-exercises
 using-fst-to-find-outliers
 outflank-practice
+creature-of-the-week-6
+week-3--what-is-a-genetic-variant
+week-2-working-with-files
+week-1--welcome
+week-4--the-r-environment
+week-5--r-continued
