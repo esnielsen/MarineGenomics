@@ -321,7 +321,7 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 ## Summary:
 ## 
 ##  - input file:               filtered_3699snps_californicus.vcf
-##  - output file:              /var/folders/vq/5mjpsj8n4274phb2t57tgzg00000gn/T//Rtmp8cNaSx/filee62e754daa4f.pcadapt
+##  - output file:              /var/folders/vq/5mjpsj8n4274phb2t57tgzg00000gn/T//Rtmps5VLUC/fileeb70a1d0133.pcadapt
 ## 
 ##  - number of individuals detected:   717
 ##  - number of loci detected:      3699
@@ -373,6 +373,7 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-7-fst-and-outlier-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x<span class="sc">$</span>scores[,<span class="dv">2</span>]<span class="sc">~</span>meta<span class="sc">$</span>LAT,<span class="at">pch=</span><span class="dv">19</span>,<span class="at">col=</span><span class="st">&quot;gray&quot;</span>)</span></code></pre></div>
 <p><img src="Test_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
 </p>
+</details>
 <blockquote>
 <ol start="2" style="list-style-type: decimal">
 <li>If we are only interested in SNPs associated with a single principal component, we can get pcadapt to give us correlation scores for each PC axis independently. Using the guidance provided in the documentation <a href="https://bcm-uga.github.io/pcadapt/articles/pcadapt.html#h-4-component-wise-genome-scans">here</a> make a manhattan plot of SNPs driving variation along the first principal component only</li>
@@ -383,9 +384,10 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 <span style="color: DarkCyan;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-7-fst-and-outlier-analysis.html#cb20-1" aria-hidden="true" tabindex="-1"></a>x_cw <span class="ot">&lt;-</span> <span class="fu">pcadapt</span>(genos,<span class="at">K=</span><span class="dv">2</span>,<span class="at">metho=</span><span class="st">&quot;componentwise&quot;</span>)</span>
+</details>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-7-fst-and-outlier-analysis.html#cb20-1" aria-hidden="true" tabindex="-1"></a>x_cw <span class="ot">&lt;-</span> <span class="fu">pcadapt</span>(genos,<span class="at">K=</span><span class="dv">2</span>,<span class="at">method =</span><span class="st">&quot;componentwise&quot;</span>)</span>
 <span id="cb20-2"><a href="week-7-fst-and-outlier-analysis.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x_cw,<span class="at">option=</span><span class="st">&quot;manhattan&quot;</span>,<span class="at">K=</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="Test_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<img src="Test_files/figure-html/unnamed-chunk-13-1.png" width="672" />
 </p>
 </div>
 <div id="using-fst-to-find-outliers" class="section level2" number="8.5">
@@ -526,6 +528,8 @@ Processed variant: 3699
 ##  1284     1</code></pre>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="week-7-fst-and-outlier-analysis.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">#FALSE  TRUE </span></span>
 <span id="cb46-2"><a href="week-7-fst-and-outlier-analysis.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1284     1 </span></span></code></pre></div>
+</p>
+</details>
 </div>
 <div id="creature-of-the-week-6" class="section level2" number="8.7">
 <h2><span class="header-section-number">8.7</span> Creature of the Week!</h2>

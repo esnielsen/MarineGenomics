@@ -151,17 +151,18 @@ plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
 ```
 
 </p>
+</details>
 
 > 2.  If we are only interested in SNPs associated with a single principal component, we can get pcadapt to give us correlation scores for each PC axis independently. Using the guidance provided in the documentation [here](https://bcm-uga.github.io/pcadapt/articles/pcadapt.html#h-4-component-wise-genome-scans) make a manhattan plot of SNPs driving variation along the first principal component only
 
 <details><summary><span style="color: DarkCyan;">Solution</span></summary>
 <p>
+</details>
 
 ```{r, echo=T}
-x_cw <- pcadapt(genos,K=2,metho="componentwise")
+x_cw <- pcadapt(genos,K=2,method ="componentwise")
 plot(x_cw,option="manhattan",K=2)
 ```
-
 </p>
 
 ## Using F<sub>st</sub> to find outliers
@@ -260,6 +261,8 @@ table(outliers)
 #FALSE  TRUE 
 # 1284     1 
 ```
+</p>
+</details>
 
 ## Creature of the Week!
 ![Black Sea Devil Angler Fish (Image credit: Bluegreen Pictures/Alamy)](./figs/creatures/anglerfish.jpg)
