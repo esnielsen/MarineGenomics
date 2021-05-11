@@ -84,8 +84,8 @@ Lets start by setting a working directory. I'm going to set it to where we downl
 
 ```{r, eval=F}
 setwd("/home/margeno/MarineGenomicsData/Week7")
-vcf.path=data("filtered_3699snps_californicus.vcf")
-meta.path=data("californicus_metadata.csv")
+vcf.path="filtered_3699snps_californicus.vcf"
+meta.path="californicus_metadata.csv"
 ```
 ```{r, include=F}
 vcf.path="filtered_3699snps_californicus.vcf"

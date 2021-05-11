@@ -313,15 +313,15 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-7-fst-and-outlier-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qvalue)</span></code></pre></div>
 <p>Lets start by setting a working directory. I’m going to set it to where we downloaded the data for week 7. I also like to define the paths to my input files at the top of the script, that way if I want to use a slightly different input file or if I want to share my script it’s easy to see how to change it.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-7-fst-and-outlier-analysis.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/home/margeno/MarineGenomicsData/Week7&quot;</span>)</span>
-<span id="cb8-2"><a href="week-7-fst-and-outlier-analysis.html#cb8-2" aria-hidden="true" tabindex="-1"></a>vcf.path<span class="ot">=</span><span class="fu">data</span>(<span class="st">&quot;filtered_3699snps_californicus.vcf&quot;</span>)</span>
-<span id="cb8-3"><a href="week-7-fst-and-outlier-analysis.html#cb8-3" aria-hidden="true" tabindex="-1"></a>meta.path<span class="ot">=</span><span class="fu">data</span>(<span class="st">&quot;californicus_metadata.csv&quot;</span>)</span></code></pre></div>
+<span id="cb8-2"><a href="week-7-fst-and-outlier-analysis.html#cb8-2" aria-hidden="true" tabindex="-1"></a>vcf.path<span class="ot">=</span><span class="st">&quot;filtered_3699snps_californicus.vcf&quot;</span></span>
+<span id="cb8-3"><a href="week-7-fst-and-outlier-analysis.html#cb8-3" aria-hidden="true" tabindex="-1"></a>meta.path<span class="ot">=</span><span class="st">&quot;californicus_metadata.csv&quot;</span></span></code></pre></div>
 <p>Let’s read in the genetic data from the VCF file. Because VCF is a common file format for SNP data, pcadapt comes with a special function for reading this type of file. You will get a warning message if you run on your own computer, but don’t worry about it.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-7-fst-and-outlier-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a>genos <span class="ot">&lt;-</span> <span class="fu">read.pcadapt</span>(vcf.path,<span class="at">type=</span><span class="fu">c</span>(<span class="st">&quot;vcf&quot;</span>))</span></code></pre></div>
 <pre><code>## No variant got discarded.
 ## Summary:
 ## 
 ##  - input file:               filtered_3699snps_californicus.vcf
-##  - output file:              /var/folders/vq/5mjpsj8n4274phb2t57tgzg00000gn/T//Rtmp70P9Q5/filedfd37f1ce4c3.pcadapt
+##  - output file:              /var/folders/vq/5mjpsj8n4274phb2t57tgzg00000gn/T//Rtmp8cNaSx/filee62e754daa4f.pcadapt
 ## 
 ##  - number of individuals detected:   717
 ##  - number of loci detected:      3699
