@@ -230,7 +230,7 @@ summary(fst$FST) #highest FST is higher than the mean (which is a good sign)
 He= heterozygosity
 FST= measure of differentiation
 
-Once we've calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are **statstical outliers** - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:
+Once we've calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are **statistical outliers** - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:
 
 ```{r, echo=T}
 OF <- OutFLANK(fst,LeftTrimFraction=0.01,RightTrimFraction=0.01,

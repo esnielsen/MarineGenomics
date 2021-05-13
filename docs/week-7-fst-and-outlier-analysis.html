@@ -321,7 +321,7 @@ package ?BiocManager? is not available for this version of R” Go to “Help,�
 ## Summary:
 ## 
 ##  - input file:               filtered_3699snps_californicus.vcf
-##  - output file:              /var/folders/vq/5mjpsj8n4274phb2t57tgzg00000gn/T//Rtmpa7BN1t/file54a531dfb6da.pcadapt
+##  - output file:              /var/folders/vq/5mjpsj8n4274phb2t57tgzg00000gn/T//RtmpeIotJ8/file56781d5bf3fe.pcadapt
 ## 
 ##  - number of individuals detected:   717
 ##  - number of loci detected:      3699
@@ -494,7 +494,7 @@ popNames= names our populations with the “SITE” labels</p>
 <p><strong>Reminder:</strong>
 He= heterozygosity
 FST= measure of differentiation</p>
-<p>Once we’ve calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are <strong>statstical outliers</strong> - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:</p>
+<p>Once we’ve calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are <strong>statistical outliers</strong> - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="week-7-fst-and-outlier-analysis.html#cb42-1" aria-hidden="true" tabindex="-1"></a>OF <span class="ot">&lt;-</span> <span class="fu">OutFLANK</span>(fst,<span class="at">LeftTrimFraction=</span><span class="fl">0.01</span>,<span class="at">RightTrimFraction=</span><span class="fl">0.01</span>,</span>
 <span id="cb42-2"><a href="week-7-fst-and-outlier-analysis.html#cb42-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">Hmin=</span><span class="fl">0.05</span>,<span class="at">NumberOfSamples=</span><span class="dv">2</span>,<span class="at">qthreshold=</span><span class="fl">0.01</span>)</span>
 <span id="cb42-3"><a href="week-7-fst-and-outlier-analysis.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">OutFLANKResultsPlotter</span>(OF,<span class="at">withOutliers=</span>T,</span>
