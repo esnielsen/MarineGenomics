@@ -187,7 +187,8 @@ head(geno[,1:10])
 Check out the OutFLANK manual [here](https://htmlpreview.github.io/?https://github.com/whitlock/OutFLANK/blob/master/inst/doc/OutFLANKAnalysis.html). Notice that as our genotypes look like `0/0`, `0/1`, and `1/1`. But OutFLANK wants them to be 0, 1, or 2. The code below fixes this problem:
 
 ```{r, echo=T}
-G <- geno
+G <- geno  #we are doing this because we will be running a lot of different things with G, and if we mess up we want to be able to go back to geno
+
 G[geno %in% c("0/0")] <- 0
 G[geno  %in% c("0/1")] <- 1
 G[geno %in% c("1/1")] <- 2
@@ -199,20 +200,37 @@ Now `tG` should be in the input format OutFLANK needs, with SNPs as columns and 
 
 For this analysis we are just going to calculate F<sub>st</sub> between the northernmost and the southernmost populations. This is a good time to practice our subsetting skills!
 
+For the second command: we are only taking the rows of tG that are "true", or only taking the rows of tG that have one of these two populations "TBL" or "AK4"
+
+In the third command we are just using a slightly different method for subsetting with the command "subset". If we subset "meta" we should end up with 62 rows (SNPs) and 2 columns (populations). 
 ```{r, echo=T}
 subpops <- c("TBL","AK4")
-subgen <- tG[meta$SITE%in%subpops,]
-submeta <- subset(meta,SITE%in%subpops)
+subgen <- tG[meta$SITE%in%subpops,] #subset method 1
+submeta <- subset(meta,SITE%in%subpops) #subset method 2
 ```
 
+Now we should check if these two vectors are identical:
+```{r, echo=T}
+identical(rownames(subgen),submeta$ID)
+```
+
+Since our genotype matrix and our metadata matrix are in the same order, we can combine them.
+
+
 Now we can calculate F<sub>st</sub> between these two populations:
+locusNames= names our loci 1,2,3 etc
+popNames= names our populations with the "SITE" labels
 ```{r, echo=T}
 fst <- MakeDiploidFSTMat(subgen,locusNames=1:ncol(subgen),popNames=submeta$SITE)
 head(fst)
 hist(fst$FST,breaks=50)
+summary(fst$FST) #highest FST is higher than the mean (which is a good sign)
 ```
+**Reminder:**
+He= heterozygosity
+FST= measure of differentiation
 
-Once we've calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are outliers - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:
+Once we've calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are **statstical outliers** - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:
 
 ```{r, echo=T}
 OF <- OutFLANK(fst,LeftTrimFraction=0.01,RightTrimFraction=0.01,
@@ -221,17 +239,23 @@ OutFLANKResultsPlotter(OF,withOutliers=T,
                        NoCorr=T,Hmin=0.1,binwidth=0.005,
                        Zoom=F,RightZoomFraction=0.05,titletext=NULL)
 ```
+FSTbar=mean FST across the whole genome
+The yellow bars are the histogram of the FST values
+The blue line is the Chi-Squared Distribution fit to the data
+*It is hard to fit the Chi-Squared Distribution to a population with high gene flow, aka this method doesn't work great for marine species* We will just progress forward, but keep this in mind for any future work you may do.
 
 It's a little hard to tell from these plots, but there may be some SNPs with high F<sub>st</sub> even where the distribution predicts there should be none. To find these SNPs, we ask **which SNPs are statistical outliers?**
 
 ```{r, echo=T}
 P1 <- pOutlierFinderChiSqNoCorr(fst,Fstbar=OF$FSTNoCorrbar,
                                 dfInferred=OF$dfInferred,qthreshold=0.05,Hmin=0.1)
-outliers <- P1$OutlierFlag==TRUE
+outliers <- P1$OutlierFlag==TRUE #which of the SNPs are outliers?
 table(outliers)
 ```
+This doesn't add up to 3699... so some of the SNPs were not even tested. This is okay because there is an internal program that doesn't test any SNPs with extremely low heterozygosity.
 
-Looks like there are 17 outlier SNPs. Now we can make a manhattan plot! We can even plot the outliers in a different color:
+
+Looks like there are **17 outlier SNPs.** Now we can make a manhattan plot! We can even plot the outliers in a different color:
 ```{r, echo=T}
 plot(P1$LocusName,P1$FST,xlab="Position",ylab="FST",col=rgb(0,0,0,alpha=0.1))
 points(P1$LocusName[outliers],P1$FST[outliers],col="magenta")
