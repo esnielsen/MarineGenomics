@@ -4,12 +4,12 @@ author: "Serena Caplins"
 date: "5/12/2021"
 output: html_document
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week8/MarineGenomicsData/Week8")
 ```
 
-# Genome wide association study (GWAS)
+# Week 8: Genome wide association study (GWAS)
 
 This week we're going to show you how to perform a genome wide association study or GWAS.  
 
@@ -73,13 +73,13 @@ echo $PATH
 export PATH="$HOME/.local/bin:$PATH"
 
 
-#then install pcangsd
+# then install pcangsd
 git clone https://github.com/Rosemeis/pcangsd.git
 cd pcangsd/
 pip install --user -r requirements.txt #this installs additional requirements for pcangsd
 python3 setup.py build_ext --inplace
-
 ```
+
 ## The data
 
 The data we're working on for the GWAS comes from the paper by Kijas et al. 2018 where they studied the genetic basis of sex determination in the atlantic Salmon. The paper can be found [here](https://www.nature.com/articles/s41598-018-23984-1#Sec2). In short they examined the genetic basis of sex in 19 salmon for which they have whole genome sequence data. We'll only be looking at two chromosomes (2 and 6) of this data.
@@ -97,10 +97,10 @@ This will generate several output files labeled `angsdput`. We'll use the file w
 
 ## take lrt file and make a manhattan plot
 
-```{r, echo=T}
-
+```{r, eval=F}
 #in R
 #set working directory
+
 setwd("~/Marinegenomics/Week_8 GWAS/MarineGenomicsData/Week8/")
 
 #read in the data
@@ -126,7 +126,31 @@ lrt_filt<-lrt[-c(which(lrt$LRT == -999),which(lrt$LRT <= 0)),]
 
 
 hist(lrt_filt$LRT, breaks=50)
+```
+```{r, include=F}
+#read in the data
+lrt<-read.table(gzfile("angsdput.lrt0.gz"), header=T, sep="\t")
 
+#look at it
+str(lrt)
+
+#we have a few LRT values that are -999, we should remove them. How many do we have?
+length(which(lrt$LRT == -999))
+#210597 #most are filtered out
+
+length(lrt$LRT)
+#224460
+
+length(lrt$LRT)-length(which(lrt$LRT == -999))
+#[1] 13863
+
+
+#remove the values that are not -999 and that are negative
+
+lrt_filt<-lrt[-c(which(lrt$LRT == -999),which(lrt$LRT <= 0)),]
+
+
+hist(lrt_filt$LRT, breaks=50)
 ```
 
 
@@ -271,4 +295,3 @@ Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Ma
 
 
 > 2. Make a manhattan plot for chromosome 6. You will need to make a new phenotype file that has 1's for all the males identified in problem 1. Alterntatively, you can make a phenotype file from table 1 in Kilas et al. 2018, setting the animals that were found to be male on chr 6 to 1 and all other animals to 0.
-
