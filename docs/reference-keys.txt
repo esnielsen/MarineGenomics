@@ -154,3 +154,4 @@ take-lrt-file-and-make-a-manhattan-plot
 exercises-1
 install-angsd
 for-pcangsd
+creature-of-the-week-7
