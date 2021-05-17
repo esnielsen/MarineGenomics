@@ -259,7 +259,7 @@ plot(e$vectors[,1:2])
 
 ```{r echo=F}
 
-knitr::include_graphics("./MarineGenomicsData/Week8/Rplot_PCACh6.png")
+knitr::include_graphics("./fig/Rplot_PCACh6.png")
 ```
 
 Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Male, but it's rows 17 and 18 that are next not 16 and 19, so we may have somethings out of order in our list.
