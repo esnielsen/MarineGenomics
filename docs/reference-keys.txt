@@ -144,3 +144,13 @@ week-2-working-with-files
 week-1--welcome
 week-4--the-r-environment
 week-5--r-continued
+week-8-genome-wide-association-study-gwas
+load-in-the-data
+install-packages-in-r
+install-angsd-and-pcangsd-again
+the-data
+take-vcf-file-and-generate-lrt-file
+take-lrt-file-and-make-a-manhattan-plot
+exercises-1
+install-angsd
+for-pcangsd

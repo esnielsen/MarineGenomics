@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>4 Week 3- What is a Genetic Variant? | Marine Genomics: Mapping and Calling Variants</title>
-  <meta name="description" content="4 Week 3- What is a Genetic Variant? | Marine Genomics: Mapping and Calling Variants" />
+  <title>9 Week 8: Genome wide association study (GWAS) | Week8_GWAS</title>
+  <meta name="description" content="9 Week 8: Genome wide association study (GWAS) | Week8_GWAS" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="4 Week 3- What is a Genetic Variant? | Marine Genomics: Mapping and Calling Variants" />
+  <meta property="og:title" content="9 Week 8: Genome wide association study (GWAS) | Week8_GWAS" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="4 Week 3- What is a Genetic Variant? | Marine Genomics: Mapping and Calling Variants" />
+  <meta name="twitter:title" content="9 Week 8: Genome wide association study (GWAS) | Week8_GWAS" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="week-2-working-with-files.html"/>
-<link rel="next" href="week-4-the-r-environment.html"/>
+<link rel="prev" href="week-7-fst-and-outlier-analysis.html"/>
+
 <script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -275,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Marine Genomics: Mapping and Calling Variants</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Week8_GWAS</a>
           </h1>
         </div>
 
@@ -283,267 +283,177 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="week-3--what-is-a-genetic-variant" class="section level1" number="4">
-<h1><span class="header-section-number">4</span> Week 3- What is a Genetic Variant?</h1>
-<p>You’ll find the lecture discussing the definition and identification of genetic variation <a href="https://github.com/BayLab/MarineGenomics/blob/0e7ead526047e02518c33d01e3a6c88d6a3068a3/ppt/MarineGenomics_Lecture3.pdf">here</a></p>
-<div id="to-get-started-lets-dowload-the-data-and-install-a-few-programs" class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> To get started lets dowload the data and install a few programs</h2>
-<p>Download the data from the MarineGenomicsData repository on git hub. We’ll be working in the Week_3 folder</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-3-what-is-a-genetic-variant.html#cb1-1" aria-hidden="true" tabindex="-1"></a>git clone https://github.com/BayLab/MarineGenomicsData.git  </span></code></pre></div>
-<p>Next we need to install a few programs that will allow us to do what we need to do. This will all take a few minutes!</p>
-<p>Here are the programs that we are installing and a brief description of what they do
-+ samtools: allows us to filter and view our mapped data
-+ bowtie2: to map our reads to the reference genome
-+ cutadapt: will trim adaptor sequences from the reads
-+ fastqc: used to view the quality of the read files</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="week-3-what-is-a-genetic-variant.html#cb2-1" aria-hidden="true" tabindex="-1"></a>  sudo apt-get -y update <span class="er">&amp;&amp;</span> \</span>
-<span id="cb2-2"><a href="week-3-what-is-a-genetic-variant.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  sudo apt-get -y install samtools bowtie2 cutadapt fastqc </span>
-<span id="cb2-3"><a href="week-3-what-is-a-genetic-variant.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span></code></pre></div>
-<p>And one more program that we’ll install separately. This is angsd which we will use to find variants in our data. The first command navigates you to your home directory.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="week-3-what-is-a-genetic-variant.html#cb3-1" aria-hidden="true" tabindex="-1"></a>  cd</span>
-<span id="cb3-2"><a href="week-3-what-is-a-genetic-variant.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  git clone --recursive https://github.com/samtools/htslib.git</span>
-<span id="cb3-3"><a href="week-3-what-is-a-genetic-variant.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  git clone https://github.com/ANGSD/angsd.git </span>
-<span id="cb3-4"><a href="week-3-what-is-a-genetic-variant.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  cd htslib;make;cd ../angsd ;make HTSSRC=../htslib</span>
-<span id="cb3-5"><a href="week-3-what-is-a-genetic-variant.html#cb3-5" aria-hidden="true" tabindex="-1"></a>  </span></code></pre></div>
-<p>Now we’re ready to get going. The first thing we’ll do is have a look at our data and directories to make sure we know where everything is.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="week-3-what-is-a-genetic-variant.html#cb4-1" aria-hidden="true" tabindex="-1"></a>$ ls</span>
-<span id="cb4-2"><a href="week-3-what-is-a-genetic-variant.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
-<p>Change directories to the one that has the data MarineGenomicsData/Week3. If you <code>ls</code> into this directory you should see 6 files with a <code>.fastq.gz</code> extension and 1 tiny genome file with a <code>.fna.gz</code> extension.</p>
+<div id="week-8-genome-wide-association-study-gwas" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> Week 8: Genome wide association study (GWAS)</h1>
+<p>This week we’re going to show you how to perform a genome wide association study or GWAS.</p>
+<p>The lecture for this week can be found here.</p>
+<div id="load-in-the-data" class="section level2" number="9.1">
+<h2><span class="header-section-number">9.1</span> load in the data</h2>
+<p>The data for this week consist of several vcf files in beagle format, a genome index file (.fai), and a few small text files.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-8-genome-wide-association-study-gwas.html#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="week-8-genome-wide-association-study-gwas.html#cb1-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week8.tar.gz</span>
+<span id="cb1-3"><a href="week-8-genome-wide-association-study-gwas.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="week-8-genome-wide-association-study-gwas.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="week-8-genome-wide-association-study-gwas.html#cb1-5" aria-hidden="true" tabindex="-1"></a>tar -xzvf week8.tar.gz</span>
+<span id="cb1-6"><a href="week-8-genome-wide-association-study-gwas.html#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="week-8-genome-wide-association-study-gwas.html#cb1-7" aria-hidden="true" tabindex="-1"></a>#and one more vcf file that was too big to upload with the others</span>
+<span id="cb1-8"><a href="week-8-genome-wide-association-study-gwas.html#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="week-8-genome-wide-association-study-gwas.html#cb1-9" aria-hidden="true" tabindex="-1"></a>cd MarineGenomicsData/week8</span>
+<span id="cb1-10"><a href="week-8-genome-wide-association-study-gwas.html#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="week-8-genome-wide-association-study-gwas.html#cb1-11" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/salmon_chr6_19ind.BEAGLE.PL.gz</span></code></pre></div>
 </div>
-<div id="raw-read-quality-control" class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> Raw read quality control</h2>
-<p>Next let’s use the program fastqc to check the quality of our data files</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="week-3-what-is-a-genetic-variant.html#cb5-1" aria-hidden="true" tabindex="-1"></a>$ fastqc SRR6805880.tiny.fastq.gz</span></code></pre></div>
-<ul>
-<li>Readout will say:
-<ul>
-<li>Started analysis for SRR6805880.tiny.fastq.gz</li>
-<li>Analysis complete for SRR6805880.tiny.fastq.gz</li>
-</ul></li>
-</ul>
-<p>Let’s look to see that it worked</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="week-3-what-is-a-genetic-variant.html#cb6-1" aria-hidden="true" tabindex="-1"></a>$ ls</span>
-<span id="cb6-2"><a href="week-3-what-is-a-genetic-variant.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="week-3-what-is-a-genetic-variant.html#cb6-3" aria-hidden="true" tabindex="-1"></a>Ppar_tinygenome.fna.gz       SRR6805880.tiny_fastqc.zip  SRR6805883.tiny.fastq.gz</span>
-<span id="cb6-4"><a href="week-3-what-is-a-genetic-variant.html#cb6-4" aria-hidden="true" tabindex="-1"></a>SRR6805880.tiny.fastq.gz     SRR6805881.tiny.fastq.gz    SRR6805884.tiny.fastq.gz</span>
-<span id="cb6-5"><a href="week-3-what-is-a-genetic-variant.html#cb6-5" aria-hidden="true" tabindex="-1"></a>SRR6805880.tiny_fastqc.html  SRR6805882.tiny.fastq.gz    SRR6805885.tiny.fastq.gz</span>
-<span id="cb6-6"><a href="week-3-what-is-a-genetic-variant.html#cb6-6" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
-<p>Looks good! Fastqc generated two outputs for us, a <code>.html</code> and a <code>.zip</code> directory</p>
-<p>Let’s run fastqc on the remaining files, and then we’ll take a look at the output. You may have noticed fastqc just used the same file name to produce our output with different extensions. We can take advantage of that by running fastqc on all our datafiles with the wildcard <code>*</code>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="week-3-what-is-a-genetic-variant.html#cb7-1" aria-hidden="true" tabindex="-1"></a>$ fastqc SRR680588*</span></code></pre></div>
-<p>You’ll see you initially get an error message because fastqc doesn’t see the .fastq file extension on some of our files. It simply skips these and moves on the the next file.</p>
-<p>To view the output of fastqc, we’ll minimize our terminal and look at our <code>Home</code> folder on our jetstream desktop. This is the same home directory that we’ve been working in through the terminal. Go to the directory where you were running fastqc and find an .html file. Double click it and it should open a web browser with the output data. We’ll go over how to interpret this file in class.</p>
+<div id="install-packages-in-r" class="section level2" number="9.2">
+<h2><span class="header-section-number">9.2</span> install packages in R</h2>
+<p>We’ll be using the package <code>qqman</code> to make a manhattan plot.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="week-8-genome-wide-association-study-gwas.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.package(&quot;qqman&quot;)</span></span></code></pre></div>
 </div>
-<div id="trimming-to-remove-adapters" class="section level2" number="4.3">
-<h2><span class="header-section-number">4.3</span> Trimming to remove adapters</h2>
-<p>There are many programs to trim sequence files. We’ll use the same paper that was used in the Xuereb et al. 2018 paper [here]. Cutadapt is relatively easy to run with the code below, once we have identified our adaptor sequence and takes the general form below.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb8-1"><a href="week-3-what-is-a-genetic-variant.html#cb8-1" aria-hidden="true" tabindex="-1"></a>$ cutadapt -g SEQUENCETOTRIM -o name_of_input_file name_of_output_file </span></code></pre></div>
-<p>Let’s do this on one of our files to test it out.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="week-3-what-is-a-genetic-variant.html#cb9-1" aria-hidden="true" tabindex="-1"></a>cutadapt -g TGCAG SRR6805880.tiny.fastq.gz -o SRR6805880.tiny_trimmed.fastq.gz </span></code></pre></div>
-<p>This works for a single file, but if we want to do it for all our read files we need to either do them all individually (slow and error prone) or use a for loop.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb10-1"><a href="week-3-what-is-a-genetic-variant.html#cb10-1" aria-hidden="true" tabindex="-1"></a>for filename in *.tiny.fastq.gz</span>
-<span id="cb10-2"><a href="week-3-what-is-a-genetic-variant.html#cb10-2" aria-hidden="true" tabindex="-1"></a>do</span>
-<span id="cb10-3"><a href="week-3-what-is-a-genetic-variant.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="week-3-what-is-a-genetic-variant.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny.fastq.gz)</span>
-<span id="cb10-5"><a href="week-3-what-is-a-genetic-variant.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
-<span id="cb10-6"><a href="week-3-what-is-a-genetic-variant.html#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="week-3-what-is-a-genetic-variant.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  cutadapt -g TGCAG ${base}.tiny.fastq.gz -o ${base}.tiny_trimmed.fastq.gz </span>
-<span id="cb10-8"><a href="week-3-what-is-a-genetic-variant.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="week-3-what-is-a-genetic-variant.html#cb10-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
-<p>Yay! You should see a little report for each of these files that showing how many reads were trimmed and some other info (how long are the reads, etc)</p>
-<p>You can check if the trimmed files are there with:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="week-3-what-is-a-genetic-variant.html#cb11-1" aria-hidden="true" tabindex="-1"></a>ls *trimmed*</span></code></pre></div>
-<p>Our reads are now ready to be mapped to the genome.</p>
+<div id="install-angsd-and-pcangsd-again" class="section level2" number="9.3">
+<h2><span class="header-section-number">9.3</span> install angsd and pcangsd (again?)</h2>
+<p>If you missed week 6 and didn’t get pcangsd or angsd(week 3) installed. Here are the scripts to install them.They take a few minutes to install. There is no need to install these again if you installed them last time.</p>
+<div id="install-angsd" class="section level3" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> install angsd</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="week-8-genome-wide-association-study-gwas.html#cb3-1" aria-hidden="true" tabindex="-1"></a>cd</span>
+<span id="cb3-2"><a href="week-8-genome-wide-association-study-gwas.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  git clone --recursive https://github.com/samtools/htslib.git</span>
+<span id="cb3-3"><a href="week-8-genome-wide-association-study-gwas.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  git clone https://github.com/ANGSD/angsd.git </span>
+<span id="cb3-4"><a href="week-8-genome-wide-association-study-gwas.html#cb3-4" aria-hidden="true" tabindex="-1"></a>  cd htslib;make;cd ../angsd ;make HTSSRC=../htslib</span>
+<span id="cb3-5"><a href="week-8-genome-wide-association-study-gwas.html#cb3-5" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb3-6"><a href="week-8-genome-wide-association-study-gwas.html#cb3-6" aria-hidden="true" tabindex="-1"></a>cd</span></code></pre></div>
 </div>
-<div id="building-an-index-of-our-genome" class="section level2" number="4.4">
-<h2><span class="header-section-number">4.4</span> Building an index of our genome</h2>
-<p>First we have to index our genome. We’ll do that with the bowtie2-build command. This will generate a lot of files that describe different aspects of our genome</p>
-<p>We give bowtie2-build two things, the name of our genome, and a general name to label the output files. I always keep the name of the output files the same as the original genome file (without the .fna.gz extension) to avoid confusion (what’s this file for?).</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="week-3-what-is-a-genetic-variant.html#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-2"><a href="week-3-what-is-a-genetic-variant.html#cb12-2" aria-hidden="true" tabindex="-1"></a>bowtie2-build Ppar_tinygenome.fna.gz Ppar_tinygenome</span></code></pre></div>
-<p>This should produce several output files with extensions including: .bt2 and rev.1.bt2 etc (six files in total)</p>
+<div id="for-pcangsd" class="section level3" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> for pcangsd</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="week-8-genome-wide-association-study-gwas.html#cb4-1" aria-hidden="true" tabindex="-1"></a>install pip for python</span>
+<span id="cb4-2"><a href="week-8-genome-wide-association-study-gwas.html#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="week-8-genome-wide-association-study-gwas.html#cb4-3" aria-hidden="true" tabindex="-1"></a>curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</span>
+<span id="cb4-4"><a href="week-8-genome-wide-association-study-gwas.html#cb4-4" aria-hidden="true" tabindex="-1"></a>python3 get-pip.py</span></code></pre></div>
+<p>we need to add our home directory to the path for pip
+look at path echo $PATH</p>
+<p>add the location of pip to our path</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="week-8-genome-wide-association-study-gwas.html#cb5-1" aria-hidden="true" tabindex="-1"></a>export PATH=&quot;$HOME/.local/bin:$PATH&quot;</span></code></pre></div>
+<p>then install pcangsd</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb6-1"><a href="week-8-genome-wide-association-study-gwas.html#cb6-1" aria-hidden="true" tabindex="-1"></a>git clone https://github.com/Rosemeis/pcangsd.git</span>
+<span id="cb6-2"><a href="week-8-genome-wide-association-study-gwas.html#cb6-2" aria-hidden="true" tabindex="-1"></a>cd pcangsd/</span>
+<span id="cb6-3"><a href="week-8-genome-wide-association-study-gwas.html#cb6-3" aria-hidden="true" tabindex="-1"></a>pip install --user -r requirements.txt #this installs additional requirements for pcangsd</span>
+<span id="cb6-4"><a href="week-8-genome-wide-association-study-gwas.html#cb6-4" aria-hidden="true" tabindex="-1"></a>python3 setup.py build_ext --inplace</span></code></pre></div>
 </div>
-<div id="map-reads-to-the-genome" class="section level2" number="4.5">
-<h2><span class="header-section-number">4.5</span> Map reads to the genome</h2>
-<p>Let’s map those reads using a for loop</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="week-3-what-is-a-genetic-variant.html#cb13-1" aria-hidden="true" tabindex="-1"></a>for filename in *.tiny_trimmed.fastq.gz</span>
-<span id="cb13-2"><a href="week-3-what-is-a-genetic-variant.html#cb13-2" aria-hidden="true" tabindex="-1"></a>do</span>
-<span id="cb13-3"><a href="week-3-what-is-a-genetic-variant.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="week-3-what-is-a-genetic-variant.html#cb13-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .tiny_trimmed.fastq.gz)</span>
-<span id="cb13-5"><a href="week-3-what-is-a-genetic-variant.html#cb13-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
-<span id="cb13-6"><a href="week-3-what-is-a-genetic-variant.html#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="week-3-what-is-a-genetic-variant.html#cb13-7" aria-hidden="true" tabindex="-1"></a>  bowtie2 -x Ppar_tinygenome -U ${base}.tiny_trimmed.fastq.gz -S ${base}.sam</span>
-<span id="cb13-8"><a href="week-3-what-is-a-genetic-variant.html#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="week-3-what-is-a-genetic-variant.html#cb13-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
-<p>You should see a bunch of text telling you all about how well our reads mapped to the genome. For this example we’re getting a low percentage (20-30%) because of how the genome and reads were subset for this exercise. The full genome and full read files have a much higher mapping rate (70-80%) than our subset.</p>
-<p>You’ll also notice that we have made a bunch of .sam files. THis stands for Sequence Alignment Map file. Let’s use <code>less</code> to look at one of these files using <code>less</code></p>
-<p>There are several columns of data in a sam file</p>
 </div>
-<div id="sam-to-bam-file-conversion" class="section level2" number="4.6">
-<h2><span class="header-section-number">4.6</span> sam to bam file conversion</h2>
-<p>The next step is to convert our sam file to a bam (Binary Alignment Map file). This gets our file ready to be read by angsd the program we’re going to use to call SNPs.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="week-3-what-is-a-genetic-variant.html#cb14-1" aria-hidden="true" tabindex="-1"></a>for filename in *.sam</span>
-<span id="cb14-2"><a href="week-3-what-is-a-genetic-variant.html#cb14-2" aria-hidden="true" tabindex="-1"></a>do</span>
-<span id="cb14-3"><a href="week-3-what-is-a-genetic-variant.html#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="week-3-what-is-a-genetic-variant.html#cb14-4" aria-hidden="true" tabindex="-1"></a>  base=$(basename $filename .sam)</span>
-<span id="cb14-5"><a href="week-3-what-is-a-genetic-variant.html#cb14-5" aria-hidden="true" tabindex="-1"></a>  echo ${base}</span>
-<span id="cb14-6"><a href="week-3-what-is-a-genetic-variant.html#cb14-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-7"><a href="week-3-what-is-a-genetic-variant.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  samtools view -bhS ${base}.sam | samtools sort -o ${base}.bam</span>
-<span id="cb14-8"><a href="week-3-what-is-a-genetic-variant.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="week-3-what-is-a-genetic-variant.html#cb14-9" aria-hidden="true" tabindex="-1"></a>done</span></code></pre></div>
+<div id="the-data" class="section level2" number="9.4">
+<h2><span class="header-section-number">9.4</span> The data</h2>
+<p>The data we’re working on for the GWAS comes from the paper by Kijas et al. 2018 where they studied the genetic basis of sex determination in the atlantic Salmon. The paper can be found <a href="https://www.nature.com/articles/s41598-018-23984-1#Sec2">here</a>. In short they examined the genetic basis of sex in 19 salmon for which they have whole genome sequence data. We’ll only be looking at two chromosomes (2 and 6) of this data.</p>
 </div>
-<div id="genotype-likelihoods" class="section level2" number="4.7">
-<h2><span class="header-section-number">4.7</span> Genotype likelihoods</h2>
-<p>There are many ways and many programs that call genotypes. The program that we will use calculates genotype likelihoods, which account for uncertainty due to sequencing errors and/or mapping errors and is one of several programs in the package ANGSD. The purpose of this class is not to discuss which program is the “best,” but to teach you to use some commonly used programs.</p>
-<p>angsd needs a text file with the <code>.bam</code> file names listed. We can make that by running the command below</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="week-3-what-is-a-genetic-variant.html#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-2"><a href="week-3-what-is-a-genetic-variant.html#cb15-2" aria-hidden="true" tabindex="-1"></a>ls *.bam &gt; bam.filelist</span></code></pre></div>
-<p>Look at the list:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb16-1"><a href="week-3-what-is-a-genetic-variant.html#cb16-1" aria-hidden="true" tabindex="-1"></a>cat bam.filelist</span></code></pre></div>
-<p>Run the following code to calculate genotype likelihoods</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb17-1"><a href="week-3-what-is-a-genetic-variant.html#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-2"><a href="week-3-what-is-a-genetic-variant.html#cb17-2" aria-hidden="true" tabindex="-1"></a>../../angsd/angsd -bam bam.filelist -GL 1 -out genotype_likelihoods -doMaf 2 -SNP_pval 1e-2 -doMajorMinor 1</span></code></pre></div>
-<p>This will generate two files, one with a .arg extension, this has a record of the script we ran to generate the output, and a .maf file that will give you the minor allele frequencies and is the main output file. If you see these two files, Yay!! We did it!</p>
+<div id="take-vcf-file-and-generate-lrt-file" class="section level2" number="9.5">
+<h2><span class="header-section-number">9.5</span> take VCF file and generate lrt file</h2>
+<p>To do the test of genome wide association we need to take our vcf file and test whether there is an association with our phenotype (in this case whether a fish has a male or female phenotype). The phenotypes are coded as 0 = Female and 1 = Male in the <code>phenobin</code> file.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="week-8-genome-wide-association-study-gwas.html#cb7-1" aria-hidden="true" tabindex="-1"></a>$HOME/angsd/angsd -doMaf 4 -beagle salmon_chr2_19ind.BEAGLE.PL.gz -yBin phenobin -doAsso 2 -fai Salmon.fai</span></code></pre></div>
+<p>This will generate several output files labeled <code>angsdput</code>. We’ll use the file with the lrt0 extension to plot our manattan plot.</p>
+</div>
+<div id="take-lrt-file-and-make-a-manhattan-plot" class="section level2" number="9.6">
+<h2><span class="header-section-number">9.6</span> take lrt file and make a manhattan plot</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-8-genome-wide-association-study-gwas.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#in R</span></span>
+<span id="cb8-2"><a href="week-8-genome-wide-association-study-gwas.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#set working directory</span></span>
+<span id="cb8-3"><a href="week-8-genome-wide-association-study-gwas.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="week-8-genome-wide-association-study-gwas.html#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">&quot;/home/margeno/MarineGenomicsData/Week8&quot;</span>)</span></code></pre></div>
+<p>Everything looks good to proceed to making our manhattan plot.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="week-8-genome-wide-association-study-gwas.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span> (qqman)</span></code></pre></div>
+<p>the function manhattan requires each SNP to have it’s own “name.” Let’s make a vector for rownumbers that start with the letter r.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-8-genome-wide-association-study-gwas.html#cb10-1" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="sc">$</span>SNP<span class="ot">&lt;-</span><span class="fu">paste</span>(<span class="st">&quot;r&quot;</span>,<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(lrt_filt<span class="sc">$</span>Chromosome), <span class="at">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb10-2"><a href="week-8-genome-wide-association-study-gwas.html#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="week-8-genome-wide-association-study-gwas.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#we also need to make sure we don&#39;t have any tricky values like those below</span></span>
+<span id="cb10-4"><a href="week-8-genome-wide-association-study-gwas.html#cb10-4" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="ot">&lt;-</span>lrt_filt[<span class="sc">-</span><span class="fu">c</span>(<span class="fu">which</span>(lrt_filt<span class="sc">$</span>pvalue <span class="sc">==</span> <span class="st">&quot;NaN&quot;</span> ),</span>
+<span id="cb10-5"><a href="week-8-genome-wide-association-study-gwas.html#cb10-5" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">which</span>(lrt_filt<span class="sc">$</span>pvalue <span class="sc">==</span> <span class="st">&quot;Inf&quot;</span>),</span>
+<span id="cb10-6"><a href="week-8-genome-wide-association-study-gwas.html#cb10-6" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">which</span>(lrt_filt<span class="sc">$</span>LRT <span class="sc">==</span> <span class="st">&quot;Inf&quot;</span>)),]</span>
+<span id="cb10-7"><a href="week-8-genome-wide-association-study-gwas.html#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="week-8-genome-wide-association-study-gwas.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="week-8-genome-wide-association-study-gwas.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(lrt_filt, <span class="at">chr=</span><span class="st">&quot;Chromosome&quot;</span>, <span class="at">bp=</span><span class="st">&quot;Position&quot;</span>, <span class="at">logp=</span>F, <span class="at">p=</span><span class="st">&quot;LRT&quot;</span>)</span></code></pre></div>
+<p><img src="Test_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>We can highlight the values that are exceed a threshold. There are several ways to determine a threshold, but one is to make a vector of random phenotypes and re-run our association test. We can then set the highest LRT value from the random phenotype test as our upper limit for our plot with the actual phenotypes.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="week-8-genome-wide-association-study-gwas.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make a vector with 19 1&#39;s and 0&#39;s</span></span>
+<span id="cb11-2"><a href="week-8-genome-wide-association-study-gwas.html#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="week-8-genome-wide-association-study-gwas.html#cb11-3" aria-hidden="true" tabindex="-1"></a>x<span class="ot">&lt;-</span><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>), <span class="dv">19</span>, <span class="at">replace=</span>T)</span>
+<span id="cb11-4"><a href="week-8-genome-wide-association-study-gwas.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="week-8-genome-wide-association-study-gwas.html#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">#write this to our week 8 directory</span></span>
+<span id="cb11-6"><a href="week-8-genome-wide-association-study-gwas.html#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="week-8-genome-wide-association-study-gwas.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(x, <span class="st">&quot;rando_pheno&quot;</span>, <span class="at">row.names =</span> F)</span></code></pre></div>
+<p>And now use that phenotype file to run our association test again, making sure to specify a different output file.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="week-8-genome-wide-association-study-gwas.html#cb12-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-2"><a href="week-8-genome-wide-association-study-gwas.html#cb12-2" aria-hidden="true" tabindex="-1"></a>$HOME/angsd/angsd -doMaf 4 -beagle salmon_chr2_19ind.BEAGLE.PL.gz -yBin rando_pheno -doAsso 2 -fai Salmon.fai -out randotest</span></code></pre></div>
+<p>And rerun the code in R to see what our maximum LRT values are in this random phenotype test.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="week-8-genome-wide-association-study-gwas.html#cb13-1" aria-hidden="true" tabindex="-1"></a>lrt_rando<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="fu">gzfile</span>(<span class="st">&quot;randotest.lrt0.gz&quot;</span>), <span class="at">header=</span>T, <span class="at">sep=</span><span class="st">&quot;</span><span class="sc">\t</span><span class="st">&quot;</span>)</span>
+<span id="cb13-2"><a href="week-8-genome-wide-association-study-gwas.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="week-8-genome-wide-association-study-gwas.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#we need to remove those -999 values again</span></span>
+<span id="cb13-4"><a href="week-8-genome-wide-association-study-gwas.html#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="week-8-genome-wide-association-study-gwas.html#cb13-5" aria-hidden="true" tabindex="-1"></a>rando_filt<span class="ot">&lt;-</span>lrt_rando[<span class="sc">-</span><span class="fu">c</span>(<span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>),<span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">&lt;=</span> <span class="dv">0</span>)),]</span>
+<span id="cb13-6"><a href="week-8-genome-wide-association-study-gwas.html#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="week-8-genome-wide-association-study-gwas.html#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(rando_filt<span class="sc">$</span>LRT, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.     NA&#39;s 
+## 0.000001 0.214816 0.669551      Inf 2.029913      Inf        1</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-8-genome-wide-association-study-gwas.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we have some Inf values we also need to remove, let&#39;s add those to our filtering line above</span></span>
+<span id="cb15-2"><a href="week-8-genome-wide-association-study-gwas.html#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="week-8-genome-wide-association-study-gwas.html#cb15-3" aria-hidden="true" tabindex="-1"></a>rando_filt<span class="ot">&lt;-</span>lrt_rando[<span class="sc">-</span><span class="fu">c</span>(<span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>),<span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">&lt;=</span> <span class="dv">0</span>), <span class="fu">which</span>(lrt_rando<span class="sc">$</span>LRT <span class="sc">==</span> <span class="cn">Inf</span>)),]</span>
+<span id="cb15-4"><a href="week-8-genome-wide-association-study-gwas.html#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="week-8-genome-wide-association-study-gwas.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(rando_filt<span class="sc">$</span>LRT, <span class="at">na.rm=</span>T)</span></code></pre></div>
+<pre><code>## [1] 12.33287</code></pre>
+<p>So we can highlight all of the SNPs that have an LRT greater than 12 in our association test.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-8-genome-wide-association-study-gwas.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make a list of the candidates</span></span>
+<span id="cb17-2"><a href="week-8-genome-wide-association-study-gwas.html#cb17-2" aria-hidden="true" tabindex="-1"></a>candidates<span class="ot">&lt;-</span>lrt_filt[<span class="fu">which</span>(lrt_filt<span class="sc">$</span>LRT <span class="sc">&gt;</span> <span class="fl">12.33</span>),]<span class="sc">$</span>SNP</span>
+<span id="cb17-3"><a href="week-8-genome-wide-association-study-gwas.html#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="week-8-genome-wide-association-study-gwas.html#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="week-8-genome-wide-association-study-gwas.html#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co">#refer to that list of candidates with the highlight parameter</span></span>
+<span id="cb17-6"><a href="week-8-genome-wide-association-study-gwas.html#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(lrt_filt, <span class="at">chr=</span><span class="st">&quot;Chromosome&quot;</span>, <span class="at">bp=</span><span class="st">&quot;Position&quot;</span>, <span class="at">logp=</span>F, <span class="at">p=</span><span class="st">&quot;LRT&quot;</span>, <span class="at">highlight =</span> candidates)</span></code></pre></div>
+<p><img src="Test_files/figure-html/unnamed-chunk-9-1.png" width="672" />
+Comparing our results to the Kijas et al. 2018 paper, we have a similar pattern of many SNPs across the chromosome showing a relationship with phenotype (sex). Interestingly this paper found that there are three chromosomes that are associated with sex in Atlantic Salmon, but not all chromosomes give a strong signal in all individuals. For example, only three male individuals were found to have a clear association with chromosome 2, and the other males in the study were found to have an association with chromosomes 3 and 6.</p>
+<p>These results highlight the fluid nature of sex determination in animals, even those with a genetic basis to sex determination.</p>
+<p>For the exercise you’ll take a closer look at chromosome 6, where you’ll try to find the individuals that are male from a PCA plot.</p>
+</div>
+<div id="exercises-1" class="section level2" number="9.7">
+<h2><span class="header-section-number">9.7</span> Exercises</h2>
 <blockquote>
-<h3 id="suggested-exercises">Suggested Exercises</h3>
-</blockquote>
-<blockquote>
-<p>For our coding session you can re-run through the above code as it is written. You can also do the below suggestions to extend or modify what we did in Tuesdays class.</p>
-</blockquote>
-<blockquote>
-<p>A possible answer is located beneath each activities, but it’s possible you will correctly perform the suggestion in a different way.</p>
-</blockquote>
-<blockquote>
-<ol style="list-style-type: decimal">
-<li>Run fastqc on our .trimmed reads and compare the html with the untrimmed files.</li>
-</ol>
+<p>1.For this exercise, we want to see which individuals actually show genomic levels of variation at chromosome 3. Using the code that we ran for week 6. Make a PCA plot of the salmon_chr3_19ind.BEAGLE.PL.gz file. Use the function <code>indentify()</code> to find the points that are clustering apart from the other points. Verify that these are males by referring to the table in the Kijas et al. paper <a href="https://www.nature.com/articles/s41598-018-23984-1/tables/1">here</a>. Note their individuals are in the same order as our samples though the names don’t match.</p>
 </blockquote>
 <details>
 <summary>
-<span style="color: purple;">Solution</span>
+<span style="color: orange;">Solution</span>
 </summary>
 <p>
-<blockquote>
-<ol style="list-style-type: decimal">
-<li>We should no longer see the red error flag for the per base sequence quality or base pairs conten. code: fastqc *trimmed.fastq.gz</li>
-</ol>
-</blockquote>
+<div class="sourceCode" id="cb18"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb18-1"><a href="week-8-genome-wide-association-study-gwas.html#cb18-1" aria-hidden="true" tabindex="-1"></a>#run pcangsd on our chr3 data</span>
+<span id="cb18-2"><a href="week-8-genome-wide-association-study-gwas.html#cb18-2" aria-hidden="true" tabindex="-1"></a>python3 ../../pcangsd/pcangsd.py -beagle salmon_chr3_19ind.BEAGLE.PL.gz -o pca6_out -threads 28</span></code></pre></div>
+<p>In R make a PCA plot</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-8-genome-wide-association-study-gwas.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the data</span></span>
+<span id="cb19-2"><a href="week-8-genome-wide-association-study-gwas.html#cb19-2" aria-hidden="true" tabindex="-1"></a>cov<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">read.table</span>(<span class="st">&quot;pca6_out.cov&quot;</span>))</span>
+<span id="cb19-3"><a href="week-8-genome-wide-association-study-gwas.html#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="week-8-genome-wide-association-study-gwas.html#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#compute the eigen values</span></span>
+<span id="cb19-5"><a href="week-8-genome-wide-association-study-gwas.html#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="week-8-genome-wide-association-study-gwas.html#cb19-6" aria-hidden="true" tabindex="-1"></a>e<span class="ot">&lt;-</span><span class="fu">eigen</span>(cov)</span>
+<span id="cb19-7"><a href="week-8-genome-wide-association-study-gwas.html#cb19-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-8"><a href="week-8-genome-wide-association-study-gwas.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="co">#how much variation are we explaining here?</span></span>
+<span id="cb19-9"><a href="week-8-genome-wide-association-study-gwas.html#cb19-9" aria-hidden="true" tabindex="-1"></a>e<span class="sc">$</span>values<span class="sc">/</span><span class="fu">sum</span>(e<span class="sc">$</span>values)</span></code></pre></div>
+<pre><code>##  [1]  0.1379496011  0.1246126748  0.0969103029  0.0920252715  0.0774570788
+##  [6]  0.0685079248  0.0605808079  0.0554445095  0.0493884028  0.0444119246
+## [11]  0.0423030396  0.0368221717  0.0329494215  0.0316195242  0.0269138675
+## [16]  0.0184940705  0.0149661517 -0.0006450986 -0.0107116466</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-8-genome-wide-association-study-gwas.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#looks like 13.7% on the first axis</span></span>
+<span id="cb21-2"><a href="week-8-genome-wide-association-study-gwas.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="week-8-genome-wide-association-study-gwas.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co">#make a plot of the first two axes</span></span>
+<span id="cb21-4"><a href="week-8-genome-wide-association-study-gwas.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(e<span class="sc">$</span>vectors[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
+<p><img src="Test_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="week-8-genome-wide-association-study-gwas.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use identify to find the points that are clustered apart from the others</span></span>
+<span id="cb22-2"><a href="week-8-genome-wide-association-study-gwas.html#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="week-8-genome-wide-association-study-gwas.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#identify(e$vectors[,1:2]) This doesn&#39;t work in R studio so we&#39;ll show the plot below</span></span>
+<span id="cb22-4"><a href="week-8-genome-wide-association-study-gwas.html#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="week-8-genome-wide-association-study-gwas.html#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">#If you select the points on the left most of the screen, you will find they are rows</span></span>
+<span id="cb22-6"><a href="week-8-genome-wide-association-study-gwas.html#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 1, 2, and 12</span></span>
+<span id="cb22-7"><a href="week-8-genome-wide-association-study-gwas.html#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="week-8-genome-wide-association-study-gwas.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#If you select the other two points that are leftmost from the remaining points you also get</span></span>
+<span id="cb22-9"><a href="week-8-genome-wide-association-study-gwas.html#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 16 and 19</span></span></code></pre></div>
+<p><img src="figs/Rplot_PCACh6.png" /></p>
+<p>Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Male, but it’s rows 17 and 18 that are next not 16 and 19, so we may have somethings out of order in our list.</p>
 </p>
 </details>
 <p> </p>
 <blockquote>
 <ol start="2" style="list-style-type: decimal">
-<li>map the untrimmed files to the genome. How do the alignments compare?</li>
+<li>Make a manhattan plot for chromosome 6. You will need to make a new phenotype file that has 1’s for all the males identified in problem 1. Alterntatively, you can make a phenotype file from table 1 in Kilas et al. 2018, setting the animals that were found to be male on chr 6 to 1 and all other animals to 0.</li>
 </ol>
 </blockquote>
-<details>
-<summary>
-<span style="color: purple;">Solution</span>
-</summary>
-<p>
-<blockquote>
-<ol start="2" style="list-style-type: decimal">
-<li>As a for loop:
-<code>for filename in *tiny.fastq.gz; do; base=$(basename $filename .tiny.fastq.gz); echo=${base}; bowtie2 -x Ppar_tinygenome.fna.gz -U ${base}.tiny.fastq.gz -S ${base}.nottrimmed.sam; done</code></li>
-</ol>
-</blockquote>
-</p>
-</details>
-<p> </p>
-<blockquote>
-<ol start="3" style="list-style-type: decimal">
-<li>use cutadapt to trim the sequences to 70 bp like they did in the Xuereb et al. 2018 paper. Write the output of cutadapt to an .70bp.trimmed.fastq.gz and then map these 70bp, trimmed reads to the genome. How do they compare to our .trimmed reads?</li>
-</ol>
-</blockquote>
-<details>
-<summary>
-<span style="color: purple;">Solution</span>
-</summary>
-<p>
-<blockquote>
-<ol start="3" style="list-style-type: decimal">
-<li>to find the parameter for maximum read length in cutadapt: <code>cutadapt - help</code> There are a few ways to do this.
-<code>cutadapt -g TGCAG ${base}.tiny.fastq.gz -u 70 -o ${base}.tiny_70bp_trimmed.fastq.gz</code></li>
-</ol>
-</blockquote>
-</p>
-</details>
-<p> </p>
-<blockquote>
-<ol start="4" style="list-style-type: decimal">
-<li>Run the mapping for loop as a shell script using bash (i.e., store the for loop in a text editor (NANOs or other) and execute the .sh script with bash)</li>
-</ol>
-</blockquote>
-<details>
-<summary>
-<span style="color: purple;">Solution</span>
-</summary>
-<p>
-<blockquote>
-<ol start="4" style="list-style-type: decimal">
-<li>this can be done by copying and pasting the for loop in a text editor that you save as for example <code>map_samples_bowtie2.sh</code>. This script is then executed by <code>bash map_samples_bowtie2.sh</code></li>
-</ol>
-</blockquote>
-</p>
-</details>
-<p> </p>
-<blockquote>
-<ol start="5" style="list-style-type: decimal">
-<li>change the parameters of the angsd genotype likelihoods command. How many more/less SNPs do we recover if we lower or raise the SNP p-value? To see what the other parameters do run `../../angsd/angsd -h</li>
-</ol>
-</blockquote>
-<details>
-<summary>
-<span style="color: purple;">Solution</span>
-</summary>
-<p>
-<blockquote>
-<ol start="5" style="list-style-type: decimal">
-<li>If we remove the <code>-SNP_pval</code> command entirely we get ~72000 sites retained! Wow! That seems like a lot given our ~20% maping rate. If you instead increase the p-value threshold to 1e-3 we find 3 SNPs.</li>
-</ol>
-</blockquote>
-</p>
-</details>
-<p> </p>
-<blockquote>
-<ol start="6" style="list-style-type: decimal">
-<li>For this exercise we ran everything in the same directory and you can see that we generated quite a few files by the time we were done. Many population genomic studies have data for hundreds of individuals and running everything in the same directory gets confusing and messy. However, having the data in a different directory from the output complicates running things a little (you have to remember which directory you’re in). Make a new directory called <code>raw_data</code> and <code>mv</code> the raw data files (those that end in fastq.gz, and the tinygenome) into it. Then mv everything that we generated into a folder called <code>old_outputs</code>. Now rerun our code making a directory for the <code>trimmed_reads</code> and <code>sam_bam</code> files each.</li>
-</ol>
-</blockquote>
-<details>
-<summary>
-<span style="color: purple;">Solution</span>
-</summary>
-<p>
-<blockquote>
-<ol start="6" style="list-style-type: decimal">
-<li>The commands you will run include:
-to make a new directory and move the raw data: <code>mkdir raw_data; mv *fastq.gz raw_data</code>
-to move all the old output that we generated <code>mkdir old_outputs; mv * old_outputs</code>
-then make output folder for each step in the process: <code>mkdir trimmed_reads; mkdir sam_bam</code>
-and then rerun the for loops but change the file path for the input and output data.
-For example this is how the cutadapt command will look:
-`for filename in raw_data/*.tiny.fastq.gz
-do</li>
-</ol>
-<p>base=$(basename <span class="math inline">\(filename .tiny.fastq.gz)  echo=\)</span>{base}</p>
-<p>cutadapt -g TGCAG raw_data/<span class="math inline">\({base}.tiny.fastq.gz -o trimmed_reads/\)</span>{base}.tiny_trimmed.fastq.gz</p>
-<p>done`</p>
-</blockquote>
-<blockquote>
-<p>you can see we’ve added the file name <code>raw_data</code> everytime we’re calling the read files (at the beginning of the for loop and withing the cutadapt program). And we specify to put our trimmed reads in the <code>trimmed_reads</code> folder. To see if they’re there run: <code>ls trimmed_reads</code>.
-Much more organized!</p>
-</blockquote>
-</p>
-</details>
-<p> </p>
-</div>
-<div id="creature-of-the-week-2" class="section level2" number="4.8">
-<h2><span class="header-section-number">4.8</span> Creature of the Week!</h2>
-<div class="figure">
-<img src="figs/creatures/sea_cucumber.jpg" alt="" />
-<p class="caption">Sea Cucumber relaxing on a rock (photo by Seattle Aquarium)</p>
-</div>
 
 </div>
 </div>
@@ -552,8 +462,8 @@ Much more organized!</p>
           </div>
         </div>
       </div>
-<a href="week-2-working-with-files.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="week-4-the-r-environment.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="week-7-fst-and-outlier-analysis.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -604,20 +514,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

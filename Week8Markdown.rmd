@@ -49,31 +49,35 @@ We'll be using the package `qqman` to make a manhattan plot.
 
 If you missed week 6 and didn't get pcangsd or angsd(week 3) installed. Here are the scripts to install them.They take a few minutes to install. There is no need to install these again if you installed them last time. 
 
-```html
-## install angsd
+### install angsd
 
+```html
 cd
   git clone --recursive https://github.com/samtools/htslib.git
   git clone https://github.com/ANGSD/angsd.git 
   cd htslib;make;cd ../angsd ;make HTSSRC=../htslib
    
 cd
+```
+### for pcangsd
+```html
+install pip for python
 
-##for pcangsd
-
-#install pip for python
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py
+```
 
-#we need to add our home directory to the path for pip
-#look at path
-echo $PATH
+we need to add our home directory to the path for pip
+look at path echo $PATH
 
-#add the location of pip to our path
+add the location of pip to our path
+```html
 export PATH="$HOME/.local/bin:$PATH"
+```
 
+then install pcangsd
 
-# then install pcangsd
+```html
 git clone https://github.com/Rosemeis/pcangsd.git
 cd pcangsd/
 pip install --user -r requirements.txt #this installs additional requirements for pcangsd
@@ -101,10 +105,12 @@ This will generate several output files labeled `angsdput`. We'll use the file w
 #in R
 #set working directory
 
-setwd("~/Marinegenomics/Week_8/GWAS/MarineGenomicsData/Week8/")
+setwd("/home/margeno/MarineGenomicsData/Week8")
+```
 
+```{r, include=F}
 #read in the data
-lrt<-read.table(gzfile("salmon_chr2_19ind.BEAGLE.PL.gz"), header=T, sep="\t")
+lrt<-read.table(gzfile("angsdput.lrt0.gz"), header=T, sep="\t")
 
 #look at it
 str(lrt)
@@ -124,44 +130,23 @@ length(lrt$LRT)-length(which(lrt$LRT == -999))
 
 lrt_filt<-lrt[-c(which(lrt$LRT == -999),which(lrt$LRT <= 0)),]
 
-
 hist(lrt_filt$LRT, breaks=50)
-```
-```{r, include=F}
-#read in the data
-LRT<-read.table(gzfile("salmon_chr2_19ind.BEAGLE.PL.gz"), header=T, sep="\t")
-
-#look at it
-str(LRT)
-
-#we have a few LRT values that are -999, we should remove them. How many do we have?
-length(which(lrt$LRT == -999))
-#210597 #most are filtered out
-
-length(lrt$LRT)
-#224460
-
-length(lrt$LRT)-length(which(lrt$LRT == -999))
-#[1] 13863
-
-
-#remove the values that are not -999 and that are negative
-
-lrt_filt<-lrt[-c(which(lrt$LRT == -999),which(lrt$LRT <= 0)),]
-
-
-hist(LRT$lrt_filt, breaks=50) ##ERROR
 ```
 
 
 Everything looks good to proceed to making our manhattan plot.
 
-```{r, echo=T}
+```{r, include=F}
 
 require(qqman)
+```
 
-#the function manhattan requires each SNP to have it's own "name". Let's make a vector for rownumbers that start with the letter r.
+```{r, eval=F}
+require (qqman)
+```
+the function manhattan requires each SNP to have it's own "name". Let's make a vector for rownumbers that start with the letter r.
 
+```{r, eval=T}
 lrt_filt$SNP<-paste("r",1:length(lrt_filt$Chromosome), sep="")
 
 #we also need to make sure we don't have any tricky values like those below
@@ -171,7 +156,6 @@ lrt_filt<-lrt_filt[-c(which(lrt_filt$pvalue == "NaN" ),
 
 
 manhattan(lrt_filt, chr="Chromosome", bp="Position", logp=F, p="LRT")
-
 
 ```
 
@@ -202,7 +186,7 @@ And rerun the code in R to see what our maximum LRT values are in this random ph
 
 ```{r, echo=T}
 
-lrt_rando<-read.table(gzfile("MarineGenomicsData/Week8/randotest.lrt0.gz"), header=T, sep="\t")
+lrt_rando<-read.table(gzfile("randotest.lrt0.gz"), header=T, sep="\t")
 
 #we need to remove those -999 values again
 
@@ -255,7 +239,7 @@ In R make a PCA plot
 
 ```{r, echo=T}
 #read in the data
-cov<-as.matrix(read.table("MarineGenomicsData/Week8/pca6_out.cov"))
+cov<-as.matrix(read.table("pca6_out.cov"))
 
 #compute the eigen values
 
@@ -280,11 +264,7 @@ plot(e$vectors[,1:2])
 # 16 and 19
 
 ```
-
-```{r echo=F}
-
-knitr::include_graphics("./fig/Rplot_PCACh6.png")
-```
+![](./figs/Rplot_PCACh6.png)
 
 Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Male, but it's rows 17 and 18 that are next not 16 and 19, so we may have somethings out of order in our list.
 
