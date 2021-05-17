@@ -275,3 +275,17 @@ Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Ma
 
 
 > 2. Make a manhattan plot for chromosome 6. You will need to make a new phenotype file that has 1's for all the males identified in problem 1. Alterntatively, you can make a phenotype file from table 1 in Kilas et al. 2018, setting the animals that were found to be male on chr 6 to 1 and all other animals to 0.
+
+<details><summary><span style="color: orange;">Solution</span></summary>
+<p>
+
+
+coming soon :) 
+
+
+</p>
+</details>
+&nbsp;
+
+##Creature of the Week!
+
