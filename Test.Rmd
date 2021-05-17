@@ -268,10 +268,10 @@ This will generate several output files labeled `angsdput`. We'll use the file w
 #in R
 #set working directory
 
-setwd("~/Marinegenomics/Week_8 GWAS/MarineGenomicsData/Week8/")
+setwd("~/Marinegenomics/Week_8/GWAS/MarineGenomicsData/Week8/")
 
 #read in the data
-lrt<-read.table(gzfile("angsdput.lrt0.gz"), header=T, sep="\t")
+lrt<-read.table(gzfile("salmon_chr2_19ind.BEAGLE.PL.gz"), header=T, sep="\t")
 
 #look at it
 str(lrt)
@@ -296,10 +296,10 @@ hist(lrt_filt$LRT, breaks=50)
 ```
 ```{r, include=F}
 #read in the data
-lrt<-read.table(gzfile("angsdput.lrt0.gz"), header=T, sep="\t")
+LRT<-read.table(gzfile("salmon_chr2_19ind.BEAGLE.PL.gz"), header=T, sep="\t")
 
 #look at it
-str(lrt)
+str(LRT)
 
 #we have a few LRT values that are -999, we should remove them. How many do we have?
 length(which(lrt$LRT == -999))
@@ -317,7 +317,7 @@ length(lrt$LRT)-length(which(lrt$LRT == -999))
 lrt_filt<-lrt[-c(which(lrt$LRT == -999),which(lrt$LRT <= 0)),]
 
 
-hist(lrt_filt$LRT, breaks=50)
+hist(LRT$lrt_filt, breaks=50) ##ERROR
 ```
 
 
