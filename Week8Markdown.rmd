@@ -108,7 +108,7 @@ This will generate several output files labeled `angsdput`. We'll use the file w
 setwd("/home/margeno/MarineGenomicsData/Week8")
 ```
 
-```{r, include=F}
+```{r, include=T}
 #read in the data
 lrt<-read.table(gzfile("angsdput.lrt0.gz"), header=T, sep="\t")
 
