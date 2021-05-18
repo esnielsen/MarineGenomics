@@ -161,6 +161,7 @@ lrt_filt$pvalue<-dchisq(lrt_filt$LRT, df=1)
 manhattan(lrt_filt, chr="Chromosome", bp="Position", p="pvalue")
 
 ```
+
 Let's look at a qq-plot of our pvalues to check the model fit
 
 ```{r, echo=T}
@@ -168,6 +169,7 @@ Let's look at a qq-plot of our pvalues to check the model fit
 qqnorm(lrt_filt$pvalue)
 
 ```
+
 This looks a bit weird, we would expect it to be mostly a straight line with some deviations at the upper right. If we were moving forward with this analyses we'd want to do more filtering of our data.
 
 We can highlight the values that are exceed a threshold. There are several ways to determine a threshold, but one is to make a vector of random phenotypes and re-run our association test. We can then set the highest LRT value from the random phenotype test as our upper limit for our plot with the actual phenotypes.
@@ -228,6 +230,7 @@ manhattan(lrt_filt, chr="Chromosome", bp="Position",  p="pvalue", highlight = ca
 
 
 ```
+
 Comparing our results to the Kijas et al. 2018 paper, we have a similar pattern of many SNPs across the chromosome showing a relationship with phenotype (sex). Interestingly this paper found that there are three chromosomes that are associated with sex in Atlantic Salmon, but not all chromosomes give a strong signal in all individuals. For example, only three male individuals were found to have a clear association with chromosome 2, and the other males in the study were found to have an association with chromosomes 3 and 6. 
 
 These results highlight the fluid nature of sex determination in animals, even those with a genetic basis to sex determination.
@@ -275,6 +278,7 @@ plot(e$vectors[,1:2])
 # 16 and 19
 
 ```
+
 ![](./figs/Rplot_PCACh6.png)
 
 Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Male, but it's rows 17 and 18 that are next not 16 and 19, so we may have somethings out of order in our list.

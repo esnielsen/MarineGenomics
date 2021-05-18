@@ -402,11 +402,11 @@ look at path echo $PATH</p>
 <span id="cb19-10"><a href="week-8-genome-wide-association-study-gwas.html#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-11"><a href="week-8-genome-wide-association-study-gwas.html#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-12"><a href="week-8-genome-wide-association-study-gwas.html#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(lrt_filt, <span class="at">chr=</span><span class="st">&quot;Chromosome&quot;</span>, <span class="at">bp=</span><span class="st">&quot;Position&quot;</span>, <span class="at">p=</span><span class="st">&quot;pvalue&quot;</span>)</span></code></pre></div>
-<p><img src="Test_files/figure-html/unnamed-chunk-6-1.png" width="672" />
-Let’s look at a qq-plot of our pvalues to check the model fit</p>
+<p><img src="Test_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Let’s look at a qq-plot of our pvalues to check the model fit</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-8-genome-wide-association-study-gwas.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qqnorm</span>(lrt_filt<span class="sc">$</span>pvalue)</span></code></pre></div>
-<p><img src="Test_files/figure-html/unnamed-chunk-7-1.png" width="672" />
-This looks a bit weird, we would expect it to be mostly a straight line with some deviations at the upper right. If we were moving forward with this analyses we’d want to do more filtering of our data.</p>
+<p><img src="Test_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>This looks a bit weird, we would expect it to be mostly a straight line with some deviations at the upper right. If we were moving forward with this analyses we’d want to do more filtering of our data.</p>
 <p>We can highlight the values that are exceed a threshold. There are several ways to determine a threshold, but one is to make a vector of random phenotypes and re-run our association test. We can then set the highest LRT value from the random phenotype test as our upper limit for our plot with the actual phenotypes.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-8-genome-wide-association-study-gwas.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#make a vector with 19 1&#39;s and 0&#39;s</span></span>
 <span id="cb21-2"><a href="week-8-genome-wide-association-study-gwas.html#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -441,8 +441,8 @@ This looks a bit weird, we would expect it to be mostly a straight line with som
 <span id="cb27-4"><a href="week-8-genome-wide-association-study-gwas.html#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-5"><a href="week-8-genome-wide-association-study-gwas.html#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co">#refer to that list of candidates with the highlight parameter</span></span>
 <span id="cb27-6"><a href="week-8-genome-wide-association-study-gwas.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">manhattan</span>(lrt_filt, <span class="at">chr=</span><span class="st">&quot;Chromosome&quot;</span>, <span class="at">bp=</span><span class="st">&quot;Position&quot;</span>,  <span class="at">p=</span><span class="st">&quot;pvalue&quot;</span>, <span class="at">highlight =</span> candidates)</span></code></pre></div>
-<p><img src="Test_files/figure-html/unnamed-chunk-10-1.png" width="672" />
-Comparing our results to the Kijas et al. 2018 paper, we have a similar pattern of many SNPs across the chromosome showing a relationship with phenotype (sex). Interestingly this paper found that there are three chromosomes that are associated with sex in Atlantic Salmon, but not all chromosomes give a strong signal in all individuals. For example, only three male individuals were found to have a clear association with chromosome 2, and the other males in the study were found to have an association with chromosomes 3 and 6.</p>
+<p><img src="Test_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Comparing our results to the Kijas et al. 2018 paper, we have a similar pattern of many SNPs across the chromosome showing a relationship with phenotype (sex). Interestingly this paper found that there are three chromosomes that are associated with sex in Atlantic Salmon, but not all chromosomes give a strong signal in all individuals. For example, only three male individuals were found to have a clear association with chromosome 2, and the other males in the study were found to have an association with chromosomes 3 and 6.</p>
 <p>These results highlight the fluid nature of sex determination in animals, even those with a genetic basis to sex determination.</p>
 <p>For the exercise you’ll take a closer look at chromosome 6, where you’ll try to find the individuals that are male from a PCA plot.</p>
 </div>
