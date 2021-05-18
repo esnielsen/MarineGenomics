@@ -144,7 +144,7 @@ require(qqman)
 ```{r, eval=F}
 require (qqman)
 ```
-the function manhattan requires each SNP to have it's own "name". Let's make a vector for rownumbers that start with the letter r.
+the function manhattan requires each SNP to have it's own "name". Let's make a vector for rownumbers that start with the letter r. We also need to convert our LRT values to pvalues. We'll use the command `dchisq` to get pvalues.
 
 ```{r, eval=T}
 lrt_filt$SNP<-paste("r",1:length(lrt_filt$Chromosome), sep="")
@@ -153,9 +153,12 @@ lrt_filt$SNP<-paste("r",1:length(lrt_filt$Chromosome), sep="")
 lrt_filt<-lrt_filt[-c(which(lrt_filt$pvalue == "NaN" ),
                       which(lrt_filt$pvalue == "Inf"),
                       which(lrt_filt$LRT == "Inf")),]
+                      
+#get pvalues
+lrt_filt$pvalue<-dchisq(lrt_filt$LRT, df=1)
 
 
-manhattan(lrt_filt, chr="Chromosome", bp="Position", logp=F, p="LRT")
+manhattan(lrt_filt, chr="Chromosome", bp="Position", p="pvalue")
 
 ```
 
@@ -213,7 +216,7 @@ candidates<-lrt_filt[which(lrt_filt$LRT > 12.33),]$SNP
 
 
 #refer to that list of candidates with the highlight parameter
-manhattan(lrt_filt, chr="Chromosome", bp="Position", logp=F, p="LRT", highlight = candidates)
+manhattan(lrt_filt, chr="Chromosome", bp="Position",  p="pvalue", highlight = candidates)
 
 
 ```
@@ -248,7 +251,7 @@ e<-eigen(cov)
 #how much variation are we explaining here?
 e$values/sum(e$values)
 
-#looks like 13.7% on the first axis
+#looks like 13.7% is explained by the first axis
 
 #make a plot of the first two axes
 plot(e$vectors[,1:2])
@@ -279,9 +282,42 @@ Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Ma
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
+```{r, echo=T
 
-coming soon :) 
+#make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.
+pheno_chr6<-c(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0)
+  
+write.table(pheno_chr6, "phenobin_ch6" , rownames=F)
+                 
+#then in the terminal run our command in angsd again using the chr6 BEAGLE file and the phenotype file we just made
 
+#$HOME/angsd/angsd -doMaf 4 -beagle salmon_chr6_19ind.BEAGLE.PL.gz -yBin phenobin_ch6 -doAsso 2 -fai Salmon.fai -out chr6_out                 
+                 
+# and then we can remake our manhattan plot by copying and pasting the code above
+
+lrt<-read.table(gzfile("chr6_out.lrt0.gz"), header=T, sep="\t")
+
+#look at it
+str(lrt)
+
+#remove the values that are not -999 and that are negative
+
+lrt_filt<-lrt[-c(which(lrt$LRT == -999),which(lrt$LRT <= 0)),]                 
+lrt_filt$SNP<-paste("r",1:length(lrt_filt$Chromosome), sep="")
+
+#we also need to make sure we don't have any tricky values like those below
+lrt_filt<-lrt_filt[-c(which(lrt_filt$pvalue == "NaN" ),
+                      which(lrt_filt$pvalue == "Inf"),
+                      which(lrt_filt$LRT == "Inf")),]
+                      
+#get pvalues
+lrt_filt$pvalue<-dchisq(lrt_filt$LRT, df=1)
+
+#make our plot
+manhattan(lrt_filt, chr="Chromosome", bp="Position", p="pvalue")
+                 
+                 
+```
 
 </p>
 </details>
