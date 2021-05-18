@@ -161,6 +161,14 @@ lrt_filt$pvalue<-dchisq(lrt_filt$LRT, df=1)
 manhattan(lrt_filt, chr="Chromosome", bp="Position", p="pvalue")
 
 ```
+Let's look at a qq-plot of our pvalues to check the model fit
+
+```{r, echo=T}
+
+qqnorm(lrt_filt$pvalue)
+
+```
+This looks a bit weird, we would expect it to be mostly a straight line with some deviations at the upper right. If we were moving forward with this analyses we'd want to do more filtering of our data.
 
 We can highlight the values that are exceed a threshold. There are several ways to determine a threshold, but one is to make a vector of random phenotypes and re-run our association test. We can then set the highest LRT value from the random phenotype test as our upper limit for our plot with the actual phenotypes.
 
