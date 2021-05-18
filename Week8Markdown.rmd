@@ -282,7 +282,7 @@ Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Ma
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
-```{r, echo=T
+```html
 
 #make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.
 pheno_chr6<-c(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0)
