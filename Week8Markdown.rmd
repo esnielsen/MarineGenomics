@@ -297,9 +297,9 @@ pheno_chr6<-c(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0)
   
 write.table(pheno_chr6, "phenobin_ch6" , rownames=F)
                  
-#then in the terminal run our command in angsd again using the chr6 BEAGLE file and the phenotype file we just made
+# then in the terminal run our command in angsd again using the chr6 BEAGLE file and the phenotype file we just made
 
-#$HOME/angsd/angsd -doMaf 4 -beagle salmon_chr6_19ind.BEAGLE.PL.gz -yBin phenobin_ch6 -doAsso 2 -fai Salmon.fai -out chr6_out                 
+# $HOME/angsd/angsd -doMaf 4 -beagle salmon_chr6_19ind.BEAGLE.PL.gz -yBin phenobin_ch6 -doAsso 2 -fai Salmon.fai -out chr6_out                 
                  
 # and then we can remake our manhattan plot by copying and pasting the code above
 
@@ -323,13 +323,13 @@ lrt_filt$pvalue<-dchisq(lrt_filt$LRT, df=1)
 
 #make our plot
 manhattan(lrt_filt, chr="Chromosome", bp="Position", p="pvalue")
-                 
-                 
-```
 
+```                
+                 
 </p>
 </details>
-&nbsp;
 
 ## Creature of the Week!
+![The lovely Mantis Shrimp (image credit: Dorothea OLDANI,Unsplash)](./figs/creatures/mantisshrimp.png)
+
 

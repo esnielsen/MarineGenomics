@@ -321,3 +321,5 @@ ggplot(as.data.frame(e$vectors), aes(V1, V2, group=as.factor(names$V3), color=as
 
 ## Creature of the Week!
 ![Yellow Boring Sponge, the inspiration for Spongebob! (Image credit: Bernard Picton/Encyclopedia of Marine Life of Britain and Ireland)](./figs/creatures/boringsponge.jpg)
+
+
