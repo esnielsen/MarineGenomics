@@ -222,7 +222,7 @@ So we can highlight all of the SNPs that have an LRT greater than 12 in our asso
 ```{r, echo=T}
 
 #make a list of the candidates
-candidates<-lrt_filt[which(lrt_filt$LRT > 12.33),]$SNP
+candidates<-lrt_filt[which(lrt_filt$LRT > 36),]$SNP
 
 
 #refer to that list of candidates with the highlight parameter
