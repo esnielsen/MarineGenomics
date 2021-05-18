@@ -239,14 +239,14 @@ For the exercise you'll take a closer look at chromosome 6, where you'll try to 
 
 ## Exercises
 
-> 1.For this exercise, we want to see which individuals actually show genomic levels of variation at chromosome 3. Using the code that we ran for week 6. Make a PCA plot of the salmon_chr3_19ind.BEAGLE.PL.gz file. Use the function `indentify()` to find the points that are clustering apart from the other points. Verify that these are males by referring to the table in the Kijas et al. paper [here](https://www.nature.com/articles/s41598-018-23984-1/tables/1). Note their individuals are in the same order as our samples though the names don't match.
+> 1.For this exercise, we want to see which individuals actually show genomic levels of variation at chromosome 6. Using the code that we ran for week 6. Make a PCA plot of the salmon_chr3_19ind.BEAGLE.PL.gz file. Use the function `indentify()` to find the points that are clustering apart from the other points. Verify that these are males by referring to the table in the Kijas et al. paper [here](https://www.nature.com/articles/s41598-018-23984-1/tables/1). Note their individuals are in the same order as our samples though the names don't match.
 
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
 ```html
-#run pcangsd on our chr3 data
-python3 ../../pcangsd/pcangsd.py -beagle salmon_chr3_19ind.BEAGLE.PL.gz -o pca6_out -threads 28
+#run pcangsd on our chr6 data
+python3 ../../pcangsd/pcangsd.py -beagle salmon_chr6_19ind.BEAGLE.PL.gz -o pca6_out -threads 28
 
 ```
 In R make a PCA plot

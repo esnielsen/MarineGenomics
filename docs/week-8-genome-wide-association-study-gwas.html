@@ -449,15 +449,15 @@ look at path echo $PATH</p>
 <div id="exercises-1" class="section level2" number="9.7">
 <h2><span class="header-section-number">9.7</span> Exercises</h2>
 <blockquote>
-<p>1.For this exercise, we want to see which individuals actually show genomic levels of variation at chromosome 3. Using the code that we ran for week 6. Make a PCA plot of the salmon_chr3_19ind.BEAGLE.PL.gz file. Use the function <code>indentify()</code> to find the points that are clustering apart from the other points. Verify that these are males by referring to the table in the Kijas et al. paper <a href="https://www.nature.com/articles/s41598-018-23984-1/tables/1">here</a>. Note their individuals are in the same order as our samples though the names don’t match.</p>
+<p>1.For this exercise, we want to see which individuals actually show genomic levels of variation at chromosome 6. Using the code that we ran for week 6. Make a PCA plot of the salmon_chr3_19ind.BEAGLE.PL.gz file. Use the function <code>indentify()</code> to find the points that are clustering apart from the other points. Verify that these are males by referring to the table in the Kijas et al. paper <a href="https://www.nature.com/articles/s41598-018-23984-1/tables/1">here</a>. Note their individuals are in the same order as our samples though the names don’t match.</p>
 </blockquote>
 <details>
 <summary>
 <span style="color: orange;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb28-1"><a href="week-8-genome-wide-association-study-gwas.html#cb28-1" aria-hidden="true" tabindex="-1"></a>#run pcangsd on our chr3 data</span>
-<span id="cb28-2"><a href="week-8-genome-wide-association-study-gwas.html#cb28-2" aria-hidden="true" tabindex="-1"></a>python3 ../../pcangsd/pcangsd.py -beagle salmon_chr3_19ind.BEAGLE.PL.gz -o pca6_out -threads 28</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb28-1"><a href="week-8-genome-wide-association-study-gwas.html#cb28-1" aria-hidden="true" tabindex="-1"></a>#run pcangsd on our chr6 data</span>
+<span id="cb28-2"><a href="week-8-genome-wide-association-study-gwas.html#cb28-2" aria-hidden="true" tabindex="-1"></a>python3 ../../pcangsd/pcangsd.py -beagle salmon_chr6_19ind.BEAGLE.PL.gz -o pca6_out -threads 28</span></code></pre></div>
 <p>In R make a PCA plot</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="week-8-genome-wide-association-study-gwas.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the data</span></span>
 <span id="cb29-2"><a href="week-8-genome-wide-association-study-gwas.html#cb29-2" aria-hidden="true" tabindex="-1"></a>cov<span class="ot">&lt;-</span><span class="fu">as.matrix</span>(<span class="fu">read.table</span>(<span class="st">&quot;pca6_out.cov&quot;</span>))</span>
