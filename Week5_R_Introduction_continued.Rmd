@@ -215,6 +215,7 @@ Note: if histogram has n breaks and n is less than 10, it will just use first n 
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
 ```{r}
+library(RColorBrewer)
 my.colors = brewer.pal(10, "Paired")
 hist(ChickWeight$weight[ChickWeight$Time == max(ChickWeight$Time)], xlab = "Weight (gm)",main = "Weights at final day of experiment", col = my.colors)
 ```

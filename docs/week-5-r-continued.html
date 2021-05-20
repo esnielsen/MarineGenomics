@@ -482,8 +482,9 @@ Note: if histogram has n breaks and n is less than 10, it will just use first n 
 <span style="color: red;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-5-r-continued.html#cb23-1" aria-hidden="true" tabindex="-1"></a>my.colors <span class="ot">=</span> <span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;Paired&quot;</span>)</span>
-<span id="cb23-2"><a href="week-5-r-continued.html#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(ChickWeight<span class="sc">$</span>weight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="fu">max</span>(ChickWeight<span class="sc">$</span>Time)], <span class="at">xlab =</span> <span class="st">&quot;Weight (gm)&quot;</span>,<span class="at">main =</span> <span class="st">&quot;Weights at final day of experiment&quot;</span>, <span class="at">col =</span> my.colors)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="week-5-r-continued.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RColorBrewer)</span>
+<span id="cb23-2"><a href="week-5-r-continued.html#cb23-2" aria-hidden="true" tabindex="-1"></a>my.colors <span class="ot">=</span> <span class="fu">brewer.pal</span>(<span class="dv">10</span>, <span class="st">&quot;Paired&quot;</span>)</span>
+<span id="cb23-3"><a href="week-5-r-continued.html#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(ChickWeight<span class="sc">$</span>weight[ChickWeight<span class="sc">$</span>Time <span class="sc">==</span> <span class="fu">max</span>(ChickWeight<span class="sc">$</span>Time)], <span class="at">xlab =</span> <span class="st">&quot;Weight (gm)&quot;</span>,<span class="at">main =</span> <span class="st">&quot;Weights at final day of experiment&quot;</span>, <span class="at">col =</span> my.colors)</span></code></pre></div>
 <img src="Test_files/figure-html/unnamed-chunk-14-1.png" width="672" />
 </p>
 </details>
