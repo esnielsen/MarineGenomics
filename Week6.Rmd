@@ -9,6 +9,7 @@ pdf_document: default
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week6/MarineGenomicsData/Week6")
 ```
 
 # Week 6: PCA 
@@ -124,8 +125,7 @@ In Rstudio you can also use the pull down menus `Session` to get and set your wo
 Now well read the data output by angsd into R using `read.table()` and `as.matrix()`
 
 ```{r, echo=T}
-
-#cov<-as.matrix(read.table("MarineGenomicsData/Week6/pca_out.cov"))
+cov<-as.matrix(read.table("pca_out.cov"))
 
 ```
 
@@ -135,7 +135,7 @@ And then we can compute the eigenvalues from our covariance matrix with the func
 
 ```{r, echo=T}
 
-#e<-eigen(cov)
+e<-eigen(cov)
 
 ```
 
@@ -145,14 +145,14 @@ And make a simple plot in base R
 ```{r, echo=T}
 
 
-#plot(e$vectors[,1:2])
+plot(e$vectors[,1:2])
 
 ```
 We may be interested in how much of the variance our first two components explain. You can look at this in the `e` object under values. We divide the eigen values by the sum of all the values to get the percent explained by each value.
 
 ```{r, echo=T}
 
-#e$values/sum(e$values)
+e$values/sum(e$values)
 
 
 ```
@@ -165,15 +165,15 @@ We now want to make the colors match population labels. The information for whic
 
 #read in the data
 
-#names<-read.table("MarineGenomicsData/Week6/bam.filelist")
+names<-read.table("bam.filelist")
 
 #assign the rownames of the covariance matix the 
 
-#rownames(cov)<-names$V2
+rownames(cov)<-names$V2
 
 #remake the plot with the colors we want
 
-#plot(e$vectors[,1:2], col=as.factor(rownames(cov)), pch=16)
+plot(e$vectors[,1:2], col=as.factor(rownames(cov)), pch=16)
 
 ```
 
