@@ -311,7 +311,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="using-ngsadmix" class="section level2" number="10.2">
 <h2><span class="header-section-number">10.2</span> Using NGSadmix</h2>
-<p>NGSadmix is located within the program ANGSD. It’s pretty simple to run and will generate an output file that we can load into R to generate the stucture plot. NGSadmix uses a maximum-likelihood framework to analyse genotype likelihoods, other methods of analyzing population structure including the program STRUCTURE are Bayesian methods and are not modified to be run with genotype likelihoods (but are otherwise widely used and very suitable methods).</p>
+<p>NGSadmix is located within the program ANGSD. It’s pretty simple to run and will generate an output file that we can load into R to generate the stucture plot. NGSadmix uses a maximum-likelihood framework to analyse genotype likelihoods, other methods of analyzing population structure including the program STRUCTURE are Bayesian methods and are not modified to be run with genotype likelihoods (but are otherwise widely used and very suitable methods).
+<img src="figs/NGS_workflow.png" alt="NGS Workflow" /></p>
 <p>Let’s start by running NGSadmix on our beagle file to generate the file for R.</p>
 <p>The parameters we need to specify to run NGSadmix are the number of clusters (-K), the minimun minor allele frequency (-minMaf), and the number of threads (-P), and an output file name (-o). You can find the full description of each of these parameters on the NGSadmix <a href="http://www.popgen.dk/software/index.php/NgsAdmix">site</a></p>
 <p>The most important thing for us to modify is the number of clusters (-K). This is the paramter we actually want to estimate.</p>

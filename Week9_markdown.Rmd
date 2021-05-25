@@ -41,6 +41,7 @@ tar -xzvf week9.tar.gz
 ## Using NGSadmix
 
 NGSadmix is located within the program ANGSD. It's pretty simple to run and will generate an output file that we can load into R to generate the stucture plot. NGSadmix uses a maximum-likelihood framework to analyse genotype likelihoods, other methods of analyzing population structure including the program STRUCTURE are Bayesian methods and are not modified to be run with genotype likelihoods (but are otherwise widely used and very suitable methods).
+![NGS Workflow](./figs/NGS_workflow.png)
 
 Let's start by running NGSadmix on our beagle file to generate the file for R.
 
