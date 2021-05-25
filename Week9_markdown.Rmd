@@ -115,6 +115,7 @@ barplot(t(q)[,ord],
         ylab="Admixture proportions for K=7")
 
 ```
+
 So now we have many more groupings, but they don't really fall straight across population lines do they?
 
 This shows that we can generate two fairly different looking plots when we change the value of K. How do we tell which one is the "True" value of K? One way is to look at the log-likelihood values from each NGSadmix run. 
