@@ -177,18 +177,79 @@ We then use these values to select our K, which will be the one that has the hig
 <details><summary><span style="color: Orchid;">Solution</span></summary>
 <p>
 
-coming soon!
+```{r echo=T}
+q<-read.table("MarineGenomicsData/Week9/structure_outs/stru_k6.qopt")
+
+#read in the population information file located in the bam.filelist
+pop<-read.table("MarineGenomicsData/Week9/bam.filelist")
+
+#order it by population
+ord<-order(pop$V2)
+
+
+barplot(t(q)[,ord],
+        col=1:6,
+        names=pop$V2[ord],
+        las=2,
+        space=0,
+        border=NA,
+        xlab="Individuals",
+        ylab="Admixture proportions for K=6")
 
 </p>
 </details>
 
->2. Make a multipanel plot showing K=2, K=4, and K=6. You can set the parameters of the plot screen to allow three rows and one column using par(mfrow=c(3,1)) 
+>2. Make a multi-panel plot showing K=2, K=4, and K=6. You can set the parameters of the plot screen to allow three rows and one column using par(mfrow=c(3,1)). For this plot use the region identifier instead of the name (V3 in the bam file so pop$V3)
 
 <details><summary><span style="color: Orchid;">Solution</span></summary>
 <p>
 
-coming soon!
+```{r echo=T}
 
+#read in all the data 
+q2<-read.table("MarineGenomicsData/Week9/structure_outs/stru_k2.qopt")
+q4<-read.table("MarineGenomicsData/Week9/structure_outs/stru_k4.qopt")
+q6<-read.table("MarineGenomicsData/Week9/structure_outs/stru_k6.qopt")
+
+#read in the population information file located in the bam.filelist
+pop<-read.table("MarineGenomicsData/Week9/bam.filelist")
+
+#order it by population
+ord<-order(pop$V3)
+
+#set the parameters for our screen to show three rows and one column
+par(mfrow=c(3,1))
+
+#plot the plots
+
+barplot(t(q2)[,ord],
+        col=1:2,
+        names=pop$V3[ord],
+        las=2,
+        space=0,
+        border=NA,
+        xlab="Individuals",
+        ylab="Admixture prop K=2")
+
+barplot(t(q4)[,ord],
+        col=1:4,
+        names=pop$V3[ord],
+        las=2,
+        space=0,
+        border=NA,
+        xlab="Individuals",
+        ylab="Admixture prop K=4")
+
+barplot(t(q6)[,ord],
+        col=1:6,
+        names=pop$V3[ord],
+        las=2,
+        space=0,
+        border=NA,
+        xlab="Individuals",
+        ylab="Admixture prop K=6")
+
+```
 </p>
 </details>
 
