@@ -15,7 +15,7 @@ For this week we will be exploring another way to document population genetic st
 
 We'll be using data from the [Xuereb et al. paper on P. californicus](https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589). This data is a subset of the data published in the paper and is SNP data from 15 individuals from 7 collection sites, in a beagle formated file (the same one we used for our PCA plot in week 6). 
 
-The lecture for this week can be found [here] and describes the basics of a structure plot.
+The lecture for this week can be found [here](https://github.com/BayLab/MarineGenomics/blob/4f22a87ad800f98a6e138a166b8e94d016310914/ppt/Week9.pdf) and describes the basics of a structure plot.
 
 ## Download the data
 
