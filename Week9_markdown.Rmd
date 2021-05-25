@@ -24,7 +24,8 @@ The lecture for this week can be found [here](https://github.com/BayLab/MarineGe
 
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week9.tar.gz
 
-tar -xzvf structure_outs.tar.gz
+tar -xzvf week9.tar.gz
+
 
 ```
 
@@ -34,8 +35,8 @@ You will also need to tar the file within the Week9 folder
 ```html
 
 cd MarineGenomicsData/Week9
+tar -xzvf structure_outs.tar.gz
 
-tar -xzvf week9.tar.gz
 ```
 
 
