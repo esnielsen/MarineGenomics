@@ -155,3 +155,10 @@ exercises-1
 install-angsd
 for-pcangsd
 creature-of-the-week-7
+week-9-population-structure-using-ngsadmix
+download-the-data-2
+using-ngsadmix
+ploting-stucture-in-r
+how-do-we-know-which-k-to-pick
+exercises-2
+creature-of-the-week-8

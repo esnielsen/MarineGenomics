@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week9/MarineGenomicsData/Week9")
 ```
 
 # Week 9 Population Structure using NGSadmix
@@ -23,7 +24,6 @@ The lecture for this week can be found [here](https://github.com/BayLab/MarineGe
 
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week9.tar.gz
 
-tar -xzvf week9.tar.gz
 
 ```
 
@@ -70,10 +70,10 @@ Open a new Rscript in RStudio.
 ```{r echo=T}
 
 #read in the data 
-q<-read.table("MarineGenomicsData/Week9/stru_k3.qopt")
+q<-read.table("stru_k3.qopt")
 
 #read in the population information file located in the bam.filelist
-pop<-read.table("MarineGenomicsData/Week9/bam.filelist")
+pop<-read.table("bam.filelist")
 
 #order it by population
 ord<-order(pop$V2)
@@ -93,10 +93,10 @@ barplot(t(q)[,ord],
 ```{r echo=T}
 
 #read in the data 
-q<-read.table("MarineGenomicsData/Week9/stru_k7.qopt")
+q<-read.table("stru_k7.qopt")
 
 #read in the population information file located in the bam.filelist
-pop<-read.table("MarineGenomicsData/Week9/bam.filelist")
+pop<-read.table("bam.filelist")
 
 #order it by population
 ord<-order(pop$V2)
@@ -167,9 +167,10 @@ We then use these values to select our K, which will be the one that has the hig
 
 ## Exercises
 
-1. Remake the structure plot using K=6 `.qopt`. You'll find this file in the `structure_outs` file.
+> # Practice Questions:
+>1. Remake the structure plot using K=6 `.qopt`. You'll find this file in the `structure_outs` file.
 
-<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<details><summary><span style="color: Orchid;">Solution</span></summary>
 <p>
 
 coming soon!
@@ -177,12 +178,15 @@ coming soon!
 </p>
 </details>
 
-2. Make a multipanel plot showing K=2, K=4, and K=6. You can set the parameters of the plot screen to allow three rows and one column using par(mfrow=c(3,1)) 
+>2. Make a multipanel plot showing K=2, K=4, and K=6. You can set the parameters of the plot screen to allow three rows and one column using par(mfrow=c(3,1)) 
 
-<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<details><summary><span style="color: Orchid;">Solution</span></summary>
 <p>
 
 coming soon!
 
 </p>
 </details>
+
+## Creature of the Week!
+![The Bearded Fireworm (image credit: Philippe Guillaume via Flickr)](./figs/creatures/bearded_fireworm.jpg)
