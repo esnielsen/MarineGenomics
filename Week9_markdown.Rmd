@@ -1,0 +1,188 @@
+---
+title: "Week9_structure"
+author: "Serena Caplins"
+date: "5/21/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Week 9 Population Structure using NGSadmix
+
+For this week we will be exploring another way to document population genetic structure (the first way we covered was PCA in Week 6) via a "Structure" plot implemented in the ANGSD program NGSadmix.
+
+We'll be using data from the [Xuereb et al. paper on P. californicus](https://onlinelibrary.wiley.com/doi/abs/10.1111/mec.14589). This data is a subset of the data published in the paper and is SNP data from 15 individuals from 7 collection sites, in a beagle formated file (the same one we used for our PCA plot in week 6). 
+
+The lecture for this week can be found [here] and describes the basics of a structure plot.
+
+## Download the data
+
+```html
+
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week9.tar.gz
+
+tar -xzvf week9.tar.gz
+
+```
+
+
+You will also need to tar the file within the Week9 folder
+
+```html
+
+cd MarineGenomicsData/Week9
+
+tar -xzvf week9.tar.gz
+```
+
+
+## Using NGSadmix
+
+NGSadmix is located within the program ANGSD. It's pretty simple to run and will generate an output file that we can load into R to generate the stucture plot. NGSadmix uses a maximum-likelihood framework to analyse genotype likelihoods, other methods of analyzing population structure including the program STRUCTURE are Bayesian methods and are not modified to be run with genotype likelihoods (but are otherwise widely used and very suitable methods).
+
+Let's start by running NGSadmix on our beagle file to generate the file for R.
+
+The parameters we need to specify to run NGSadmix are the number of clusters (-K), the minimun minor allele frequency (-minMaf), and the number of threads (-P), and an output file name (-o). You can find the full description of each of these parameters on the NGSadmix [site](http://www.popgen.dk/software/index.php/NgsAdmix)
+
+The most important thing for us to modify is the number of clusters (-K). This is the paramter we actually want to estimate. 
+
+```html
+
+../../angsd/misc/NGSadmix -likes genolike_beagle.beagle.gz -K 3 -minMaf 0.05 -seed 1 -o stru_k3 -P 10
+
+
+```
+
+The first part of this code directs from our MarineGenomicsData/Week9 direcotry to the location of the NGSadmix executable located in the `misc` folder in the angsd program.
+
+We then specify the genotype likelihood file in beagle format with the `-like` parameter. The remaining parameters are as explained above.
+
+This will output three files which all start with our `stru_k5` file name. We have a `.log` file that tells us the loglikihood values and what parameters were run, a `.fopt` file contains the estimated allele frequencies, and a `.qopt` file that contains the individuals ancestry proportion (or admixture).
+
+We'll use the `.qopt` file to make our plot in R.
+
+## ploting stucture in R
+
+Open a new Rscript in RStudio.
+
+```{r echo=T}
+
+#read in the data 
+q<-read.table("MarineGenomicsData/Week9/stru_k3.qopt")
+
+#read in the population information file located in the bam.filelist
+pop<-read.table("MarineGenomicsData/Week9/bam.filelist")
+
+#order it by population
+ord<-order(pop$V2)
+
+
+barplot(t(q)[,ord],
+        col=1:3,
+        names=pop$V2[ord],
+        las=2,
+        space=0,
+        border=NA,
+        xlab="Individuals",
+        ylab="Admixture proportions for K=3")
+
+```
+
+```{r echo=T}
+
+#read in the data 
+q<-read.table("MarineGenomicsData/Week9/stru_k7.qopt")
+
+#read in the population information file located in the bam.filelist
+pop<-read.table("MarineGenomicsData/Week9/bam.filelist")
+
+#order it by population
+ord<-order(pop$V2)
+
+
+barplot(t(q)[,ord],
+        col=1:7,
+        names=pop$V2[ord],
+        las=2,
+        space=0,
+        border=NA,
+        xlab="Individuals",
+        ylab="Admixture proportions for K=7")
+
+```
+So now we have many more groupings, but they don't really fall straight across population lines do they?
+
+This shows that we can generate two fairly different looking plots when we change the value of K. How do we tell which one is the "True" value of K? One way is to look at the log-likelihood values from each NGSadmix run. 
+
+## How do we know which K to pick?
+In order to get an accurate estimate of the "best" K for our data we need to run NGSadmix on our data for several K values. These values are included in the .tar folder labeled `structure_outs`. In this example ran NGSadmix for K values 1:7.  
+
+We need to read each of these K files into R and pull out the log-likehood values. We'll then do a test via the Cluster Markov Packager Across K from Evanno which can be seen [here](http://clumpak.tau.ac.il/index.html)
+
+```{r echo=T}
+
+#read in the data
+
+data<-list.files("structure_outs/", pattern = ".log", full.names = T)
+
+#look at data to make sure it only has the log files
+
+data
+
+#use lapply to read in all our log files at once
+bigData<-lapply(1:21, FUN = function(i) readLines(data[i]))
+
+
+# find the line that starts with "best like=" or just "b"
+library(stringr)
+
+
+#this will pull out the line that starts with "b" from each file and return it as a list
+foundset<-sapply(1:21, FUN= function(x) bigData[[x]][which(str_sub(bigData[[x]], 1, 1) == 'b')])
+
+foundset
+
+#we're getting there!
+
+#now we need to pull out the first number in the string, we'll do this with the function sub
+
+as.numeric( sub("\\D*(\\d+).*", "\\1", foundset) )
+
+#now lets store it in a dataframe
+#make a dataframe with an index 1:7, this corresponds to our K values
+logs<-data.frame(K = rep(1:7, each=3))
+
+#add to it our likelihood values
+
+logs$like<-as.vector(as.numeric( sub("\\D*(\\d+).*", "\\1", foundset) ))
+
+#and now we can calculate our delta K and probability
+
+tapply(logs$like, logs$K, FUN= function(x) mean(abs(x))/sd(abs(x)))
+
+```
+We then use these values to select our K, which will be the one that has the highest value, so in this case 6. Note these values are rather high because our variance is so low. We would normally want to re-run the NGSadmix analyses more than 3 times to generate these values, but this illustrates the process.
+
+## Exercises
+
+1. Remake the structure plot using K=6 `.qopt`. You'll find this file in the `structure_outs` file.
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
+
+coming soon!
+
+</p>
+</details>
+
+2. Make a multipanel plot showing K=2, K=4, and K=6. You can set the parameters of the plot screen to allow three rows and one column using par(mfrow=c(3,1)) 
+
+<details><summary><span style="color: DarkCyan;">Solution</span></summary>
+<p>
+
+coming soon!
+
+</p>
+</details>
