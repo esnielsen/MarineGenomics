@@ -1,9 +1,8 @@
 ---
 title: "Marine Genomics Week 1"
 author: "Data Carpentry, edited by Serena Caplins"
-date: "March 30th 2021"
-output:
-  html_document: default
+date: "March 30th 2021
+output: html_document
  \usepackage{wrapfig}
  \usepackage{float}
  \floatplacement{figure}{H}

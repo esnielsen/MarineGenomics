@@ -2,8 +2,7 @@
 title: "Week 6"
 author: "Serena Caplins"
 date: "5/3/2021"
-output:
-html_document: default
+output: html_document
  \usepackage{wrapfig}
  \usepackage{float}
  \floatplacement{figure}{H}

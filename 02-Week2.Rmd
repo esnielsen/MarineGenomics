@@ -2,8 +2,7 @@
 title: "Marine Genomics Week 2"
 author: 'The Carpentries, edited by Vanessa Guerra and Serena Caplins '
 date: "4/6/2021"
-output:
-  html_document: default
+output: html_document
  \usepackage{wrapfig}
  \usepackage{float}
  \floatplacement{figure}{H}

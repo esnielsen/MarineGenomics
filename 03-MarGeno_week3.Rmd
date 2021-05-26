@@ -2,8 +2,7 @@
 title: 'Marine Genomics: Mapping and Calling Variants'
 author: "Serena Caplins"
 date: "4/13/2021"
-output:
-  html_document: default
+output: html_document
  \usepackage{wrapfig}
  \usepackage{float}
  \floatplacement{figure}{H}
