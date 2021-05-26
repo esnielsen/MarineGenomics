@@ -4,7 +4,9 @@ author: "Data Carpentry, edited by Serena Caplins"
 date: "March 30th 2021"
 output:
   html_document: default
-  pdf_document: default
+ \usepackage{wrapfig}
+ \usepackage{float}
+ \floatplacement{figure}{H}
 ---
 
 ```{r setup, include=FALSE}

@@ -3,6 +3,9 @@ title: "Week9_structure"
 author: "Serena Caplins"
 date: "5/21/2021"
 output: html_document
+ \usepackage{wrapfig}
+ \usepackage{float}
+ \floatplacement{figure}{H}
 ---
 
 ```{r setup, include=FALSE}

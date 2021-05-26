@@ -4,7 +4,9 @@ author: "Rachael Bay"
 date: "5/5/2021"
 output:
 html_document: default
-pdf_document: default
+ \usepackage{wrapfig}
+ \usepackage{float}
+ \floatplacement{figure}{H}
 ---
 
 ```{r setup, include=FALSE}
@@ -157,13 +159,13 @@ plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
 
 <details><summary><span style="color: DarkCyan;">Solution</span></summary>
 <p>
-</details>
 
 ```{r, echo=T}
 x_cw <- pcadapt(genos,K=2,method ="componentwise")
 plot(x_cw,option="manhattan",K=2)
 ```
 </p>
+</details>
 
 ## Using F<sub>st</sub> to find outliers
 

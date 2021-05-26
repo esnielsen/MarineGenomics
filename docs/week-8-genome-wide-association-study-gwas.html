@@ -510,38 +510,40 @@ look at path echo $PATH</p>
 <span style="color: orange;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb33-1"><a href="week-8-genome-wide-association-study-gwas.html#cb33-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-2"><a href="week-8-genome-wide-association-study-gwas.html#cb33-2" aria-hidden="true" tabindex="-1"></a>#make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.</span>
-<span id="cb33-3"><a href="week-8-genome-wide-association-study-gwas.html#cb33-3" aria-hidden="true" tabindex="-1"></a>pheno_chr6<span class="er">&lt;</span>-c(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0)</span>
-<span id="cb33-4"><a href="week-8-genome-wide-association-study-gwas.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb33-5"><a href="week-8-genome-wide-association-study-gwas.html#cb33-5" aria-hidden="true" tabindex="-1"></a>write.table(pheno_chr6, &quot;phenobin_ch6&quot; , rownames=F)</span>
-<span id="cb33-6"><a href="week-8-genome-wide-association-study-gwas.html#cb33-6" aria-hidden="true" tabindex="-1"></a>                 </span>
-<span id="cb33-7"><a href="week-8-genome-wide-association-study-gwas.html#cb33-7" aria-hidden="true" tabindex="-1"></a># then in the terminal run our command in angsd again using the chr6 BEAGLE file and the phenotype file we just made</span>
-<span id="cb33-8"><a href="week-8-genome-wide-association-study-gwas.html#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-9"><a href="week-8-genome-wide-association-study-gwas.html#cb33-9" aria-hidden="true" tabindex="-1"></a># $HOME/angsd/angsd -doMaf 4 -beagle salmon_chr6_19ind.BEAGLE.PL.gz -yBin phenobin_ch6 -doAsso 2 -fai Salmon.fai -out chr6_out                 </span>
-<span id="cb33-10"><a href="week-8-genome-wide-association-study-gwas.html#cb33-10" aria-hidden="true" tabindex="-1"></a>                 </span>
-<span id="cb33-11"><a href="week-8-genome-wide-association-study-gwas.html#cb33-11" aria-hidden="true" tabindex="-1"></a># and then we can remake our manhattan plot by copying and pasting the code above</span>
-<span id="cb33-12"><a href="week-8-genome-wide-association-study-gwas.html#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-13"><a href="week-8-genome-wide-association-study-gwas.html#cb33-13" aria-hidden="true" tabindex="-1"></a>lrt<span class="er">&lt;</span>-read.table(gzfile(&quot;chr6_out.lrt0.gz&quot;), header=T, sep=&quot;\t&quot;)</span>
+<div class="sourceCode" id="cb33"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb33-1"><a href="week-8-genome-wide-association-study-gwas.html#cb33-1" aria-hidden="true" tabindex="-1"></a>#make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.</span>
+<span id="cb33-2"><a href="week-8-genome-wide-association-study-gwas.html#cb33-2" aria-hidden="true" tabindex="-1"></a>pheno_chr6<span class="er">&lt;</span>-c(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0)</span>
+<span id="cb33-3"><a href="week-8-genome-wide-association-study-gwas.html#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="week-8-genome-wide-association-study-gwas.html#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="week-8-genome-wide-association-study-gwas.html#cb33-5" aria-hidden="true" tabindex="-1"></a>#write.table(pheno_chr6, &quot;phenobin_ch6&quot; , rownames=F)</span>
+<span id="cb33-6"><a href="week-8-genome-wide-association-study-gwas.html#cb33-6" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb33-7"><a href="week-8-genome-wide-association-study-gwas.html#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="week-8-genome-wide-association-study-gwas.html#cb33-8" aria-hidden="true" tabindex="-1"></a>then in the terminal run our command in angsd again using the chr6 BEAGLE file and the phenotype file we just made</span>
+<span id="cb33-9"><a href="week-8-genome-wide-association-study-gwas.html#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="week-8-genome-wide-association-study-gwas.html#cb33-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-11"><a href="week-8-genome-wide-association-study-gwas.html#cb33-11" aria-hidden="true" tabindex="-1"></a># $HOME/angsd/angsd -doMaf 4 -beagle salmon_chr6_19ind.BEAGLE.PL.gz -yBin phenobin_ch6 -doAsso 2 -fai Salmon.fai -out chr6_out                 </span>
+<span id="cb33-12"><a href="week-8-genome-wide-association-study-gwas.html#cb33-12" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb33-13"><a href="week-8-genome-wide-association-study-gwas.html#cb33-13" aria-hidden="true" tabindex="-1"></a>and then we can remake our manhattan plot by copying and pasting the code above</span>
 <span id="cb33-14"><a href="week-8-genome-wide-association-study-gwas.html#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-15"><a href="week-8-genome-wide-association-study-gwas.html#cb33-15" aria-hidden="true" tabindex="-1"></a>#look at it</span>
-<span id="cb33-16"><a href="week-8-genome-wide-association-study-gwas.html#cb33-16" aria-hidden="true" tabindex="-1"></a>str(lrt)</span>
-<span id="cb33-17"><a href="week-8-genome-wide-association-study-gwas.html#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-18"><a href="week-8-genome-wide-association-study-gwas.html#cb33-18" aria-hidden="true" tabindex="-1"></a>#remove the values that are not -999 and that are negative</span>
+<span id="cb33-15"><a href="week-8-genome-wide-association-study-gwas.html#cb33-15" aria-hidden="true" tabindex="-1"></a>lrt<span class="er">&lt;</span>-read.table(gzfile(&quot;chr6_out.lrt0.gz&quot;), header=T, sep=&quot;\t&quot;)</span>
+<span id="cb33-16"><a href="week-8-genome-wide-association-study-gwas.html#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-17"><a href="week-8-genome-wide-association-study-gwas.html#cb33-17" aria-hidden="true" tabindex="-1"></a>#look at it</span>
+<span id="cb33-18"><a href="week-8-genome-wide-association-study-gwas.html#cb33-18" aria-hidden="true" tabindex="-1"></a>str(lrt)</span>
 <span id="cb33-19"><a href="week-8-genome-wide-association-study-gwas.html#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-20"><a href="week-8-genome-wide-association-study-gwas.html#cb33-20" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="er">&lt;</span>-lrt[-c(which(lrt$LRT == -999),which(lrt$LRT <span class="er">&lt;</span>= 0)),]                 </span>
-<span id="cb33-21"><a href="week-8-genome-wide-association-study-gwas.html#cb33-21" aria-hidden="true" tabindex="-1"></a>lrt_filt$SNP<span class="er">&lt;</span>-paste(&quot;r&quot;,1:length(lrt_filt$Chromosome), sep=&quot;&quot;)</span>
-<span id="cb33-22"><a href="week-8-genome-wide-association-study-gwas.html#cb33-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-23"><a href="week-8-genome-wide-association-study-gwas.html#cb33-23" aria-hidden="true" tabindex="-1"></a>#we also need to make sure we don&#39;t have any tricky values like those below</span>
-<span id="cb33-24"><a href="week-8-genome-wide-association-study-gwas.html#cb33-24" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="er">&lt;</span>-lrt_filt[-c(which(lrt_filt$pvalue == &quot;NaN&quot; ),</span>
-<span id="cb33-25"><a href="week-8-genome-wide-association-study-gwas.html#cb33-25" aria-hidden="true" tabindex="-1"></a>                      which(lrt_filt$pvalue == &quot;Inf&quot;),</span>
-<span id="cb33-26"><a href="week-8-genome-wide-association-study-gwas.html#cb33-26" aria-hidden="true" tabindex="-1"></a>                      which(lrt_filt$LRT == &quot;Inf&quot;)),]</span>
-<span id="cb33-27"><a href="week-8-genome-wide-association-study-gwas.html#cb33-27" aria-hidden="true" tabindex="-1"></a>                      </span>
-<span id="cb33-28"><a href="week-8-genome-wide-association-study-gwas.html#cb33-28" aria-hidden="true" tabindex="-1"></a>#get pvalues</span>
-<span id="cb33-29"><a href="week-8-genome-wide-association-study-gwas.html#cb33-29" aria-hidden="true" tabindex="-1"></a>lrt_filt$pvalue<span class="er">&lt;</span>-dchisq(lrt_filt$LRT, df=1)</span>
-<span id="cb33-30"><a href="week-8-genome-wide-association-study-gwas.html#cb33-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-31"><a href="week-8-genome-wide-association-study-gwas.html#cb33-31" aria-hidden="true" tabindex="-1"></a>#make our plot</span>
-<span id="cb33-32"><a href="week-8-genome-wide-association-study-gwas.html#cb33-32" aria-hidden="true" tabindex="-1"></a>manhattan(lrt_filt, chr=&quot;Chromosome&quot;, bp=&quot;Position&quot;, p=&quot;pvalue&quot;)</span></code></pre></div>
+<span id="cb33-20"><a href="week-8-genome-wide-association-study-gwas.html#cb33-20" aria-hidden="true" tabindex="-1"></a>#remove the values that are not -999 and that are negative</span>
+<span id="cb33-21"><a href="week-8-genome-wide-association-study-gwas.html#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-22"><a href="week-8-genome-wide-association-study-gwas.html#cb33-22" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="er">&lt;</span>-lrt[-c(which(lrt$LRT == -999),which(lrt$LRT <span class="er">&lt;</span>= 0)),]                 </span>
+<span id="cb33-23"><a href="week-8-genome-wide-association-study-gwas.html#cb33-23" aria-hidden="true" tabindex="-1"></a>lrt_filt$SNP<span class="er">&lt;</span>-paste(&quot;r&quot;,1:length(lrt_filt$Chromosome), sep=&quot;&quot;)</span>
+<span id="cb33-24"><a href="week-8-genome-wide-association-study-gwas.html#cb33-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-25"><a href="week-8-genome-wide-association-study-gwas.html#cb33-25" aria-hidden="true" tabindex="-1"></a>#we also need to make sure we don&#39;t have any tricky values like those below</span>
+<span id="cb33-26"><a href="week-8-genome-wide-association-study-gwas.html#cb33-26" aria-hidden="true" tabindex="-1"></a>lrt_filt<span class="er">&lt;</span>-lrt_filt[-c(which(lrt_filt$pvalue == &quot;NaN&quot; ),</span>
+<span id="cb33-27"><a href="week-8-genome-wide-association-study-gwas.html#cb33-27" aria-hidden="true" tabindex="-1"></a>                      which(lrt_filt$pvalue == &quot;Inf&quot;),</span>
+<span id="cb33-28"><a href="week-8-genome-wide-association-study-gwas.html#cb33-28" aria-hidden="true" tabindex="-1"></a>                      which(lrt_filt$LRT == &quot;Inf&quot;)),]</span>
+<span id="cb33-29"><a href="week-8-genome-wide-association-study-gwas.html#cb33-29" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb33-30"><a href="week-8-genome-wide-association-study-gwas.html#cb33-30" aria-hidden="true" tabindex="-1"></a>#get pvalues</span>
+<span id="cb33-31"><a href="week-8-genome-wide-association-study-gwas.html#cb33-31" aria-hidden="true" tabindex="-1"></a>lrt_filt$pvalue<span class="er">&lt;</span>-dchisq(lrt_filt$LRT, df=1)</span>
+<span id="cb33-32"><a href="week-8-genome-wide-association-study-gwas.html#cb33-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-33"><a href="week-8-genome-wide-association-study-gwas.html#cb33-33" aria-hidden="true" tabindex="-1"></a>#make our plot</span>
+<span id="cb33-34"><a href="week-8-genome-wide-association-study-gwas.html#cb33-34" aria-hidden="true" tabindex="-1"></a>manhattan(lrt_filt, chr=&quot;Chromosome&quot;, bp=&quot;Position&quot;, p=&quot;pvalue&quot;)</span></code></pre></div>
 </p>
 </details>
 </div>
