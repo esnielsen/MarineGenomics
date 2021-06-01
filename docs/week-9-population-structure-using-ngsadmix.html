@@ -347,37 +347,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-5"><a href="week-9-population-structure-using-ngsadmix.html#cb4-5" aria-hidden="true" tabindex="-1"></a>pop<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;bam.filelist&quot;</span>)</span>
 <span id="cb4-6"><a href="week-9-population-structure-using-ngsadmix.html#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="week-9-population-structure-using-ngsadmix.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#order it by population</span></span>
-<span id="cb4-8"><a href="week-9-population-structure-using-ngsadmix.html#cb4-8" aria-hidden="true" tabindex="-1"></a>ord<span class="ot">&lt;-</span><span class="fu">order</span>(pop<span class="sc">$</span>V2)</span>
-<span id="cb4-9"><a href="week-9-population-structure-using-ngsadmix.html#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="week-9-population-structure-using-ngsadmix.html#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="week-9-population-structure-using-ngsadmix.html#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q)[,ord],</span>
-<span id="cb4-12"><a href="week-9-population-structure-using-ngsadmix.html#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
-<span id="cb4-13"><a href="week-9-population-structure-using-ngsadmix.html#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V2[ord],</span>
-<span id="cb4-14"><a href="week-9-population-structure-using-ngsadmix.html#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
-<span id="cb4-15"><a href="week-9-population-structure-using-ngsadmix.html#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
-<span id="cb4-16"><a href="week-9-population-structure-using-ngsadmix.html#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
-<span id="cb4-17"><a href="week-9-population-structure-using-ngsadmix.html#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
-<span id="cb4-18"><a href="week-9-population-structure-using-ngsadmix.html#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture proportions for K=3&quot;</span>)</span></code></pre></div>
-<p><img src="Test_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="week-9-population-structure-using-ngsadmix.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the data </span></span>
-<span id="cb5-2"><a href="week-9-population-structure-using-ngsadmix.html#cb5-2" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k7.qopt&quot;</span>)</span>
-<span id="cb5-3"><a href="week-9-population-structure-using-ngsadmix.html#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="week-9-population-structure-using-ngsadmix.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the population information file located in the bam.filelist</span></span>
-<span id="cb5-5"><a href="week-9-population-structure-using-ngsadmix.html#cb5-5" aria-hidden="true" tabindex="-1"></a>pop<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;bam.filelist&quot;</span>)</span>
-<span id="cb5-6"><a href="week-9-population-structure-using-ngsadmix.html#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="week-9-population-structure-using-ngsadmix.html#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#order it by population</span></span>
-<span id="cb5-8"><a href="week-9-population-structure-using-ngsadmix.html#cb5-8" aria-hidden="true" tabindex="-1"></a>ord<span class="ot">&lt;-</span><span class="fu">order</span>(pop<span class="sc">$</span>V2)</span>
-<span id="cb5-9"><a href="week-9-population-structure-using-ngsadmix.html#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="week-9-population-structure-using-ngsadmix.html#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="week-9-population-structure-using-ngsadmix.html#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q)[,ord],</span>
-<span id="cb5-12"><a href="week-9-population-structure-using-ngsadmix.html#cb5-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,</span>
-<span id="cb5-13"><a href="week-9-population-structure-using-ngsadmix.html#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V2[ord],</span>
-<span id="cb5-14"><a href="week-9-population-structure-using-ngsadmix.html#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
-<span id="cb5-15"><a href="week-9-population-structure-using-ngsadmix.html#cb5-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
-<span id="cb5-16"><a href="week-9-population-structure-using-ngsadmix.html#cb5-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
-<span id="cb5-17"><a href="week-9-population-structure-using-ngsadmix.html#cb5-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
-<span id="cb5-18"><a href="week-9-population-structure-using-ngsadmix.html#cb5-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture proportions for K=7&quot;</span>)</span></code></pre></div>
-<p><img src="Test_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<span id="cb4-8"><a href="week-9-population-structure-using-ngsadmix.html#cb4-8" aria-hidden="true" tabindex="-1"></a>ord<span class="ot">&lt;-</span><span class="fu">order</span>(pop<span class="sc">$</span>V2)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="week-9-population-structure-using-ngsadmix.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q)[,ord],</span>
+<span id="cb5-2"><a href="week-9-population-structure-using-ngsadmix.html#cb5-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>,</span>
+<span id="cb5-3"><a href="week-9-population-structure-using-ngsadmix.html#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V2[ord],</span>
+<span id="cb5-4"><a href="week-9-population-structure-using-ngsadmix.html#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
+<span id="cb5-5"><a href="week-9-population-structure-using-ngsadmix.html#cb5-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
+<span id="cb5-6"><a href="week-9-population-structure-using-ngsadmix.html#cb5-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
+<span id="cb5-7"><a href="week-9-population-structure-using-ngsadmix.html#cb5-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
+<span id="cb5-8"><a href="week-9-population-structure-using-ngsadmix.html#cb5-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture proportions for K=3&quot;</span>)</span></code></pre></div>
+<p><img src="Test_files/figure-html/9-1-1.png" width="672" /></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-9-population-structure-using-ngsadmix.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the data </span></span>
+<span id="cb6-2"><a href="week-9-population-structure-using-ngsadmix.html#cb6-2" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k7.qopt&quot;</span>)</span>
+<span id="cb6-3"><a href="week-9-population-structure-using-ngsadmix.html#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="week-9-population-structure-using-ngsadmix.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the population information file located in the bam.filelist</span></span>
+<span id="cb6-5"><a href="week-9-population-structure-using-ngsadmix.html#cb6-5" aria-hidden="true" tabindex="-1"></a>pop<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;bam.filelist&quot;</span>)</span>
+<span id="cb6-6"><a href="week-9-population-structure-using-ngsadmix.html#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="week-9-population-structure-using-ngsadmix.html#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">#order it by population</span></span>
+<span id="cb6-8"><a href="week-9-population-structure-using-ngsadmix.html#cb6-8" aria-hidden="true" tabindex="-1"></a>ord<span class="ot">&lt;-</span><span class="fu">order</span>(pop<span class="sc">$</span>V2)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="week-9-population-structure-using-ngsadmix.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q)[,ord],</span>
+<span id="cb7-2"><a href="week-9-population-structure-using-ngsadmix.html#cb7-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,</span>
+<span id="cb7-3"><a href="week-9-population-structure-using-ngsadmix.html#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V2[ord],</span>
+<span id="cb7-4"><a href="week-9-population-structure-using-ngsadmix.html#cb7-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
+<span id="cb7-5"><a href="week-9-population-structure-using-ngsadmix.html#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
+<span id="cb7-6"><a href="week-9-population-structure-using-ngsadmix.html#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
+<span id="cb7-7"><a href="week-9-population-structure-using-ngsadmix.html#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
+<span id="cb7-8"><a href="week-9-population-structure-using-ngsadmix.html#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture proportions for K=7&quot;</span>)</span></code></pre></div>
+<p><img src="Test_files/figure-html/9-2-1.png" width="672" /></p>
 <p>So now we have many more groupings, but they don’t really fall straight across population lines do they?</p>
 <p>This shows that we can generate two fairly different looking plots when we change the value of K. How do we tell which one is the “True” value of K? One way is to look at the log-likelihood values from each NGSadmix run.</p>
 </div>
@@ -385,13 +381,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">10.4</span> How do we know which K to pick?</h2>
 <p>In order to get an accurate estimate of the “best” K for our data we need to run NGSadmix on our data for several K values. These values are included in the .tar folder labeled <code>structure_outs</code>. In this example ran NGSadmix for K values 1:7.</p>
 <p>We need to read each of these K files into R and pull out the log-likehood values. We’ll then do a test via the Cluster Markov Packager Across K from Evanno which can be seen <a href="http://clumpak.tau.ac.il/index.html">here</a></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="week-9-population-structure-using-ngsadmix.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the data</span></span>
-<span id="cb6-2"><a href="week-9-population-structure-using-ngsadmix.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="week-9-population-structure-using-ngsadmix.html#cb6-3" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">list.files</span>(<span class="st">&quot;structure_outs/&quot;</span>, <span class="at">pattern =</span> <span class="st">&quot;.log&quot;</span>, <span class="at">full.names =</span> T)</span>
-<span id="cb6-4"><a href="week-9-population-structure-using-ngsadmix.html#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="week-9-population-structure-using-ngsadmix.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#look at data to make sure it only has the log files</span></span>
-<span id="cb6-6"><a href="week-9-population-structure-using-ngsadmix.html#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="week-9-population-structure-using-ngsadmix.html#cb6-7" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-9-population-structure-using-ngsadmix.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the data</span></span>
+<span id="cb8-2"><a href="week-9-population-structure-using-ngsadmix.html#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="week-9-population-structure-using-ngsadmix.html#cb8-3" aria-hidden="true" tabindex="-1"></a>data<span class="ot">&lt;-</span><span class="fu">list.files</span>(<span class="st">&quot;structure_outs/&quot;</span>, <span class="at">pattern =</span> <span class="st">&quot;.log&quot;</span>, <span class="at">full.names =</span> T)</span>
+<span id="cb8-4"><a href="week-9-population-structure-using-ngsadmix.html#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="week-9-population-structure-using-ngsadmix.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#look at data to make sure it only has the log files</span></span>
+<span id="cb8-6"><a href="week-9-population-structure-using-ngsadmix.html#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="week-9-population-structure-using-ngsadmix.html#cb8-7" aria-hidden="true" tabindex="-1"></a>data</span></code></pre></div>
 <pre><code>##  [1] &quot;structure_outs//stru_k1.2.log&quot; &quot;structure_outs//stru_k1.3.log&quot;
 ##  [3] &quot;structure_outs//stru_k1.log&quot;   &quot;structure_outs//stru_k2.2.log&quot;
 ##  [5] &quot;structure_outs//stru_k2.3.log&quot; &quot;structure_outs//stru_k2.log&quot;  
@@ -403,18 +399,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [17] &quot;structure_outs//stru_k6.3.log&quot; &quot;structure_outs//stru_k6.log&quot;  
 ## [19] &quot;structure_outs//stru_k7.2.log&quot; &quot;structure_outs//stru_k7.3.log&quot;
 ## [21] &quot;structure_outs//stru_k7.log&quot;</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="week-9-population-structure-using-ngsadmix.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use lapply to read in all our log files at once</span></span>
-<span id="cb8-2"><a href="week-9-population-structure-using-ngsadmix.html#cb8-2" aria-hidden="true" tabindex="-1"></a>bigData<span class="ot">&lt;-</span><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">readLines</span>(data[i]))</span>
-<span id="cb8-3"><a href="week-9-population-structure-using-ngsadmix.html#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="week-9-population-structure-using-ngsadmix.html#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="week-9-population-structure-using-ngsadmix.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># find the line that starts with &quot;best like=&quot; or just &quot;b&quot;</span></span>
-<span id="cb8-6"><a href="week-9-population-structure-using-ngsadmix.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
-<span id="cb8-7"><a href="week-9-population-structure-using-ngsadmix.html#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="week-9-population-structure-using-ngsadmix.html#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-9"><a href="week-9-population-structure-using-ngsadmix.html#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co">#this will pull out the line that starts with &quot;b&quot; from each file and return it as a list</span></span>
-<span id="cb8-10"><a href="week-9-population-structure-using-ngsadmix.html#cb8-10" aria-hidden="true" tabindex="-1"></a>foundset<span class="ot">&lt;-</span><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>, <span class="at">FUN=</span> <span class="cf">function</span>(x) bigData[[x]][<span class="fu">which</span>(<span class="fu">str_sub</span>(bigData[[x]], <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">&#39;b&#39;</span>)])</span>
-<span id="cb8-11"><a href="week-9-population-structure-using-ngsadmix.html#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-12"><a href="week-9-population-structure-using-ngsadmix.html#cb8-12" aria-hidden="true" tabindex="-1"></a>foundset</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-9-population-structure-using-ngsadmix.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#use lapply to read in all our log files at once</span></span>
+<span id="cb10-2"><a href="week-9-population-structure-using-ngsadmix.html#cb10-2" aria-hidden="true" tabindex="-1"></a>bigData<span class="ot">&lt;-</span><span class="fu">lapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>, <span class="at">FUN =</span> <span class="cf">function</span>(i) <span class="fu">readLines</span>(data[i]))</span>
+<span id="cb10-3"><a href="week-9-population-structure-using-ngsadmix.html#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="week-9-population-structure-using-ngsadmix.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="week-9-population-structure-using-ngsadmix.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># find the line that starts with &quot;best like=&quot; or just &quot;b&quot;</span></span>
+<span id="cb10-6"><a href="week-9-population-structure-using-ngsadmix.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb10-7"><a href="week-9-population-structure-using-ngsadmix.html#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="week-9-population-structure-using-ngsadmix.html#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="week-9-population-structure-using-ngsadmix.html#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co">#this will pull out the line that starts with &quot;b&quot; from each file and return it as a list</span></span>
+<span id="cb10-10"><a href="week-9-population-structure-using-ngsadmix.html#cb10-10" aria-hidden="true" tabindex="-1"></a>foundset<span class="ot">&lt;-</span><span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>, <span class="at">FUN=</span> <span class="cf">function</span>(x) bigData[[x]][<span class="fu">which</span>(<span class="fu">str_sub</span>(bigData[[x]], <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">==</span> <span class="st">&#39;b&#39;</span>)])</span>
+<span id="cb10-11"><a href="week-9-population-structure-using-ngsadmix.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="week-9-population-structure-using-ngsadmix.html#cb10-12" aria-hidden="true" tabindex="-1"></a>foundset</span></code></pre></div>
 <pre><code>##  [1] &quot;best like=-3535959.455618 after 12 iterations&quot; 
 ##  [2] &quot;best like=-3535959.455618 after 12 iterations&quot; 
 ##  [3] &quot;best like=-3535959.455618 after 12 iterations&quot; 
@@ -436,25 +432,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [19] &quot;best like=-2690599.496764 after 250 iterations&quot;
 ## [20] &quot;best like=-2671043.271473 after 300 iterations&quot;
 ## [21] &quot;best like=-2694025.576965 after 233 iterations&quot;</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="week-9-population-structure-using-ngsadmix.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we&#39;re getting there!</span></span>
-<span id="cb10-2"><a href="week-9-population-structure-using-ngsadmix.html#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="week-9-population-structure-using-ngsadmix.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#now we need to pull out the first number in the string, we&#39;ll do this with the function sub</span></span>
-<span id="cb10-4"><a href="week-9-population-structure-using-ngsadmix.html#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="week-9-population-structure-using-ngsadmix.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>( <span class="fu">sub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">D*(</span><span class="sc">\\</span><span class="st">d+).*&quot;</span>, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">1&quot;</span>, foundset) )</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-9-population-structure-using-ngsadmix.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we&#39;re getting there!</span></span>
+<span id="cb12-2"><a href="week-9-population-structure-using-ngsadmix.html#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="week-9-population-structure-using-ngsadmix.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">#now we need to pull out the first number in the string, we&#39;ll do this with the function sub</span></span>
+<span id="cb12-4"><a href="week-9-population-structure-using-ngsadmix.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="week-9-population-structure-using-ngsadmix.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>( <span class="fu">sub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">D*(</span><span class="sc">\\</span><span class="st">d+).*&quot;</span>, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">1&quot;</span>, foundset) )</span></code></pre></div>
 <pre><code>##  [1] 3535959 3535959 3535959 3308469 3312314 3318928 3136880 3144328 3141386
 ## [10] 3006651 3000275 3000534 2892659 2881306 2874661 2771520 2776458 2774537
 ## [19] 2690599 2671043 2694025</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="week-9-population-structure-using-ngsadmix.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#now lets store it in a dataframe</span></span>
-<span id="cb12-2"><a href="week-9-population-structure-using-ngsadmix.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#make a dataframe with an index 1:7, this corresponds to our K values</span></span>
-<span id="cb12-3"><a href="week-9-population-structure-using-ngsadmix.html#cb12-3" aria-hidden="true" tabindex="-1"></a>logs<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">K =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">each=</span><span class="dv">3</span>))</span>
-<span id="cb12-4"><a href="week-9-population-structure-using-ngsadmix.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="week-9-population-structure-using-ngsadmix.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#add to it our likelihood values</span></span>
-<span id="cb12-6"><a href="week-9-population-structure-using-ngsadmix.html#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="week-9-population-structure-using-ngsadmix.html#cb12-7" aria-hidden="true" tabindex="-1"></a>logs<span class="sc">$</span>like<span class="ot">&lt;-</span><span class="fu">as.vector</span>(<span class="fu">as.numeric</span>( <span class="fu">sub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">D*(</span><span class="sc">\\</span><span class="st">d+).*&quot;</span>, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">1&quot;</span>, foundset) ))</span>
-<span id="cb12-8"><a href="week-9-population-structure-using-ngsadmix.html#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="week-9-population-structure-using-ngsadmix.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">#and now we can calculate our delta K and probability</span></span>
-<span id="cb12-10"><a href="week-9-population-structure-using-ngsadmix.html#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="week-9-population-structure-using-ngsadmix.html#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(logs<span class="sc">$</span>like, logs<span class="sc">$</span>K, <span class="at">FUN=</span> <span class="cf">function</span>(x) <span class="fu">mean</span>(<span class="fu">abs</span>(x))<span class="sc">/</span><span class="fu">sd</span>(<span class="fu">abs</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-9-population-structure-using-ngsadmix.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#now lets store it in a dataframe</span></span>
+<span id="cb14-2"><a href="week-9-population-structure-using-ngsadmix.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#make a dataframe with an index 1:7, this corresponds to our K values</span></span>
+<span id="cb14-3"><a href="week-9-population-structure-using-ngsadmix.html#cb14-3" aria-hidden="true" tabindex="-1"></a>logs<span class="ot">&lt;-</span><span class="fu">data.frame</span>(<span class="at">K =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">each=</span><span class="dv">3</span>))</span>
+<span id="cb14-4"><a href="week-9-population-structure-using-ngsadmix.html#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="week-9-population-structure-using-ngsadmix.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">#add to it our likelihood values</span></span>
+<span id="cb14-6"><a href="week-9-population-structure-using-ngsadmix.html#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="week-9-population-structure-using-ngsadmix.html#cb14-7" aria-hidden="true" tabindex="-1"></a>logs<span class="sc">$</span>like<span class="ot">&lt;-</span><span class="fu">as.vector</span>(<span class="fu">as.numeric</span>( <span class="fu">sub</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">D*(</span><span class="sc">\\</span><span class="st">d+).*&quot;</span>, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">1&quot;</span>, foundset) ))</span>
+<span id="cb14-8"><a href="week-9-population-structure-using-ngsadmix.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="week-9-population-structure-using-ngsadmix.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co">#and now we can calculate our delta K and probability</span></span>
+<span id="cb14-10"><a href="week-9-population-structure-using-ngsadmix.html#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="week-9-population-structure-using-ngsadmix.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tapply</span>(logs<span class="sc">$</span>like, logs<span class="sc">$</span>K, <span class="at">FUN=</span> <span class="cf">function</span>(x) <span class="fu">mean</span>(<span class="fu">abs</span>(x))<span class="sc">/</span><span class="fu">sd</span>(<span class="fu">abs</span>(x)))</span></code></pre></div>
 <pre><code>##         1         2         3         4         5         6         7 
 ##       Inf  626.2926  837.2806  832.0035  316.7629 1114.4881  216.5752</code></pre>
 <p>We then use these values to select our K, which will be the one that has the highest value, so in this case 6. Note these values are rather high because our variance is so low. We would normally want to re-run the NGSadmix analyses more than 3 times to generate these values, but this illustrates the process.</p>
@@ -472,24 +468,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: Orchid;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="week-9-population-structure-using-ngsadmix.html#cb14-1" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k6.qopt&quot;</span>)</span>
-<span id="cb14-2"><a href="week-9-population-structure-using-ngsadmix.html#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="week-9-population-structure-using-ngsadmix.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the population information file located in the bam.filelist</span></span>
-<span id="cb14-4"><a href="week-9-population-structure-using-ngsadmix.html#cb14-4" aria-hidden="true" tabindex="-1"></a>pop<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;bam.filelist&quot;</span>)</span>
-<span id="cb14-5"><a href="week-9-population-structure-using-ngsadmix.html#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="week-9-population-structure-using-ngsadmix.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">#order it by population</span></span>
-<span id="cb14-7"><a href="week-9-population-structure-using-ngsadmix.html#cb14-7" aria-hidden="true" tabindex="-1"></a>ord<span class="ot">&lt;-</span><span class="fu">order</span>(pop<span class="sc">$</span>V2)</span>
-<span id="cb14-8"><a href="week-9-population-structure-using-ngsadmix.html#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="week-9-population-structure-using-ngsadmix.html#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-10"><a href="week-9-population-structure-using-ngsadmix.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q)[,ord],</span>
-<span id="cb14-11"><a href="week-9-population-structure-using-ngsadmix.html#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
-<span id="cb14-12"><a href="week-9-population-structure-using-ngsadmix.html#cb14-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V2[ord],</span>
-<span id="cb14-13"><a href="week-9-population-structure-using-ngsadmix.html#cb14-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
-<span id="cb14-14"><a href="week-9-population-structure-using-ngsadmix.html#cb14-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
-<span id="cb14-15"><a href="week-9-population-structure-using-ngsadmix.html#cb14-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
-<span id="cb14-16"><a href="week-9-population-structure-using-ngsadmix.html#cb14-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
-<span id="cb14-17"><a href="week-9-population-structure-using-ngsadmix.html#cb14-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture proportions for K=6&quot;</span>)</span></code></pre></div>
-<img src="Test_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="week-9-population-structure-using-ngsadmix.html#cb16-1" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k6.qopt&quot;</span>)</span>
+<span id="cb16-2"><a href="week-9-population-structure-using-ngsadmix.html#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="week-9-population-structure-using-ngsadmix.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the population information file located in the bam.filelist</span></span>
+<span id="cb16-4"><a href="week-9-population-structure-using-ngsadmix.html#cb16-4" aria-hidden="true" tabindex="-1"></a>pop<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;bam.filelist&quot;</span>)</span>
+<span id="cb16-5"><a href="week-9-population-structure-using-ngsadmix.html#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="week-9-population-structure-using-ngsadmix.html#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">#order it by population</span></span>
+<span id="cb16-7"><a href="week-9-population-structure-using-ngsadmix.html#cb16-7" aria-hidden="true" tabindex="-1"></a>ord<span class="ot">&lt;-</span><span class="fu">order</span>(pop<span class="sc">$</span>V2)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="week-9-population-structure-using-ngsadmix.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q)[,ord],</span>
+<span id="cb17-2"><a href="week-9-population-structure-using-ngsadmix.html#cb17-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb17-3"><a href="week-9-population-structure-using-ngsadmix.html#cb17-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V2[ord],</span>
+<span id="cb17-4"><a href="week-9-population-structure-using-ngsadmix.html#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
+<span id="cb17-5"><a href="week-9-population-structure-using-ngsadmix.html#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
+<span id="cb17-6"><a href="week-9-population-structure-using-ngsadmix.html#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
+<span id="cb17-7"><a href="week-9-population-structure-using-ngsadmix.html#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
+<span id="cb17-8"><a href="week-9-population-structure-using-ngsadmix.html#cb17-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture proportions for K=6&quot;</span>)</span></code></pre></div>
+<img src="Test_files/figure-html/9-3-1.png" width="672" />
 </p>
 </details>
 <blockquote>
@@ -502,49 +496,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: Orchid;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="week-9-population-structure-using-ngsadmix.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in all the data </span></span>
-<span id="cb15-2"><a href="week-9-population-structure-using-ngsadmix.html#cb15-2" aria-hidden="true" tabindex="-1"></a>q2<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k2.qopt&quot;</span>)</span>
-<span id="cb15-3"><a href="week-9-population-structure-using-ngsadmix.html#cb15-3" aria-hidden="true" tabindex="-1"></a>q4<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k4.qopt&quot;</span>)</span>
-<span id="cb15-4"><a href="week-9-population-structure-using-ngsadmix.html#cb15-4" aria-hidden="true" tabindex="-1"></a>q6<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k6.qopt&quot;</span>)</span>
-<span id="cb15-5"><a href="week-9-population-structure-using-ngsadmix.html#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-6"><a href="week-9-population-structure-using-ngsadmix.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the population information file located in the bam.filelist</span></span>
-<span id="cb15-7"><a href="week-9-population-structure-using-ngsadmix.html#cb15-7" aria-hidden="true" tabindex="-1"></a>pop<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;bam.filelist&quot;</span>)</span>
-<span id="cb15-8"><a href="week-9-population-structure-using-ngsadmix.html#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="week-9-population-structure-using-ngsadmix.html#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#order it by population</span></span>
-<span id="cb15-10"><a href="week-9-population-structure-using-ngsadmix.html#cb15-10" aria-hidden="true" tabindex="-1"></a>ord<span class="ot">&lt;-</span><span class="fu">order</span>(pop<span class="sc">$</span>V3)</span>
-<span id="cb15-11"><a href="week-9-population-structure-using-ngsadmix.html#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="week-9-population-structure-using-ngsadmix.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#set the parameters for our screen to show three rows and one column</span></span>
-<span id="cb15-13"><a href="week-9-population-structure-using-ngsadmix.html#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>))</span>
-<span id="cb15-14"><a href="week-9-population-structure-using-ngsadmix.html#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="week-9-population-structure-using-ngsadmix.html#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the plots</span></span>
-<span id="cb15-16"><a href="week-9-population-structure-using-ngsadmix.html#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-17"><a href="week-9-population-structure-using-ngsadmix.html#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q2)[,ord],</span>
-<span id="cb15-18"><a href="week-9-population-structure-using-ngsadmix.html#cb15-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
-<span id="cb15-19"><a href="week-9-population-structure-using-ngsadmix.html#cb15-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V3[ord],</span>
-<span id="cb15-20"><a href="week-9-population-structure-using-ngsadmix.html#cb15-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
-<span id="cb15-21"><a href="week-9-population-structure-using-ngsadmix.html#cb15-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
-<span id="cb15-22"><a href="week-9-population-structure-using-ngsadmix.html#cb15-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
-<span id="cb15-23"><a href="week-9-population-structure-using-ngsadmix.html#cb15-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
-<span id="cb15-24"><a href="week-9-population-structure-using-ngsadmix.html#cb15-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture prop K=2&quot;</span>)</span>
-<span id="cb15-25"><a href="week-9-population-structure-using-ngsadmix.html#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-26"><a href="week-9-population-structure-using-ngsadmix.html#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q4)[,ord],</span>
-<span id="cb15-27"><a href="week-9-population-structure-using-ngsadmix.html#cb15-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
-<span id="cb15-28"><a href="week-9-population-structure-using-ngsadmix.html#cb15-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V3[ord],</span>
-<span id="cb15-29"><a href="week-9-population-structure-using-ngsadmix.html#cb15-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
-<span id="cb15-30"><a href="week-9-population-structure-using-ngsadmix.html#cb15-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
-<span id="cb15-31"><a href="week-9-population-structure-using-ngsadmix.html#cb15-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
-<span id="cb15-32"><a href="week-9-population-structure-using-ngsadmix.html#cb15-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
-<span id="cb15-33"><a href="week-9-population-structure-using-ngsadmix.html#cb15-33" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture prop K=4&quot;</span>)</span>
-<span id="cb15-34"><a href="week-9-population-structure-using-ngsadmix.html#cb15-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-35"><a href="week-9-population-structure-using-ngsadmix.html#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q6)[,ord],</span>
-<span id="cb15-36"><a href="week-9-population-structure-using-ngsadmix.html#cb15-36" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
-<span id="cb15-37"><a href="week-9-population-structure-using-ngsadmix.html#cb15-37" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V3[ord],</span>
-<span id="cb15-38"><a href="week-9-population-structure-using-ngsadmix.html#cb15-38" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
-<span id="cb15-39"><a href="week-9-population-structure-using-ngsadmix.html#cb15-39" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
-<span id="cb15-40"><a href="week-9-population-structure-using-ngsadmix.html#cb15-40" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
-<span id="cb15-41"><a href="week-9-population-structure-using-ngsadmix.html#cb15-41" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
-<span id="cb15-42"><a href="week-9-population-structure-using-ngsadmix.html#cb15-42" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture prop K=6&quot;</span>)</span></code></pre></div>
-<img src="Test_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="week-9-population-structure-using-ngsadmix.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read in all the data </span></span>
+<span id="cb18-2"><a href="week-9-population-structure-using-ngsadmix.html#cb18-2" aria-hidden="true" tabindex="-1"></a>q2<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k2.qopt&quot;</span>)</span>
+<span id="cb18-3"><a href="week-9-population-structure-using-ngsadmix.html#cb18-3" aria-hidden="true" tabindex="-1"></a>q4<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k4.qopt&quot;</span>)</span>
+<span id="cb18-4"><a href="week-9-population-structure-using-ngsadmix.html#cb18-4" aria-hidden="true" tabindex="-1"></a>q6<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;stru_k6.qopt&quot;</span>)</span>
+<span id="cb18-5"><a href="week-9-population-structure-using-ngsadmix.html#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="week-9-population-structure-using-ngsadmix.html#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#read in the population information file located in the bam.filelist</span></span>
+<span id="cb18-7"><a href="week-9-population-structure-using-ngsadmix.html#cb18-7" aria-hidden="true" tabindex="-1"></a>pop<span class="ot">&lt;-</span><span class="fu">read.table</span>(<span class="st">&quot;bam.filelist&quot;</span>)</span>
+<span id="cb18-8"><a href="week-9-population-structure-using-ngsadmix.html#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="week-9-population-structure-using-ngsadmix.html#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co">#order it by population</span></span>
+<span id="cb18-10"><a href="week-9-population-structure-using-ngsadmix.html#cb18-10" aria-hidden="true" tabindex="-1"></a>ord<span class="ot">&lt;-</span><span class="fu">order</span>(pop<span class="sc">$</span>V3)</span>
+<span id="cb18-11"><a href="week-9-population-structure-using-ngsadmix.html#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-12"><a href="week-9-population-structure-using-ngsadmix.html#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co">#set the parameters for our screen to show three rows and one column</span></span>
+<span id="cb18-13"><a href="week-9-population-structure-using-ngsadmix.html#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="week-9-population-structure-using-ngsadmix.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the plots</span></span>
+<span id="cb19-2"><a href="week-9-population-structure-using-ngsadmix.html#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="week-9-population-structure-using-ngsadmix.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q2)[,ord],</span>
+<span id="cb19-4"><a href="week-9-population-structure-using-ngsadmix.html#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
+<span id="cb19-5"><a href="week-9-population-structure-using-ngsadmix.html#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V3[ord],</span>
+<span id="cb19-6"><a href="week-9-population-structure-using-ngsadmix.html#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
+<span id="cb19-7"><a href="week-9-population-structure-using-ngsadmix.html#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
+<span id="cb19-8"><a href="week-9-population-structure-using-ngsadmix.html#cb19-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
+<span id="cb19-9"><a href="week-9-population-structure-using-ngsadmix.html#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
+<span id="cb19-10"><a href="week-9-population-structure-using-ngsadmix.html#cb19-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture prop K=2&quot;</span>)</span></code></pre></div>
+<p><img src="Test_files/figure-html/9-4-1.png" width="672" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="week-9-population-structure-using-ngsadmix.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q4)[,ord],</span>
+<span id="cb20-2"><a href="week-9-population-structure-using-ngsadmix.html#cb20-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,</span>
+<span id="cb20-3"><a href="week-9-population-structure-using-ngsadmix.html#cb20-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V3[ord],</span>
+<span id="cb20-4"><a href="week-9-population-structure-using-ngsadmix.html#cb20-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
+<span id="cb20-5"><a href="week-9-population-structure-using-ngsadmix.html#cb20-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
+<span id="cb20-6"><a href="week-9-population-structure-using-ngsadmix.html#cb20-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
+<span id="cb20-7"><a href="week-9-population-structure-using-ngsadmix.html#cb20-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
+<span id="cb20-8"><a href="week-9-population-structure-using-ngsadmix.html#cb20-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture prop K=4&quot;</span>)</span></code></pre></div>
+<p><img src="Test_files/figure-html/9-4-2.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="week-9-population-structure-using-ngsadmix.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">t</span>(q6)[,ord],</span>
+<span id="cb21-2"><a href="week-9-population-structure-using-ngsadmix.html#cb21-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">col=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>,</span>
+<span id="cb21-3"><a href="week-9-population-structure-using-ngsadmix.html#cb21-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">names=</span>pop<span class="sc">$</span>V3[ord],</span>
+<span id="cb21-4"><a href="week-9-population-structure-using-ngsadmix.html#cb21-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">las=</span><span class="dv">2</span>,</span>
+<span id="cb21-5"><a href="week-9-population-structure-using-ngsadmix.html#cb21-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">space=</span><span class="dv">0</span>,</span>
+<span id="cb21-6"><a href="week-9-population-structure-using-ngsadmix.html#cb21-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">border=</span><span class="cn">NA</span>,</span>
+<span id="cb21-7"><a href="week-9-population-structure-using-ngsadmix.html#cb21-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab=</span><span class="st">&quot;Individuals&quot;</span>,</span>
+<span id="cb21-8"><a href="week-9-population-structure-using-ngsadmix.html#cb21-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab=</span><span class="st">&quot;Admixture prop K=6&quot;</span>)</span></code></pre></div>
+<img src="Test_files/figure-html/9-4-3.png" width="672" />
 </p>
 </details>
 </div>

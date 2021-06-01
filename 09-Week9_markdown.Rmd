@@ -83,7 +83,9 @@ pop<-read.table("bam.filelist")
 
 #order it by population
 ord<-order(pop$V2)
+```
 
+```{r, label='9-1', echo=T}
 
 barplot(t(q)[,ord],
         col=1:3,
@@ -106,7 +108,8 @@ pop<-read.table("bam.filelist")
 
 #order it by population
 ord<-order(pop$V2)
-
+```
+```{r, label='9-2', echo=T}
 
 barplot(t(q)[,ord],
         col=1:7,
@@ -188,7 +191,9 @@ pop<-read.table("bam.filelist")
 
 #order it by population
 ord<-order(pop$V2)
+```
 
+```{r, label='9-3', echo=T}
 
 barplot(t(q)[,ord],
         col=1:6,
@@ -222,7 +227,9 @@ ord<-order(pop$V3)
 
 #set the parameters for our screen to show three rows and one column
 par(mfrow=c(3,1))
+```
 
+```{r, label='9-4', echo=T}
 #plot the plots
 
 barplot(t(q2)[,ord],
