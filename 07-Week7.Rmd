@@ -112,19 +112,19 @@ IMPORTANT NOTE: Here the samples in the VCF are in the same order as the samples
 
 Now that we've read in all the data, the first step for pcadapt is to make a PCA. Last week you used PCAngsd to do this, but there are many other packages that work as well. Here's how we do it in pcadapt:
 
-```{r, warning=F}
+```{r, label='7-1', echo=T, warning=F}
 x <- pcadapt(input=genos,K=5)
 plot(x,option="screeplot")
 ```
 
 We can see from this plot that the vast majority of genetic variation can be explained by the first two principal components axes. Now we can plot the actual PCA. Here I will color by the `Group`.
-```{r, warning=F}
+```{r, label='7-2', echo=T, warning=F}
 plot(x,option="scores",pop=meta$Group)
 ```
 
 You can see that there is separation between the North and South Groups, but it is not perfect. Now we want to see which of the >3000 SNPs is driving the variation we see on the PCA
 
-```{r, echo=T}
+```{r, label='7-3', echo=T}
 plot(x,option="manhattan")
 ```
 
@@ -146,8 +146,10 @@ length(outliers)
 <details><summary><span style="color: DarkCyan;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r, label='7-4', echo=T}
 plot(x$scores[,1]~meta$LAT,pch=19,col="gray")
+```
+```{r, label='7-5', echo=T}
 plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
 ```
 
@@ -159,7 +161,7 @@ plot(x$scores[,2]~meta$LAT,pch=19,col="gray")
 <details><summary><span style="color: DarkCyan;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r, label='7-6', echo=T}
 x_cw <- pcadapt(genos,K=2,method ="componentwise")
 plot(x_cw,option="manhattan",K=2)
 ```
@@ -225,6 +227,8 @@ popNames= names our populations with the "SITE" labels
 ```{r, echo=T}
 fst <- MakeDiploidFSTMat(subgen,locusNames=1:ncol(subgen),popNames=submeta$SITE)
 head(fst)
+```
+```{r, label='7-7', echo=T}
 hist(fst$FST,breaks=50)
 summary(fst$FST) #highest FST is higher than the mean (which is a good sign)
 ```
@@ -234,7 +238,7 @@ FST= measure of differentiation
 
 Once we've calculated F<sub>st</sub> between the two populations for each SNP individually, we want to determine whether some SNPs are **statistical outliers** - that is, more differentiated than we would expect. OutFLANK does this by fitting a Chi-Squared distribution to the data and looking to see if the tails of the Chi-Squared distribution have more SNPs than expected:
 
-```{r, echo=T}
+```{r, label='7-8', echo=T}
 OF <- OutFLANK(fst,LeftTrimFraction=0.01,RightTrimFraction=0.01,
          Hmin=0.05,NumberOfSamples=2,qthreshold=0.01)
 OutFLANKResultsPlotter(OF,withOutliers=T,
@@ -258,7 +262,7 @@ This doesn't add up to 3699... so some of the SNPs were not even tested. This is
 
 
 Looks like there are **17 outlier SNPs.** Now we can make a manhattan plot! We can even plot the outliers in a different color:
-```{r, echo=T}
+```{r, label='7-9', echo=T}
 plot(P1$LocusName,P1$FST,xlab="Position",ylab="FST",col=rgb(0,0,0,alpha=0.1))
 points(P1$LocusName[outliers],P1$FST[outliers],col="magenta")
 ```
