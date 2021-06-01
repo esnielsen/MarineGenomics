@@ -7,8 +7,13 @@ output:
     toc: yes
     css: toc.css
 ---
-# Week 5- R Continued
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Week 5- R Continued
 We're again drawing some of this material from the STEMinist_R materials which can be found [here](https://github.com/ecalfee/STEMinist_R.git)
 
 ## 2.1 Plotting 
