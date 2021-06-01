@@ -3,29 +3,35 @@ title: "Week 10 wrap up"
 author: "Serena Caplins"
 date: "5/31/2021"
 output: html_document
+ \usepackage{wrapfig}
+ \usepackage{float}
+ \floatplacement{figure}{H}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week10/MarineGenomicsData/Week10")
 ```
 
-# Genome Annotation and BLAST searches
+# Week 10- Genomics is a BLAST
+
 
 Through this course we've taken genomic data in the form of whole genome sequences or reduced representation sequences (i.e., RADtags) and searched for correlations between phenotypes (via GWAS) and population structure (Fst Outliers) to identify "candidate SNP" that may have some role in producing the phenotypes we're interested in. 
 
-The next logical step when you've identified a candidate SNP is to ask "what's the function of the gene region near the candidate SNP?" This seems like a straight forward question, as the main goal of many of these studies is to indentify the genetic basis of a given phenotype. However, as we dig into this question we will see that it is rather opaque. First we need to condsider whether the SNP we identifeid is "the" SNP itself that is under selection or is the SNP associated through physical linkage (aka hitchiking), with the gene or gene region that is under selection?
+The next logical step when you've identified a candidate SNP is to ask "what's the function of the gene region near the candidate SNP?" This seems like a straight forward question, as the main goal of many of these studies is to identify the genetic basis of a given phenotype. However, as we dig into this question we will see that it is rather opaque. First we need to consider whether the SNP we identified is "the" SNP itself that is under selection or is the SNP associated through physical linkage (aka hitchhiking), with the gene or gene region that is under selection?
 
-This question can be adressed through whole genome resequencing and identification of regions with reduced heterozygosity which indicate patterns of linked-selection. This is reviewed more fully [here](http://cooplab.github.io/popgen-notes/#the-effect-of-linked-selection-on-patterns-of-neutral-diversity)
+## Genome Annotation and BLAST searches
+This question can be addressed through whole genome resequencing and identification of regions with reduced heterozygosity which indicate patterns of linked-selection. This is reviewed more fully [here](http://cooplab.github.io/popgen-notes/#the-effect-of-linked-selection-on-patterns-of-neutral-diversity)
 
 Once a region under selection is identified we can refer to a genome annotation to determine whether this gene region is a coding or non-coding sequence (does it produce a protein or not?) and make some guesses as to the functionalization of this region. Your ability to do this is heavily influenced by the species you're working on and the degree to which your genome is successfully annotated (if at all). This is described in more detail in the lecture for the week [here]()
 
-For this weeks exercise we'll go through a brief illustration of the difficulties in "assigning" putative function to a region surrounding a candidate SNP, using the Fst outliers that we identified in week 7 with the sea cucumber (Parastichipus californicus) data published by [Xuereb et al.](http://www2.bio.ulaval.ca/louisbernatchez/pdf/(417)%20Xuereb_Molecular_Ecology_2018.pdf) 
+For this weeks exercise we'll go through a brief illustration of the difficulties in "assigning" putative function to a region surrounding a candidate SNP, using the Fst outliers that we identified in week 7 with the sea cucumber (**Parastichipus californicus**) data published by [Xuereb et al.](http://www2.bio.ulaval.ca/louisbernatchez/pdf/(417)%20Xuereb_Molecular_Ecology_2018.pdf) 
 
-For this data we found 17 Fst outliers (see the plot below). I selected a region spanning 20kb around each SNP from the closely related Parastichipus parvimensis genome.This is a relatively large region which should capture any coding sequences that may occur near our SNP. For these regions we will performed a "small scale" annotation by identifying coding regions with the program transdecoder and then running these regions through ncbi-blast which will provide us with a list of similar sequences in other organisms and their gene ids.     
+For this data we found 17 Fst outliers (see the pink open circles in the plot below). 
 
-```{r one, echo=FALSE, out.width = '100%'}
-knitr::include_graphics("unnamed-chunk-22-1.png")
-```
+I selected a region spanning 20kb around each SNP from the closely related Parastichipus parvimensis genome.This is a relatively large region which should capture any coding sequences that may occur near our SNP. For these regions we will performed a "small scale" annotation by identifying coding regions with the program transdecoder and then running these regions through ncbi-blast which will provide us with a list of similar sequences in other organisms and their gene ids.     
+
+![](figs/week10_figure.png)
 
 ## Download the data
 
@@ -90,14 +96,30 @@ Even though we often don't get satisfying answers about which genes are doing wh
 
 ## Exercises
 
-1. Instead of doing a blast search for the protein translated sequences, do one for the nucleotide sequences. Use the original `candidate_fastas.fa file, and do a blastn for somewhat similar sequences. How do these results differ from our search with the translated open reading frames? Why? Try again as a megablast for highly similar sequences (you can do this by editing your original search). How do these differ?
+> # Practice Questions:
+
+> 1. Instead of doing a blast search for the protein translated sequences, do one for the nucleotide sequences. Use the original `candidate_fastas.fa file, and do a blastn for somewhat similar sequences. How do these results differ from our search with the translated open reading frames? Why? Try again as a megablast for highly similar sequences (you can do this by editing your original search). How do these differ?
+
+<details><summary><span style="color: SeaGreen;">Solution</span></summary>
+<p>
+
+```{r echo=T}
+#coming soon :) 
+```
+</p>
+</details>
 
 
+> 2. Now use the `.cds` file from transdecoder which contains the open reading frame as nucleotides. 
 
+<details><summary><span style="color: SeaGreen;">Solution</span></summary>
+<p>
 
+```{r echo=T}
+#coming soon :) 
+```
+</p>
+</details>
 
-2. Now use the `.cds` file from transdecoder which contains the open reading frame as nucleotides. 
-
-
-
-
+## Creature of the Week!
+![Vaquita Porpoise (image credit: Brendan Hunter)](./figs/creatures/vaquitaporpoise.jpg)

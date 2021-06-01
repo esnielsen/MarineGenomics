@@ -162,3 +162,16 @@ ploting-stucture-in-r
 how-do-we-know-which-k-to-pick
 exercises-2
 creature-of-the-week-8
+week-10-genomics-is-a-blast
+genome-annotation-and-blast-searches
+install-transdecoder
+run-transdecoder
+run-ncbi-blast
+what-did-we-find
+the-importance-of-genomic-architecture
+download-the-data-3
+exercises-3
+creature-of-the-week-9
+week-6--principle-component-analyses
+week-7--fst-and-outlier-analysis
+week-10--genomics-is-a-blast

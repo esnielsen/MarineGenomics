@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week6/MarineGenomicsData/Week6")
 ```
 
-# Week 6: PCA 
+# Week 6- Principle Component Analyses 
 
 
 The lecture for this week focused on **Plotting a PCA** can be found [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week6_lecture.pdf).

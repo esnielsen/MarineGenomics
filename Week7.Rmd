@@ -13,9 +13,9 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week7/MarineGenomicsData/Week7")
 ```
 
-# Week 7: F<sub>st</sub> and outlier analysis
+# Week 7- F<sub>st</sub> and outlier analysis
 
-The lecture for this week focused on **F**<sub>st</sub> and outlier analysis can be found [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week7.pdf).
+The lecture for this week focused on *F<sub>st</sub>** and outlier analysis can be found [here](https://github.com/BayLab/MarineGenomics/blob/main/ppt/Week7.pdf).
 
 Last week we used PCA to take a broad look at whether populations were genetically distinct. This week we learn how to identify particular SNPs that are driving patterns of divergence between populations. These SNPs could represent signals of selection.
 
@@ -197,7 +197,7 @@ G[is.na(G)] <- 9
 tG <- t(G)
 dim(tG)
 ```
-Now `tG` should be in the input format OutFLANK needs, with SNPs as columns and individuals as rows. Now we can caluclate F<sub>st</sub> for each SNP.
+Now `tG` should be in the input format OutFLANK needs, with SNPs as columns and individuals as rows. Now we can calculate F<sub>st</sub> for each SNP.
 
 For this analysis we are just going to calculate F<sub>st</sub> between the northernmost and the southernmost populations. This is a good time to practice our subsetting skills!
 
@@ -207,12 +207,13 @@ In the third command we are just using a slightly different method for subsettin
 ```{r, echo=T}
 subpops <- c("TBL","AK4")
 subgen <- tG[meta$SITE%in%subpops,] #subset method 1
+
 submeta <- subset(meta,SITE%in%subpops) #subset method 2
 ```
 
 Now we should check if these two vectors are identical:
 ```{r, echo=T}
-identical(rownames(subgen),submeta$ID)
+identical(rownames(subgen),as.character(submeta$ID))
 ```
 
 Since our genotype matrix and our metadata matrix are in the same order, we can combine them.
@@ -275,6 +276,9 @@ points(P1$LocusName[outliers],P1$FST[outliers],col="magenta")
 subpops <- c("AK3","AK4")
 subgen <- tG[meta$SITE%in%subpops,]
 submeta <- subset(meta,SITE%in%subpops)
+
+identical(rownames(subgen),as.character(submeta$ID))
+
 fst <- MakeDiploidFSTMat(subgen,locusNames=1:ncol(subgen),popNames=submeta$SITE)
 OF <- OutFLANK(fst,LeftTrimFraction=0.01,RightTrimFraction=0.01,
          Hmin=0.05,NumberOfSamples=2,qthreshold=0.01)
