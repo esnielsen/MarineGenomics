@@ -2,7 +2,7 @@
 title: "Marine Genomics Week 4"
 author: "STEMinist_R, modified by Serena Caplins"
 date: "4/20/2021"
-output: html_document
+output: "html_document"
  \usepackage{wrapfig}
  \usepackage{float}
  \floatplacement{figure}{H}

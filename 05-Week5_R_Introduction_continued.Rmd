@@ -2,7 +2,7 @@
 title: "Untitled"
 author: "Steminist_R lessons edited by Serena Caplins"
 date: "4/23/2021"
-output: html_document
+output: "html_document"
  \usepackage{wrapfig}
  \usepackage{float}
  \floatplacement{figure}{H}
