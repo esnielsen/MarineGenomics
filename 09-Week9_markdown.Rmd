@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week9/MarineGenomicsData/Week9")
 ```
 
-# Week 9 Population Structure using NGSadmix
+# Week 9- Population Structure using NGSadmix
 
 For this week we will be exploring another way to document population genetic structure (the first way we covered was PCA in Week 6) via a "Structure" plot implemented in the ANGSD program NGSadmix.
 

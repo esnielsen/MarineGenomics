@@ -175,3 +175,5 @@ creature-of-the-week-9
 week-6--principle-component-analyses
 week-7--fst-and-outlier-analysis
 week-10--genomics-is-a-blast
+and-now-we-can-run-our-pcangsd-code
+week-9--population-structure-using-ngsadmix
