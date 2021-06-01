@@ -49,10 +49,16 @@ Within our `msleep` dataframe let's plot sleep_total by bodywt (bodyweight)
 
 library(ggplot2)
 data(msleep)
+```
+
+``````{r, label='5-1', echo=T}
 
 plot(msleep$sleep_total,msleep$sleep_rem)
 
 # or plot response variable as a function "~" of the predictor variable
+```
+
+``````{r, label='5-2', echo=T}
 
 plot(msleep$sleep_total~msleep$sleep_rem) #you'll notice this swaps the x and y axis
 
@@ -74,14 +80,14 @@ There are **many** color options in R. For some general colors you can write the
 
 
 Let's remake the total_sleep against sleep_rem plot and add-in some modifiers
-```{r, echo=T}
+```{r, label='5-3', echo=T}
 #Choose a pch and make the color blue and give it a bottom+left border
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col="blue", bty="L")
 
 ```
 
 We can change the axes and title labels using "xlab", "ylab", and "main" arguments. Let's add labels to our plot.
-```{r, echo=T}
+```{r, label='5-4', echo=T}
 #Choose a pch and make the color blue and give it a bottom+left border
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col="blue", bty="L", xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)") 
 
@@ -91,7 +97,7 @@ You may want to find out which points are on a plot. You can use `identify()` in
 
 We can also add lines to an existing plot with `ablines()`. Let's add a line fit from a linear model to our plot.
 
-```{r, echo=T}
+```{r, label='5-5', echo=T}
 #first make a plot
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col="blue", bty="L", xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)") 
 
@@ -112,7 +118,9 @@ msleep$colors=NA
 #store the colors "red" or "black" in the color column for the rows that satsify the following criteria.
 msleep$colors[msleep$sleep_total >= 17] <-"red"
 msleep$colors[msleep$sleep_total < 17] <-"black"
+```
 
+```{r, label='5-6', echo=T}
 plot(msleep$sleep_total~msleep$sleep_rem, pch = 16, col=msleep$colors, bty="L", xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)") 
 
         
@@ -123,7 +131,7 @@ In addition to scatterplots you can make histograms and boxplots in base R. The 
 
 R will automatically plot a barplot if you give to the `plot()` function a continuous variable and a factor. If you have a vector stored as a character converting it to a factor via `as.factor` will make a boxplot.
 
-```{r, echo=T}
+```{r, label='5-7', echo=T}
 
 #let's make a histogram of sleep_total and fill it with the color palette rainbow() which needs to know how many colors to use
 
@@ -133,13 +141,15 @@ hist(msleep$sleep_total, col=rainbow(10))
 #let's make a boxplot of sleep_total and order making eachone a different color (how would you find out how many unique orders are in msleep?)
 #using plot
 #plot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) #this is commented out simply to avoid ploting the same plot twice
+```
 
+```{r, label='5-8', echo=T}
 #or boxplot
 boxplot(msleep$sleep_total~as.factor(msleep$order), col=rainbow(19)) 
 
 ```
 Another example looking at sleep variation across the different types of consumers (carnivore, herbivore, insectivore and omnivore):
-```{r, echo=T}
+```{r, label='5-9', echo=T}
 plot(msleep$sleep_total~as.factor(msleep$vore),col=rainbow(4), xlab="REM Sleep (hours)", ylab= "Total Sleep (hours)")
 ```
 
@@ -170,7 +180,7 @@ length(unique(ChickWeight$Diet))
 
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
-```{r, echo=T}
+```{r, label='5-10', echo=T}
 plot(ChickWeight$weight ~ ChickWeight$Time, 
      xlab = "Time (days)", 
      ylab = "Weight (gm)")
@@ -183,7 +193,7 @@ plot(ChickWeight$weight ~ ChickWeight$Time,
 
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
-```{r, echo=T}
+```{r, label='5-11', echo=T}
 par(mfrow = c(1,1))
 hist(ChickWeight$weight[ChickWeight$Time == max(ChickWeight$Time)], 
      xlab = "Weight (gm)", 
@@ -198,7 +208,7 @@ hist(ChickWeight$weight[ChickWeight$Time == max(ChickWeight$Time)],
 
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
-```{r}
+```{r, label='5-12', echo=T}
 my.new = ChickWeight[ChickWeight$Time == max(ChickWeight$Time), ]
 boxplot(weight ~ Diet, 
         data = my.new, 
@@ -212,7 +222,8 @@ boxplot(weight ~ Diet,
 
 
 > Try using the package R Color Brewer to generate color palettes. Go to http://colorbrewer2.org/ to vizualize palettes. You can choose palettes that are colorblind safe, print friendly, etc.
-```{r}
+
+```{r, echo=T}
 # Install R Color Brewer
 #install.packages("RColorBrewer")
 library("RColorBrewer")
@@ -223,7 +234,7 @@ Note: if histogram has n breaks and n is less than 10, it will just use first n 
 
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
-```{r}
+```{r, label='5-13', echo=T}
 library(RColorBrewer)
 my.colors = brewer.pal(10, "Paired")
 hist(ChickWeight$weight[ChickWeight$Time == max(ChickWeight$Time)], xlab = "Weight (gm)",main = "Weights at final day of experiment", col = my.colors)
@@ -240,7 +251,7 @@ There is a little bit of a learning curve for ggplot as the syntax is structured
 
 Let's demonstrate what ggplot can do with the states data set
 
-```{r, echo=T}
+```{r, label='5-14', echo=T}
 #load in the data
 data(state)
 states = as.data.frame(state.x77) # convert data to a familiar format - data frame
@@ -253,7 +264,7 @@ ggplot(data=states)
 
 We just see a grey box. In order to tell ggplot what to put in the box we use the `aes()`. The `aes()` function stands for aesthetics and will be used to specify our axes and how we want the data grouped.
 
-```{r, echo=T}
+```{r, label='5-15', echo=T}
 #lets make a scatterplot of population and income
 #we specify which axes we want to be x and y with aes()
 #we'll then use geom_point to tell it to make a scatterplot using the data we specified in the first command
@@ -265,7 +276,7 @@ There are many types of plots in ggplot that can be called with `geom_` includin
 
 Let's add a line to our plot that of best fit for Population ~ Income. Each time we add something to our plot we use the `+` sign. We'll use `geom_smooth()` to draw a line with the method for `lm` which stands for linear model.
 
-```{r, echo=T}
+```{r, label='5-16', echo=T}
 
 ggplot(data=states, aes(x=Population, y=Income))+geom_point()+geom_smooth(method="lm") 
 
@@ -275,7 +286,7 @@ As you can already see ggplot works with many more parameters drawn in default t
 
 Let's change to a minimal theme which removes the gray backgroun in the back of the plot. Play around with the other themes to see what they change.
 
-```{r, echo=T}
+```{r, label='5-17', echo=T}
 
 ggplot(data=states, aes(x=Population, y=Income))+geom_point()+geom_smooth(method="lm")+theme_minimal() 
 
@@ -283,13 +294,13 @@ ggplot(data=states, aes(x=Population, y=Income))+geom_point()+geom_smooth(method
 
 Another plot example:
 
-```{r, echo=T}
+```{r, label='5-18', echo=T}
 ggplot(data=states, aes(x=Income, y=Illiteracy, color=Population)) +geom_point()+geom_smooth(method="lm", color="red")+theme_classic() 
 ```
 
 Let's use the `msleep` data set to explore what ggplot can do with character vectors. Make a plot of total sleep against REM sleep and then group by "vore".
 
-```{r, echo=T}
+```{r, label='5-19', echo=T}
 
 # because our vore vector is a character vector we must convert it to a factor before we can use it to group or color
 
@@ -299,7 +310,7 @@ ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.f
 
 That looks fine, but we may want to add axis labels and change the legend. The code below does just that and changes the theme.
 
-```{r, echo=T}
+```{r, label='5-20', echo=T}
 # as we add things to the plot the line can get really long, you can hit enter after the plus sign to start a new line
 
 ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.factor(vore)))+
@@ -320,7 +331,7 @@ ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.f
 
 ```
 Our plot at this point is getting very clunky. You can assign what we have so far to an object and continue to add parameters without having to copy and paste the whole plot. 
-```{r, echo=T}
+```{r, label='5-21', echo=T}
 #assign to an object
 
 g<-ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=as.factor(vore)))+
@@ -339,11 +350,12 @@ g<-ggplot(msleep, aes(y=sleep_total, x=sleep_rem, group=as.factor(vore), color=a
                                    "omni"="brown", 
                                    "NA"="orange"))
 
+g
 ```
 
 One final example to share. I use ggplot often with data sets that have multiple character vectors and I want to see how they relate to my continuous variables. For example in the iris dataframe we may be interested in looking at the relationship between Sepal.Length and Sepal.Width for each species. You can look at all of these together with `facet_wrap` or `facet_grid`. 
 
-```{r, echo=T}
+```{r, label='5-22', echo=T}
 
 ggplot(iris, aes(y=Sepal.Length, x=Sepal.Width, group=Species, color=Species))+
   geom_point()+
@@ -354,10 +366,10 @@ ggplot(iris, aes(y=Sepal.Length, x=Sepal.Width, group=Species, color=Species))+
 Finally in ggplot we may be interested in seeing the mean values plotted with error bars for several groups. You can use the function `stat_summary` to find the mean and error around that mean for the given grouping.
 
 Here's a plot looking at the mean chickweight by diet.
-```{r, echo=T}
+```{r, label='5-23', echo=T}
 ggplot(ChickWeight, aes(x=Time, y=weight, group=Diet, color=Diet))+
-  stat_summary(fun.y=mean, geom="point", size=1)+
-  stat_summary(fun.y=mean, geom="line", size=1)+
+  stat_summary(fun=mean, geom="point", size=1)+
+  stat_summary(fun=mean, geom="line", size=1)+
   stat_summary(fun.data = mean_se, geom = "errorbar", 
                aes(width=0.1), size=0.5)
 
@@ -371,7 +383,7 @@ ggplot(ChickWeight, aes(x=Time, y=weight, group=Diet, color=Diet))+
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r, label='5-24', echo=T}
 # we can just use the geom_smooth command from above and ggplot takes care of the rest!
 # The code below will only work if you stored your plot in object g.
 g+geom_smooth(method="lm")
@@ -385,7 +397,7 @@ g+geom_smooth(method="lm")
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r, label='5-25', echo=T}
 
 ggplot(msleep, aes(y=sleep_total, x=as.factor(vore), fill=as.factor(vore)))+geom_boxplot()
 
@@ -399,7 +411,7 @@ ggplot(msleep, aes(y=sleep_total, x=as.factor(vore), fill=as.factor(vore)))+geom
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r, label='5-26', echo=T}
 
 ggplot(midwest, aes(y=area, x=popdensity, col=as.factor(state)))+geom_point()+facet_grid(~state)
 
@@ -414,7 +426,7 @@ ggplot(midwest, aes(y=area, x=popdensity, col=as.factor(state)))+geom_point()+fa
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r, label='5-27', echo=T}
 
 #we can subset our data first and store the subset in a new dataframe
 
@@ -431,7 +443,7 @@ ggplot(il, aes(x=popdensity, y=poptotal))+geom_point()
 
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
-```{r, echo=T}
+```{r, label='5-28', echo=T}
 ggplot(midwest, aes(x=state, y=popdensity, color=state))+
   stat_summary(fun.y=mean, geom="point", size=1)+
   stat_summary(fun.y=mean, geom="line", size=1)+
@@ -501,7 +513,7 @@ sapply(listy, FUN = length)
 ```
 You can also use sapply to create plots! For example, use sapply to plot these 4 dataframes at once:
 
-```{r, echo=T}
+```{r, label='5-33', echo=T}
 df1 = data.frame(x1 = 1:10, y1 = 1:10)
 df2 = data.frame(x2 = 1:10, y2 = -1:-10)
 df3 = data.frame(x3 = 1:10, y3 = 10:1)
@@ -533,7 +545,9 @@ apply(states, 2, mean)
 # note you could get this with colMeans() or summary(), along with the min and max and other values, but there may be instances where you only want the mean
 
 # you could also plot each column against Population in ggplot
+```
 
+```{r, label='5-29', echo=T}
 apply(states, 2, FUN = function(i) ggplot(states, aes(x=Population, y = i))+geom_point()+geom_smooth(method="lm")+theme_classic())
 
 ```
@@ -630,7 +644,7 @@ tapply(states$Area, state.region, mean)
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r, label='5-32', echo=T}
 #how many columns do we have? 
 dim(states)
 par(mfrow = c(2,2)) # make your plot window show 2 rows and 2 columns at once
@@ -667,7 +681,7 @@ par(mfrow = c(2,2))# run this line to set your plot to make 4 plots in total (2r
 ```
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
-```{r, echo=T}
+```{r, label='5-30', echo=T}
 data_to_plot = c(1,3,4,5,6,3,3,4,5,1,1,1,1,1)
 my_colors = c("deeppink", "red", "blue", "darkgreen")
 par(mfrow = c(2,2)) # extra styling, plots in a 2x2 grid
@@ -702,7 +716,7 @@ Hint: instead of using apply to iterate over the columns themselves, you can oft
 
 <details><summary><span style="color: red;">Solution</span></summary>
 <p>
-```{r, echo=T}
+```{r, label='5-31', echo=T}
 par(mfrow = c(2,2))
 sapply(colnames(states), function(x)hist(states[ , x],main = x, xlab = x,col = "darkblue"))
 ```
