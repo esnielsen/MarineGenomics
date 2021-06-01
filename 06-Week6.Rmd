@@ -9,6 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week6/MarineGenomicsData/Week6")
 ```
@@ -143,7 +144,7 @@ e<-eigen(cov)
 And make a simple plot in base R
 
 
-```{r, echo=T}
+```{r, label='6-1', echo=T}
 
 
 plot(e$vectors[,1:2])
@@ -171,7 +172,9 @@ names<-read.table("bam.filelist")
 #assign the rownames of the covariance matix the 
 
 rownames(cov)<-names$V2
+```
 
+```{r, label='6-2', echo=T}
 #remake the plot with the colors we want
 
 plot(e$vectors[,1:2], col=as.factor(rownames(cov)), pch=16)
@@ -291,8 +294,9 @@ cov_allind<-as.matrix(read.table("pca_out_allind.cov"))
 
 #calculate eigenvalues
 e_allind<-eigen(cov_allind)
+```
 
-
+```{r, label='6-3', echo=T}
 #plot the data
 plot(e_allind$vectors[,1:2])
 
@@ -309,7 +313,7 @@ e_allind$values/sum(e_allind$values)
 <details><summary><span style="color: goldenrod;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r, label='6-4', echo=T}
 
 # we need to use the function as.data.frame to make our matrix a dataframe.
 
