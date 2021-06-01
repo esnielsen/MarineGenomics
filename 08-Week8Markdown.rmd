@@ -134,6 +134,9 @@ length(lrt$LRT)-length(which(lrt$LRT == -999))
 #remove the values that are not -999 and that are negative
 
 lrt_filt<-lrt[-c(which(lrt$LRT == -999),which(lrt$LRT <= 0)),]
+```
+
+```{r, label='8-1', echo=T}
 
 hist(lrt_filt$LRT, breaks=50)
 ```
@@ -161,7 +164,9 @@ lrt_filt<-lrt_filt[-c(which(lrt_filt$pvalue == "NaN" ),
                       
 #get pvalues
 lrt_filt$pvalue<-dchisq(lrt_filt$LRT, df=1)
+```
 
+```{r, label='8-2', echo=T}
 
 manhattan(lrt_filt, chr="Chromosome", bp="Position", p="pvalue")
 
@@ -169,7 +174,7 @@ manhattan(lrt_filt, chr="Chromosome", bp="Position", p="pvalue")
 
 Let's look at a qq-plot of our pvalues to check the model fit
 
-```{r, echo=T}
+```{r, label='8-3', echo=T}
 
 qqnorm(lrt_filt$pvalue)
 
@@ -228,7 +233,9 @@ So we can highlight all of the SNPs that have an LRT greater than 12 in our asso
 
 #make a list of the candidates
 candidates<-lrt_filt[which(lrt_filt$LRT > 36),]$SNP
+```
 
+```{r, label='8-4', echo=T}
 
 #refer to that list of candidates with the highlight parameter
 manhattan(lrt_filt, chr="Chromosome", bp="Position",  p="pvalue", highlight = candidates)
@@ -268,7 +275,9 @@ e<-eigen(cov)
 e$values/sum(e$values)
 
 #looks like 13.7% is explained by the first axis
+```
 
+```{r, label='8-5', echo=T}
 #make a plot of the first two axes
 plot(e$vectors[,1:2])
 
@@ -304,7 +313,7 @@ $ gzip geno_like_filt_allIND.beagle
 ```
 and now we can run our pcangsd code
 
-```{r, echo=T}
+```{r, label='8-6', echo=T}
 #make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.
 pheno_chr6<-c(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0)
 
