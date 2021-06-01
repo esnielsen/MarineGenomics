@@ -299,9 +299,10 @@ Looking at the table in the Kilas paper, the Animals in rows 1, 2, and 12 are Ma
 <details><summary><span style="color: orange;">Solution</span></summary>
 <p>
 
+```html
 $ gzip geno_like_filt_allIND.beagle
-
-# and now we can run our pcangsd code
+```
+and now we can run our pcangsd code
 
 ```{r, echo=T}
 #make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.

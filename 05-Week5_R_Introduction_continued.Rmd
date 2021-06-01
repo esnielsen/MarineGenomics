@@ -39,6 +39,7 @@ tar -xzvf week5.tar.gz
 
 ## Scatterplots
 Within our `msleep` dataframe let's plot sleep_total by bodywt (bodyweight)
+
 ```{r, echo=T}
 
 library(ggplot2)
