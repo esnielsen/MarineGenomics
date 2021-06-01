@@ -2,11 +2,12 @@
 title: "Week8_GWAS"
 author: "Serena Caplins"
 date: "5/12/2021"
-output: "html_document"
- \usepackage{wrapfig}
- \usepackage{float}
- \floatplacement{figure}{H}
+output:
+  bookdown::html_book:
+    toc: yes
+    css: toc.css
 ---
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week8/MarineGenomicsData/Week8")

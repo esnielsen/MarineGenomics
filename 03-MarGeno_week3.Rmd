@@ -2,10 +2,10 @@
 title: 'Marine Genomics: Mapping and Calling Variants'
 author: "Serena Caplins"
 date: "4/13/2021"
-output: "html_document"
- \usepackage{wrapfig}
- \usepackage{float}
- \floatplacement{figure}{H}
+output:
+  bookdown::html_book:
+    toc: yes
+    css: toc.css
 ---
 
 ```{r setup, include=FALSE}

@@ -2,10 +2,10 @@
 title: "Week 10 wrap up"
 author: "Serena Caplins"
 date: "5/31/2021"
-output: "html_document"
- \usepackage{wrapfig}
- \usepackage{float}
- \floatplacement{figure}{H}
+output:
+  bookdown::html_book:
+    toc: yes
+    css: toc.css
 ---
 
 ```{r setup, include=FALSE}
