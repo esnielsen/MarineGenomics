@@ -27,11 +27,11 @@ git clone https://github.com/BayLab/MarineGenomicsData.git
 
 Next we need to install a few programs that will allow us to do what we need to do. This will all take a few minutes!
 
-Here are the programs that we are installing and a brief description of what they do
-+ samtools: allows us to filter and view our mapped data
-+ bowtie2: to map our reads to the reference genome
-+ cutadapt: will trim adaptor sequences from the reads
-+ fastqc: used to view the quality of the read files
+*The programs that we are installing
+  + samtools: allows us to filter and view our mapped data
+  + bowtie2: to map our reads to the reference genome
+  + cutadapt: will trim adaptor sequences from the reads
+  + fastqc: used to view the quality of the read files
 
 ```html
   sudo apt-get -y update && \
@@ -39,7 +39,7 @@ Here are the programs that we are installing and a brief description of what the
   
 ```
 
-And one more program that we'll install separately. This is angsd which we will use to find variants in our data. The first command navigates you to your home directory.
+And one more program that we'll install separately. This is `angsd` which we will use to find variants in our data. The first command navigates you to your home directory.
 
 ```html
   cd
