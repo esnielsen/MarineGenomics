@@ -22,7 +22,7 @@ We provide all the data for the students to complete each weeks coding activies 
 
 This course was designed to be carried out on the NSF funded Extreme Science and Engineering Discovery Environment (XSEDE) cloud computing resource [Jetstream](https://portal.xsede.org/jetstream). 
 
-Jetstream is a unique user-friendly cloud computing resource in that it provides the students with an environment with root privilages, making program installation less complicated. Jetstream also provides a Desktop simulator which allows students to transition between bash and R using the same exact directory paths as the instructor, reducing the confusion of students having unique file paths and providing a more streamlined approach to what for many students is their first coding class. 
+Jetstream is a unique user-friendly cloud computing resource in that it provides the students with an environment with root privileges, making program installation less complicated. Jetstream also provides a Desktop simulator which allows students to transition between bash and R using the same exact directory paths as the instructor, reducing the confusion of students having unique file paths and providing a more streamlined approach to what for many students is their first coding class. 
 
 Jetstream educational allocations can be applied for through [XSEDE](https://portal.xsede.org/jetstream#allocations:education). The process of applying for a jetstream allocation for educational purposes is relatively straightforward and simply requires a course description, the number of students anticipated to participate, and a calculation of the computing resources required, and the instructors CV. Allocations are typically approved in two to three days and can be submitted ~2 weeks prior to the start of the course.
 
@@ -33,11 +33,11 @@ Alternatively, these course materials can be used on students and instructors in
 
 ![](./figs/Rachael.jpg)
 
-Rachael Bay, Assistant Professor, co-instructor (rbay@ucdavis.edu) 
+Rachael Bay, Assistant Professor, co-instructor (rbay@ucdavis.edu) [Website](https://baylab.github.io/).
 
 ![](./figs/Serena.jpg)
 
-Serena Caplins, Postdoc, lead instructor and course designer (sacaplins@ucdavis.edu)
+Serena Caplins, Postdoc, lead instructor and course designer (sacaplins@ucdavis.edu) [Website](https://serenacaplins.wordpress.com/)
 
 ![](./figs/Vanessa.jpg)
 
@@ -45,7 +45,7 @@ Vanessa Guerra, Postdoc, co-instructor (vguerra4@ucmerced.edu)
 
 ![](./figs/Maddie.jpg)
 
-Madison Armstrong, Graduate student, Teaching Assistant, creature of the week content generator and website designer (mlarmstrong@ucdavis.edu) 
+Madison Armstrong, Graduate student, Teaching Assistant, creature of the week content generator and website designer (mlarmstrong@ucdavis.edu) [Website](https://madisonarmstrong.me/)
 
 
 Lecture Tuesdays 12:10-1:30, Coding session Thursdays 12:10-1:00
