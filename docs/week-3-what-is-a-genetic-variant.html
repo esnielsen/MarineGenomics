@@ -135,7 +135,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Marine Genomics 2021</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cloud-computing-versus-individual-laptops"><i class="fa fa-check"></i><b>1.1</b> Cloud computing versus individual laptops</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#meet-our-instructors"><i class="fa fa-check"></i><b>1.2</b> Meet our instructors!</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="week-1-welcome.html"><a href="week-1-welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="week-1-welcome.html"><a href="week-1-welcome.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
@@ -313,7 +317,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Download the data from the MarineGenomicsData repository on git hub. We’ll be working in the Week_3 folder</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-3-what-is-a-genetic-variant.html#cb1-1" aria-hidden="true" tabindex="-1"></a>git clone https://github.com/BayLab/MarineGenomicsData.git  </span></code></pre></div>
 <p>Next we need to install a few programs that will allow us to do what we need to do. This will all take a few minutes!</p>
-<p>Here are the programs that we are installing and a brief description of what they do
+<p>*The programs that we are installing
 + samtools: allows us to filter and view our mapped data
 + bowtie2: to map our reads to the reference genome
 + cutadapt: will trim adaptor sequences from the reads
@@ -321,7 +325,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb2"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb2-1"><a href="week-3-what-is-a-genetic-variant.html#cb2-1" aria-hidden="true" tabindex="-1"></a>  sudo apt-get -y update <span class="er">&amp;&amp;</span> \</span>
 <span id="cb2-2"><a href="week-3-what-is-a-genetic-variant.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  sudo apt-get -y install samtools bowtie2 cutadapt fastqc </span>
 <span id="cb2-3"><a href="week-3-what-is-a-genetic-variant.html#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span></code></pre></div>
-<p>And one more program that we’ll install separately. This is angsd which we will use to find variants in our data. The first command navigates you to your home directory.</p>
+<p>And one more program that we’ll install separately. This is <code>angsd</code> which we will use to find variants in our data. The first command navigates you to your home directory.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb3-1"><a href="week-3-what-is-a-genetic-variant.html#cb3-1" aria-hidden="true" tabindex="-1"></a>  cd</span>
 <span id="cb3-2"><a href="week-3-what-is-a-genetic-variant.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  git clone --recursive https://github.com/samtools/htslib.git</span>
 <span id="cb3-3"><a href="week-3-what-is-a-genetic-variant.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  git clone https://github.com/ANGSD/angsd.git </span>

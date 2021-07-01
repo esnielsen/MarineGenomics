@@ -135,7 +135,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Marine Genomics 2021</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to Marine Genomics</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#cloud-computing-versus-individual-laptops"><i class="fa fa-check"></i><b>1.1</b> Cloud computing versus individual laptops</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#meet-our-instructors"><i class="fa fa-check"></i><b>1.2</b> Meet our instructors!</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="week-1-welcome.html"><a href="week-1-welcome.html"><i class="fa fa-check"></i><b>2</b> Week 1- Welcome!</a>
 <ul>
 <li class="chapter" data-level="2.1" data-path="week-1-welcome.html"><a href="week-1-welcome.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
@@ -310,11 +314,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This lesson is modified from materials of the STEMinist_R lessons produced by several UC Davis graduate student and which can be found <a href="https://github.com/ecalfee/STEMinist_R.git">here</a>. The lessons were shortened here to fit into two sessions (an 1.5hr session and a 50 min session).</p>
 <p>These materials are evenly divided between live coding examples performed by the instructor and exercises performed by the students.</p>
 <p>This class will take place with students typing directly into an R script for the exercises all of which can be found in the Week 4 file <a href="https://github.com/BayLab/MarineGenomicsData.git">here</a></p>
-<p>You can dowload just the R files for just this week via wget with the following link</p>
+<p>You can download the R files for this week via wget in the terminal with the following link:</p>
 <pre class="{html"><code>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week4.tar.gz</code></pre>
 <p>this is a commpressed file which can be uncompressed via:</p>
 <pre><code>tar -xzvf week4.tar.gz
 </code></pre>
+<p>You can now open R and load in the R_Day_1_Lesson.R file. This is the script that we will work out of for the rest of the week. You can see it contains many commented sections that begin with a <code>#</code>. This allows you to add comments to your code, explaining what you are doing for each line of code. Commenting code is very important! It explains to someone else what your code does, and can even be useful when you revisit your own code after a few weeks/months/years. Be nice to your future self, comment your code.</p>
+<p>The next section contains the commented out code and the script that is run in R in a format that is more easily readable on a website.</p>
 <div id="lesson-1-orientation-to-r" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Lesson 1: Orientation to R</h2>
 <p>R can be used for basic arithmetic:</p>

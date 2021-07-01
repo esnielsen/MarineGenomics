@@ -177,3 +177,5 @@ week-7--fst-and-outlier-analysis
 week-10--genomics-is-a-blast
 and-now-we-can-run-our-pcangsd-code
 week-9--population-structure-using-ngsadmix
+cloud-computing-versus-individual-laptops
+meet-our-instructors

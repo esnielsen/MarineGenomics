@@ -63,7 +63,7 @@ Click continue
 knitr::include_graphics("./figs/jetstream/Fig3.png")
 ```
 
-The username for our course is margeno. The password will be given out in class. If you missed it please contact Serena Caplins (sacaplins@ucdavis.edu) or Maddie Armstrong (mlarmstrong@ucdavis.edu)
+The username for our course is **margeno**. The password will be given out in class. If you missed it please contact Serena Caplins (sacaplins@ucdavis.edu) or Maddie Armstrong (mlarmstrong@ucdavis.edu)
 
 ```{r four, echo=FALSE, out.width = '100%'}
 knitr::include_graphics("./figs/jetstream/Fig4.png")

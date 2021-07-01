@@ -18,7 +18,7 @@ The first 5 weeks are primarily training in bash/UNIX and R basics and are struc
 
 We provide all the data for the students to complete each weeks coding activies along with instructions for how to download the data. Additionaly, the students found the website a phenomenally helpful resource.
 
-# Cloud computing versus individual laptops
+## Cloud computing versus individual laptops
 
 This course was designed to be carried out on the NSF funded Extreme Science and Engineering Discovery Environment (XSEDE) cloud computing resource [Jetstream](https://portal.xsede.org/jetstream). 
 
@@ -29,7 +29,7 @@ Jetstream educational allocations can be applied for through [XSEDE](https://por
 Alternatively, these course materials can be used on students and instructors individual laptops. The file paths will need to be modified and we cannot guarantee that the installation of programs and R packages will proceed as they did on Jetstream. Thus, progam installation will need to be verified for each week by the instructor.
 
 
-# Meet our instructors!
+## Meet our instructors!
 
 ![](./figs/Rachael.jpg)
 
