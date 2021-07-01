@@ -179,3 +179,4 @@ and-now-we-can-run-our-pcangsd-code
 week-9--population-structure-using-ngsadmix
 cloud-computing-versus-individual-laptops
 meet-our-instructors
+schedule
