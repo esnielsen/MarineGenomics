@@ -33,19 +33,19 @@ Alternatively, these course materials can be used on students and instructors in
 
 ![](./figs/Rachael.jpg)
 
-Rachael Bay, Assistant Professor, co-instructor (rbay@ucdavis.edu) [Website](https://baylab.github.io/).
+Rachael Bay, Assistant Professor, co-instructor (rbay@ucdavis.edu)-- [Website](https://baylab.github.io/).
 
 ![](./figs/Serena.jpg)
 
-Serena Caplins, Postdoc, lead instructor and course designer (sacaplins@ucdavis.edu) [Website](https://serenacaplins.wordpress.com/)
+Serena Caplins, Postdoc, lead instructor and course designer (sacaplins@ucdavis.edu)-- [Website](https://serenacaplins.wordpress.com/)
 
 ![](./figs/Vanessa.jpg)
 
 Vanessa Guerra, Postdoc, co-instructor (vguerra4@ucmerced.edu) 
 
-![](./figs/Maddie.jpg)
+![](./figs/Maddie2.jpg)
 
-Madison Armstrong, Graduate student, Teaching Assistant, creature of the week content generator and website designer (mlarmstrong@ucdavis.edu) [Website](https://madisonarmstrong.me/)
+Madison Armstrong, Graduate student, Teaching Assistant, creature of the week content generator and website designer (mlarmstrong@ucdavis.edu)-- [Website](https://madisonarmstrong.me/)
 
 
 Lecture Tuesdays 12:10-1:30, Coding session Thursdays 12:10-1:00
