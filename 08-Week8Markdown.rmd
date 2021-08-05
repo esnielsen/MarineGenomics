@@ -23,7 +23,7 @@ The lecture for this week can be found [here](https://github.com/BayLab/MarineGe
 
 ## load in the data 
 
-The data for this week consist of several vcf files in beagle format, a genome index file (.fai), and a few small text files.
+The data for this week consist of several files in beagle format, a genome index file (.fai), and a few small text files.
 
 ```html
 
@@ -32,7 +32,7 @@ wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week8.tar.
 
 tar -xzvf week8.tar.gz
 
-#and one more vcf file that was too big to upload with the others
+#and one more file that was too big to upload with the others
 
 cd MarineGenomicsData/week8
 
@@ -93,9 +93,9 @@ python3 setup.py build_ext --inplace
 
 The data we're working on for the GWAS comes from the paper by Kijas et al. 2018 where they studied the genetic basis of sex determination in the atlantic Salmon. The paper can be found [here](https://www.nature.com/articles/s41598-018-23984-1#Sec2). In short they examined the genetic basis of sex in 19 salmon for which they have whole genome sequence data. We'll only be looking at two chromosomes (2 and 6) of this data.
 
-## take VCF file and generate lrt file
+## take Beagle file and generate lrt file
 
-To do the test of genome wide association we need to take our vcf file and test whether there is an association with our phenotype (in this case whether a fish has a male or female phenotype). The phenotypes are coded as 0 = Female and 1 = Male in the `phenobin` file. 
+To do the test of genome wide association we need to take our Beagle file and test whether there is an association with our phenotype (in this case whether a fish has a male or female phenotype). The phenotypes are coded as 0 = Female and 1 = Male in the `phenobin` file. 
 
 ```html
 $HOME/angsd/angsd -doMaf 4 -beagle salmon_chr2_19ind.BEAGLE.PL.gz -yBin phenobin -doAsso 2 -fai Salmon.fai

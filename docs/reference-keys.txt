@@ -180,3 +180,4 @@ week-9--population-structure-using-ngsadmix
 cloud-computing-versus-individual-laptops
 meet-our-instructors
 schedule
+take-beagle-file-and-generate-lrt-file
