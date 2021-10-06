@@ -8,10 +8,6 @@ output:
     css: toc.css
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
-```
-
 # Week 1- Welcome!
 
 Welcome to Marine Genomics Spring 2021 at UC Davis!
@@ -193,7 +189,7 @@ It should be empty because we just created it and haven't put anything in it yet
 There are two main ways to do this. We can use the command `wget` which needs a link to the file that we want to download. If theres a file saved on a website somewhere (anywhere on the internet) `wget` will download it for you. If our data file is on github, which is where most of our data will be stored, we'll use the command `git-clone` In this example we're going to download all the material in the MarineGenomicsData folder and save it in a folder called data.
 
 ```html
-$ git clone https://github.com/BayLab/MarineGenomicsData.git data
+$ wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week1_quarter.tar.gz
 ```
 
 Now that we have something in our MarineGenomics directory we can use the `ls` command a bit more.

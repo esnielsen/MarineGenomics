@@ -8,9 +8,6 @@ output:
     css: toc.css
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
-```
 
 # Week 3- What is a Genetic Variant?
 
@@ -22,7 +19,7 @@ You'll find the lecture discussing the definition and identification of genetic 
 Download the data from the MarineGenomicsData repository on git hub. We'll be working in the Week_3 folder
 
 ```html
-git clone https://github.com/BayLab/MarineGenomicsData.git  
+wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week3_quarter.tar.gz
 ```
 
 Next we need to install a few programs that will allow us to do what we need to do. This will all take a few minutes!

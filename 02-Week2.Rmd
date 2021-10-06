@@ -9,17 +9,13 @@ output:
     
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
-```
-
 # Week 2-Working With Files
 
 Before we start, make sure to clone or update the github folder MarineGenomics in the user directory 
 
 ```html
 $ cd /home/margeno/
-$ git clone https://github.com/BayLab/MarineGenomicsData.git data_week2
+$ wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week2_quarter.tar.gz
 ```
 
 * Questions:
