@@ -146,11 +146,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
 <li class="chapter" data-level="2.2" data-path="week-1--welcome.html"><a href="week-1--welcome.html#how-to-access-the-shell"><i class="fa fa-check"></i><b>2.2</b> How to access the shell</a></li>
-<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.3</b> Navigating your file system</a></li>
-<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.4</b> Shortcut: Tab Completion</a></li>
-<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#summary-key-points"><i class="fa fa-check"></i><b>2.5</b> Summary &amp; Key Points</a></li>
-<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.6</b> Navigating Files and Directories</a></li>
-<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#week-1-objectives"><i class="fa fa-check"></i><b>2.7</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#week-1-objectives"><i class="fa fa-check"></i><b>2.3</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.4</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.5</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#summary-key-points"><i class="fa fa-check"></i><b>2.6</b> Summary &amp; Key Points</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.7</b> Navigating Files and Directories</a></li>
 <li class="chapter" data-level="2.8" data-path="week-1--welcome.html"><a href="week-1--welcome.html#moving-around-the-file-system"><i class="fa fa-check"></i><b>2.8</b> Moving around the file system</a></li>
 <li class="chapter" data-level="2.9" data-path="week-1--welcome.html"><a href="week-1--welcome.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.9</b> Examining the contents of other directories</a></li>
 <li class="chapter" data-level="2.10" data-path="week-1--welcome.html"><a href="week-1--welcome.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.10</b> Full vs Relative Paths</a></li>
@@ -365,8 +365,24 @@ Everyone will get one project folder. So please only make one. If you make a mis
 <p>Select the black box on the bottom menu bar to access the command line. It will open a new window that has the <code>$</code> prompt.</p>
 <p><img src="figs/jetstream/Fig14.png" width="100%" /></p>
 </div>
-<div id="navigating-your-file-system" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Navigating your file system</h2>
+<div id="week-1-objectives" class="section level2" number="2.3">
+<h2><span class="header-section-number">2.3</span> Week 1 Objectives</h2>
+<p>Questions to Answer:</p>
+<ul>
+<li><p>How can I perform operations on files outside of my working directory?</p></li>
+<li><p>What are some navigational shortcuts I can use to make my work more efficient?</p></li>
+</ul>
+<p>Main Tasks:</p>
+<ul>
+<li><p>Use a single command to navigate multiple steps in your directory structure, including moving backwards (one level up).</p></li>
+<li><p>Perform operations on files in directories outside your working directory.</p></li>
+<li><p>Work with hidden directories and hidden files.</p></li>
+<li><p>Interconvert between absolute and relative paths.</p></li>
+<li><p>Employ navigational shortcuts to move around your file system.</p></li>
+</ul>
+</div>
+<div id="navigating-your-file-system" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Navigating your file system</h2>
 <p>The part of the operating system responsible for managing files and directories is called the file system. It organizes our data into files, which hold information, and directories (also called “folders”), which hold files or other directories.</p>
 <p>Several commands are frequently used to create, inspect, rename, and delete files and directories.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="week-1--welcome.html#cb1-1" aria-hidden="true" tabindex="-1"></a>$</span></code></pre></div>
@@ -393,7 +409,11 @@ Everyone will get one project folder. So please only make one. If you make a mis
 <div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"></code></pre></div>
 <p>It should be empty because we just created it and haven’t put anything in it yet. Let’s download some data to work with. We’ll put it in our MarineGenomics directory.</p>
 <p>There are two main ways to do this. We can use the command <code>wget</code> which needs a link to the file that we want to download. If theres a file saved on a website somewhere (anywhere on the internet) <code>wget</code> will download it for you. If our data file is on github, which is where most of our data will be stored, we’ll use the command <code>git-clone</code> In this example we’re going to download all the material in the MarineGenomicsData folder and save it in a folder called data.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="week-1--welcome.html#cb14-1" aria-hidden="true" tabindex="-1"></a>$ wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week1_quarter.tar.gz</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb14-1"><a href="week-1--welcome.html#cb14-1" aria-hidden="true" tabindex="-1"></a>$ wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week1_quarter.tar.gz</span>
+<span id="cb14-2"><a href="week-1--welcome.html#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="week-1--welcome.html#cb14-3" aria-hidden="true" tabindex="-1"></a># use the tar command to uncompress the file. This will also automatically make a week1 folder</span>
+<span id="cb14-4"><a href="week-1--welcome.html#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="week-1--welcome.html#cb14-5" aria-hidden="true" tabindex="-1"></a>tar -xzvf week1_quarter.tar.gz</span></code></pre></div>
 <p>Now that we have something in our MarineGenomics directory we can use the <code>ls</code> command a bit more.</p>
 <p>We can make the ls output more comprehensible by using the flag -F, which tells ls to add a trailing / to the names of directories:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb15-1"><a href="week-1--welcome.html#cb15-1" aria-hidden="true" tabindex="-1"></a>$ ls -F</span></code></pre></div>
@@ -415,8 +435,8 @@ Everyone will get one project folder. So please only make one. If you make a mis
 <div class="sourceCode" id="cb22"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb22-1"><a href="week-1--welcome.html#cb22-1" aria-hidden="true" tabindex="-1"></a>SRR6805880_1.fastq SRR6805880_2.fastq</span></code></pre></div>
 <p>This directory contains two files with .fastq extensions. FASTQ is a format for storing information about sequencing reads and their quality. We will be learning more about FASTQ files in a later lesson.</p>
 </div>
-<div id="shortcut-tab-completion" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Shortcut: Tab Completion</h2>
+<div id="shortcut-tab-completion" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Shortcut: Tab Completion</h2>
 <p>Typing out file or directory names can waste a lot of time and it’s easy to make typing mistakes. Instead we can use tab complete as a shortcut. When you start typing out the name of a directory or file, then hit the Tab key, the shell will try to fill in the rest of the directory or file name.</p>
 <p>Return to your home directory:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb23-1"><a href="week-1--welcome.html#cb23-1" aria-hidden="true" tabindex="-1"></a>$ cd</span></code></pre></div>
@@ -438,8 +458,8 @@ Everyone will get one project folder. So please only make one. If you make a mis
 <div class="sourceCode" id="cb30"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb30-1"><a href="week-1--welcome.html#cb30-1" aria-hidden="true" tabindex="-1"></a>pwck      pwconv    pwd       pwdx      pwunconv</span></code></pre></div>
 <p>Displays the name of every program that starts with <code>pw</code>.</p>
 </div>
-<div id="summary-key-points" class="section level2" number="2.5">
-<h2><span class="header-section-number">2.5</span> Summary &amp; Key Points</h2>
+<div id="summary-key-points" class="section level2" number="2.6">
+<h2><span class="header-section-number">2.6</span> Summary &amp; Key Points</h2>
 <p>We now know how to move around our file system using the command line. This gives us an advantage over interacting with the file system through a GUI as it allows us to work on a remote server, carry out the same set of operations on a large number of files quickly, and opens up many opportunities for using bioinformatic software that is only available in command line versions.</p>
 <p>In the next few episodes, we’ll be expanding on these skills and seeing how using the command line shell enables us to make our workflow more efficient and reproducible.</p>
 <ul>
@@ -450,25 +470,9 @@ Everyone will get one project folder. So please only make one. If you make a mis
 </ul>
 <div style="page-break-after: always;"></div>
 </div>
-<div id="navigating-files-and-directories" class="section level2" number="2.6">
-<h2><span class="header-section-number">2.6</span> Navigating Files and Directories</h2>
+<div id="navigating-files-and-directories" class="section level2" number="2.7">
+<h2><span class="header-section-number">2.7</span> Navigating Files and Directories</h2>
 <p>This continues the shell module from Data Carpentry’s introduction to the shell, which can be found here <a href="https://datacarpentry.org/shell-genomics/02-the-filesystem/index.html" class="uri">https://datacarpentry.org/shell-genomics/02-the-filesystem/index.html</a></p>
-</div>
-<div id="week-1-objectives" class="section level2" number="2.7">
-<h2><span class="header-section-number">2.7</span> Week 1 Objectives</h2>
-<p>Questions to Answer:</p>
-<ul>
-<li><p>How can I perform operations on files outside of my working directory?</p></li>
-<li><p>What are some navigational shortcuts I can use to make my work more efficient?</p></li>
-</ul>
-<p>Main Tasks:</p>
-<ul>
-<li><p>Use a single command to navigate multiple steps in your directory structure, including moving backwards (one level up).</p></li>
-<li><p>Perform operations on files in directories outside your working directory.</p></li>
-<li><p>Work with hidden directories and hidden files.</p></li>
-<li><p>Interconvert between absolute and relative paths.</p></li>
-<li><p>Employ navigational shortcuts to move around your file system.</p></li>
-</ul>
 </div>
 <div id="moving-around-the-file-system" class="section level2" number="2.8">
 <h2><span class="header-section-number">2.8</span> Moving around the file system</h2>

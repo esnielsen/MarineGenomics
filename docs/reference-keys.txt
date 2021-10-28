@@ -5,11 +5,11 @@ schedule
 week-1--welcome
 introduction-to-shell-computing-via-the-data-carpentry-tutorial
 how-to-access-the-shell
+week-1-objectives
 navigating-your-file-system
 shortcut-tab-completion
 summary-key-points
 navigating-files-and-directories
-week-1-objectives
 moving-around-the-file-system
 examining-the-contents-of-other-directories
 full-vs-relative-paths

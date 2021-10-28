@@ -15,11 +15,15 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Week 2-Working With Files
 
-Before we start, make sure to clone or update the github folder MarineGenomics in the user directory 
+Before we start we need to download our data. The data for each week will be in a .tar.gz file that we will uncompress into our MarineGenomics Directory.
 
 ```html
 $ cd /home/margeno/
 $ wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week2_quarter.tar.gz
+
+# use tar to uncompress the file
+
+$ tar -xzvf week2_quarter.tar.gz
 ```
 
 * Questions:

@@ -22,6 +22,11 @@ Download the data from the MarineGenomicsData repository on git hub. We'll be wo
 
 ```html
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week3_quarter.tar.gz
+
+
+# uncompress the file
+
+tar -xvzf week3_quarter.tar.gz
 ```
 
 Next we need to install a few programs that will allow us to do what we need to do. This will all take a few minutes!

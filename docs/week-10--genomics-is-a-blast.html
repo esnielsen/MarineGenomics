@@ -146,11 +146,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="week-1--welcome.html"><a href="week-1--welcome.html#introduction-to-shell-computing-via-the-data-carpentry-tutorial"><i class="fa fa-check"></i><b>2.1</b> Introduction to shell computing via the data carpentry tutorial</a></li>
 <li class="chapter" data-level="2.2" data-path="week-1--welcome.html"><a href="week-1--welcome.html#how-to-access-the-shell"><i class="fa fa-check"></i><b>2.2</b> How to access the shell</a></li>
-<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.3</b> Navigating your file system</a></li>
-<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.4</b> Shortcut: Tab Completion</a></li>
-<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#summary-key-points"><i class="fa fa-check"></i><b>2.5</b> Summary &amp; Key Points</a></li>
-<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.6</b> Navigating Files and Directories</a></li>
-<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#week-1-objectives"><i class="fa fa-check"></i><b>2.7</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.3" data-path="week-1--welcome.html"><a href="week-1--welcome.html#week-1-objectives"><i class="fa fa-check"></i><b>2.3</b> Week 1 Objectives</a></li>
+<li class="chapter" data-level="2.4" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-your-file-system"><i class="fa fa-check"></i><b>2.4</b> Navigating your file system</a></li>
+<li class="chapter" data-level="2.5" data-path="week-1--welcome.html"><a href="week-1--welcome.html#shortcut-tab-completion"><i class="fa fa-check"></i><b>2.5</b> Shortcut: Tab Completion</a></li>
+<li class="chapter" data-level="2.6" data-path="week-1--welcome.html"><a href="week-1--welcome.html#summary-key-points"><i class="fa fa-check"></i><b>2.6</b> Summary &amp; Key Points</a></li>
+<li class="chapter" data-level="2.7" data-path="week-1--welcome.html"><a href="week-1--welcome.html#navigating-files-and-directories"><i class="fa fa-check"></i><b>2.7</b> Navigating Files and Directories</a></li>
 <li class="chapter" data-level="2.8" data-path="week-1--welcome.html"><a href="week-1--welcome.html#moving-around-the-file-system"><i class="fa fa-check"></i><b>2.8</b> Moving around the file system</a></li>
 <li class="chapter" data-level="2.9" data-path="week-1--welcome.html"><a href="week-1--welcome.html#examining-the-contents-of-other-directories"><i class="fa fa-check"></i><b>2.9</b> Examining the contents of other directories</a></li>
 <li class="chapter" data-level="2.10" data-path="week-1--welcome.html"><a href="week-1--welcome.html#full-vs-relative-paths"><i class="fa fa-check"></i><b>2.10</b> Full vs Relative Paths</a></li>
@@ -327,26 +327,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="download-the-data-3" class="section level2" number="11.2">
 <h2><span class="header-section-number">11.2</span> Download the data</h2>
 <p>You’ll download one fasta file that contains the 17 regions in which we found our Fst outlier SNPs.</p>
-<div class="sourceCode" id="cb546"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb546-1"><a href="week-10--genomics-is-a-blast.html#cb546-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb546-2"><a href="week-10--genomics-is-a-blast.html#cb546-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week10.tar.gz</span>
-<span id="cb546-3"><a href="week-10--genomics-is-a-blast.html#cb546-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb546-4"><a href="week-10--genomics-is-a-blast.html#cb546-4" aria-hidden="true" tabindex="-1"></a>tar -xzvf week10.tar.gz</span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb545-1"><a href="week-10--genomics-is-a-blast.html#cb545-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb545-2"><a href="week-10--genomics-is-a-blast.html#cb545-2" aria-hidden="true" tabindex="-1"></a>wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week10.tar.gz</span>
+<span id="cb545-3"><a href="week-10--genomics-is-a-blast.html#cb545-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb545-4"><a href="week-10--genomics-is-a-blast.html#cb545-4" aria-hidden="true" tabindex="-1"></a>tar -xzvf week10.tar.gz</span></code></pre></div>
 </div>
 <div id="install-transdecoder" class="section level2" number="11.3">
 <h2><span class="header-section-number">11.3</span> Install Transdecoder</h2>
 <p>We’ll use transdecoder to identify coding regions in our nucleotide sequences.</p>
-<div class="sourceCode" id="cb547"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb547-1"><a href="week-10--genomics-is-a-blast.html#cb547-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-2"><a href="week-10--genomics-is-a-blast.html#cb547-2" aria-hidden="true" tabindex="-1"></a>sudo apt update #this just updates our currently installed packages</span>
-<span id="cb547-3"><a href="week-10--genomics-is-a-blast.html#cb547-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb547-4"><a href="week-10--genomics-is-a-blast.html#cb547-4" aria-hidden="true" tabindex="-1"></a>sudo apt install transdecoder</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb546-1"><a href="week-10--genomics-is-a-blast.html#cb546-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb546-2"><a href="week-10--genomics-is-a-blast.html#cb546-2" aria-hidden="true" tabindex="-1"></a>sudo apt update #this just updates our currently installed packages</span>
+<span id="cb546-3"><a href="week-10--genomics-is-a-blast.html#cb546-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb546-4"><a href="week-10--genomics-is-a-blast.html#cb546-4" aria-hidden="true" tabindex="-1"></a>sudo apt install transdecoder</span></code></pre></div>
 </div>
 <div id="run-transdecoder" class="section level2" number="11.4">
 <h2><span class="header-section-number">11.4</span> Run Transdecoder</h2>
 <p>Transdecoder is run in two parts, the first <code>TransDecoder.LongOrfs</code> identifies open read frames or regions that contain either a start or stop codon. This is followed by <code>TransDecoder.Predict</code> which</p>
-<div class="sourceCode" id="cb548"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb548-1"><a href="week-10--genomics-is-a-blast.html#cb548-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb548-2"><a href="week-10--genomics-is-a-blast.html#cb548-2" aria-hidden="true" tabindex="-1"></a>TransDecoder.LongOrfs -t candidate_fastas.fa</span>
-<span id="cb548-3"><a href="week-10--genomics-is-a-blast.html#cb548-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb548-4"><a href="week-10--genomics-is-a-blast.html#cb548-4" aria-hidden="true" tabindex="-1"></a>TransDecoder.Predict -t candidate_fastas.fa</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb547-1"><a href="week-10--genomics-is-a-blast.html#cb547-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb547-2"><a href="week-10--genomics-is-a-blast.html#cb547-2" aria-hidden="true" tabindex="-1"></a>TransDecoder.LongOrfs -t candidate_fastas.fa</span>
+<span id="cb547-3"><a href="week-10--genomics-is-a-blast.html#cb547-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb547-4"><a href="week-10--genomics-is-a-blast.html#cb547-4" aria-hidden="true" tabindex="-1"></a>TransDecoder.Predict -t candidate_fastas.fa</span></code></pre></div>
 <p>This produces an output directory and pulls from that several files with different extensions (.gff3, .bed, .cds, .pep) which correspond to different formats specifically, <code>.gff3</code> is a general feature format file (version 3) and contains information about each of our sequences. The <code>.bed</code> format is a browser extensible data format which describes the chromosome, position and length of our sequences, the <code>.cds</code> contains the nucleotide sequences for the open reading frames, and finally the file we want is the <code>.pep</code> file which contains our open reading frames from our regions converted into protein codes.</p>
 </div>
 <div id="run-ncbi-blast" class="section level2" number="11.5">
@@ -378,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: SeaGreen;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="week-10--genomics-is-a-blast.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="week-10--genomics-is-a-blast.html#cb548-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
 </p>
 </details>
 <blockquote>
@@ -391,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span style="color: SeaGreen;">Solution</span>
 </summary>
 <p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="week-10--genomics-is-a-blast.html#cb550-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="week-10--genomics-is-a-blast.html#cb549-1" aria-hidden="true" tabindex="-1"></a><span class="co">#coming soon :) </span></span></code></pre></div>
 </p>
 </details>
 </div>
