@@ -1,12 +1,17 @@
 ---
-title: "Marine Genomics Week 1"
-author: "Data Carpentry, edited by Serena Caplins"
-date: "March 30th 2021"
+title: "Marine Genomics"
+author: 
+date: 
 output:
   bookdown::html_book:
     toc: yes
     css: toc.css
 ---
+
+```{r setupq1, include=FALSE}
+knitr::opts_chunk$set(comment = "#>", echo = TRUE, fig.width=6)
+```
+
 
 # Week 1- Welcome!
 
