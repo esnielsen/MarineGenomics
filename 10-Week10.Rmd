@@ -8,9 +8,8 @@ output:
     css: toc.css
 ---
 
-```{r setup, include=FALSE}
+```{r setup10, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week10/MarineGenomicsData/Week10")
 ```
 
 # Week 10- Genomics is a BLAST

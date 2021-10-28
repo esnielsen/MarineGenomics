@@ -8,7 +8,7 @@ output:
     css: toc.css
 ---
 
-```{r setup, include=FALSE}
+```{r setup5, include=FALSE}
 knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -51,14 +51,14 @@ library(ggplot2)
 data(msleep)
 ```
 
-``````{r, label='5-1', echo=T}
+```{r, label='5-1', echo=T}
 
 plot(msleep$sleep_total,msleep$sleep_rem)
 
 # or plot response variable as a function "~" of the predictor variable
 ```
 
-``````{r, label='5-2', echo=T}
+```{r, label='5-2', echo=T}
 
 plot(msleep$sleep_total~msleep$sleep_rem) #you'll notice this swaps the x and y axis
 

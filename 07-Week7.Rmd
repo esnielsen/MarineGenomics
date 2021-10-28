@@ -8,9 +8,9 @@ output:
     css: toc.css
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week7/MarineGenomicsData/Week7")
+```{r setup7, include=FALSE}
+knitr::opts_chunk$set(echo = F)
+knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomics/data/Week7/MarineGenomicsData/Week7")
 ```
 
 # Week 7- F<sub>st</sub> and outlier analysis
@@ -25,7 +25,7 @@ We will import the data and take a first look in **bash** and then we will do an
 
 We first need to download the data. Use the link below to download it to jetstream, and then us the tar command to un-compress it.
 
-``` {.html}
+```{.html}
 wget https://raw.githubusercontent.com/BayLab/MarineGenomicsData/main/week7.tar.gz
 
 tar -xzvf week7.tar.gz

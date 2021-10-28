@@ -8,10 +8,10 @@ output:
     css: toc.css
 ---
 
-```{r setup, include=FALSE}
+```{r setup6, include=FALSE}
 knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week6/MarineGenomicsData/Week6")
+knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomics/data/Week6/MarineGenomicsData/Week6")
 ```
 
 # Week 6- Principle Component Analyses 
@@ -193,7 +193,7 @@ Hint use the command `read.table(gzfile("path/to/genotypelikelihoodfile/), heade
 <details><summary><span style="color: goldenrod;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r eval=FALSE, include=FALSE}
 # read in the data
 
 #read in genotype likelihood data and filter by all individuals
@@ -225,7 +225,7 @@ dim(gen_allIND)
 <details><summary><span style="color: goldenrod;">Solution</span></summary>
 <p>
 
-```{r, echo=T}
+```{r eval=FALSE, include=FALSE}
 ## read in the beagle formatted data
 beag<-read.table(gzfile("genolike_beagle.beagle.gz"), header=T)
 
@@ -248,7 +248,7 @@ we'll use the paste() function to to this
 
 we'll make a new column in gen that is labeled marker to match the beagle column
 
-```{r, echo=T}
+```{r eval=FALSE, include=FALSE}
 gen_allIND$marker<-paste(gen_allIND$chromo, gen_allIND$position, sep="_")
 
 #then merge them by the marker column
@@ -288,7 +288,7 @@ $ gzip geno_like_filt_allIND.beagle
 $ python3 ../../pcangsd/pcangsd.py -beagle geno_like_filt_allIND.beagle.gz -o pca_out_allind -threads 28
 ```
  and then we can go back to R and rerun our code to calculate the eigenvalues and eigenvectors for this covariance matrix. 
-```{r, echo=T}
+```{r eval=FALSE, include=FALSE}
 #read in the new covariance matrix                               
 cov_allind<-as.matrix(read.table("pca_out_allind.cov"))
 
@@ -296,7 +296,7 @@ cov_allind<-as.matrix(read.table("pca_out_allind.cov"))
 e_allind<-eigen(cov_allind)
 ```
 
-```{r, label='6-3', echo=T}
+```{r eval=FALSE, include=FALSE, label='6-3'}
 #plot the data
 plot(e_allind$vectors[,1:2])
 
@@ -313,7 +313,7 @@ e_allind$values/sum(e_allind$values)
 <details><summary><span style="color: goldenrod;">Solution</span></summary>
 <p>
 
-```{r, label='6-4', echo=T}
+```{r eval=FALSE, include=FALSE, label='6-4'}
 
 # we need to use the function as.data.frame to make our matrix a dataframe.
 

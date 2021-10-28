@@ -8,9 +8,9 @@ output:
     css: toc.css
 ---
 
-```{r setup, include=FALSE}
+```{r setup8, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week8/MarineGenomicsData/Week8")
+knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomics/data/Week8/MarineGenomicsData/Week8")
 ```
 
 # Week 8: Genome wide association study (GWAS)
@@ -313,12 +313,12 @@ $ gzip geno_like_filt_allIND.beagle
 ```
 and now we can run our pcangsd code
 
-```{r, label='8-6', echo=T}
+```{r, label='8-6', echo=T, eval=F}
 #make a phenotype file, note you can also do this in nano or vim in the terminal. Whichever makes sense for you.
 pheno_chr6<-c(1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0)
 
 
-write.table(pheno_chr6, file = "phenobin_ch6" )
+write.table(pheno_chr6, file = "phenobin_ch6", row.names = F, col.names = F )
                 
 
 #then in the terminal run our command in angsd again using the chr6 BEAGLE file and the phenotype file we just made

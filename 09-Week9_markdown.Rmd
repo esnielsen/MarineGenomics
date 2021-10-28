@@ -8,9 +8,9 @@ output:
     css: toc.css
 ---
 
-```{r setup, include=FALSE}
+```{r setup9, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_knit$set(root.dir = "~/Desktop/MarineGenomics-main/MarineGenomics/data/Week9/MarineGenomicsData/Week9")
+knitr::opts_knit$set(root.dir = "C:/Users/SAPCaps/MarineGenomics/data/Week9")
 ```
 
 # Week 9- Population Structure using NGSadmix
